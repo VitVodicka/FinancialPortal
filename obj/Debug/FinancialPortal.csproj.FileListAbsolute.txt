@@ -28,3 +28,9 @@ C:\Users\Vít Vodička\source\repos\FinancialPortal\FinancialPortal\obj\Debug\Fi
 C:\Users\Vít Vodička\source\repos\FinancialPortal\FinancialPortal\obj\Debug\FinancialPortal.pdb
 C:\Users\Vít Vodička\source\repos\FinancialPortal\FinancialPortal\bin\Debug\Fonts\BebasNeue.ttf
 C:\Users\Vít Vodička\source\repos\FinancialPortal\FinancialPortal\obj\Debug\FinancialPortal_Content.g.cs
+C:\Users\Vít Vodička\source\repos\FinancialPortal\FinancialPortal\bin\Debug\LiveCharts.dll
+C:\Users\Vít Vodička\source\repos\FinancialPortal\FinancialPortal\bin\Debug\LiveCharts.Wpf.dll
+C:\Users\Vít Vodička\source\repos\FinancialPortal\FinancialPortal\bin\Debug\LiveCharts.pdb
+C:\Users\Vít Vodička\source\repos\FinancialPortal\FinancialPortal\bin\Debug\LiveCharts.xml
+C:\Users\Vít Vodička\source\repos\FinancialPortal\FinancialPortal\bin\Debug\LiveCharts.Wpf.pdb
+C:\Users\Vít Vodička\source\repos\FinancialPortal\FinancialPortal\bin\Debug\LiveCharts.Wpf.xml

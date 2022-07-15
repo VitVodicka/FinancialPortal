@@ -14,6 +14,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using MahApps.Metro;
 using MahApps.Metro.Controls;
+using LiveCharts;
+using LiveCharts.Wpf;
 
 namespace FinancialPortal
 {
@@ -22,14 +24,38 @@ namespace FinancialPortal
     /// </summary>
     public partial class MainWindow : MetroWindow
     {
+        Mortgage m = new Mortgage();
         public MainWindow()
         {
             InitializeComponent();
+            DataContext = m;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            Console.WriteLine("Ahoj");
+
+            repayment();
+
         }
+        public void repayment() {
+
+            if (repaymentperiod.Text == "monthly")
+            {
+                m.Calculate(int.Parse(loanamount.Text), int.Parse(interestrate.Text), 12);
+            }
+            if (repaymentperiod.Text == "quartely")
+            {
+                m.Calculate(int.Parse(loanamount.Text), int.Parse(interestrate.Text), 4);
+            }
+            if (repaymentperiod.Text == "yearly")
+            {
+                m.Calculate(int.Parse(loanamount.Text), int.Parse(interestrate.Text), 1);
+            }
+        }
+
+
+
     }
 }
