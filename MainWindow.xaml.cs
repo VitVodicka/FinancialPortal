@@ -40,18 +40,23 @@ namespace FinancialPortal
 
         }
         public void repayment() {
-
+            if((repaymentperiod.Text != null)&&(loanamount.Text!=null) &&(interestrate.Text!=null) &&(year.Text!=null)) { 
             if (repaymentperiod.Text == "monthly")
             {
-                m.Calculate(int.Parse(loanamount.Text), int.Parse(interestrate.Text), 12);
+                m.Calculate(double.Parse(loanamount.Text), double.Parse(interestrate.Text), 12,double.Parse(year.Text));
             }
             if (repaymentperiod.Text == "quartely")
             {
-                m.Calculate(int.Parse(loanamount.Text), int.Parse(interestrate.Text), 4);
+                m.Calculate(double.Parse(loanamount.Text), double.Parse(interestrate.Text), 4, double.Parse(year.Text));
             }
             if (repaymentperiod.Text == "yearly")
             {
-                m.Calculate(int.Parse(loanamount.Text), int.Parse(interestrate.Text), 1);
+                m.Calculate(double.Parse(loanamount.Text), double.Parse(interestrate.Text), 1, double.Parse(year.Text));
+            }
+            }
+            else
+            {
+                hint.Text = "*Not selected a repayment period";
             }
         }
 

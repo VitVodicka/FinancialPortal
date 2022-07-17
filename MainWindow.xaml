@@ -75,6 +75,7 @@
                         <RowDefinition Height="1.3*"></RowDefinition>
                         <RowDefinition Height="*"></RowDefinition>
                         <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
                         
 
                     </Grid.RowDefinitions>
@@ -102,11 +103,15 @@
                             <ComboBoxItem Content="yearly"></ComboBoxItem>
                         </ComboBox>
                     </StackPanel>
+                    <StackPanel Orientation="Vertical" VerticalAlignment="Top" Grid.Column="0" Grid.Row="3" >
+                        <Label Style="{DynamicResource Label}"  Content="Number of years" ></Label>
+                        <TextBox Style="{DynamicResource Textbox}" Name="year"   ></TextBox>
+                    </StackPanel>
                     
                     <Button Grid.Row="2" Content="Calculate" VerticalAlignment="Center" FontSize="20" Width="200" Grid.Column="1" Height="50" Click="Button_Click_1">
                        
                     </Button>
-                    <TextBlock Text="*Only numbers" Margin="10,0,0,20" Grid.Column="0" Grid.Row="2" FontSize="15" Foreground="Red" VerticalAlignment="Bottom" ></TextBlock>
+                    <TextBlock Text="*Only numbers" Name="hint" Margin="10,0,0,20" Grid.Column="0" Grid.Row="2" FontSize="15" Foreground="Red" VerticalAlignment="Bottom" ></TextBlock>
                 </Grid>
             </mah:MetroTabItem>
             <mah:MetroTabItem Header="Accounts">
