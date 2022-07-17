@@ -17,8 +17,6 @@ using MahApps.Metro.Controls;
 using LiveCharts;
 using LiveCharts.Wpf;
 using System.Text.RegularExpressions;
-using System.Threading;
-using System.Windows.Threading;
 
 namespace FinancialPortal
 {
@@ -70,9 +68,9 @@ namespace FinancialPortal
         public void repayment() {
             var regex = new Regex("(([A-Z])|([a-z])|([ ]))");
 
-            if (((regex.IsMatch(loanamount.Text) == false) && (regex.IsMatch(interestrate.Text) == false) && (regex.IsMatch(year.Text) == false))){
+            if ((regex.IsMatch(repaymentperiod.Text) == false) && ((regex.IsMatch(loanamount.Text) == false) && (regex.IsMatch(interestrate.Text) == false) && (regex.IsMatch(year.Text) == false))){
 
-                try { 
+
                 if ((repaymentperiod.Text != null) && (loanamount.Text != null) && (interestrate.Text != null) && (year.Text != null))
                 {
                     if (repaymentperiod.Text == "monthly")
@@ -92,36 +90,15 @@ namespace FinancialPortal
                         m.Calculate(double.Parse(loanamount.Text), double.Parse(interestrate.Text), 12, double.Parse(year.Text));
                     }
                 }
-                }
-                catch
+                else
                 {
-                    DispatcherTimer timer = new DispatcherTimer();
-                    timer.Interval = TimeSpan.FromSeconds(5);
-                    hint.Text = "*Form must be filled";
-                    timer.Tick += (s, en) => {
-                        hint.Text = "";
-                        timer.Stop(); // Stop the timer
-                    };
-                    timer.Start();
-
-                    
+                    hint.Text = "*Not selected a repayment period";
                 }
-                
             }
 
             else
             {
-                DispatcherTimer timer = new DispatcherTimer();
-                timer.Interval = TimeSpan.FromSeconds(5);
                 hint.Text = "*Text must only contain numbers";
-                timer.Tick += (s, en) => {
-                    hint.Text = "";
-                    timer.Stop(); // Stop the timer
-                };
-                timer.Start();
-
-                
-                
             }
         }
     
