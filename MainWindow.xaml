@@ -18,14 +18,14 @@
     </mah:MetroWindow.LeftWindowCommands>
     <mah:MetroWindow.Resources>
         <Style x:Key="Label" TargetType="{x:Type Label}">
-            <Setter Property="FontSize" Value="22" />
+            <Setter Property="FontSize" Value="26" />
         </Style>
         <Style x:Key="Textbox" TargetType="{x:Type TextBox}">
             <Setter Property="Background" Value="Red" />
             <Setter Property="Foreground" Value="White"></Setter>
             <Setter Property="Height" Value="40"></Setter>
             <Setter Property="Margin" Value="5"></Setter>
-            <Setter Property="FontSize" Value="20"></Setter>
+            <Setter Property="FontSize" Value="22"></Setter>
             <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
             
         </Style>
@@ -84,11 +84,11 @@
                     </Grid.RowDefinitions>
                     <StackPanel Orientation="Vertical" VerticalAlignment="Center" Grid.Column="0" Grid.Row="0" >
                         <Label HorizontalAlignment="Center" Style="{DynamicResource Label}" Name="timepayment"   Content="Monthly payment" ></Label>
-                        <TextBlock Margin="5" Text="{Binding MonthlyPayment}" HorizontalAlignment="Center" FontSize="50" FontWeight="Bold"   ></TextBlock>
+                        <TextBlock Margin="5" Text="{Binding MonthlyPayment}" HorizontalAlignment="Center" FontSize="60" FontWeight="Bold"   ></TextBlock>
                     </StackPanel>
                     <StackPanel Orientation="Vertical" VerticalAlignment="Center" Grid.Column="1" Grid.Row="0" >
                         <Label Style="{DynamicResource Label}" HorizontalAlignment="Center"  Content="Totaly paid" ></Label>
-                        <TextBlock Margin="5" Text="{Binding Totalypaid}" HorizontalAlignment="Center" FontSize="50" FontWeight="Bold"   ></TextBlock>
+                        <TextBlock Margin="5" Text="{Binding Totalypaid}" HorizontalAlignment="Center" FontSize="55" FontWeight="Bold"   ></TextBlock>
                     </StackPanel>
                     <StackPanel Orientation="Vertical" VerticalAlignment="Top" Grid.Column="0" Grid.Row="1" >
                     <Label Style="{DynamicResource Label}"  Content="Loan amount" ></Label>
@@ -100,7 +100,7 @@
                     </StackPanel>
                     <StackPanel Orientation="Vertical" VerticalAlignment="Top" Grid.Column="1" Grid.Row="2" >
                         <Label Style="{DynamicResource Label}"  Content="Repayment period" ></Label>
-                        <ComboBox   Name="repaymentperiod" LostFocus="periodchanging" Margin="5" Height="40"  >
+                        <ComboBox FontSize="16" HorizontalContentAlignment="Left"   Name="repaymentperiod" LostFocus="periodchanging" Margin="5" Height="40"  >
                             <ComboBoxItem Content="monthly"></ComboBoxItem>
                             <ComboBoxItem Content="quartely"></ComboBoxItem>
                             <ComboBoxItem Content="half yearly"></ComboBoxItem>
