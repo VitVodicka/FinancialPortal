@@ -1,4 +1,6 @@
-﻿using System;
+﻿using LiveCharts;
+using LiveCharts.Wpf;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -9,7 +11,13 @@ namespace FinancialPortal
 {
     internal class Mortgage:INotifyPropertyChanged
     {
-        
+        public SeriesCollection seris = new SeriesCollection
+            {
+            new LineSeries
+            {
+                Values = new ChartValues<int>{3,5,7,4}
+            }
+            };
         public double MonthlyPayment { get; set; }
         public double Totalypaid { get; set; }
 

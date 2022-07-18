@@ -17,6 +17,7 @@ using MahApps.Metro.Controls;
 using LiveCharts;
 using LiveCharts.Wpf;
 using System.Text.RegularExpressions;
+using System.Collections.ObjectModel;
 
 namespace FinancialPortal
 {
@@ -26,11 +27,20 @@ namespace FinancialPortal
     public partial class MainWindow : MetroWindow
     {
         Mortgage m = new Mortgage();
+        Chart chare = new Chart();
+        
+        
+
         public MainWindow()
         {
             InitializeComponent();
             DataContext = m;
+            //Cartesianchart.Series = chare.SeriesCollection;
+            
 
+            
+            
+            
         }
 
 

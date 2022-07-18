@@ -64,8 +64,8 @@
 
 
             </mah:MetroTabItem>
-            <mah:MetroTabItem Header="Mortgage calculator">
-                <Grid>
+            <mah:MetroTabItem Header="Mortgage calculator" >
+                <Grid >
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition>
                             <ColumnDefinition.Width>*</ColumnDefinition.Width>
@@ -130,8 +130,8 @@
                     </StackPanel>
                 </ScrollViewer>
             </mah:MetroTabItem>
-            <mah:MetroTabItem Header="Investment calculator" >
-                <Grid>
+            <mah:MetroTabItem Header="Investment calculator"  >
+                <Grid DataContext="{Binding chare}">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"></ColumnDefinition>
                         <ColumnDefinition Width="*"></ColumnDefinition>
@@ -155,7 +155,9 @@
                         <ComboBoxItem Content="Frequently" Name="frequently"></ComboBoxItem>
                         <ComboBoxItem Content="One time" Name="onetime"></ComboBoxItem>
                     </ComboBox>
-                    <lvc:CartesianChart Series="{Binding SeriesCollection}" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Grid.RowSpan="2" Background="White"></lvc:CartesianChart>
+                    
+                    <lvc:CartesianChart Name="Cartesianchart" Series="{Binding SeriesCollection}"  Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Grid.RowSpan="2" Background="White"></lvc:CartesianChart>
+                    
                 </Grid>
             </mah:MetroTabItem>
 
