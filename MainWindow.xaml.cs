@@ -28,6 +28,7 @@ namespace FinancialPortal
     {
         Mortgage m = new Mortgage();
         Chart chare = new Chart();
+        investmentPortal invest = new investmentPortal();
         
         
 
@@ -100,10 +101,7 @@ namespace FinancialPortal
                         m.Calculate(double.Parse(loanamount.Text), double.Parse(interestrate.Text), 12, double.Parse(year.Text));
                     }
                 }
-                else
-                {
-                    hint.Text = "*Not selected a repayment period";
-                }
+                
             }
 
             else
@@ -116,6 +114,65 @@ namespace FinancialPortal
         private void periodchanging(object sender, RoutedEventArgs e)
         {
             switchingQuaters();
+        }
+
+        private void yearlyContribution_Checked(object sender, RoutedEventArgs e)
+        {
+            contributions.Content = "yearly contributions";
+            contributions.Visibility = Visibility.Visible;
+            contributionsinput.Visibility = Visibility.Visible;
+        }
+
+        private void monthlyContribution_Checked(object sender, RoutedEventArgs e)
+        {
+            contributions.Content = "monthly contributions";
+            contributions.Visibility = Visibility.Visible;  
+            contributionsinput.Visibility = Visibility.Visible;
+        }
+
+        private void onetime_Checked(object sender, RoutedEventArgs e)
+        {
+            contributions.Visibility = Visibility.Collapsed;
+            contributionsinput.Visibility = Visibility.Collapsed;
+        }
+
+        private void Investment_Click(object sender, RoutedEventArgs e)
+        {
+            var regex = new Regex("(([A-Z])|([a-z])|([ ]))");
+            if ((regex.IsMatch(initialinvestment.Text) == false) && (regex.IsMatch(yearsinvestement.Text) == false) && (regex.IsMatch(expectedreturn.Text) == false))
+            {
+                if ((initialinvestment.Text != null) && (yearsinvestement.Text != null) && (expectedreturn.Text != null))
+                {
+                    if (onetime.IsChecked == true)
+                    {
+
+                        invest.Onetime(double.Parse(initialinvestment.Text), double.Parse(yearsinvestement.Text), double.Parse(expectedreturn.Text));
+                    }
+
+                
+                if (monthlyContribution.IsChecked == true)
+                {
+                        if ((regex.IsMatch(contributionsinput.Text) == false)&&(contributionsinput.Text)!=null)
+                        {
+                            invest.MonthlyContribution(double.Parse(initialinvestment.Text), double.Parse(yearsinvestement.Text), double.Parse(expectedreturn.Text));
+                        }
+                    }
+                if (yearlyContribution.IsChecked == true)
+                {
+                        if ((regex.IsMatch(contributionsinput.Text) == false) && (contributionsinput.Text) != null)
+                        {
+                            invest.Yearlycontribution(double.Parse(initialinvestment.Text), double.Parse(yearsinvestement.Text), double.Parse(expectedreturn.Text));
+                        }
+                }
+                
+                }
+            }
+            else
+            {
+                
+                //hint.Text = "*Text must only contain numbers";
+                
+            }
         }
     }
 }

@@ -66,7 +66,7 @@
                 
             </mah:MetroTabItem>
             <mah:MetroTabItem Header="Chart" >
-                <Label>toto je obsah1</Label>
+                <Label>this contains something</Label>
 
 
             </mah:MetroTabItem>
@@ -128,10 +128,10 @@
                 <ScrollViewer>
                     <StackPanel>
                         <StackPanel>
-                            <Label Content="ahoj"></Label>
+                            <Label Content="Hello"></Label>
                         </StackPanel>
                         <StackPanel>
-                            <Label Content="ahoj"></Label>
+                            <Label Content="Hello"></Label>
                         </StackPanel>
                     </StackPanel>
                 </ScrollViewer>
@@ -151,11 +151,11 @@
                     </Grid.RowDefinitions>
                     <StackPanel Grid.Column="2" Grid.Row="0" VerticalAlignment="Center">
                     <Label  VerticalAlignment="Center" Style="{DynamicResource Label}" HorizontalAlignment="Center" Content="final amount"></Label>
-                    <TextBlock  Style="{DynamicResource textblock }" HorizontalAlignment="Center" VerticalAlignment="Center" Text="ahoj"></TextBlock>
+                    <TextBlock  Style="{DynamicResource textblock }" HorizontalAlignment="Center" VerticalAlignment="Center" Text="2000"></TextBlock>
                     </StackPanel>
                     <StackPanel Grid.Column="2" Grid.Row="1" VerticalAlignment="Center">
                         <Label  VerticalAlignment="Center" Style="{DynamicResource Label}" HorizontalAlignment="Center" Content="return" Name="return"></Label>
-                        <TextBlock  Style="{DynamicResource textblock }" HorizontalAlignment="Center" VerticalAlignment="Center" Text="ahoj" Name="returninput"></TextBlock>
+                        <TextBlock  Style="{DynamicResource textblock }" HorizontalAlignment="Center" VerticalAlignment="Center" Text="5%" Name="returninput"></TextBlock>
                     </StackPanel>
                     <StackPanel Orientation="Vertical" VerticalAlignment="Top" Grid.Column="0" Grid.Row="2" >
                         <Label Style="{DynamicResource Label}"  Content="Initial investment" ></Label>
@@ -169,19 +169,19 @@
                         <Label Style="{DynamicResource Label}"  Content="Expected return" ></Label>
                         <TextBox Style="{DynamicResource Textbox}" Name="expectedreturn"   ></TextBox>
                     </StackPanel>
-                    <StackPanel Orientation="Vertical" VerticalAlignment="Top" Grid.Column="0" Grid.Row="3" >
-                        <Label Style="{DynamicResource Label}"  Content="Monthly contributions" ></Label>
-                        <TextBox Style="{DynamicResource Textbox}" Name="contributions"  ></TextBox>
+                    <StackPanel Orientation="Vertical" VerticalAlignment="Top" Grid.Column="1" Grid.Row="3" >
+                        <Label Style="{DynamicResource Label}"  Content="Monthly contributions" Name="contributions" ></Label>
+                        <TextBox Style="{DynamicResource Textbox}" Name="contributionsinput"  ></TextBox>
                     </StackPanel>
 
 
 
-                    <Button Grid.Row="3" Content="Calculate" VerticalAlignment="Center" FontSize="20" Width="150" Grid.Column="2" Height="50" />
-                    <StackPanel Orientation="Vertical" VerticalAlignment="Top" Grid.Column="1" Grid.Row="3" >
+                    <Button Grid.Row="3" Content="Calculate" VerticalAlignment="Center" FontSize="20" Width="150" Grid.Column="2" Height="50" Click="Investment_Click" />
+                    <StackPanel Orientation="Vertical" VerticalAlignment="Top" Grid.Column="0" Grid.Row="3" >
                         <Label Style="{DynamicResource Label}"  Content="Contributions" ></Label>
-                        <RadioButton Content="One time" FontFamily="Bebas Neue" FontSize="16"  ></RadioButton>
-                        <RadioButton Content="Monthly contributions" FontFamily="Bebas Neue" FontSize="16"></RadioButton>
-                        <RadioButton Content="Yearly contributions" FontFamily="Bebas Neue" FontSize="16"></RadioButton>
+                        <RadioButton Content="One time" FontFamily="Bebas Neue" FontSize="16" Name="onetime" Checked="onetime_Checked"  ></RadioButton>
+                        <RadioButton Content="Monthly contributions" FontFamily="Bebas Neue" x:Name="monthlyContribution" FontSize="16" Checked="monthlyContribution_Checked"/>
+                        <RadioButton Content="Yearly contributions" FontFamily="Bebas Neue" Name="yearlyContribution" FontSize="16" Checked="yearlyContribution_Checked"></RadioButton>
                         
                     </StackPanel>
 
