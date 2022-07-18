@@ -78,7 +78,7 @@ namespace FinancialPortal
         public void repayment() {
             var regex = new Regex("(([A-Z])|([a-z])|([ ]))");
             
-            if ((regex.IsMatch(repaymentperiod.Text) == false) && ((regex.IsMatch(loanamount.Text) == false) && (regex.IsMatch(interestrate.Text) == false) && (regex.IsMatch(year.Text) == false))){
+            if ((regex.IsMatch(loanamount.Text) == false) && (regex.IsMatch(interestrate.Text) == false) && (regex.IsMatch(year.Text) == false)){
 
 
                 if ((repaymentperiod.Text != null) && (loanamount.Text != null) && (interestrate.Text != null) && (year.Text != null))
