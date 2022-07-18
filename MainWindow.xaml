@@ -27,7 +27,13 @@
             <Setter Property="Margin" Value="5"></Setter>
             <Setter Property="FontSize" Value="20"></Setter>
             <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
-            
+
+        </Style>
+        <Style x:Key="textblock" TargetType="{x:Type TextBlock}">
+            <Setter Property="FontSize" Value="50"></Setter>
+            <Setter Property="FontWeight" Value="Bold"></Setter>
+            <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+            <Setter Property="Margin" Value="5"></Setter>
         </Style>
         
     </mah:MetroWindow.Resources>
@@ -84,11 +90,11 @@
                     </Grid.RowDefinitions>
                     <StackPanel Orientation="Vertical" VerticalAlignment="Center" Grid.Column="0" Grid.Row="0" >
                         <Label HorizontalAlignment="Center" Style="{DynamicResource Label}" Name="timepayment"   Content="Monthly payment" ></Label>
-                        <TextBlock Margin="5" Text="{Binding MonthlyPayment}" HorizontalAlignment="Center" FontSize="50" FontWeight="Bold"   ></TextBlock>
+                        <TextBlock  Text="{Binding MonthlyPayment}" Style="{DynamicResource textblock}"   ></TextBlock>
                     </StackPanel>
                     <StackPanel Orientation="Vertical" VerticalAlignment="Center" Grid.Column="1" Grid.Row="0" >
                         <Label Style="{DynamicResource Label}" HorizontalAlignment="Center"  Content="Totaly paid" ></Label>
-                        <TextBlock Margin="5" Text="{Binding Totalypaid}" HorizontalAlignment="Center" FontSize="50" FontWeight="Bold"   ></TextBlock>
+                        <TextBlock Style="{DynamicResource textblock}"  Text="{Binding Totalypaid}"   ></TextBlock>
                     </StackPanel>
                     <StackPanel Orientation="Vertical" VerticalAlignment="Top" Grid.Column="0" Grid.Row="1" >
                     <Label Style="{DynamicResource Label}"  Content="Loan amount" ></Label>
@@ -131,7 +137,7 @@
                 </ScrollViewer>
             </mah:MetroTabItem>
             <mah:MetroTabItem Header="Investment calculator"  >
-                <Grid DataContext="{Binding chare}">
+                <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"></ColumnDefinition>
                         <ColumnDefinition Width="*"></ColumnDefinition>
@@ -143,10 +149,24 @@
                         <RowDefinition Height="*"></RowDefinition>
                         <RowDefinition Height="*"></RowDefinition>
                     </Grid.RowDefinitions>
-                    <Rectangle Fill="Aqua" Grid.Column="2" Grid.Row="0"></Rectangle>
-                    <Rectangle Fill="Yellow" Grid.Column="2" Grid.Row="1"></Rectangle>
-                    <Rectangle Fill="Green" Grid.Column="0" Grid.Row="2"></Rectangle>
-                    <Rectangle Fill="Orange" Grid.Column="1" Grid.Row="2"></Rectangle>
+                    <StackPanel Grid.Column="2" Grid.Row="0" VerticalAlignment="Center">
+                    <Label  VerticalAlignment="Center" Style="{DynamicResource Label}" HorizontalAlignment="Center" Content="final amount"></Label>
+                    <TextBlock  Style="{DynamicResource textblock }" HorizontalAlignment="Center" VerticalAlignment="Center" Text="ahoj"></TextBlock>
+                    </StackPanel>
+                    <StackPanel Grid.Column="2" Grid.Row="1" VerticalAlignment="Center">
+                        <Label  VerticalAlignment="Center" Style="{DynamicResource Label}" HorizontalAlignment="Center" Content="return" Name="return"></Label>
+                        <TextBlock  Style="{DynamicResource textblock }" HorizontalAlignment="Center" VerticalAlignment="Center" Text="ahoj" Name="returninput"></TextBlock>
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical" VerticalAlignment="Top" Grid.Column="0" Grid.Row="2" >
+                        <Label Style="{DynamicResource Label}"  Content="Initial investment" ></Label>
+                        <TextBox Style="{DynamicResource Textbox}" Name="initialinvestment"  ></TextBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical" VerticalAlignment="Top" Grid.Column="1" Grid.Row="2" >
+                        <Label Style="{DynamicResource Label}"  Content="Number of Years" ></Label>
+                        <TextBox Style="{DynamicResource Textbox}" Name="yearsinvestement"  ></TextBox>
+                    </StackPanel>
+
+                    
                     <Rectangle Fill="Green" Grid.Column="2" Grid.Row="2"></Rectangle>
                     <Rectangle Fill="Purple" Grid.Column="0" Grid.Row="3"></Rectangle>
                     <Rectangle Fill="LawnGreen" Grid.Column="1" Grid.Row="3"></Rectangle>
@@ -156,7 +176,7 @@
                         <ComboBoxItem Content="One time" Name="onetime"></ComboBoxItem>
                     </ComboBox>
                     
-                    <lvc:CartesianChart Name="Cartesianchart" Series="{Binding SeriesCollection}"  Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Grid.RowSpan="2" Background="White"></lvc:CartesianChart>
+                    <lvc:CartesianChart Name="Cartesianchart"  Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Grid.RowSpan="2" Background="White"></lvc:CartesianChart>
                     
                 </Grid>
             </mah:MetroTabItem>

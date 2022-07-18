@@ -35,7 +35,7 @@ namespace FinancialPortal
         {
             InitializeComponent();
             DataContext = m;
-            //Cartesianchart.Series = chare.SeriesCollection;
+            Cartesianchart.Series = chare.SeriesCollection;
             
 
             
@@ -77,7 +77,7 @@ namespace FinancialPortal
 
         public void repayment() {
             var regex = new Regex("(([A-Z])|([a-z])|([ ]))");
-
+            
             if ((regex.IsMatch(repaymentperiod.Text) == false) && ((regex.IsMatch(loanamount.Text) == false) && (regex.IsMatch(interestrate.Text) == false) && (regex.IsMatch(year.Text) == false))){
 
 
