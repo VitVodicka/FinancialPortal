@@ -165,17 +165,26 @@
                         <Label Style="{DynamicResource Label}"  Content="Number of Years" ></Label>
                         <TextBox Style="{DynamicResource Textbox}" Name="yearsinvestement"  ></TextBox>
                     </StackPanel>
+                    <StackPanel Orientation="Vertical" VerticalAlignment="Top" Grid.Column="2" Grid.Row="2" >
+                        <Label Style="{DynamicResource Label}"  Content="Expected return" ></Label>
+                        <TextBox Style="{DynamicResource Textbox}" Name="expectedreturn"   ></TextBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical" VerticalAlignment="Top" Grid.Column="0" Grid.Row="3" >
+                        <Label Style="{DynamicResource Label}"  Content="Monthly contributions" ></Label>
+                        <TextBox Style="{DynamicResource Textbox}" Name="contributions"  ></TextBox>
+                    </StackPanel>
 
-                    
-                    <Rectangle Fill="Green" Grid.Column="2" Grid.Row="2"></Rectangle>
-                    <Rectangle Fill="Purple" Grid.Column="0" Grid.Row="3"></Rectangle>
-                    <Rectangle Fill="LawnGreen" Grid.Column="1" Grid.Row="3"></Rectangle>
-                    <Rectangle Fill="Purple" Grid.Column="2" Grid.Row="3"></Rectangle>
-                    <ComboBox BorderThickness="0" Width="80" Height="20" FontSize="10" Name="combobox" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="5" Grid.Row="2">
-                        <ComboBoxItem Content="Frequently" Name="frequently"></ComboBoxItem>
-                        <ComboBoxItem Content="One time" Name="onetime"></ComboBoxItem>
-                    </ComboBox>
-                    
+
+
+                    <Button Grid.Row="3" Content="Calculate" VerticalAlignment="Center" FontSize="20" Width="150" Grid.Column="2" Height="50" />
+                    <StackPanel Orientation="Vertical" VerticalAlignment="Top" Grid.Column="1" Grid.Row="3" >
+                        <Label Style="{DynamicResource Label}"  Content="Contributions" ></Label>
+                        <RadioButton Content="One time" FontFamily="Bebas Neue" FontSize="16"  ></RadioButton>
+                        <RadioButton Content="Monthly contributions" FontFamily="Bebas Neue" FontSize="16"></RadioButton>
+                        <RadioButton Content="Yearly contributions" FontFamily="Bebas Neue" FontSize="16"></RadioButton>
+                        
+                    </StackPanel>
+
                     <lvc:CartesianChart Name="Cartesianchart"  Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Grid.RowSpan="2" Background="White"></lvc:CartesianChart>
                     
                 </Grid>
