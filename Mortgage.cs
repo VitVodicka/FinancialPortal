@@ -11,13 +11,8 @@ namespace FinancialPortal
 {
     internal class Mortgage:INotifyPropertyChanged
     {
-        public SeriesCollection seris = new SeriesCollection
-            {
-            new LineSeries
-            {
-                Values = new ChartValues<int>{3,5,7,4}
-            }
-            };
+        public investmentPortal invest { get; set; }
+       
         public double MonthlyPayment { get; set; }
         public double Totalypaid { get; set; }
 

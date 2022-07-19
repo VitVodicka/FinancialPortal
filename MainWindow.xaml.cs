@@ -36,7 +36,7 @@ namespace FinancialPortal
         {
             InitializeComponent();
             DataContext = m;
-            Cartesianchart.Series = chare.SeriesCollection;
+            Cartesianchart.Series = Chart.SeriesCollection;
             
 
             
@@ -86,18 +86,22 @@ namespace FinancialPortal
                 {
                     if (repaymentperiod.Text == "monthly")
                     {
+                        DataContext = m;
                         m.Calculate(double.Parse(loanamount.Text), double.Parse(interestrate.Text), 1, double.Parse(year.Text));
                     }
                     if (repaymentperiod.Text == "quartely")
                     {
+                        DataContext = m;
                         m.Calculate(double.Parse(loanamount.Text), double.Parse(interestrate.Text), 3, double.Parse(year.Text));
                     }
                     if (repaymentperiod.Text == "half yearly")
                     {
+                        DataContext = m;
                         m.Calculate(double.Parse(loanamount.Text), double.Parse(interestrate.Text), 6, double.Parse(year.Text));
                     }
                     if (repaymentperiod.Text == "yearly")
                     {
+                        DataContext = m;
                         m.Calculate(double.Parse(loanamount.Text), double.Parse(interestrate.Text), 12, double.Parse(year.Text));
                     }
                 }
@@ -143,25 +147,46 @@ namespace FinancialPortal
             {
                 if ((initialinvestment.Text != null) && (yearsinvestement.Text != null) && (expectedreturn.Text != null))
                 {
+                    try { 
                     if (onetime.IsChecked == true)
                     {
-
+                        DataContext = invest;
                         invest.Onetime(double.Parse(initialinvestment.Text), double.Parse(yearsinvestement.Text), double.Parse(expectedreturn.Text));
                     }
+                    }
+                    catch
+                    {
 
-                
+                    }
+
+
+
                 if (monthlyContribution.IsChecked == true)
                 {
+                        try { 
                         if ((regex.IsMatch(contributionsinput.Text) == false)&&(contributionsinput.Text)!=null)
                         {
-                            invest.MonthlyContribution(double.Parse(initialinvestment.Text), double.Parse(yearsinvestement.Text), double.Parse(expectedreturn.Text));
+                                DataContext = invest;
+                                invest.MonthlyContribution(double.Parse(initialinvestment.Text), double.Parse(yearsinvestement.Text), double.Parse(expectedreturn.Text));
+                        }
+                        }
+                        catch
+                        {
+
                         }
                     }
                 if (yearlyContribution.IsChecked == true)
                 {
+                        try { 
                         if ((regex.IsMatch(contributionsinput.Text) == false) && (contributionsinput.Text) != null)
                         {
-                            invest.Yearlycontribution(double.Parse(initialinvestment.Text), double.Parse(yearsinvestement.Text), double.Parse(expectedreturn.Text));
+                                DataContext = invest;
+                                invest.Yearlycontribution(double.Parse(initialinvestment.Text), double.Parse(yearsinvestement.Text), double.Parse(expectedreturn.Text));
+                        }
+                        }
+                        catch
+                        {
+
                         }
                 }
                 
