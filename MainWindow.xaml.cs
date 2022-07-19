@@ -147,12 +147,13 @@ namespace FinancialPortal
             {
                 if ((initialinvestment.Text != null) && (yearsinvestement.Text != null) && (expectedreturn.Text != null))
                 {
-                    try { 
-                    if (onetime.IsChecked == true)
+                    try
                     {
-                        DataContext = invest;
-                        invest.Onetime(double.Parse(initialinvestment.Text), double.Parse(yearsinvestement.Text), double.Parse(expectedreturn.Text));
-                    }
+                        if (onetime.IsChecked == true)
+                        {
+                            DataContext = invest;
+                            invest.Onetime(double.Parse(initialinvestment.Text), double.Parse(yearsinvestement.Text), double.Parse(expectedreturn.Text));
+                        }
                     }
                     catch
                     {
@@ -161,43 +162,57 @@ namespace FinancialPortal
 
 
 
-                if (monthlyContribution.IsChecked == true)
-                {
-                        try { 
-                        if ((regex.IsMatch(contributionsinput.Text) == false)&&(contributionsinput.Text)!=null)
+                    if (monthlyContribution.IsChecked == true)
+                    {
+                        try
                         {
+                            if ((regex.IsMatch(contributionsinput.Text) == false) && (contributionsinput.Text) != null)
+                            {
                                 DataContext = invest;
-                                invest.MonthlyContribution(double.Parse(initialinvestment.Text), double.Parse(yearsinvestement.Text), double.Parse(expectedreturn.Text));
-                        }
+                                invest.MonthlyContribution(double.Parse(initialinvestment.Text), double.Parse(yearsinvestement.Text), double.Parse(expectedreturn.Text), double.Parse(contributionsinput.Text));
+                            }
                         }
                         catch
                         {
 
                         }
                     }
-                if (yearlyContribution.IsChecked == true)
-                {
-                        try { 
-                        if ((regex.IsMatch(contributionsinput.Text) == false) && (contributionsinput.Text) != null)
+                    if (yearlyContribution.IsChecked == true)
+                    {
+                        try
                         {
+                            if ((regex.IsMatch(contributionsinput.Text) == false) && (contributionsinput.Text) != null)
+                            {
                                 DataContext = invest;
-                                invest.Yearlycontribution(double.Parse(initialinvestment.Text), double.Parse(yearsinvestement.Text), double.Parse(expectedreturn.Text));
-                        }
+                                invest.Yearlycontribution(double.Parse(initialinvestment.Text), double.Parse(yearsinvestement.Text), double.Parse(expectedreturn.Text), double.Parse(contributionsinput.Text));
+                            }
                         }
                         catch
                         {
 
                         }
+                    }
+                    /*if(onetimeNotCompounded.IsChecked == true)
+                        {
+                            try
+                            {
+                                DataContext = invest;
+                                invest.OnetimeNotCompounded(double.Parse(initialinvestment.Text), double.Parse(yearsinvestement.Text), double.Parse(expectedreturn.Text));
+                            }
+                            catch {
+                            }
+                        }
+
+                    }*/
                 }
-                
+                else
+                {
+
+                    //hint.Text = "*Text must only contain numbers";
+
                 }
             }
-            else
-            {
-                
-                //hint.Text = "*Text must only contain numbers";
-                
-            }
+
         }
     }
 }

@@ -26,6 +26,8 @@ namespace FinancialPortal
 
         public void Onetime(double initialinvest, double yearsinvestment, double expectedreturn)
         {
+            notInvestedValues.Clear();
+            investedValues.Clear();
             double blankReturn;
             blankReturn= expectedreturn / 100;
             double finalpercentage = 0;
@@ -58,6 +60,55 @@ namespace FinancialPortal
 
             Change("FinalAmount");
             Change("Return");
+
+            AddingToChart();
+            
+            
+        }
+        public void MonthlyContribution(double initialinvestment, double yearsinvestment, double expectedreturn, double contributionsinput)
+        {
+            notInvestedValues.Clear();
+            investedValues.Clear();
+            double blankReturn=expectedreturn / 100;
+        }
+        public void Yearlycontribution(double initialinvestment, double yearsinvestment, double expectedreturn, double contributionsinput)
+        {
+            notInvestedValues.Clear();
+            investedValues.Clear();
+            double blankReturn = expectedreturn / 100;
+            double carryover = initialinvestment;
+            double interestOf = 0;
+            double finalpercentage = 0;
+            for (int i = 0; i < yearsinvestment; i++)
+            {
+                
+                carryover += contributionsinput;
+                interestOf = carryover * blankReturn;
+                carryover += interestOf;
+                investedValues.Add(carryover);
+                notInvestedValues.Add(initialinvestment);
+                
+            }
+
+            FinalAmount = Math.Round(carryover,2);
+
+            finalpercentage = (carryover / initialinvestment) - 1;
+            finalpercentage = finalpercentage * 100;
+            finalpercentage = Math.Round(finalpercentage, 2);
+
+
+            Return = finalpercentage.ToString()+"%";
+
+
+
+            Change("FinalAmount");
+            Change("Return");
+            AddingToChart();
+
+        }
+        public void AddingToChart()
+        {
+            Chart.SeriesCollection.Clear();
             Chart.SeriesCollection.Add(new LineSeries
             {
                 Title = "Money not invested",
@@ -67,17 +118,9 @@ namespace FinancialPortal
             {
                 Title = "Money invested",
                 Values = investedValues,
-            }) ;
-            
+            });
         }
-        public void MonthlyContribution(double initialinvestment, double yearsinvestment, double expectedreturn)
-        {
 
-        }
-        public void Yearlycontribution(double initialinvestment, double yearsinvestment, double expectedreturn)
-        {
-
-        }
         public void Change(string change)
         {
             if (PropertyChanged != null)

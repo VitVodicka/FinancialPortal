@@ -179,7 +179,7 @@
                     <Button Grid.Row="3" Content="Calculate" VerticalAlignment="Center" FontSize="20" Width="150" Grid.Column="2" Height="50" Click="Investment_Click" />
                     <StackPanel Orientation="Vertical" VerticalAlignment="Top" Grid.Column="0" Grid.Row="3" >
                         <Label Style="{DynamicResource Label}"  Content="Contributions" ></Label>
-                        <RadioButton Content="One time" FontFamily="Bebas Neue" FontSize="16" Name="onetime" Checked="onetime_Checked"  ></RadioButton>
+                        <RadioButton Content="One time (compounded)" FontFamily="Bebas Neue" FontSize="16" Name="onetime" Checked="onetime_Checked"  ></RadioButton>
                         <RadioButton Content="Monthly contributions" FontFamily="Bebas Neue" x:Name="monthlyContribution" FontSize="16" Checked="monthlyContribution_Checked"/>
                         <RadioButton Content="Yearly contributions" FontFamily="Bebas Neue" Name="yearlyContribution" FontSize="16" Checked="yearlyContribution_Checked"></RadioButton>
                         
