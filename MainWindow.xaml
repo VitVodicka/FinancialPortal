@@ -124,7 +124,7 @@
                     <TextBlock Text="" Name="hint" Margin="10,0,0,20" Grid.Column="0" Grid.Row="3" FontSize="15" Foreground="Red" VerticalAlignment="Bottom" ></TextBlock>
                 </Grid>
             </mah:MetroTabItem>
-            <mah:MetroTabItem Header="Accounts">
+            <mah:MetroTabItem Header="Accounts" Height="39" VerticalAlignment="Bottom">
                 <ScrollViewer>
                     <StackPanel>
                         <StackPanel>
@@ -185,7 +185,8 @@
                         
                     </StackPanel>
 
-                    <lvc:CartesianChart Name="Cartesianchart"  Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Grid.RowSpan="2" Background="White"></lvc:CartesianChart>
+                    <lvc:CartesianChart LegendLocation="Bottom" Name="Cartesianchart"  Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Grid.RowSpan="2" Background="White">
+                    </lvc:CartesianChart>
                     
                 </Grid>
             </mah:MetroTabItem>
