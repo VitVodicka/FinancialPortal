@@ -37,6 +37,7 @@ namespace FinancialPortal
             InitializeComponent();
             DataContext = m;
             Cartesianchart.Series = Chart.SeriesCollection;
+            piechart.Series = Chart.SeriesCollectionPieChart;
             
 
             

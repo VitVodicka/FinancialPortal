@@ -10,6 +10,7 @@ namespace FinancialPortal
 {
     internal class Chart
     {
+        public static SeriesCollection SeriesCollectionPieChart { get; set; }
         public static SeriesCollection SeriesCollection { get; set; }
         public Chart()
         {
@@ -18,6 +19,11 @@ namespace FinancialPortal
                 
 
             };
+            SeriesCollectionPieChart = new SeriesCollection()
+            {
+                
+            };
         }
+        
     }
 }
