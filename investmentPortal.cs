@@ -104,8 +104,8 @@ namespace FinancialPortal
 
                     notinvestedValueOverYears += contributionsinput;
 
-                    notInvestedValues.Add(notinvestedValueOverYears);
-                    investedValues.Add(carryover);
+                    notInvestedValues.Add(Math.Round(notinvestedValueOverYears,2));
+                    investedValues.Add(Math.Round(carryover,2));
 
                 }
                 if (i == yearsinvestment - 1)
@@ -114,8 +114,8 @@ namespace FinancialPortal
                     carryover += contributionsinput;
                     carryover += (contributionsinput * blankReturn);
 
-                    notInvestedValues.Add(notinvestedValueOverYears);
-                    investedValues.Add(carryover);
+                    notInvestedValues.Add(Math.Round(notinvestedValueOverYears,2));
+                    investedValues.Add(Math.Round(carryover,2));
 
                 }
                 else
@@ -128,8 +128,8 @@ namespace FinancialPortal
 
                     //interestOf = carryover * blankReturn;
                     //carryover += interestOf;
-                    notInvestedValues.Add(notinvestedValueOverYears);
-                    investedValues.Add(carryover);
+                    notInvestedValues.Add(Math.Round(notinvestedValueOverYears,2));
+                    investedValues.Add(Math.Round(carryover,2));
 
 
                 }
