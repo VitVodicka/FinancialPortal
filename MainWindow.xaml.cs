@@ -84,6 +84,7 @@ namespace FinancialPortal
 
                 if ((repaymentperiod.Text != null) && (loanamount.Text != null) && (interestrate.Text != null) && (year.Text != null))
                 {
+                    try { 
                     if (repaymentperiod.Text == "monthly")
                     {
                         DataContext = m;
@@ -104,6 +105,12 @@ namespace FinancialPortal
                         DataContext = m;
                         m.Calculate(double.Parse(loanamount.Text), double.Parse(interestrate.Text), 12, double.Parse(year.Text));
                     }
+                    }
+                    catch
+                    {
+
+                    }
+
                 }
                 
             }

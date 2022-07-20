@@ -39,6 +39,9 @@ namespace FinancialPortal
                 if (i == 0)
                 {
                     invested = initialinvest + (initialinvest * blankReturn);
+                    notInvestedValues.Add(0);
+                    investedValues.Add(0);
+
                     investedValues.Add(invested);
                     notInvestedValues.Add(initialinvest);
                 }
@@ -67,26 +70,69 @@ namespace FinancialPortal
         }
         public void MonthlyContribution(double initialinvestment, double yearsinvestment, double expectedreturn, double contributionsinput)
         {
-            notInvestedValues.Clear();
-            investedValues.Clear();
-            double blankReturn=expectedreturn / 100;
+            Yearlycontribution(initialinvestment,yearsinvestment,expectedreturn,(contributionsinput*12));
         }
         public void Yearlycontribution(double initialinvestment, double yearsinvestment, double expectedreturn, double contributionsinput)
         {
             notInvestedValues.Clear();
             investedValues.Clear();
+
             double blankReturn = expectedreturn / 100;
-            double carryover = initialinvestment;
+            double carryover=0;
             double interestOf = 0;
             double finalpercentage = 0;
-            for (int i = 0; i < yearsinvestment; i++)
+            double notinvestedValueOverYears = initialinvestment;
+            double celkem=0;
+            
+
+            for (int i = 0; i < yearsinvestment-1; i++)
             {
+                if (i == 0)
+                {
+                    carryover += initialinvestment;
+                    carryover+=(initialinvestment*blankReturn);
+                    carryover += contributionsinput;
+
+                    //interestOf = carryover * blankReturn;
+                    //carryover += interestOf;
+                    //carryover += contributionsinput;
+                    
+
+
+                    investedValues.Add(initialinvestment);
+                    notInvestedValues.Add(initialinvestment);
+
+                    notinvestedValueOverYears += contributionsinput;
+
+                    notInvestedValues.Add(notinvestedValueOverYears);
+                    investedValues.Add(carryover);
+                    
+                }
+                if (i == yearsinvestment-1)
+                {
+                    carryover += carryover * blankReturn;
+                    carryover += contributionsinput;
+                    carryover+=(contributionsinput*blankReturn);
+
+                    notInvestedValues.Add(notinvestedValueOverYears);
+                    investedValues.Add(carryover);
+
+                }
+                else {
+                    carryover += carryover * blankReturn;
+                    carryover += contributionsinput;
+                    notinvestedValueOverYears += contributionsinput;
+
+                    //carryover += contributionsinput;
+                    
+                    //interestOf = carryover * blankReturn;
+                    //carryover += interestOf;
+                    notInvestedValues.Add(notinvestedValueOverYears);
+                    investedValues.Add(carryover);
+                    
+
+                }
                 
-                carryover += contributionsinput;
-                interestOf = carryover * blankReturn;
-                carryover += interestOf;
-                investedValues.Add(carryover);
-                notInvestedValues.Add(initialinvestment);
                 
             }
 
