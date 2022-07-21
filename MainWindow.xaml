@@ -9,6 +9,7 @@
         
         mc:Ignorable="d"
         Title="Financial planner" Background="White" ResizeMode="NoResize"   Height="550" Width="900" WindowStartupLocation="CenterScreen">
+    
     <mah:MetroWindow.LeftWindowCommands>
         <mah:WindowCommands>
             <Button Content="Load info" ></Button>
@@ -17,7 +18,7 @@
         </mah:WindowCommands>
     </mah:MetroWindow.LeftWindowCommands>
     <mah:MetroWindow.Resources>
-        <Style x:Key="Label" TargetType="{x:Type Label}">
+        <!--<Style x:Key="Label" TargetType="{x:Type Label}">
             <Setter Property="FontSize" Value="22" />
         </Style>
         <Style x:Key="Textbox" TargetType="{x:Type TextBox}">
@@ -35,10 +36,27 @@
             <Setter Property="HorizontalAlignment" Value="Center"></Setter>
             <Setter Property="Margin" Value="5"></Setter>
         </Style>
+        -->
         
     </mah:MetroWindow.Resources>
+    
+
     <Grid>
-        
+        <mah:HamburgerMenu Background="Red" >
+            <mah:HamburgerMenu.HamburgerMenuHeaderTemplate>
+                <DataTemplate>
+                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="Pictures" Foreground="White" FontSize="22"></TextBlock>
+                </DataTemplate>
+            </mah:HamburgerMenu.HamburgerMenuHeaderTemplate>
+            <mah:HamburgerMenu.ItemsSource>
+                <mah:HamburgerMenuItemCollection>
+                    <mah:HamburgerMenuItem Label="First one"></mah:HamburgerMenuItem>
+                    <mah:HamburgerMenuItem Label="Second one"></mah:HamburgerMenuItem>
+                    <mah:HamburgerMenuItem Label="Third one"></mah:HamburgerMenuItem>
+                </mah:HamburgerMenuItemCollection>
+            </mah:HamburgerMenu.ItemsSource>
+        </mah:HamburgerMenu>
+            <!--
         <mah:MetroAnimatedTabControl    FontFamily="Bebas Neue" TabStripPlacement="Left"   >
             <mah:HamburgerMenu></mah:HamburgerMenu>
             <mah:MetroTabItem Header="State" FontWeight="Bold"  >
@@ -196,6 +214,7 @@
 
 
         </mah:MetroAnimatedTabControl>
+        -->
         <mah:ClipBorder HorizontalAlignment="Left" Height="1158" Margin="764,-204,0,0" VerticalAlignment="Top" Width="2268"/>
 
 

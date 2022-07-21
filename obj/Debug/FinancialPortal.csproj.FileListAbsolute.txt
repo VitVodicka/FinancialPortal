@@ -34,3 +34,6 @@ C:\Users\Vít Vodička\source\repos\FinancialPortal\FinancialPortal\bin\Debug\Li
 C:\Users\Vít Vodička\source\repos\FinancialPortal\FinancialPortal\bin\Debug\LiveCharts.Wpf.pdb
 C:\Users\Vít Vodička\source\repos\FinancialPortal\FinancialPortal\bin\Debug\LiveCharts.Wpf.xml
 C:\Users\Vít Vodička\source\repos\FinancialPortal\FinancialPortal\obj\Debug\FinancialPortal.csproj.SuggestedBindingRedirects.cache
+C:\Users\Vít Vodička\source\repos\FinancialPortal\FinancialPortal\bin\Debug\pivtures\trash-can.png
+C:\Users\Vít Vodička\source\repos\FinancialPortal\FinancialPortal\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\Vít Vodička\source\repos\FinancialPortal\FinancialPortal\obj\Debug\Themes\Generic.baml

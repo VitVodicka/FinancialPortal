@@ -8,6 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("pivtures/trash-can.png")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("fonts/bebasneue.ttf")]
 
 
