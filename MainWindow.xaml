@@ -38,9 +38,9 @@
         
     </mah:MetroWindow.Resources>
     <Grid>
-
-        <mah:MetroAnimatedTabControl  FontFamily="Bebas Neue" TabStripPlacement="Left"   >
-
+        
+        <mah:MetroAnimatedTabControl    FontFamily="Bebas Neue" TabStripPlacement="Left"   >
+            <mah:HamburgerMenu></mah:HamburgerMenu>
             <mah:MetroTabItem Header="State" FontWeight="Bold"  >
                 <Grid Name="grid">
                     <Grid.ColumnDefinitions>
@@ -70,7 +70,7 @@
 
 
             </mah:MetroTabItem>
-            <mah:MetroTabItem Header="Mortgage calculator" >
+            <mah:MetroTabItem Header="Mortgage calculator"   >
                 <Grid >
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition>
