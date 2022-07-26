@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        
         xmlns:local="clr-namespace:FinancialPortal"
         xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls" x:Class="FinancialPortal.MainWindow"
         xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
@@ -18,7 +19,7 @@
         </mah:WindowCommands>
     </mah:MetroWindow.LeftWindowCommands>
     <mah:MetroWindow.Resources>
-        <!--<Style x:Key="Label" TargetType="{x:Type Label}">
+        <Style x:Key="Label" TargetType="{x:Type Label}">
             <Setter Property="FontSize" Value="22" />
         </Style>
         <Style x:Key="Textbox" TargetType="{x:Type TextBox}">
@@ -36,27 +37,183 @@
             <Setter Property="HorizontalAlignment" Value="Center"></Setter>
             <Setter Property="Margin" Value="5"></Setter>
         </Style>
-        -->
+        
         
     </mah:MetroWindow.Resources>
     
 
     <Grid>
-        <mah:HamburgerMenu Background="Red" >
+        <mah:HamburgerMenu Background="Red" MinWidth="200" HorizontalAlignment="Left" IsPaneOpen="False" DisplayMode="CompactInline"   >
+
+
+
+            <mah:HamburgerMenu.OptionsItemTemplate>
+                <DataTemplate DataType="{x:Type mah:HamburgerMenuImageItem}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="{Binding Label}" Grid.Column="1" VerticalAlignment="Center" FontSize="20"  HorizontalAlignment="Center">
+
+                        </TextBlock>
+                        <Image Source="{Binding Thumbnail}" Grid.Column="0" Width="40" Height="40"  VerticalAlignment="Center"  HorizontalAlignment="Left"></Image>
+                    </Grid>
+                </DataTemplate>
+            </mah:HamburgerMenu.OptionsItemTemplate>
+                <mah:HamburgerMenu.ItemTemplate  >
+                <DataTemplate DataType="{x:Type mah:HamburgerMenuImageItem}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="{Binding Label}" Grid.Column="1" VerticalAlignment="Center" FontSize="20"  HorizontalAlignment="Center">
+                            
+                        </TextBlock>
+                        <Image Source="{Binding Thumbnail}" Grid.Column="0" Width="40" Height="40"  VerticalAlignment="Center"  HorizontalAlignment="Left"></Image>
+                    </Grid>
+                </DataTemplate>
+                    
+                </mah:HamburgerMenu.ItemTemplate>
+            
             <mah:HamburgerMenu.HamburgerMenuHeaderTemplate>
                 <DataTemplate>
-                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="Pictures" Foreground="White" FontSize="22"></TextBlock>
+                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="Menu" Foreground="White" FontSize="22"></TextBlock>
                 </DataTemplate>
             </mah:HamburgerMenu.HamburgerMenuHeaderTemplate>
+            <mah:HamburgerMenu.OptionsItemsSource>
+                <mah:HamburgerMenuItemCollection>
+                    <mah:HamburgerMenuImageItem Label="Settings" Thumbnail="icons/settings.png" ></mah:HamburgerMenuImageItem>
+                </mah:HamburgerMenuItemCollection>
+            </mah:HamburgerMenu.OptionsItemsSource>
             <mah:HamburgerMenu.ItemsSource>
                 <mah:HamburgerMenuItemCollection>
-                    <mah:HamburgerMenuItem Label="First one"></mah:HamburgerMenuItem>
-                    <mah:HamburgerMenuItem Label="Second one"></mah:HamburgerMenuItem>
-                    <mah:HamburgerMenuItem Label="Third one"></mah:HamburgerMenuItem>
+                    <mah:HamburgerMenuImageItem Label="Users" Thumbnail="icons/user.png">
+                    </mah:HamburgerMenuImageItem>
+                    <mah:HamburgerMenuImageItem Label="Charts" Thumbnail="icons/bar-chart.png"></mah:HamburgerMenuImageItem>
+                    <mah:HamburgerMenuImageItem Label="Mortgage calculator" Thumbnail="icons/mortgage.png" >
+                        <mah:HamburgerMenuImageItem.Tag>
+                            <Grid >
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition>
+                                        <ColumnDefinition.Width>*</ColumnDefinition.Width>
+                                    </ColumnDefinition>
+                                    <ColumnDefinition>
+                                        <ColumnDefinition.Width>*</ColumnDefinition.Width>
+                                    </ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="1.8*"></RowDefinition>
+
+                                    <RowDefinition Height="0.8*"></RowDefinition>
+                                    <RowDefinition Height="0.8*"></RowDefinition>
+                                    <RowDefinition Height="0.6*"></RowDefinition>
+
+
+                                </Grid.RowDefinitions>
+                                <StackPanel Orientation="Vertical" VerticalAlignment="Bottom" Grid.Column="1" Grid.Row="0" >
+                                    <Label HorizontalAlignment="Center" Style="{DynamicResource Label}" Name="timepayment"   Content="Monthly payment" ></Label>
+                                    <TextBlock  Text="{Binding MonthlyPayment}" Style="{DynamicResource textblock}"   ></TextBlock>
+                                </StackPanel>
+                                <StackPanel Orientation="Vertical" VerticalAlignment="Top" Grid.Column="1" Grid.Row="0" >
+                                    <Label Style="{DynamicResource Label}" HorizontalAlignment="Center"  Content="Totaly paid" ></Label>
+                                    <TextBlock Style="{DynamicResource textblock}"  Text="{Binding Totalypaid}"   ></TextBlock>
+                                </StackPanel>
+                                <StackPanel Orientation="Vertical" VerticalAlignment="Top" Grid.Column="0" Grid.Row="1" >
+                                    <Label Style="{DynamicResource Label}"  Content="Loan amount" ></Label>
+                                    <TextBox Style="{DynamicResource Textbox}" Name="loanamount"  ></TextBox>
+                                </StackPanel>
+                                <StackPanel Orientation="Vertical" VerticalAlignment="Top" Grid.Column="1" Grid.Row="1" >
+                                    <Label Style="{DynamicResource Label}"  Content="Interest rate" ></Label>
+                                    <TextBox Style="{DynamicResource Textbox}" Name="interestrate"  ></TextBox>
+                                </StackPanel>
+                                <StackPanel Orientation="Vertical" VerticalAlignment="Top" Grid.Column="1" Grid.Row="2" >
+                                    <Label Style="{DynamicResource Label}"  Content="Repayment period" ></Label>
+                                    <ComboBox   Name="repaymentperiod" LostFocus="periodchanging" Margin="5" Height="40"  >
+                                        <ComboBoxItem Content="monthly"></ComboBoxItem>
+                                        <ComboBoxItem Content="quartely"></ComboBoxItem>
+                                        <ComboBoxItem Content="half yearly"></ComboBoxItem>
+                                        <ComboBoxItem Content="yearly"></ComboBoxItem>
+                                    </ComboBox>
+                                </StackPanel>
+                                <StackPanel Orientation="Vertical" VerticalAlignment="Top" Grid.Column="0" Grid.Row="2" >
+                                    <Label Style="{DynamicResource Label}"  Content="Number of years" ></Label>
+                                    <TextBox Style="{DynamicResource Textbox}" Name="year"   ></TextBox>
+                                </StackPanel>
+
+                                <Button Grid.Row="4" Content="Calculate" VerticalAlignment="Center" FontSize="20" Width="200" Grid.Column="1" Height="50" Click="Button_Click_1">
+
+                                </Button>
+                                <TextBlock Text="" Name="hint" Margin="10,0,0,20" Grid.Column="0" Grid.Row="3" FontSize="15" Foreground="Red" VerticalAlignment="Bottom" ></TextBlock>
+                                <lvc:PieChart LegendLocation="Bottom" InnerRadius="0" Name="piechart"  Grid.Column="0"  Grid.Row="0"  Background="White">
+                                </lvc:PieChart>
+                            </Grid>
+                        </mah:HamburgerMenuImageItem.Tag>
+                    </mah:HamburgerMenuImageItem>
+                    <mah:HamburgerMenuImageItem Label="Investment calculator" Thumbnail="icons/investment.png">
+                        <mah:HamburgerMenuImageItem.Tag>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"></RowDefinition>
+                                    <RowDefinition Height="*"></RowDefinition>
+                                    <RowDefinition Height="*"></RowDefinition>
+                                    <RowDefinition Height="*"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <StackPanel Grid.Column="2" Grid.Row="0" VerticalAlignment="Center">
+                                    <Label  VerticalAlignment="Center" Style="{DynamicResource Label}" HorizontalAlignment="Center" Content="final amount"></Label>
+                                    <TextBlock  Style="{DynamicResource textblock }" HorizontalAlignment="Center" Text="{Binding FinalAmount}"/>
+                                </StackPanel>
+                                <StackPanel Grid.Column="2" Grid.Row="1" VerticalAlignment="Center">
+                                    <Label  VerticalAlignment="Center" Style="{DynamicResource Label}" HorizontalAlignment="Center" Content="return" Name="return"></Label>
+                                    <TextBlock  Style="{DynamicResource textblock }" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding Return}" Name="returninput"></TextBlock>
+                                </StackPanel>
+                                <StackPanel Orientation="Vertical" VerticalAlignment="Top" Grid.Column="0" Grid.Row="2" >
+                                    <Label Style="{DynamicResource Label}"  Content="Initial investment" ></Label>
+                                    <TextBox Style="{DynamicResource Textbox}" Name="initialinvestment"  ></TextBox>
+                                </StackPanel>
+                                <StackPanel Orientation="Vertical" VerticalAlignment="Top" Grid.Column="1" Grid.Row="2" >
+                                    <Label Style="{DynamicResource Label}"  Content="Number of Years" ></Label>
+                                    <TextBox Style="{DynamicResource Textbox}" Name="yearsinvestement"  ></TextBox>
+                                </StackPanel>
+                                <StackPanel Orientation="Vertical" VerticalAlignment="Top" Grid.Column="2" Grid.Row="2" >
+                                    <Label Style="{DynamicResource Label}"  Content="Expected return" ></Label>
+                                    <TextBox Style="{DynamicResource Textbox}" Name="expectedreturn"   ></TextBox>
+                                </StackPanel>
+                                <StackPanel Orientation="Vertical" VerticalAlignment="Top" Grid.Column="1" Grid.Row="3" >
+                                    <Label Style="{DynamicResource Label}"  Content="Monthly contributions" Name="contributions" ></Label>
+                                    <TextBox Style="{DynamicResource Textbox}" Name="contributionsinput"  ></TextBox>
+                                </StackPanel>
+
+
+
+                                <Button Grid.Row="3" Content="Calculate" VerticalAlignment="Center" FontSize="20" Width="150" Grid.Column="2" Height="50" Click="Investment_Click" />
+                                <StackPanel Orientation="Vertical" VerticalAlignment="Top" Grid.Column="0" Grid.Row="3" >
+                                    <Label Style="{DynamicResource Label}"  Content="Contributions" ></Label>
+                                    <RadioButton Content="One time (compounded)" FontFamily="Bebas Neue" FontSize="16" Name="onetime" Checked="onetime_Checked"  ></RadioButton>
+                                    <RadioButton Content="Monthly contributions" FontFamily="Bebas Neue" x:Name="monthlyContribution" FontSize="16" Checked="monthlyContribution_Checked"/>
+                                    <RadioButton Content="Yearly contributions" FontFamily="Bebas Neue" Name="yearlyContribution" FontSize="16" Checked="yearlyContribution_Checked"></RadioButton>
+
+                                </StackPanel>
+
+                                <lvc:CartesianChart LegendLocation="Bottom" Name="Cartesianchart"  Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Grid.RowSpan="2" Background="White">
+                                </lvc:CartesianChart>
+
+                            </Grid>
+                        </mah:HamburgerMenuImageItem.Tag>
+                    </mah:HamburgerMenuImageItem>
+                    
                 </mah:HamburgerMenuItemCollection>
             </mah:HamburgerMenu.ItemsSource>
         </mah:HamburgerMenu>
+        <!--#region -->
             <!--
+        
         <mah:MetroAnimatedTabControl    FontFamily="Bebas Neue" TabStripPlacement="Left"   >
             <mah:HamburgerMenu></mah:HamburgerMenu>
             <mah:MetroTabItem Header="State" FontWeight="Bold"  >
@@ -215,6 +372,7 @@
 
         </mah:MetroAnimatedTabControl>
         -->
+        <!--#endregion-->
         <mah:ClipBorder HorizontalAlignment="Left" Height="1158" Margin="764,-204,0,0" VerticalAlignment="Top" Width="2268"/>
 
 

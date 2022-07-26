@@ -26,16 +26,17 @@ namespace FinancialPortal
     /// </summary>
     public partial class MainWindow : MetroWindow
     {
-       /* Mortgage m = new Mortgage();
+        Mortgage m = new Mortgage();
         Chart chare = new Chart();
-        investmentPortal invest = new investmentPortal();*/
+        investmentPortal invest = new investmentPortal();
         
         
 
         public MainWindow()
         {
             InitializeComponent();
-           /* DataContext = m;
+            
+            DataContext = m;
             Cartesianchart.Series = Chart.SeriesCollection;
             piechart.Series = Chart.SeriesCollectionPieChart;
             
@@ -205,14 +206,14 @@ namespace FinancialPortal
                         }
 
                     }*/
-              //  }
-                //else
-               // {
+                }
+                else
+               {
 
-                    //hint.Text = "*Text must only contain numbers";
+                   hint.Text = "*Text must only contain numbers";
         
-             //   }
-           // }
+               }
+            }
 
         }
     }
