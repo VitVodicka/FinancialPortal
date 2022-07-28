@@ -9,19 +9,20 @@
         xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
         
         mc:Ignorable="d"
-        Title="Financial planner" Background="White" ResizeMode="NoResize"   Height="550" Width="900" WindowStartupLocation="CenterScreen">
+        Title="Financial planner" FontFamily="BebasNeue" Background="White" ResizeMode="NoResize"   Height="500" Width="750" WindowStartupLocation="CenterScreen">
     
     <mah:MetroWindow.LeftWindowCommands>
         <mah:WindowCommands>
-            <Button Content="Load info" ></Button>
-            <Button Content="Add new account"></Button>
-            <Button Content="Move money"></Button>
+            <Button Content="Load info" FontFamily="Bebas Neue" ></Button>
+            <Button Content="Add new account" FontFamily="Bebas Neue"></Button>
+            <Button Content="Move money" FontFamily="Bebas Neue"></Button>
         </mah:WindowCommands>
         <!-- title buttons -->
     </mah:MetroWindow.LeftWindowCommands>
     <mah:MetroWindow.Resources><!-- settings for label, textbox,textblock-->
         <Style x:Key="Label" TargetType="{x:Type Label}">
             <Setter Property="FontSize" Value="22" />
+            <Setter Property="FontFamily" Value="Bebas Neue"></Setter>
         </Style>
         <Style x:Key="Textbox" TargetType="{x:Type TextBox}">
             <Setter Property="Background" Value="Red" />
@@ -29,6 +30,7 @@
             <Setter Property="Height" Value="40"></Setter>
             <Setter Property="Margin" Value="5"></Setter>
             <Setter Property="FontSize" Value="20"></Setter>
+            <Setter Property="FontFamily" Value="Bebas Neue"></Setter>
             <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
 
         </Style>
@@ -37,17 +39,19 @@
             <Setter Property="FontWeight" Value="Bold"></Setter>
             <Setter Property="HorizontalAlignment" Value="Center"></Setter>
             <Setter Property="Margin" Value="5"></Setter>
+            <Setter Property="FontFamily" Value="Bebas Neue"></Setter>
         </Style>
         
         
     </mah:MetroWindow.Resources>
     
 
-    <Grid><!--hamburger menu -->
-        <mah:HamburgerMenu Name="HamburgerMenu"  MinWidth="200" HorizontalAlignment="Left" IsPaneOpen="False" DisplayMode="CompactInline" ItemClick="HamburgerMenuControle"   >
+    <Grid ><!--hamburger menu -->
+        
+        <mah:HamburgerMenu Name="HamburgerMenu"  HorizontalAlignment="Left" IsPaneOpen="False" DisplayMode="CompactInline" ItemClick="HamburgerMenuControle"   >
             <mah:HamburgerMenu.ContentTemplate><!-- displaying content  -->
                 <DataTemplate DataType="{x:Type mah:HamburgerMenuItem}">
-                    <Grid >
+                    <Grid>
                         <ContentControl Focusable="False"  Content="{Binding Tag}"></ContentControl>
                     </Grid>                    
                 </DataTemplate>
@@ -57,12 +61,12 @@
 
             <mah:HamburgerMenu.OptionsItemTemplate><!--options template(layout)  -->
                 <DataTemplate DataType="{x:Type mah:HamburgerMenuImageItem}">
-                    <Grid>
+                    <Grid Margin="0,15,0,15">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition Width="0.31*"></ColumnDefinition>
                             <ColumnDefinition></ColumnDefinition>
                         </Grid.ColumnDefinitions>
-                        <TextBlock Text="{Binding Label}" Grid.Column="1" VerticalAlignment="Center" FontSize="20"  HorizontalAlignment="Center">
+                        <TextBlock Text="{Binding Label}" FontFamily="Bebas Neue" Grid.Column="1" VerticalAlignment="Center" FontSize="20"  HorizontalAlignment="Left">
 
                         </TextBlock>
                         <Image Source="{Binding Thumbnail}" Grid.Column="0" Width="40" Height="40"  VerticalAlignment="Center"  HorizontalAlignment="Left"></Image>
@@ -72,15 +76,15 @@
             <mah:HamburgerMenu.ItemTemplate  >
                 <!--items template(layout)  -->
                 <DataTemplate DataType="{x:Type mah:HamburgerMenuImageItem}">
-                    <Grid>
+                    <Grid Margin="0,15,0,15" VerticalAlignment="Bottom">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition Width="0.31*"></ColumnDefinition>
                             <ColumnDefinition></ColumnDefinition>
                         </Grid.ColumnDefinitions>
-                        <TextBlock Text="{Binding Label}" Grid.Column="1" VerticalAlignment="Center" FontSize="20"  HorizontalAlignment="Center">
+                        <TextBlock Text="{Binding Label}" FontFamily="Bebas Neue" HorizontalAlignment="Left" Grid.Column="1"  FontSize="20"  VerticalAlignment="Center" >
                             
                         </TextBlock>
-                        <Image Source="{Binding Thumbnail}" Grid.Column="0" Width="40" Height="40"  VerticalAlignment="Center"  HorizontalAlignment="Left"></Image>
+                        <Image Source="{Binding Thumbnail}" HorizontalAlignment="Left" Grid.Column="0" Width="40" Height="40"  VerticalAlignment="Center"  ></Image>
                     </Grid>
                 </DataTemplate>
                     
@@ -88,7 +92,7 @@
             
             <mah:HamburgerMenu.HamburgerMenuHeaderTemplate><!-- header menu-->
                 <DataTemplate>
-                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="Menu" Foreground="White" FontSize="22"></TextBlock>
+                    <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center" Text="Menu" FontFamily="Bebas Neue" Foreground="White" FontSize="22"></TextBlock>
                 </DataTemplate>
             </mah:HamburgerMenu.HamburgerMenuHeaderTemplate>
             <mah:HamburgerMenu.OptionsItemsSource><!-- options sources -->
@@ -102,7 +106,7 @@
                     <mah:HamburgerMenuImageItem Label="Users" Thumbnail="icons/user.png">
                     </mah:HamburgerMenuImageItem>
                     <mah:HamburgerMenuImageItem Label="Charts" Thumbnail="icons/bar-chart.png"></mah:HamburgerMenuImageItem>
-                    <mah:HamburgerMenuImageItem Label="Mortgage calculator" Thumbnail="icons/mortgage.png" >
+                    <mah:HamburgerMenuImageItem Label="Loan calculator" Thumbnail="icons/mortgage.png" >
                         <mah:HamburgerMenuImageItem.Tag><!-- Mortgage calculator content-->
                             <Grid >
                                 <Grid.ColumnDefinitions>
