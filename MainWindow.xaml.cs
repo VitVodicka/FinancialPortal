@@ -45,6 +45,12 @@ namespace FinancialPortal
             
             
         }
+        private void HamburgerMenuControle(object sender, ItemClickEventArgs e)
+        {
+            HamburgerMenu.SetCurrentValue(ContentProperty, e.ClickedItem);
+            HamburgerMenu.SetCurrentValue(HamburgerMenu.IsPaneOpenProperty, false);
+            
+        }
 
 
 

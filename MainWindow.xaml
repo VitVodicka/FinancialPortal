@@ -43,7 +43,14 @@
     
 
     <Grid>
-        <mah:HamburgerMenu Background="Red" MinWidth="200" HorizontalAlignment="Left" IsPaneOpen="False" DisplayMode="CompactInline"   >
+        <mah:HamburgerMenu Name="HamburgerMenu"  MinWidth="200" HorizontalAlignment="Left" IsPaneOpen="False" DisplayMode="CompactInline" ItemClick="HamburgerMenuControle"   >
+            <mah:HamburgerMenu.ContentTemplate>
+                <DataTemplate DataType="{x:Type mah:HamburgerMenuItem}">
+                    <Grid >
+                        <ContentControl Focusable="False"  Content="{Binding Tag}"></ContentControl>
+                    </Grid>                    
+                </DataTemplate>
+            </mah:HamburgerMenu.ContentTemplate>
 
 
 
