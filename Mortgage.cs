@@ -19,16 +19,16 @@ namespace FinancialPortal
 
         ChartValues<double> Totalypaidchart { get; set; }
         ChartValues<double> LoanAmountChart { get; set; }
-        ChartValues<double> InterestChart { get; set; }
+        ChartValues<double> InterestChart { get; set; }//declaring new chartValues collection
 
         public Mortgage()
         {
             Totalypaidchart = new ChartValues<double>();
-            LoanAmountChart = new ChartValues<double>();
+            LoanAmountChart = new ChartValues<double>();//declaring new chartValues collection
             InterestChart = new ChartValues<double>();
         }
 
-
+        //Changing properties
         public void Change(string change){
             if (PropertyChanged != null)
             {
@@ -36,12 +36,12 @@ namespace FinancialPortal
             }
         }
         public void Calculate(double loanamount, double interestrate, double interval, double years)
-        {
+        {//calculation of mortgage payments
             https://www.wikihow.com/Calculate-Mortgage-Payments
             try {
             Totalypaidchart.Clear();
             InterestChart.Clear();
-            LoanAmountChart.Clear();
+            LoanAmountChart.Clear();//clearing chart
 
             interestrate = (interestrate/ 100) / 12;
             years *= 12;
@@ -56,7 +56,7 @@ namespace FinancialPortal
             double final = loanamount * subtotal;
             
 
-            if (interval == 12)
+            if (interval == 12)//calculating according to monthy payment
             {
                 final *= 12;
                 Totalypaid = final * (years/12);
@@ -71,8 +71,8 @@ namespace FinancialPortal
                 
                 Change("Totalypaid");
             }
-            if (interval == 3)
-            {
+            if (interval == 3)//calculating according to quartaly payment
+                {
                 final *= 3;
                 Totalypaid = (final * 4) * (years / 12);
                 Totalypaid = Math.Round(Totalypaid,2);
@@ -86,8 +86,8 @@ namespace FinancialPortal
                 Change("Totalypaid");
 
             }
-            if(interval == 6)
-            {
+            if(interval == 6)//calculating according to half yearly payment
+                {
                 final *= 6;
                 Totalypaid = (final * 2) * (years / 12);
                 Totalypaid = Math.Round(Totalypaid, 2);
@@ -100,8 +100,8 @@ namespace FinancialPortal
                 Change("MonthlyPayment");             
                 Change("Totalypaid");
             }
-            if (interval == 1)
-            {
+            if (interval == 1)//calculating according to yearly payment
+                {
                 Totalypaid = (final * 12) * (years / 12);
                 Totalypaid = Math.Round(Totalypaid, 2);
                 final =Math.Round(final, 2);
@@ -130,7 +130,7 @@ namespace FinancialPortal
 
         }
         public void AddingtoChart()
-        {
+        {//clearing chart and adding values to it
             Chart.SeriesCollectionPieChart.Clear();
             Chart.SeriesCollectionPieChart.Add(new PieSeries
             {

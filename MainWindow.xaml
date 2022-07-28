@@ -17,8 +17,9 @@
             <Button Content="Add new account"></Button>
             <Button Content="Move money"></Button>
         </mah:WindowCommands>
+        <!-- title buttons -->
     </mah:MetroWindow.LeftWindowCommands>
-    <mah:MetroWindow.Resources>
+    <mah:MetroWindow.Resources><!-- settings for label, textbox,textblock-->
         <Style x:Key="Label" TargetType="{x:Type Label}">
             <Setter Property="FontSize" Value="22" />
         </Style>
@@ -42,9 +43,9 @@
     </mah:MetroWindow.Resources>
     
 
-    <Grid>
+    <Grid><!--hamburger menu -->
         <mah:HamburgerMenu Name="HamburgerMenu"  MinWidth="200" HorizontalAlignment="Left" IsPaneOpen="False" DisplayMode="CompactInline" ItemClick="HamburgerMenuControle"   >
-            <mah:HamburgerMenu.ContentTemplate>
+            <mah:HamburgerMenu.ContentTemplate><!-- displaying content  -->
                 <DataTemplate DataType="{x:Type mah:HamburgerMenuItem}">
                     <Grid >
                         <ContentControl Focusable="False"  Content="{Binding Tag}"></ContentControl>
@@ -54,7 +55,7 @@
 
 
 
-            <mah:HamburgerMenu.OptionsItemTemplate>
+            <mah:HamburgerMenu.OptionsItemTemplate><!--options template(layout)  -->
                 <DataTemplate DataType="{x:Type mah:HamburgerMenuImageItem}">
                     <Grid>
                         <Grid.ColumnDefinitions>
@@ -68,7 +69,8 @@
                     </Grid>
                 </DataTemplate>
             </mah:HamburgerMenu.OptionsItemTemplate>
-                <mah:HamburgerMenu.ItemTemplate  >
+            <mah:HamburgerMenu.ItemTemplate  >
+                <!--items template(layout)  -->
                 <DataTemplate DataType="{x:Type mah:HamburgerMenuImageItem}">
                     <Grid>
                         <Grid.ColumnDefinitions>
@@ -84,23 +86,24 @@
                     
                 </mah:HamburgerMenu.ItemTemplate>
             
-            <mah:HamburgerMenu.HamburgerMenuHeaderTemplate>
+            <mah:HamburgerMenu.HamburgerMenuHeaderTemplate><!-- header menu-->
                 <DataTemplate>
                     <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="Menu" Foreground="White" FontSize="22"></TextBlock>
                 </DataTemplate>
             </mah:HamburgerMenu.HamburgerMenuHeaderTemplate>
-            <mah:HamburgerMenu.OptionsItemsSource>
+            <mah:HamburgerMenu.OptionsItemsSource><!-- options sources -->
                 <mah:HamburgerMenuItemCollection>
                     <mah:HamburgerMenuImageItem Label="Settings" Thumbnail="icons/settings.png" ></mah:HamburgerMenuImageItem>
                 </mah:HamburgerMenuItemCollection>
             </mah:HamburgerMenu.OptionsItemsSource>
             <mah:HamburgerMenu.ItemsSource>
+                <!-- items sources -->
                 <mah:HamburgerMenuItemCollection>
                     <mah:HamburgerMenuImageItem Label="Users" Thumbnail="icons/user.png">
                     </mah:HamburgerMenuImageItem>
                     <mah:HamburgerMenuImageItem Label="Charts" Thumbnail="icons/bar-chart.png"></mah:HamburgerMenuImageItem>
                     <mah:HamburgerMenuImageItem Label="Mortgage calculator" Thumbnail="icons/mortgage.png" >
-                        <mah:HamburgerMenuImageItem.Tag>
+                        <mah:HamburgerMenuImageItem.Tag><!-- Mortgage calculator content-->
                             <Grid >
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition>
@@ -160,6 +163,7 @@
                     </mah:HamburgerMenuImageItem>
                     <mah:HamburgerMenuImageItem Label="Investment calculator" Thumbnail="icons/investment.png">
                         <mah:HamburgerMenuImageItem.Tag>
+                            <!-- Investment calculator content-->
                             <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*"></ColumnDefinition>

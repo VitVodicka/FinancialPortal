@@ -18,18 +18,18 @@ namespace FinancialPortal
         public event PropertyChangedEventHandler PropertyChanged;
         ChartValues<double> investedValues { get; set; }
         ChartValues<double> notInvestedValues { get; set; }
-        public investmentPortal()
+        public investmentPortal()//declaring chartvalues collection
         {
             investedValues = new ChartValues<double>();
             notInvestedValues = new ChartValues<double>();
         }
 
-        public void Onetime(double initialinvest, double yearsinvestment, double expectedreturn)
+        public void Onetime(double initialinvest, double yearsinvestment, double expectedreturn)//calculating according to onetime deposit
         {
-            notInvestedValues.Clear();
+            notInvestedValues.Clear();//clearing charts
             investedValues.Clear();
             double blankReturn;
-            blankReturn = expectedreturn / 100;
+            blankReturn = expectedreturn / 100;//delcaring variables
             double finalpercentage = 0;
 
 
@@ -39,7 +39,7 @@ namespace FinancialPortal
                 if (i == 0)
                 {
                     invested = initialinvest + (initialinvest * blankReturn);
-                    notInvestedValues.Add(0);
+                    notInvestedValues.Add(0);//adding first number
                     investedValues.Add(0);
 
                     investedValues.Add(invested);
@@ -54,7 +54,7 @@ namespace FinancialPortal
 
 
             }
-            finalpercentage = (invested / initialinvest) - 1;
+            finalpercentage = (invested / initialinvest) - 1;//rounding and calculation of the percantage yield
             finalpercentage = finalpercentage * 100;
             finalpercentage = Math.Round(finalpercentage, 2);
 
@@ -70,14 +70,14 @@ namespace FinancialPortal
         }
         public void MonthlyContribution(double initialinvestment, double yearsinvestment, double expectedreturn, double contributionsinput)
         {
-            Yearlycontribution(initialinvestment, yearsinvestment, expectedreturn, (contributionsinput * 12));
+            Yearlycontribution(initialinvestment, yearsinvestment, expectedreturn, (contributionsinput * 12));//it is yearly distirbution but it is *12
         }
         public void Yearlycontribution(double initialinvestment, double yearsinvestment, double expectedreturn, double contributionsinput)
         {
-            notInvestedValues.Clear();
+            notInvestedValues.Clear();//clearing collections
             investedValues.Clear();
 
-            double blankReturn = expectedreturn / 100;
+            double blankReturn = expectedreturn / 100;//declaring variables
             double carryover = 0;
             double interestOf = 0;
             double finalpercentage = 0;
@@ -99,12 +99,12 @@ namespace FinancialPortal
 
 
 
-                    investedValues.Add(initialinvestment);
+                    investedValues.Add(initialinvestment);//adding first number
                     notInvestedValues.Add(initialinvestment);
 
                     notinvestedValueOverYears += contributionsinput;
 
-                    notInvestedValues.Add(Math.Round(notinvestedValueOverYears,2));
+                    notInvestedValues.Add(Math.Round(notinvestedValueOverYears,2));//adding data to collection
                     investedValues.Add(Math.Round(carryover,2));
 
                 }
@@ -114,7 +114,7 @@ namespace FinancialPortal
                     carryover += contributionsinput;
                     carryover += (contributionsinput * blankReturn);
 
-                    notInvestedValues.Add(Math.Round(notinvestedValueOverYears,2));
+                    notInvestedValues.Add(Math.Round(notinvestedValueOverYears,2));//adding data to collection
                     investedValues.Add(Math.Round(carryover,2));
 
                 }
@@ -140,7 +140,7 @@ namespace FinancialPortal
             FinalAmount = Math.Round(carryover, 2);
 
             finalpercentage = (carryover / initialinvestment) - 1;
-            finalpercentage = finalpercentage * 100;
+            finalpercentage = finalpercentage * 100;//rounding and calcutaction of the percantage yield
             finalpercentage = Math.Round(finalpercentage, 2);
 
 
@@ -155,8 +155,8 @@ namespace FinancialPortal
         }
         public void AddingToChart()
         {
-            Chart.SeriesCollection.Clear();
-            Chart.SeriesCollection.Add(new LineSeries
+            Chart.SeriesCollection.Clear();//clearing of the chart
+            Chart.SeriesCollection.Add(new LineSeries//adding data to the seriescollection
             {
                 Title = "Money not invested",
                 Values = notInvestedValues,
@@ -168,7 +168,7 @@ namespace FinancialPortal
             });
         }
 
-        public void Change(string change)
+        public void Change(string change)//changing properties
         {
             if (PropertyChanged != null)
             {
