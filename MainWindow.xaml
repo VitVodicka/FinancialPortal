@@ -108,7 +108,7 @@
                     <mah:HamburgerMenuImageItem Label="Charts" Thumbnail="icons/bar-chart.png"></mah:HamburgerMenuImageItem>
                     <mah:HamburgerMenuImageItem Label="Loan calculator" Thumbnail="icons/mortgage.png" >
                         <mah:HamburgerMenuImageItem.Tag><!-- Mortgage calculator content-->
-                            <Grid >
+                            <Grid Width="700"  Margin="10">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition>
                                         <ColumnDefinition.Width>*</ColumnDefinition.Width>
@@ -168,7 +168,7 @@
                     <mah:HamburgerMenuImageItem Label="Investment calculator" Thumbnail="icons/investment.png">
                         <mah:HamburgerMenuImageItem.Tag>
                             <!-- Investment calculator content-->
-                            <Grid>
+                            <Grid Width="700" Margin="10">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*"></ColumnDefinition>
                                     <ColumnDefinition Width="*"></ColumnDefinition>

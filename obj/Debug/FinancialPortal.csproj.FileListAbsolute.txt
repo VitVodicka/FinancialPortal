@@ -38,3 +38,4 @@ C:\Users\Vít Vodička\source\repos\FinancialPortal\FinancialPortal\bin\Debug\ic
 C:\Users\Vít Vodička\source\repos\FinancialPortal\FinancialPortal\bin\Debug\icons\home.png
 C:\Users\Vít Vodička\source\repos\FinancialPortal\FinancialPortal\bin\Debug\icons\investment.png
 C:\Users\Vít Vodička\source\repos\FinancialPortal\FinancialPortal\bin\Debug\icons\user.png
+C:\Users\Vít Vodička\source\repos\FinancialPortal\FinancialPortal\obj\Debug\FinancialPortal.csproj.SuggestedBindingRedirects.cache
