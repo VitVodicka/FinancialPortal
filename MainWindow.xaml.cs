@@ -39,14 +39,14 @@ namespace FinancialPortal
             DataContext = m;//declaring datacontexts
             Cartesianchart.Series = Chart.SeriesCollection;//adding itemsosurce to the charts
             piechart.Series = Chart.SeriesCollectionPieChart;
-            investgrid.DataContext = invest;
+            investgrid.DataContext = invest;//declaring datacontext for every grid
 
-            mortgageGrid.DataContext = m;
-            
+            mortgageGrid.DataContext = m;//declaring datacontext for every grid
 
-            
-            
-            
+
+
+
+
         }
         private void HamburgerMenuControle(object sender, ItemClickEventArgs e)
         {
@@ -97,22 +97,18 @@ namespace FinancialPortal
                 {
                     if (repaymentperiod.Text == "monthly")
                     {
-                        //DataContext = m;//switching datacontext
                         m.Calculate(double.Parse(loanamount.Text), double.Parse(interestrate.Text), 1, double.Parse(year.Text));//using functions
                     }
                     if (repaymentperiod.Text == "quartely")
                     {
-                        //DataContext = m;//switching datacontext
                         m.Calculate(double.Parse(loanamount.Text), double.Parse(interestrate.Text), 3, double.Parse(year.Text));//using functions
                     }
                     if (repaymentperiod.Text == "half yearly")
                     {
-                        //DataContext = m;//switching datacontext
                         m.Calculate(double.Parse(loanamount.Text), double.Parse(interestrate.Text), 6, double.Parse(year.Text));//using functions
                     }
                     if (repaymentperiod.Text == "yearly")
                     {
-                        //DataContext = m;//switching datacontext
                         m.Calculate(double.Parse(loanamount.Text), double.Parse(interestrate.Text), 12, double.Parse(year.Text));//using functions
                     }
                 }

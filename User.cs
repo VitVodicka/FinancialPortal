@@ -16,8 +16,7 @@ namespace FinancialPortal
         public User(string name, string surname, double moneyStatus, Account account)
         {
             Name = name;
-            Surname = surname;
-            
+            Surname = surname;     
             Account = account;
         }
     }

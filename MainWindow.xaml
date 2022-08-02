@@ -52,7 +52,7 @@
             <mah:HamburgerMenu.ContentTemplate ><!-- displaying content  -->
                 <DataTemplate  DataType="{x:Type mah:HamburgerMenuItem}">
                     <Grid >
-                        <ContentControl Name="ham3" Focusable="False"  Content="{Binding Tag}"></ContentControl>
+                        <ContentControl  Focusable="False"  Content="{Binding Tag}"></ContentControl>
                     </Grid>                    
                 </DataTemplate>
             </mah:HamburgerMenu.ContentTemplate>
@@ -104,6 +104,40 @@
                 <!-- items sources -->
                 <mah:HamburgerMenuItemCollection>
                     <mah:HamburgerMenuImageItem Label="Users" Thumbnail="icons/user.png">
+                        <mah:HamburgerMenuImageItem.Tag>
+                            <Grid Width="700" Name="usergrid">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition></RowDefinition>
+                                    <RowDefinition></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Grid Name="firstusergrid" Grid.Row="0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition></ColumnDefinition>
+                                        <ColumnDefinition></ColumnDefinition>
+                                        <ColumnDefinition></ColumnDefinition>
+                                        <ColumnDefinition></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <Rectangle Grid.Column="0" Grid.ColumnSpan="3" Fill="Orange"></Rectangle>
+                                    <Rectangle Grid.Column="3"  Fill="Red"></Rectangle>
+                                    <Expander>
+                                        
+                                    </Expander>
+                                </Grid>
+                                <Grid Name="secondusergrid" Grid.Row="1">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition></ColumnDefinition>
+                                        <ColumnDefinition></ColumnDefinition>
+                                        <ColumnDefinition></ColumnDefinition>
+                                        <ColumnDefinition></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <Rectangle Grid.Column="0" Grid.ColumnSpan="3" Fill="Orange"></Rectangle>
+                                    <Rectangle Grid.Column="3"  Fill="Red"></Rectangle>
+                                    <Expander>
+
+                                    </Expander>
+                                </Grid>
+                            </Grid>
+                        </mah:HamburgerMenuImageItem.Tag>
                     </mah:HamburgerMenuImageItem>
                     <mah:HamburgerMenuImageItem Label="Charts" Thumbnail="icons/bar-chart.png"></mah:HamburgerMenuImageItem>
                     <mah:HamburgerMenuImageItem Label="Loan calculator" Thumbnail="icons/mortgage.png"  >
