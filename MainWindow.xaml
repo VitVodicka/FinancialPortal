@@ -48,11 +48,11 @@
 
     <Grid ><!--hamburger menu -->
         
-        <mah:HamburgerMenu Name="HamburgerMenu"  HorizontalAlignment="Left" IsPaneOpen="False" DisplayMode="CompactInline" ItemClick="HamburgerMenuControle"   >
-            <mah:HamburgerMenu.ContentTemplate><!-- displaying content  -->
-                <DataTemplate DataType="{x:Type mah:HamburgerMenuItem}">
-                    <Grid>
-                        <ContentControl Focusable="False"  Content="{Binding Tag}"></ContentControl>
+        <mah:HamburgerMenu Name="HamburgerMenu"   HorizontalAlignment="Left" IsPaneOpen="False" DisplayMode="CompactInline" ItemClick="HamburgerMenuControle"   >
+            <mah:HamburgerMenu.ContentTemplate ><!-- displaying content  -->
+                <DataTemplate  DataType="{x:Type mah:HamburgerMenuItem}">
+                    <Grid >
+                        <ContentControl Name="ham3" Focusable="False"  Content="{Binding Tag}"></ContentControl>
                     </Grid>                    
                 </DataTemplate>
             </mah:HamburgerMenu.ContentTemplate>
@@ -106,9 +106,9 @@
                     <mah:HamburgerMenuImageItem Label="Users" Thumbnail="icons/user.png">
                     </mah:HamburgerMenuImageItem>
                     <mah:HamburgerMenuImageItem Label="Charts" Thumbnail="icons/bar-chart.png"></mah:HamburgerMenuImageItem>
-                    <mah:HamburgerMenuImageItem Label="Loan calculator" Thumbnail="icons/mortgage.png" >
+                    <mah:HamburgerMenuImageItem Label="Loan calculator" Thumbnail="icons/mortgage.png"  >
                         <mah:HamburgerMenuImageItem.Tag><!-- Mortgage calculator content-->
-                            <Grid Width="700"  Margin="10">
+                            <Grid Width="700"  Margin="10" Name="mortgageGrid">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition>
                                         <ColumnDefinition.Width>*</ColumnDefinition.Width>
@@ -165,10 +165,10 @@
                             </Grid>
                         </mah:HamburgerMenuImageItem.Tag>
                     </mah:HamburgerMenuImageItem>
-                    <mah:HamburgerMenuImageItem Label="Investment calculator" Thumbnail="icons/investment.png">
+                    <mah:HamburgerMenuImageItem  Label="Investment calculator" Thumbnail="icons/investment.png">
                         <mah:HamburgerMenuImageItem.Tag>
                             <!-- Investment calculator content-->
-                            <Grid Width="700" Margin="10">
+                            <Grid Width="700" Margin="10" Name="investgrid">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*"></ColumnDefinition>
                                     <ColumnDefinition Width="*"></ColumnDefinition>

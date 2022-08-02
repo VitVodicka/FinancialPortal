@@ -39,6 +39,9 @@ namespace FinancialPortal
             DataContext = m;//declaring datacontexts
             Cartesianchart.Series = Chart.SeriesCollection;//adding itemsosurce to the charts
             piechart.Series = Chart.SeriesCollectionPieChart;
+            investgrid.DataContext = invest;
+
+            mortgageGrid.DataContext = m;
             
 
             
@@ -94,22 +97,22 @@ namespace FinancialPortal
                 {
                     if (repaymentperiod.Text == "monthly")
                     {
-                        DataContext = m;//switching datacontext
+                        //DataContext = m;//switching datacontext
                         m.Calculate(double.Parse(loanamount.Text), double.Parse(interestrate.Text), 1, double.Parse(year.Text));//using functions
                     }
                     if (repaymentperiod.Text == "quartely")
                     {
-                        DataContext = m;//switching datacontext
+                        //DataContext = m;//switching datacontext
                         m.Calculate(double.Parse(loanamount.Text), double.Parse(interestrate.Text), 3, double.Parse(year.Text));//using functions
                     }
                     if (repaymentperiod.Text == "half yearly")
                     {
-                        DataContext = m;//switching datacontext
+                        //DataContext = m;//switching datacontext
                         m.Calculate(double.Parse(loanamount.Text), double.Parse(interestrate.Text), 6, double.Parse(year.Text));//using functions
                     }
                     if (repaymentperiod.Text == "yearly")
                     {
-                        DataContext = m;//switching datacontext
+                        //DataContext = m;//switching datacontext
                         m.Calculate(double.Parse(loanamount.Text), double.Parse(interestrate.Text), 12, double.Parse(year.Text));//using functions
                     }
                 }
@@ -159,7 +162,7 @@ namespace FinancialPortal
                     {
                         if (onetime.IsChecked == true)
                         {
-                            DataContext = invest;//switching datacontexts
+                            //DataContext = new investmentPortal();//switching datacontexts
                             invest.Onetime(double.Parse(initialinvestment.Text), double.Parse(yearsinvestement.Text), double.Parse(expectedreturn.Text));
                         }
                     }
@@ -176,7 +179,7 @@ namespace FinancialPortal
                         {
                             if ((regex.IsMatch(contributionsinput.Text) == false) && (contributionsinput.Text) != null)
                             {
-                                DataContext = invest;//switching datacontexts
+                                //DataContext = new investmentPortal();//switching datacontexts
                                 invest.MonthlyContribution(double.Parse(initialinvestment.Text), double.Parse(yearsinvestement.Text), double.Parse(expectedreturn.Text), double.Parse(contributionsinput.Text));
                             }
                         }
@@ -191,7 +194,7 @@ namespace FinancialPortal
                         {
                             if ((regex.IsMatch(contributionsinput.Text) == false) && (contributionsinput.Text) != null)
                             {
-                                DataContext = invest;//switching datacontexts
+                                //DataContext = new investmentPortal();//switching datacontexts
                                 invest.Yearlycontribution(double.Parse(initialinvestment.Text), double.Parse(yearsinvestement.Text), double.Parse(expectedreturn.Text), double.Parse(contributionsinput.Text));
                             }
                         }
