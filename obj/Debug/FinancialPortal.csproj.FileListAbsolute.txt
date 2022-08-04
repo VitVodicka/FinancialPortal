@@ -38,4 +38,13 @@ C:\Users\Vít Vodička\source\repos\FinancialPortal\FinancialPortal\bin\Debug\ic
 C:\Users\Vít Vodička\source\repos\FinancialPortal\FinancialPortal\bin\Debug\icons\home.png
 C:\Users\Vít Vodička\source\repos\FinancialPortal\FinancialPortal\bin\Debug\icons\investment.png
 C:\Users\Vít Vodička\source\repos\FinancialPortal\FinancialPortal\bin\Debug\icons\user.png
-C:\Users\Vít Vodička\source\repos\FinancialPortal\FinancialPortal\obj\Debug\FinancialPortal.csproj.SuggestedBindingRedirects.cache
+C:\Users\Vít Vodička\source\repos\FinancialPortal\FinancialPortal\bin\Debug\Database.mdf
+C:\Users\Vít Vodička\source\repos\FinancialPortal\FinancialPortal\bin\Debug\Database_log.ldf
+C:\Users\Vít Vodička\source\repos\FinancialPortal\FinancialPortal\obj\Debug\DatabasePages\AddUser.g.cs
+C:\Users\Vít Vodička\source\repos\FinancialPortal\FinancialPortal\obj\Debug\DatabasePages\CreateAccount.g.cs
+C:\Users\Vít Vodička\source\repos\FinancialPortal\FinancialPortal\obj\Debug\DatabasePages\UpdateAccount.g.cs
+C:\Users\Vít Vodička\source\repos\FinancialPortal\FinancialPortal\obj\Debug\DatabasePages\UpdateUser.g.cs
+C:\Users\Vít Vodička\source\repos\FinancialPortal\FinancialPortal\obj\Debug\DatabasePages\AddUser.baml
+C:\Users\Vít Vodička\source\repos\FinancialPortal\FinancialPortal\obj\Debug\DatabasePages\CreateAccount.baml
+C:\Users\Vít Vodička\source\repos\FinancialPortal\FinancialPortal\obj\Debug\DatabasePages\UpdateAccount.baml
+C:\Users\Vít Vodička\source\repos\FinancialPortal\FinancialPortal\obj\Debug\DatabasePages\UpdateUser.baml

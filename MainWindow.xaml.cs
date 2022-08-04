@@ -18,6 +18,7 @@ using LiveCharts;
 using LiveCharts.Wpf;
 using System.Text.RegularExpressions;
 using System.Collections.ObjectModel;
+using FinancialPortal.DatabasePages;
 
 namespace FinancialPortal
 {
@@ -54,7 +55,29 @@ namespace FinancialPortal
             HamburgerMenu.SetCurrentValue(HamburgerMenu.IsPaneOpenProperty, false);//setting values to the hamburgermenu, and closing hamburgermenu after selection
             
         }
-
+        private void AddUserClick(object sender, RoutedEventArgs e)
+        {
+            AddUser a = new AddUser();
+            a.Show();
+            
+            
+        }
+        private void UpdateUserClick(object sender, RoutedEventArgs e)
+        {
+            UpdateUser up = new UpdateUser();
+            up.Show();
+        }
+        private void AddAccountClick(object sender, RoutedEventArgs e)
+        {
+            CreateAccount cr = new CreateAccount();
+            
+            cr.Show();
+        }
+        private void UpdateAccountClick(object sender, RoutedEventArgs e)
+        {
+            UpdateAccount up = new UpdateAccount();
+            up.Show();
+        }
 
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
