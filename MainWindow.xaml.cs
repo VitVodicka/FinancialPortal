@@ -19,6 +19,7 @@ using LiveCharts.Wpf;
 using System.Text.RegularExpressions;
 using System.Collections.ObjectModel;
 using FinancialPortal.DatabasePages;
+using System.Data.SqlClient;
 
 namespace FinancialPortal
 {
@@ -32,8 +33,14 @@ namespace FinancialPortal
         investmentPortal invest = new investmentPortal();
         
         
+        
 
-        public MainWindow()
+
+
+
+
+
+public MainWindow()
         {
             InitializeComponent();
             
@@ -43,6 +50,22 @@ namespace FinancialPortal
             investgrid.DataContext = invest;//declaring datacontext for every grid
 
             mortgageGrid.DataContext = m;//declaring datacontext for every grid
+            
+
+            try
+            {
+                using (SqlConnection s = new SqlConnection(@"Data Source = (LocalDB)\MSSQLLocalDB ; Integrated Security = True"))
+                {
+                    s.Open();
+                    MessageBox.Show("Working");
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+
+            //Data Source = (LocalDB)\MSSQLLocalDB;AttachDbFilename="C:\Users\Vít Vodička\source\repos\FinancialPortal\FinancialPortal\Database.mdf";Integrated Security = True
 
 
 
@@ -70,8 +93,9 @@ namespace FinancialPortal
         private void AddAccountClick(object sender, RoutedEventArgs e)
         {
             CreateAccount cr = new CreateAccount();
+
             
-            cr.Show();
+            //cr.Show();
         }
         private void UpdateAccountClick(object sender, RoutedEventArgs e)
         {
