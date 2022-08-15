@@ -48,3 +48,4 @@ C:\Users\Vít Vodička\source\repos\FinancialPortal\FinancialPortal\obj\Debug\Da
 C:\Users\Vít Vodička\source\repos\FinancialPortal\FinancialPortal\obj\Debug\DatabasePages\CreateAccount.baml
 C:\Users\Vít Vodička\source\repos\FinancialPortal\FinancialPortal\obj\Debug\DatabasePages\UpdateAccount.baml
 C:\Users\Vít Vodička\source\repos\FinancialPortal\FinancialPortal\obj\Debug\DatabasePages\UpdateUser.baml
+C:\Users\Vít Vodička\source\repos\FinancialPortal\FinancialPortal\obj\Debug\FinancialPortal.csproj.SuggestedBindingRedirects.cache

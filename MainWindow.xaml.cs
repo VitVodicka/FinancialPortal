@@ -31,6 +31,7 @@ namespace FinancialPortal
         Mortgage m = new Mortgage();
         Chart chare = new Chart();//creating classes
         investmentPortal invest = new investmentPortal();
+        Database dat = new Database();
         
         
         
@@ -51,21 +52,12 @@ public MainWindow()
 
             mortgageGrid.DataContext = m;//declaring datacontext for every grid
             
+            dat.DataBaseConnection();
+            
 
-            try
-            {
-                using (SqlConnection s = new SqlConnection(@"Data Source = (LocalDB)\MSSQLLocalDB ; Integrated Security = True"))
-                {
-                    s.Open();
-                    MessageBox.Show("Working");
-                }
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show(e.Message);
-            }
 
-            //Data Source = (LocalDB)\MSSQLLocalDB;AttachDbFilename="C:\Users\Vít Vodička\source\repos\FinancialPortal\FinancialPortal\Database.mdf";Integrated Security = True
+
+
 
 
 
