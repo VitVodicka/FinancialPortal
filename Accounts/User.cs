@@ -9,17 +9,17 @@ namespace FinancialPortal
     internal class User
     {
         public string Name { get; set; }
-        public int Id { get; set; }
+        public int IdUser { get; set; }
         public string Surname { get; set; }
         
-        public string Account { get; set; }
+        
 
-        public User(int id,string name, string surname, string account)
+        public User(int id,string name, string surname)
         {
-            Id = id;
+            IdUser = id;
             Name = name;
             Surname = surname;     
-            Account = account;
+            
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MahApps.Metro.Controls;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,7 +18,7 @@ namespace FinancialPortal.DatabasePages
     /// <summary>
     /// Interakční logika pro UpdateUser.xaml
     /// </summary>
-    public partial class UpdateUser : Window
+    public partial class UpdateUser : MetroWindow
     {
         public UpdateUser()
         {

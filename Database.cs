@@ -30,7 +30,7 @@ namespace FinancialPortal
             List<User> users = new List<User>();
             try { 
             SqlDataReader datareader;
-            string  Name, Surname, Account;
+            string  Name, Surname;
             int Id;
 
             SqlCommand command = new SqlCommand();
@@ -42,8 +42,7 @@ namespace FinancialPortal
                     Id = int.Parse(datareader["Id"].ToString());
                     Name= datareader["Name"].ToString();
                     Surname = datareader["Surname"].ToString();
-                    Account = datareader["Account"].ToString();
-                    User u = new User(Id, Name, Surname, Account);
+                    User u = new User(Id, Name, Surname);
                     users.Add(u);
 
                 
@@ -55,6 +54,22 @@ namespace FinancialPortal
                 
             }
             return users;
+        }
+        public void AddingUser(int UserId, string Name, string Surname)
+        {
+
+        }
+        public void UpdateUser(string parameter)
+        {
+
+        }
+        public void AddingAccount(int AccountId, string Name, float moneyStatus, int UserId)
+        {
+
+        }
+        public void UpdateAccount(string parameter)
+        {
+
         }
     }
 }

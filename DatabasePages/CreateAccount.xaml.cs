@@ -18,7 +18,7 @@ namespace FinancialPortal.DatabasePages
     /// <summary>
     /// Interakční logika pro CreateAccount.xaml
     /// </summary>
-    public partial class CreateAccount : Window
+    public partial class CreateAccount : MetroWindow
     {
         public CreateAccount()
         {

@@ -53,6 +53,8 @@ public MainWindow()
             mortgageGrid.DataContext = m;//declaring datacontext for every grid
             
             dat.DataBaseConnection();
+            new AddUser().ShowDialog();
+                
             
 
 
@@ -72,27 +74,25 @@ public MainWindow()
         }
         private void AddUserClick(object sender, RoutedEventArgs e)
         {
-            AddUser a = new AddUser();
-            a.Show();
+            new AddUser().ShowDialog();
             
             
         }
         private void UpdateUserClick(object sender, RoutedEventArgs e)
         {
-            UpdateUser up = new UpdateUser();
-            up.Show();
+            new UpdateUser().ShowDialog();
         }
         private void AddAccountClick(object sender, RoutedEventArgs e)
         {
-            CreateAccount cr = new CreateAccount();
+            new CreateAccount().Show();
+            
 
             
             //cr.Show();
         }
         private void UpdateAccountClick(object sender, RoutedEventArgs e)
         {
-            UpdateAccount up = new UpdateAccount();
-            up.Show();
+            new UpdateAccount().ShowDialog();
         }
 
 

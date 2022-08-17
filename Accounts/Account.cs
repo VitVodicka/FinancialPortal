@@ -8,18 +8,18 @@ using System.Threading.Tasks;
 
 namespace FinancialPortal
 {
-    internal class Account:INotifyPropertyChanged
+    internal class Account
     {
-        public double MoneyStatus { get; set; }
+        public int IDAccount { get; set; }
         public string Name { get; set; }
-
-        public ObservableCollection<double> TransferHistory { get; set; }
+        public ObservableCollection<float> MoneyStatus { get; set; }
+        public int UserId { get; set; }
         public Account()
         {
-            TransferHistory = new ObservableCollection<double>();
+            MoneyStatus = new ObservableCollection<float>();
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
+        
     }
 
 }
