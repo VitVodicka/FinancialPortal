@@ -6,8 +6,57 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FinancialPortal.DatabasePages"
         mc:Ignorable="d"
-        Title="UpdateAccount" Height="450" Width="800">
+        Title="Update Account" Height="450" Width="700">
+    <Window.Resources>
+
+        <Style x:Key="textblock" TargetType="{x:Type TextBlock}">
+            <Setter Property="FontSize" Value="30"></Setter>
+            <Setter Property="FontWeight" Value="Bold"></Setter>
+            <Setter Property="HorizontalAlignment" Value="Left"></Setter>
+
+            <Setter Property="Margin" Value="10"></Setter>
+            <Setter Property="FontFamily" Value="Bebas Neue"></Setter>
+        </Style>
+        <Style x:Key="Textbox" TargetType="{x:Type TextBox}">
+            <Setter Property="Background" Value="Red" />
+            <Setter Property="Foreground" Value="White"></Setter>
+            <Setter Property="Height" Value="40"></Setter>
+            <Setter Property="Width" Value="180"></Setter>
+            <Setter Property="Margin" Value="5"></Setter>
+            <Setter Property="FontSize" Value="20"></Setter>
+            <Setter Property="FontFamily" Value="Bebas Neue"></Setter>
+            <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
+
+        </Style>
+    </Window.Resources>
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="334*"></RowDefinition>
+            <RowDefinition Height="97*"></RowDefinition>
+            <RowDefinition Height="103*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <DataGrid Grid.Row="0" Grid.ColumnSpan="2">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Name" Width="150"></DataGridTextColumn>
+                <DataGridTextColumn Header="Money status" Width="250"></DataGridTextColumn>
+                <DataGridTextColumn Header="User" Width="150"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <StackPanel Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal" Height="59" Width="301">
+            <TextBlock Text="Change:" Style="{StaticResource textblock}"></TextBlock>
+            <ComboBox Width="200">
+                <ComboBoxItem Content="Name"></ComboBoxItem>
+                <ComboBoxItem Content="User"></ComboBoxItem>
+            </ComboBox>
+        </StackPanel>
+        <StackPanel Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Left" Orientation="Horizontal" Height="50" Width="210">
+
+            <TextBox Style="{StaticResource Textbox}" HorizontalAlignment="Left" Width="200" ></TextBox>
+        </StackPanel>
+        <Button Grid.Column="0" VerticalAlignment="Center" Grid.Row="2" Grid.ColumnSpan="2" HorizontalAlignment="Center" FontSize="25" Content="Change"  ></Button>
     </Grid>
 </mah:MetroWindow>

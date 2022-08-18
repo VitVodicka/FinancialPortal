@@ -55,17 +55,57 @@ namespace FinancialPortal
             }
             return users;
         }
-        public void AddingUser(int UserId, string Name, string Surname)
+        public string AddingUser( string Name, string Surname)
         {
+            DataBaseConnection();
+            int line;
+            try { 
+            string command = "INSERT INTO [User](Name,Surname) VALUES(@Name,@Surname)";
+                using (SqlCommand sq = new SqlCommand(command,connection)) {
+           
+                 sq.Parameters.AddWithValue("@Name",Name);
+                 sq.Parameters.AddWithValue("@Surname",Surname);
+                 line =sq.ExecuteNonQuery();
+                   
+                }
+                return line.ToString();
+                
+            }
+            catch(Exception e)
+            {
+                
+                return e.Message;
+            }
 
         }
         public void UpdateUser(string parameter)
         {
 
         }
-        public void AddingAccount(int AccountId, string Name, float moneyStatus, int UserId)
+        public string AddingAccount(string Name, string moneyStatus, string UserId)
         {
+            DataBaseConnection();
+            int line;
+            try
+            {
+                string command = "INSERT INTO [Account](Name,MoneyStatus,UserId) VALUES(@Name,@MoneyStatus,@UserId)";
+                using (SqlCommand sq = new SqlCommand(command, connection))
+                {
 
+                    sq.Parameters.AddWithValue("@Name", Name);
+                    sq.Parameters.AddWithValue("@MoneyStatus",moneyStatus);
+                    sq.Parameters.AddWithValue("@UserId", UserId);
+                    line = sq.ExecuteNonQuery();
+
+                }
+                return line.ToString();
+
+            }
+            catch (Exception e)
+            {
+
+                return e.Message;
+            }
         }
         public void UpdateAccount(string parameter)
         {

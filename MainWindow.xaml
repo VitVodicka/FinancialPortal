@@ -13,7 +13,7 @@
     
     <mah:MetroWindow.LeftWindowCommands>
         <mah:WindowCommands>
-            <Button Content="Load info" FontFamily="Bebas Neue" ></Button>
+           
             <Button Content="Add new account" FontFamily="Bebas Neue" Click="AddAccountClick"></Button>
             <Button Content="Update accounts" FontFamily="Bebas Neue" Click="UpdateAccountClick"></Button>
             <Button Content="Move money" FontFamily="Bebas Neue"></Button>

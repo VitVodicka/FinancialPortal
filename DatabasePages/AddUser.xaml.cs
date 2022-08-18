@@ -20,9 +20,20 @@ namespace FinancialPortal.DatabasePages
     /// </summary>
     public partial class AddUser : MetroWindow
     {
+        Database d = new Database();
         public AddUser()
         {
             InitializeComponent();
+        }
+
+        
+
+        private void USER_ADD_CLICK(object sender, RoutedEventArgs e)
+        {
+      
+            MessageBox.Show(d.AddingUser(UserName.Text, Surname.Text));
+            
+            
         }
     }
 }

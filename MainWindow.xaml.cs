@@ -53,7 +53,7 @@ public MainWindow()
             mortgageGrid.DataContext = m;//declaring datacontext for every grid
             
             dat.DataBaseConnection();
-            new AddUser().ShowDialog();
+           
                 
             
 
@@ -84,7 +84,7 @@ public MainWindow()
         }
         private void AddAccountClick(object sender, RoutedEventArgs e)
         {
-            new CreateAccount().Show();
+            new CreateAccount().ShowDialog();
             
 
             
