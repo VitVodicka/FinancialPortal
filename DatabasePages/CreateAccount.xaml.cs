@@ -20,9 +20,15 @@ namespace FinancialPortal.DatabasePages
     /// </summary>
     public partial class CreateAccount : MetroWindow
     {
+        Database d = new Database();
         public CreateAccount()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show(d.AddingAccount(name.Text,deposit.Text,users.SelectedIndex.ToString()));//type of account needs to be fillled
         }
     }
 }

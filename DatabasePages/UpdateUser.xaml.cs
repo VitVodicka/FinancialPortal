@@ -20,9 +20,24 @@ namespace FinancialPortal.DatabasePages
     /// </summary>
     public partial class UpdateUser : MetroWindow
     {
+        
         public UpdateUser()
         {
             InitializeComponent();
+        }
+
+
+
+        private void UserUpdate_Click(object sender, RoutedEventArgs e)
+        {
+            if (changebutton.Text == "Name")
+            {
+                new Database().UpdateUser("Name", input.Text, dataGrid.SelectedIndex);
+            }
+            if (changebutton.Text == "Surname")
+            {
+                new Database().UpdateUser("Surname", input.Text, dataGrid.SelectedIndex);
+            }
         }
     }
 }

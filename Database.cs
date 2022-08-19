@@ -9,6 +9,7 @@ namespace FinancialPortal
 {
     internal class Database
     {
+
         SqlConnection connection;
         public void DataBaseConnection()
         {
@@ -27,6 +28,7 @@ namespace FinancialPortal
         }
         public List<User> DataBaseReadUser(string comText)
         {
+            DataBaseConnection();
             List<User> users = new List<User>();
             try { 
             SqlDataReader datareader;
@@ -78,9 +80,45 @@ namespace FinancialPortal
             }
 
         }
-        public void UpdateUser(string parameter)
+        public string UpdateUser(string parameter, string value,int id)
         {
+            DataBaseConnection();
+            try
+            {
+                if(parameter == "Name")
+                {
+                    string command = "UPDATE [User] SET Name=@Name WHERE UserId=@UserId";
+                    using(SqlCommand sq = new SqlCommand(command, connection))
+                    {
+                        sq.Parameters.AddWithValue("@Name",value);
+                        sq.Parameters.AddWithValue("UserId",id);
+                        int line = sq.ExecuteNonQuery();
+                        return line.ToString();
+                    }
+                }
+                if (parameter == "Surname")
+                {
+                    string command = "UPDATE [User] SET Surname=@Surname WHERE UserId=@UserId";
+                    using (SqlCommand sq = new SqlCommand(command, connection))
+                    {
+                        sq.Parameters.AddWithValue("@Surname", value);
+                        sq.Parameters.AddWithValue("UserId", id);
+                        int line = sq.ExecuteNonQuery();
+                        return line.ToString();
 
+                    }
+                }
+                else
+                {
+                    return "Not found";
+                }
+
+
+            }
+            catch(Exception e)
+            {
+                return e.Message;
+            }
         }
         public string AddingAccount(string Name, string moneyStatus, string UserId)
         {
@@ -107,9 +145,9 @@ namespace FinancialPortal
                 return e.Message;
             }
         }
-        public void UpdateAccount(string parameter)
+        public void UpdateAccount(string parameter, string value)
         {
-
+            DataBaseConnection();
         }
     }
 }
