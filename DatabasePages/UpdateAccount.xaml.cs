@@ -24,5 +24,12 @@ namespace FinancialPortal.DatabasePages
         {
             InitializeComponent();
         }
+
+        
+
+        private void UppdateAccount_click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

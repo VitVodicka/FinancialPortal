@@ -120,19 +120,20 @@ namespace FinancialPortal
                 return e.Message;
             }
         }
-        public string AddingAccount(string Name, string moneyStatus, string UserId)
+        public string AddingAccount(string Name, string moneyStatus, string UserId, string Type)
         {
             DataBaseConnection();
             int line;
             try
             {
-                string command = "INSERT INTO [Account](Name,MoneyStatus,UserId) VALUES(@Name,@MoneyStatus,@UserId)";
+                string command = "INSERT INTO [Account](Name,MoneyStatus,UserId,Type) VALUES(@Name,@MoneyStatus,@UserId,@Type)";
                 using (SqlCommand sq = new SqlCommand(command, connection))
                 {
 
                     sq.Parameters.AddWithValue("@Name", Name);
                     sq.Parameters.AddWithValue("@MoneyStatus",moneyStatus);
                     sq.Parameters.AddWithValue("@UserId", UserId);
+                    sq.Parameters.AddWithValue("@Type", Type);
                     line = sq.ExecuteNonQuery();
 
                 }
