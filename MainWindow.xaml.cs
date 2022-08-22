@@ -82,6 +82,10 @@ public MainWindow()
         {
             new UpdateUser().ShowDialog();
         }
+        private void MoveMoneyClick(object sender, RoutedEventArgs e)
+        {
+            new MovePage().ShowDialog();
+        }
         private void AddAccountClick(object sender, RoutedEventArgs e)
         {
             new CreateAccount().ShowDialog();

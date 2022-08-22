@@ -16,7 +16,7 @@
            
             <Button Content="Add new account" FontFamily="Bebas Neue" Click="AddAccountClick"></Button>
             <Button Content="Update accounts" FontFamily="Bebas Neue" Click="UpdateAccountClick"></Button>
-            <Button Content="Move money" FontFamily="Bebas Neue"></Button>
+            <Button Content="Move money" FontFamily="Bebas Neue" Click="MoveMoneyClick"></Button>
             <Button Content="Add user" FontFamily="Bebas Neue" Click="AddUserClick"></Button>
             <Button Content="Update users" FontFamily="Bebas Neue" Click="UpdateUserClick"></Button>
         </mah:WindowCommands>
