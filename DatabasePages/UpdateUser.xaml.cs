@@ -20,7 +20,7 @@ namespace FinancialPortal.DatabasePages
     /// </summary>
     public partial class UpdateUser : MetroWindow
     {
-        
+        Database d = new Database();
         public UpdateUser()
         {
             InitializeComponent();
@@ -32,11 +32,11 @@ namespace FinancialPortal.DatabasePages
         {
             if (changebutton.Text == "Name")
             {
-                new Database().UpdateUser("Name", input.Text, dataGrid.SelectedIndex);
+                MessageBox.Show(d.UpdateUser("Name", input.Text, dataGrid.SelectedIndex));
             }
             if (changebutton.Text == "Surname")
             {
-                new Database().UpdateUser("Surname", input.Text, dataGrid.SelectedIndex);
+                MessageBox.Show(d.UpdateUser("Surname", input.Text, dataGrid.SelectedIndex));
             }
         }
     }

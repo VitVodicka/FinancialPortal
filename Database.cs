@@ -146,9 +146,69 @@ namespace FinancialPortal
                 return e.Message;
             }
         }
-        public void UpdateAccount(string parameter, string value)
+        public string UpdateAccount(string parameter, string value, int id)
         {
             DataBaseConnection();
+            try
+            {
+                if (parameter == "Name")
+                {
+                    string command = "UPDATE [Account] SET Name=@Name WHERE UserId=@UserId";
+                    using (SqlCommand sq = new SqlCommand(command, connection))
+                    {
+                        sq.Parameters.AddWithValue("@Name", value);
+                        sq.Parameters.AddWithValue("UserId", id);
+                        int line = sq.ExecuteNonQuery();
+                        return line.ToString();
+                    }
+                }
+                if (parameter == "User")
+                {
+                    string command = "UPDATE [Account] SET User=@User WHERE UserId=@UserId";
+                    using (SqlCommand sq = new SqlCommand(command, connection))
+                    {
+                        sq.Parameters.AddWithValue("@User", value);
+                        sq.Parameters.AddWithValue("UserId", id);
+                        int line = sq.ExecuteNonQuery();
+                        return line.ToString();
+
+                    }
+                }
+                if (parameter == "Type")
+                {
+                    string command = "UPDATE [Account] SET Type=@Type WHERE UserId=@UserId";
+                    using (SqlCommand sq = new SqlCommand(command, connection))
+                    {
+                        sq.Parameters.AddWithValue("@Type", value);
+                        sq.Parameters.AddWithValue("UserId", id);
+                        int line = sq.ExecuteNonQuery();
+                        return line.ToString();
+
+                    }
+                }
+                if (parameter == "MoneyStatus")
+                {
+                    string command = "UPDATE [Account] SET MoneyStatus=@MoneyStatus WHERE UserId=@UserId";
+                    using (SqlCommand sq = new SqlCommand(command, connection))
+                    {
+                        sq.Parameters.AddWithValue("@MoneyStatus", value);
+                        sq.Parameters.AddWithValue("UserId", id);
+                        int line = sq.ExecuteNonQuery();
+                        return line.ToString();
+
+                    }
+                }
+                else
+                {
+                    return "Not found";
+                }
+
+
+            }
+            catch (Exception e)
+            {
+                return e.Message;
+            }
         }
     }
 }
