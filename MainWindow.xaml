@@ -108,7 +108,7 @@
                 <mah:HamburgerMenuItemCollection>
                     <mah:HamburgerMenuImageItem Label="Users" Thumbnail="icons/user.png">
                         <mah:HamburgerMenuImageItem.Tag>
-                            <Grid Width="700" Name="usergrid">
+                            <Grid Name="usergrid">
                                 <Grid.RowDefinitions>
                                     <RowDefinition></RowDefinition>
                                     <RowDefinition></RowDefinition>
