@@ -11,6 +11,9 @@ namespace FinancialPortal
     {
 
         SqlConnection connection;
+        SqlCommand command;
+        SqlDataReader datareader;
+        string sql;
         public void DataBaseConnection()
         {
             try {
@@ -31,20 +34,18 @@ namespace FinancialPortal
             DataBaseConnection();
             List<User> users = new List<User>();
             try { 
-            SqlDataReader datareader;
+            
             string  Name, Surname;
-            int Id;
 
-            SqlCommand command = new SqlCommand();
-            command.CommandText = comText;
-            command.Connection = connection;
+             sql = "SELECT Name,Surname FROM [User]"
+            command = new SqlCommand();
+            
             datareader = command.ExecuteReader();
             while (datareader.Read())
             {
-                    Id = int.Parse(datareader["Id"].ToString());
-                    Name= datareader["Name"].ToString();
-                    Surname = datareader["Surname"].ToString();
-                    User u = new User(Id, Name, Surname);
+                    Name= datareader.GetValue(0).ToString();
+                    Surname = datareader.GetValue(0).ToString();
+                    User u = new User(Name, Surname);
                     users.Add(u);
 
                 
@@ -55,10 +56,11 @@ namespace FinancialPortal
             {
                 
             }
+            connection.Close();
             return users;
         }
-        public string AddingUser( string Name, string Surname)
-        {
+        public void AddingUser( string Name, string Surname)
+        {//needs to put some class intoparametrs
             DataBaseConnection();
             int line;
             try { 
@@ -70,7 +72,7 @@ namespace FinancialPortal
                  line =sq.ExecuteNonQuery();
                    
                 }
-                return line.ToString();
+                
                 
             }
             catch(Exception e)
@@ -78,7 +80,7 @@ namespace FinancialPortal
                 
                 return e.Message;
             }
-
+            connection.Close();
         }
         public string UpdateUser(string parameter, string value,int id)
         {
@@ -119,6 +121,7 @@ namespace FinancialPortal
             {
                 return e.Message;
             }
+            connection.Close();
         }
         public string AddingAccount(string Name, string moneyStatus, string UserId, string Type)
         {
@@ -145,6 +148,7 @@ namespace FinancialPortal
 
                 return e.Message;
             }
+            connection.Close();
         }
         public string UpdateAccount(string parameter, string value, int id)
         {
@@ -209,6 +213,7 @@ namespace FinancialPortal
             {
                 return e.Message;
             }
+            connection.Close();
         }
     }
 }

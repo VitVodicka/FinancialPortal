@@ -32,6 +32,7 @@ namespace FinancialPortal.DatabasePages
         {
       
             MessageBox.Show(d.AddingUser(UserName.Text, Surname.Text));
+            this.Close();
             
             
         }
