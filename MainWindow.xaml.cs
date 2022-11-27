@@ -52,7 +52,7 @@ public MainWindow()
 
             mortgageGrid.DataContext = m;//declaring datacontext for every grid
             
-            dat.DataBaseConnection();
+            //dat.DataBaseConnection();
            
                 
             

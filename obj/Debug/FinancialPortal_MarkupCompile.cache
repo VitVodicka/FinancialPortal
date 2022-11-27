@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-C:\Users\xvodick6\source\repos\FinancialPortal\obj\Debug\
+C:\Users\Vít Vodička\source\repos\FinancialPortal\FinancialPortal\obj\Debug\
 FinancialPortal
 none
 false
 DEBUG;TRACE
-C:\Users\xvodick6\source\repos\FinancialPortal\App.xaml
-61791145514
-81865996490
-17896916574
-22-121415981
+C:\Users\Vít Vodička\source\repos\FinancialPortal\FinancialPortal\App.xaml
+6-1129320599
+81674036658
+17205208971
+22-303921730
 DatabasePages\AddUser.xaml;DatabasePages\CreateAccount.xaml;DatabasePages\MovePage.xaml;DatabasePages\UpdateAccount.xaml;DatabasePages\UpdateUser.xaml;MainWindow.xaml;
 
 True

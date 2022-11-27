@@ -37,7 +37,7 @@ namespace FinancialPortal
             
             string  Name, Surname;
 
-             sql = "SELECT Name,Surname FROM [User]"
+                sql = "SELECT Name,Surname FROM [User]";
             command = new SqlCommand();
             
             datareader = command.ExecuteReader();
