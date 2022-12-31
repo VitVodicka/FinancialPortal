@@ -25,6 +25,23 @@ namespace FinancialPortal.Accounts
         {
             AccountListObservable.Add(u);
         }
+        public void UpdateUser(int id, string valueToChange, string content)
+        {
+            foreach(User u in UserListObservable)
+            {
+                if (u.Id == id)
+                {
+                    if(valueToChange == u.Name)
+                    {
+                        u.Name = content;
+                    }
+                    if(valueToChange == u.Surname)
+                    {
+                        u.Surname = content;
+                    }
+                }
+            }
+        }
 
 
     }

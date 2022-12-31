@@ -1,4 +1,5 @@
-﻿using MahApps.Metro.Controls;
+﻿using FinancialPortal.Accounts;
+using MahApps.Metro.Controls;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,23 +21,24 @@ namespace FinancialPortal.DatabasePages
     /// </summary>
     public partial class UpdateUser : MetroWindow
     {
-        Database d = new Database();
+        //Database d = new Database();
+        Controller control = new Controller();
         public UpdateUser()
         {
             InitializeComponent();
         }
 
-
-
         private void UserUpdate_Click(object sender, RoutedEventArgs e)
         {
             if (changebutton.Text == "Name")
             {
-                MessageBox.Show(d.UpdateUser("Name", input.Text, dataGrid.SelectedIndex));
+                control.UpdateUser(dataGrid.SelectedIndex, "Name", input.Text);
+                //MessageBox.Show(d.UpdateUser("Name", input.Text, dataGrid.SelectedIndex));
             }
             if (changebutton.Text == "Surname")
             {
-                MessageBox.Show(d.UpdateUser("Surname", input.Text, dataGrid.SelectedIndex));
+                control.UpdateUser(dataGrid.SelectedIndex, "Surname", input.Text);
+                //MessageBox.Show(d.UpdateUser("Surname", input.Text, dataGrid.SelectedIndex));
             }
         }
     }
