@@ -11,6 +11,7 @@ namespace FinancialPortal.DatabasePages
     {
         //Database d = new Database();
         Controller control = new Controller();
+        Account account;
         public CreateAccount()
         {
             InitializeComponent();
@@ -22,12 +23,16 @@ namespace FinancialPortal.DatabasePages
             {
 
 
-                Account account = new Account(name.Text, float.Parse(deposit.Text), users.SelectedIndex, "Current account");
+                account = new Account(name.Text, float.Parse(deposit.Text), users.SelectedIndex, "Current account");
+                control.AddAccount(account);
+                this.Close();
                // MessageBox.Show(d.AddingAccount(name.Text, deposit.Text, users.SelectedIndex.ToString(), "Current account"));
             }
             if (type.Text == "Saving account")
             {
-                Account account = new Account(name.Text, float.Parse(deposit.Text), users.SelectedIndex, "Saving account");
+                account = new Account(name.Text, float.Parse(deposit.Text), users.SelectedIndex, "Saving account");
+                control.AddAccount(account);
+                this.Close();
                 //MessageBox.Show(d.AddingAccount(name.Text, deposit.Text, users.SelectedIndex.ToString(), "Saving account"));
             }
         }

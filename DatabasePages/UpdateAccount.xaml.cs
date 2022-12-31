@@ -38,18 +38,22 @@ namespace FinancialPortal.DatabasePages
             if (change.Text =="Name")
             {
                 MessageBox.Show(d.UpdateAccount("Name",input.Text,datagrid.SelectedIndex));
+                this.Close();
             }
             if (change.Text == "User")
             {
                 MessageBox.Show(d.UpdateAccount("User", input.Text, datagrid.SelectedIndex));
+                this.Close();
             }
             if (change.Text == "Type")
             {
                 MessageBox.Show(d.UpdateAccount("Type", input.Text, datagrid.SelectedIndex));
+                this.Close();
             }
             if (change.Text == "MoneyStatus")
             {
                 MessageBox.Show(d.UpdateAccount("MoneyStatus", input.Text, datagrid.SelectedIndex));
+                this.Close();
             }
         }
     }

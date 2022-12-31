@@ -34,11 +34,13 @@ namespace FinancialPortal.DatabasePages
             {
                 control.UpdateUser(dataGrid.SelectedIndex, "Name", input.Text);
                 //MessageBox.Show(d.UpdateUser("Name", input.Text, dataGrid.SelectedIndex));
+                this.Close();
             }
             if (changebutton.Text == "Surname")
             {
                 control.UpdateUser(dataGrid.SelectedIndex, "Surname", input.Text);
                 //MessageBox.Show(d.UpdateUser("Surname", input.Text, dataGrid.SelectedIndex));
+                this.Close();
             }
         }
     }

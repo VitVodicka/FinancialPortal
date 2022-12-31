@@ -1,4 +1,5 @@
-﻿using MahApps.Metro.Controls;
+﻿using FinancialPortal.Accounts;
+using MahApps.Metro.Controls;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,6 +22,7 @@ namespace FinancialPortal.DatabasePages
     public partial class AddUser : MetroWindow
     {
         //Database d = new Database();
+        Controller control = new Controller();
         public AddUser()
         {
             InitializeComponent();
@@ -30,8 +32,10 @@ namespace FinancialPortal.DatabasePages
 
         private void USER_ADD_CLICK(object sender, RoutedEventArgs e)
         {
-      
-            MessageBox.Show(d.AddingUser(UserName.Text, Surname.Text));
+            
+            
+            User user = new User(control.MaxIndexUserList(), UserName.Text, Surname.Text);
+            control.AddUser(user);
             this.Close();
             
             

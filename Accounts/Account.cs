@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace FinancialPortal
 {
-    internal class Account
+    internal class Account:INotifyPropertyChanged
     {
         private string Name { get; set; }
         private string Type { get; set; }
@@ -24,10 +24,18 @@ namespace FinancialPortal
             Type = type;
             MoneyStatus.Add(deposit);
             UserList.Add(selectedIndex);
+            Change("MoneyStatus");
+            Change("UserList");
 
         }
-
-        
+        public void Change(string property)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(property));
+            }
+        }
+        public event PropertyChangedEventHandler PropertyChanged;
     }
 
 }
