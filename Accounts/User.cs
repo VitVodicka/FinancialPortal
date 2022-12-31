@@ -8,8 +8,8 @@ namespace FinancialPortal
 {
     internal class User
     {
-        public string Name { get; set; }
-        public string Surname { get; set; }
+        private string Name { get; set; }
+        private string Surname { get; set; }
         
         
 

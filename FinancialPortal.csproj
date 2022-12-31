@@ -90,6 +90,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Accounts\Account.cs" />
+    <Compile Include="Accounts\Controller.cs" />
     <Compile Include="Accounts\User.cs" />
     <Page Include="DatabasePages\AddUser.xaml">
       <SubType>Designer</SubType>

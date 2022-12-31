@@ -31,7 +31,7 @@ namespace FinancialPortal
         Mortgage m = new Mortgage();
         Chart chare = new Chart();//creating classes
         investmentPortal invest = new investmentPortal();
-        Database dat = new Database();
+        //Database dat = new Database();
         
         
         
@@ -54,17 +54,7 @@ public MainWindow()
             
             //dat.DataBaseConnection();
            
-                
-            
-
-
-
-
-
-
-
-
-
+               
         }
         private void HamburgerMenuControle(object sender, ItemClickEventArgs e)
         {

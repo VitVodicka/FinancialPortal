@@ -20,7 +20,7 @@ namespace FinancialPortal.DatabasePages
     /// </summary>
     public partial class AddUser : MetroWindow
     {
-        Database d = new Database();
+        //Database d = new Database();
         public AddUser()
         {
             InitializeComponent();

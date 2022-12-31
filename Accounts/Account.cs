@@ -10,12 +10,21 @@ namespace FinancialPortal
 {
     internal class Account
     {
-        public string Name { get; set; }
+        private string Name { get; set; }
+        private string Type { get; set; }
         public ObservableCollection<float> MoneyStatus { get; set; }
-        public int UserId { get; set; }
-        public Account()
+        public ObservableCollection<int> UserList { get; set; }
+        
+        public Account(string name, float deposit, int selectedIndex,string type  )
         {
             MoneyStatus = new ObservableCollection<float>();
+            UserList = new ObservableCollection<int>();
+            
+            Name = name;
+            Type = type;
+            MoneyStatus.Add(deposit);
+            UserList.Add(selectedIndex);
+
         }
 
         
