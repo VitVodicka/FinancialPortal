@@ -17,7 +17,7 @@ using System.Windows.Shapes;
 namespace FinancialPortal.DatabasePages
 {
     /// <summary>
-    /// Interakční logika pro AddUser.xaml
+    /// Interakční logika pro addUser.xaml
     /// </summary>
     public partial class AddUser : MetroWindow
     {
@@ -27,18 +27,19 @@ namespace FinancialPortal.DatabasePages
         {
             InitializeComponent();
         }
-
-        
-
         private void USER_ADD_CLICK(object sender, RoutedEventArgs e)
         {
+
+            if ((UserName.Text != null)&&(Surname.Text!=null))
+            {
+
             
-            
-            User user = new User(control.MaxIndexUserList(), UserName.Text, Surname.Text);
-            control.AddUser(user);
+            User user = new User(control.maxIndexUserList(), UserName.Text, Surname.Text);
+            control.addUser(user);
             this.Close();
-            
-            
+            }
+
+
         }
     }
 }

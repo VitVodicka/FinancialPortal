@@ -82,7 +82,7 @@ namespace FinancialPortal
             }
             connection.Close();
         }
-        public string UpdateUser(string parameter, string value,int id)
+        public string updateUser(string parameter, string value,int id)
         {
             DataBaseConnection();
             try

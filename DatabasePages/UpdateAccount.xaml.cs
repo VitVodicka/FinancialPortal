@@ -1,4 +1,5 @@
-﻿using MahApps.Metro.Controls;
+﻿using FinancialPortal.Accounts;
+using MahApps.Metro.Controls;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,40 +21,81 @@ namespace FinancialPortal.DatabasePages
     /// </summary>
     public partial class UpdateAccount : MetroWindow
     {
-        Database d = new Database();
+        //Database d = new Database();
+        Controller control = new Controller();
         public UpdateAccount()
         {
             InitializeComponent();
+            if (change.SelectedIndex == 1)
+            {
+                selectedUsersOption.Visibility = Visibility.Visible;
+                textBoxStackPanel.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                selectedUsersOption.Visibility = Visibility.Collapsed;
+                textBoxStackPanel.Visibility=Visibility.Visible;
+            }
+            if (selectedOption.Text == "Remove")
+            {
+                //selectedUsers combobox recives list of avaliable accounts that it has
+                control.avaiableAccounts();
+            }
+            if(selectedOption.Text == "Add")
+            {
+                //selectedUsers combobx recives list of all acounts except of the users that are included
+                control.allAcounts();
+            }
         }
 
         
 
         private void UppdateAccount_click(object sender, RoutedEventArgs e)
         {
-
+             
             choosingParametrs();
         }
         public void choosingParametrs()
         {
+            if ((change.Text != null)&&(datagrid.SelectedIndex>=0)&&(input.Text!=null)) { 
             if (change.Text =="Name")
             {
-                MessageBox.Show(d.UpdateAccount("Name",input.Text,datagrid.SelectedIndex));
+               control.updateAccount("Name",input.Text,datagrid.SelectedIndex,0,null);
                 this.Close();
             }
             if (change.Text == "User")
-            {
-                MessageBox.Show(d.UpdateAccount("User", input.Text, datagrid.SelectedIndex));
+            {//remove user, add user
+                    //remove is false and removes from list of accounts users
+                    //add is true and adds from whole list of users
+                    //if the user is there dont display him
+                    if (selectedOption.Text != null && selectedUsers.Text != null)
+                    {
+                        if (selectedOption.Text == "Remove")
+                        {
+                            control.updateAccount("User", "", datagrid.SelectedIndex, selectedUsers.SelectedIndex, false);
+                        }
+                        if (selectedOption.Text == "Add")
+                        {
+                            control.updateAccount("User", "", datagrid.SelectedIndex, selectedUsers.SelectedIndex, true);
+                        }
+                        ;
+                    }
+                
+                
                 this.Close();
             }
             if (change.Text == "Type")
             {
-                MessageBox.Show(d.UpdateAccount("Type", input.Text, datagrid.SelectedIndex));
+                control.updateAccount("Type", input.Text, datagrid.SelectedIndex,0, null);
+                
                 this.Close();
             }
             if (change.Text == "MoneyStatus")
             {
-                MessageBox.Show(d.UpdateAccount("MoneyStatus", input.Text, datagrid.SelectedIndex));
+                control.updateAccount("MoneyStatus", input.Text, datagrid.SelectedIndex,0, null);
+                
                 this.Close();
+            }
             }
         }
     }

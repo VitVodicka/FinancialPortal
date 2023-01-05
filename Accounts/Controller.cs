@@ -20,24 +20,73 @@ namespace FinancialPortal.Accounts
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
-        public void Change(string property)
+        public void change(string property)
         {
             if (PropertyChanged != null)
             {
                 PropertyChanged(this, new PropertyChangedEventArgs(property));
             }
         }
-        public void AddUser(User u)
+        public void addUser(User u)
         {
             UserListObservable.Add(u);
-            Change("UserListObservable");
+            change("UserListObservable");
         }
-        public void AddAccount(Account u)
+        public void addAccount(Account u)
         {
             AccountListObservable.Add(u);
-            Change("AccountListObservable");
+            change("AccountListObservable");
         }
-        public void UpdateUser(int id, string valueToChange, string content)
+        public void updateAccount(string parameter,string input,int selectedIndex,int selectedUser, bool? removeOrAdd)
+        {
+            try
+            {
+                foreach (Account account in AccountListObservable)
+                {
+
+                    if (account.Index == selectedIndex)
+                    {
+                        switch (parameter)
+                        {
+                            case "Name":
+                                account.updateName(input);
+                                break;
+                            case "User":
+                                if (removeOrAdd == false)
+                                {
+                                    account.RemoveUser(selectedIndex);
+                                    
+                                }
+                                if(removeOrAdd == true)
+                                {
+                                    updateAddUser(selectedIndex,selectedIndex);
+                                }
+                                
+                                break;
+                            case "Type":
+                                account.updateType(input);
+                                break;
+                            case "MoneyStatus":
+                                account.updateMoneyStatus(input);
+                                break;
+
+
+
+
+
+                        }
+                    }
+
+                }
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            
+            
+        }
+        public void updateUser(int id, string valueToChange, string content)
         {
             foreach (User u in UserListObservable)
             {
@@ -54,7 +103,7 @@ namespace FinancialPortal.Accounts
                 }
             }
         }
-        public int MaxIndexUserList()
+        public int maxIndexUserList()
         {
             int max = 0;
             foreach(User u in UserListObservable)
@@ -65,6 +114,36 @@ namespace FinancialPortal.Accounts
                 }
             }
             return max;
+        }
+        public void updateAddUser(int index, int selectedIndex)
+        {
+            try
+            {
+                foreach (Account account in AccountListObservable)
+                {
+
+                    if (account.Index == selectedIndex)
+                    {
+                        
+                        account.UserList.Add(index);
+                        change("UserList");
+                        
+                        
+                    }
+                }
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+        }
+        public void avaiableAccounts()
+        {
+
+        }
+        public void allAcounts()
+        {
+
         }
 
         

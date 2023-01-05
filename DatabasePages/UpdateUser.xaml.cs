@@ -17,7 +17,7 @@ using System.Windows.Shapes;
 namespace FinancialPortal.DatabasePages
 {
     /// <summary>
-    /// Interakční logika pro UpdateUser.xaml
+    /// Interakční logika pro updateUser.xaml
     /// </summary>
     public partial class UpdateUser : MetroWindow
     {
@@ -30,17 +30,22 @@ namespace FinancialPortal.DatabasePages
 
         private void UserUpdate_Click(object sender, RoutedEventArgs e)
         {
+            if (changebutton.Text != null)
+            {
+
+            
             if (changebutton.Text == "Name")
             {
-                control.UpdateUser(dataGrid.SelectedIndex, "Name", input.Text);
-                //MessageBox.Show(d.UpdateUser("Name", input.Text, dataGrid.SelectedIndex));
+                control.updateUser(dataGrid.SelectedIndex, "Name", input.Text);
+                //MessageBox.Show(d.updateUser("Name", input.Text, dataGrid.SelectedIndex));
                 this.Close();
             }
             if (changebutton.Text == "Surname")
             {
-                control.UpdateUser(dataGrid.SelectedIndex, "Surname", input.Text);
-                //MessageBox.Show(d.UpdateUser("Surname", input.Text, dataGrid.SelectedIndex));
+                control.updateUser(dataGrid.SelectedIndex, "Surname", input.Text);
+                //MessageBox.Show(d.updateUser("Surname", input.Text, dataGrid.SelectedIndex));
                 this.Close();
+            }
             }
         }
     }
