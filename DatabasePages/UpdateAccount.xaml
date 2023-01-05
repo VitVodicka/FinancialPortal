@@ -55,7 +55,7 @@
                 <ComboBoxItem Content="MoneyStatus"></ComboBoxItem>
             </ComboBox>
         </StackPanel>
-        <StackPanel Grid.Row="1" Grid.Column="1" Name="selectedUsersOption" VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal" Height="59" Width="301">
+        <StackPanel Grid.Row="1" Grid.Column="1" Visibility="Hidden" Name="selectedUsersOption" VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal" Height="59" Width="301">
 
             <ComboBox Width="100" Name="selectedOption"  >
                 <ComboBoxItem Content="Remove"></ComboBoxItem>
@@ -68,7 +68,7 @@
             
         
         </StackPanel>
-        <StackPanel Grid.Column="1" Grid.Row="1" Visibility="Collapsed" Name="textBoxStackPanel" VerticalAlignment="Center" HorizontalAlignment="Right" Orientation="Horizontal" Height="50" Width="210">
+        <StackPanel Grid.Column="1" Grid.Row="1" Visibility="Visible" Name="textBoxStackPanel" VerticalAlignment="Center" HorizontalAlignment="Right" Orientation="Horizontal" Height="50" Width="210">
 
             <TextBox Style="{StaticResource Textbox}" HorizontalAlignment="Left" Width="200" Name="input" ></TextBox>
         </StackPanel>
