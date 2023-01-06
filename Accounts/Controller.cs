@@ -11,7 +11,8 @@ namespace FinancialPortal.Accounts
     internal class Controller:INotifyPropertyChanged
     {
         ObservableCollection<Account> AccountListObservable { get; set; }
-        public ObservableCollection<User> UserListObservable { get; set; }
+        public  static ObservableCollection<User> UserListObservable { get; set; }
+        
 
         public Controller()
         {

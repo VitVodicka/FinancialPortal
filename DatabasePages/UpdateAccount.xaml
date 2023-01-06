@@ -39,11 +39,11 @@
             <RowDefinition Height="97*"></RowDefinition>
             <RowDefinition Height="103*"></RowDefinition>
         </Grid.RowDefinitions>
-        <DataGrid Grid.Row="0" Grid.ColumnSpan="2" Name="datagrid">
+        <DataGrid Grid.Row="0" Grid.ColumnSpan="2"  Name="datagrid" DataContext="{Binding account}">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Name" Width="150"></DataGridTextColumn>
-                <DataGridTextColumn Header="Money status" Width="250"></DataGridTextColumn>
-                <DataGridTextColumn Header="User" Width="150"></DataGridTextColumn>
+                <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="150"></DataGridTextColumn>
+                <DataGridTextColumn Header="Money status" Binding="{Binding Type}" Width="250"></DataGridTextColumn>
+                <DataGridTextColumn Header="User" Width="150" Binding="{Binding UsersFromObservable }"></DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
         <StackPanel Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal" Height="59" Width="301">

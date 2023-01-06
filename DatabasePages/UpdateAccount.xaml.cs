@@ -23,8 +23,11 @@ namespace FinancialPortal.DatabasePages
     {
         //Database d = new Database();
         Controller control = new Controller();
+        Account account = new Account();
         public UpdateAccount()
         {
+            
+            DataContext= account;
             InitializeComponent();
             if (change.SelectedIndex == 1)
             {
@@ -40,11 +43,13 @@ namespace FinancialPortal.DatabasePages
             {
                 //selectedUsers combobox recives list of avaliable accounts that it has
                 control.avaiableAccounts();
+                selectedUsers.ItemsSource = account.UserList;
             }
             if(selectedOption.Text == "Add")
             {
                 //selectedUsers combobx recives list of all acounts except of the users that are included
                 control.allAcounts();
+                selectedUsers.ItemsSource = account.AllUsersExceptAccount;
             }
         }
 
@@ -57,11 +62,15 @@ namespace FinancialPortal.DatabasePages
         }
         public void choosingParametrs()
         {
-            if ((change.Text != null)&&(datagrid.SelectedIndex>=0)&&(input.Text!=null)) { 
+            if ((change.Text != null)&&(datagrid.SelectedIndex>=0)) { 
             if (change.Text =="Name")
             {
-               control.updateAccount("Name",input.Text,datagrid.SelectedIndex,0,null);
-                this.Close();
+                    if(input.Text != null)
+                    {
+                        control.updateAccount("Name", input.Text, datagrid.SelectedIndex, 0, null);
+                        this.Close();
+                    }
+               
             }
             if (change.Text == "User")
             {//remove user, add user
@@ -78,7 +87,7 @@ namespace FinancialPortal.DatabasePages
                         {
                             control.updateAccount("User", "", datagrid.SelectedIndex, selectedUsers.SelectedIndex, true);
                         }
-                        ;
+                        
                     }
                 
                 
@@ -86,15 +95,23 @@ namespace FinancialPortal.DatabasePages
             }
             if (change.Text == "Type")
             {
-                control.updateAccount("Type", input.Text, datagrid.SelectedIndex,0, null);
-                
-                this.Close();
+                    if (input.Text != null)
+                    {
+                        control.updateAccount("Type", input.Text, datagrid.SelectedIndex, 0, null);
+
+                        this.Close();
+                    }
+                        
             }
             if (change.Text == "MoneyStatus")
             {
-                control.updateAccount("MoneyStatus", input.Text, datagrid.SelectedIndex,0, null);
-                
-                this.Close();
+                    if (input.Text != null)
+                    {
+                        control.updateAccount("MoneyStatus", input.Text, datagrid.SelectedIndex, 0, null);
+
+                        this.Close();
+                    }
+                        
             }
             }
         }
