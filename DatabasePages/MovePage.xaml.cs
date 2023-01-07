@@ -20,6 +20,7 @@ namespace FinancialPortal.DatabasePages
     /// </summary>
     public partial class MovePage : MetroWindow
     {
+        //moves money between accounts
         public MovePage()
         {
             InitializeComponent();

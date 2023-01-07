@@ -104,6 +104,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="DatabasePages\Password.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="DatabasePages\UpdateAccount.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -136,6 +140,9 @@
     <Compile Include="DatabasePages\MovePage.xaml.cs">
       <DependentUpon>MovePage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DatabasePages\Password.xaml.cs">
+      <DependentUpon>Password.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DatabasePages\UpdateAccount.xaml.cs">
       <DependentUpon>UpdateAccount.xaml</DependentUpon>
     </Compile>
@@ -150,6 +157,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Mortgage.cs" />
+    <Compile Include="PasswordChecker.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

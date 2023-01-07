@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Vít Vodička\source\repos\FinancialPortal\FinancialPortal\App.xaml
-6-1129320599
-81674036658
-181532340569
-22-303921730
-DatabasePages\AddUser.xaml;DatabasePages\CreateAccount.xaml;DatabasePages\MovePage.xaml;DatabasePages\UpdateAccount.xaml;DatabasePages\UpdateUser.xaml;MainWindow.xaml;
+71125491673
+81865996490
+2072903407
+22547325554
+DatabasePages\AddUser.xaml;DatabasePages\CreateAccount.xaml;DatabasePages\MovePage.xaml;DatabasePages\Password.xaml;DatabasePages\UpdateAccount.xaml;DatabasePages\UpdateUser.xaml;MainWindow.xaml;
 
 True
 
