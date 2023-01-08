@@ -10,13 +10,13 @@ namespace FinancialPortal.DatabasePages
     public partial class CreateAccount : MetroWindow
     {
         //Database d = new Database();
-        Controller control = new Controller();
+        
         Account account;
         public CreateAccount()
         {
-            control.AddToTest("ahoj");
+            
             InitializeComponent();
-            DataContext = control;
+            
             //users.ItemsSource=control.User
             //what was before in users
             //ItemsSource="{Binding Source={x:Static d:Controller.UserListObservable}}" SelectedValuePath="Name" SelectedValue="{Binding Path=Controller.UserListObservable}" DisplayMemberPath="Name" 
@@ -24,6 +24,7 @@ namespace FinancialPortal.DatabasePages
 
         private void CreateAccount_Click(object sender, RoutedEventArgs e)
         {
+            Controller control = new Controller();
             if ((type.Text != null) && (name.Text != null) && (deposit.Text != null) && (users.SelectedIndex >= 0))
             {
 
@@ -40,6 +41,7 @@ namespace FinancialPortal.DatabasePages
             if (type.Text == "Saving account")
             {
                 account = new Account(name.Text, float.Parse(deposit.Text), users.SelectedIndex, "Saving account");
+                
                 control.addAccount(account);
                 this.Close();
                 //MessageBox.Show(d.AddingAccount(name.Text, deposit.Text, users.SelectedIndex.ToString(), "Saving account"));

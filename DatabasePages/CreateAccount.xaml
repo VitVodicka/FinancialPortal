@@ -3,7 +3,9 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:FinancialPortal.DatabasePages"
+        xmlns:local="clr-namespace:FinancialPortal.Accounts"
+         
+        
         mc:Ignorable="d"
         xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
         Title="Create Account" Height="350" Width="800" WindowStartupLocation="CenterScreen">
@@ -60,7 +62,7 @@
         </StackPanel>
         <StackPanel Grid.Column="0" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal">
             <TextBlock Text="Users:" Style="{StaticResource textblock}" ></TextBlock>
-            <ComboBox Width="200" Name="users" ItemsSource="{Binding Path=TestObservable}">
+            <ComboBox Width="200" Name="users" ItemsSource="{x:Static local:Controller.UserListObservable}" DisplayMemberPath="Name" SelectedItem="{Binding SelectedItem}">
                 
             </ComboBox>
             
