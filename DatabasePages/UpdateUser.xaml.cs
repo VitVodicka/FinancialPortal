@@ -22,7 +22,7 @@ namespace FinancialPortal.DatabasePages
     public partial class UpdateUser : MetroWindow
     {
         //Database d = new Database();
-        Controller control = new Controller();
+        
         public UpdateUser()
         {
             InitializeComponent();
@@ -30,6 +30,7 @@ namespace FinancialPortal.DatabasePages
 
         private void UserUpdate_Click(object sender, RoutedEventArgs e)
         {
+            Controller control = new Controller();
             if (changebutton.Text != null)
             {
 

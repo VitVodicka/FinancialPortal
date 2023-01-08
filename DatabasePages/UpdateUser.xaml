@@ -4,7 +4,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:FinancialPortal.DatabasePages"
+        xmlns:local="clr-namespace:FinancialPortal.Accounts"
         mc:Ignorable="d"
         Title="Update User" Height="550" Width="650" WindowStartupLocation="CenterScreen">
     <Window.Resources>
@@ -39,10 +39,10 @@
             <RowDefinition Height="97*"></RowDefinition>
             <RowDefinition Height="103*"></RowDefinition>
         </Grid.RowDefinitions>
-        <DataGrid Grid.Row="0" Grid.ColumnSpan="2" Name="dataGrid">
+        <DataGrid Grid.Row="0" Grid.ColumnSpan="2" Name="dataGrid" AutoGenerateColumns="False" SelectedItem="{Binding SelectedItem}" ItemsSource="{x:Static local:Controller.UserListObservable}">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Name" Width="150"></DataGridTextColumn>
-                <DataGridTextColumn Header="Surname" Width="250"></DataGridTextColumn>
+                <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="150"></DataGridTextColumn>
+                <DataGridTextColumn Header="Surname" Width="250" Binding="{Binding Surname}"></DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
         <StackPanel Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal" Height="59" Width="301">
