@@ -14,7 +14,12 @@ namespace FinancialPortal.DatabasePages
         Account account;
         public CreateAccount()
         {
+            control.AddToTest("ahoj");
             InitializeComponent();
+            DataContext = control;
+            //users.ItemsSource=control.User
+            //what was before in users
+            //ItemsSource="{Binding Source={x:Static d:Controller.UserListObservable}}" SelectedValuePath="Name" SelectedValue="{Binding Path=Controller.UserListObservable}" DisplayMemberPath="Name" 
         }
 
         private void CreateAccount_Click(object sender, RoutedEventArgs e)

@@ -98,3 +98,5 @@ C:\Users\xvodick6\Source\Repos\FinancialPortal\obj\Debug\FinancialPortal.csproj.
 C:\Users\xvodick6\Source\Repos\FinancialPortal\obj\Debug\FinancialPortal.csproj.CopyComplete
 C:\Users\xvodick6\Source\Repos\FinancialPortal\obj\Debug\FinancialPortal.exe
 C:\Users\xvodick6\Source\Repos\FinancialPortal\obj\Debug\FinancialPortal.pdb
+C:\Users\Vít Vodička\source\repos\FinancialPortal\FinancialPortal\obj\Debug\DatabasePages\Password.g.cs
+C:\Users\Vít Vodička\source\repos\FinancialPortal\FinancialPortal\obj\Debug\DatabasePages\Password.baml

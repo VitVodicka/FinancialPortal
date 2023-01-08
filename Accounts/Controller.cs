@@ -12,12 +12,19 @@ namespace FinancialPortal.Accounts
     {
         ObservableCollection<Account> AccountListObservable { get; set; }
         public  static ObservableCollection<User> UserListObservable { get; set; }
+        public ObservableCollection<string> TestObservable { get; set; }
         
 
         public Controller()
         {
             AccountListObservable = new ObservableCollection<Account>();
             UserListObservable = new ObservableCollection<User>();
+            TestObservable = new ObservableCollection<string>();
+        }
+        public void AddToTest(string text)
+        {
+            TestObservable.Add(text);
+            change("TestObservable");
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
