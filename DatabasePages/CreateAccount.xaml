@@ -62,7 +62,7 @@
         </StackPanel>
         <StackPanel Grid.Column="0" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal">
             <TextBlock Text="Users:" Style="{StaticResource textblock}" ></TextBlock>
-            <ComboBox Width="200" Name="users" ItemsSource="{x:Static local:Controller.UserListObservable}" DisplayMemberPath="Name" SelectedItem="{Binding SelectedItem}">
+            <ComboBox Width="200" Name="users" ItemsSource="{x:Static local:Controller.UserListObservable}" DisplayMemberPath="Name" SelectedItem="{Binding SelectedItem}">>
                 
             </ComboBox>
             

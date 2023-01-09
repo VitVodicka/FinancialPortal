@@ -90,22 +90,18 @@ namespace FinancialPortal.Accounts
             
             
         }
-        public void updateUser(int id, string valueToChange, string content)
+        public static void updateUser(int id, string valueToChange, string content)
         {
-            foreach (User u in UserListObservable)
+            var user = Controller.UserListObservable[id];
+            if (valueToChange == "Name")
             {
-                if (u.Id == id)
-                {
-                    if (valueToChange == u.Name)
-                    {
-                        u.Name = content;
-                    }
-                    if (valueToChange == u.Surname)
-                    {
-                        u.Surname = content;
-                    }
-                }
+                user.Name = content;
             }
+            else if (valueToChange == "Surname")
+            {
+                user.Surname = content;
+            }
+            Controller.UserListObservable[id] = user;
         }
         public int maxIndexUserList()
         {

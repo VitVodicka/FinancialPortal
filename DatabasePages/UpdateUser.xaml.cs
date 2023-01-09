@@ -30,20 +30,21 @@ namespace FinancialPortal.DatabasePages
 
         private void UserUpdate_Click(object sender, RoutedEventArgs e)
         {
-            Controller control = new Controller();
+            
+            
             if (changebutton.Text != null)
             {
 
             
             if (changebutton.Text == "Name")
             {
-                control.updateUser(dataGrid.SelectedIndex, "Name", input.Text);
+                Controller.updateUser(dataGrid.SelectedIndex, "Name", input.Text);
                 //MessageBox.Show(d.updateUser("Name", input.Text, dataGrid.SelectedIndex));
                 this.Close();
             }
             if (changebutton.Text == "Surname")
             {
-                control.updateUser(dataGrid.SelectedIndex, "Surname", input.Text);
+                Controller.updateUser(dataGrid.SelectedIndex, "Surname", input.Text);
                 //MessageBox.Show(d.updateUser("Surname", input.Text, dataGrid.SelectedIndex));
                 this.Close();
             }
