@@ -11,8 +11,8 @@ namespace FinancialPortal
 {
     internal class Account:INotifyPropertyChanged
     {
-        private string Name { get; set; }
-        private string Type { get; set; }
+        public string Name { get; set; }
+        public string Type { get; set; }
         public int Index { get; set; }
         public string UsersFromObservable { get; set; }
         public ObservableCollection<double> MoneyStatus { get; set; }
@@ -34,7 +34,7 @@ namespace FinancialPortal
             UserList = new ObservableCollection<int>();
             AllUsersExceptAccount = new ObservableCollection<int>();
             CalculateUser();
-            fromCollectionToString();
+            
             Index += 1;
             Name = name;
             Type = type;
@@ -42,6 +42,7 @@ namespace FinancialPortal
             UserList.Add(selectedIndex);
             Change("MoneyStatus");
             Change("UserList");
+            fromCollectionToString();
 
         }
         public void Change(string property)
@@ -89,7 +90,7 @@ namespace FinancialPortal
         }
         public void fromCollectionToString()
         {
-            foreach(User u in Controller.UserListObservable)
+            /*foreach(User u in Controller.UserListObservable)
             {
                 foreach(int userListPosition in UserList)
                 {
@@ -99,8 +100,14 @@ namespace FinancialPortal
                     }
                 }
                 
+            }*/
+            string result = "";
+            for (int i = 0; i < Controller.UserListObservable.Count; i++)
+            {
+                result += Controller.UserListObservable[i].Name + ", ";
             }
-            if((UsersFromObservable != null) && (UsersFromObservable[-1] == ','))
+
+            if ((UsersFromObservable != null) && (UsersFromObservable[-1] == ','))
             {
                 UsersFromObservable.Remove(UsersFromObservable.Length - 1);
             }

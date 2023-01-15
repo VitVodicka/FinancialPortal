@@ -22,31 +22,37 @@ namespace FinancialPortal.DatabasePages
     public partial class UpdateAccount : MetroWindow
     {
         //Database d = new Database();
-        Controller control = new Controller();
-        Account account = new Account();
+        
+        
         public UpdateAccount()
         {
-            
-            DataContext= account;
+            Account account = new Account();
+
             InitializeComponent();
             if (change.SelectedIndex == 1)
             {
+                Controller control = new Controller();
                 selectedUsersOption.Visibility = Visibility.Visible;
                 textBoxStackPanel.Visibility = Visibility.Collapsed;
             }
             else
             {
+                Controller control = new Controller();
                 selectedUsersOption.Visibility = Visibility.Collapsed;
                 textBoxStackPanel.Visibility=Visibility.Visible;
             }
             if (selectedOption.Text == "Remove")
             {
+                
+                Controller control = new Controller();
                 //selectedUsers combobox recives list of avaliable accounts that it has
                 control.avaiableAccounts();
                 selectedUsers.ItemsSource = account.UserList;
             }
             if(selectedOption.Text == "Add")
             {
+                Controller control = new Controller();
+                
                 //selectedUsers combobx recives list of all acounts except of the users that are included
                 control.allAcounts();
                 selectedUsers.ItemsSource = account.AllUsersExceptAccount;
@@ -62,6 +68,7 @@ namespace FinancialPortal.DatabasePages
         }
         public void choosingParametrs()
         {
+            Controller control = new Controller();
             if ((change.Text != null)&&(datagrid.SelectedIndex>=0)) { 
             if (change.Text =="Name")
             {

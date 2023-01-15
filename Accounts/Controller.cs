@@ -10,7 +10,7 @@ namespace FinancialPortal.Accounts
 {
     internal class Controller:INotifyPropertyChanged
     {
-        ObservableCollection<Account> AccountListObservable { get; set; }
+        public static ObservableCollection<Account> AccountListObservable { get; set; }
         public  static ObservableCollection<User> UserListObservable { get; set; }
         
         
@@ -36,10 +36,10 @@ namespace FinancialPortal.Accounts
             UserListObservable.Add(u);
             change("UserListObservable");
         }
-        public void addAccount(Account u)
+        public static void addAccount(Account u)
         {
             AccountListObservable.Add(u);
-            change("AccountListObservable");
+            
         }
         public void updateAccount(string parameter,string input,int selectedIndex,int selectedUser, bool? removeOrAdd)
         {
