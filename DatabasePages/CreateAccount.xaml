@@ -30,7 +30,7 @@
             <Setter Property="FontSize" Value="30"></Setter>
             <Setter Property="FontWeight" Value="Bold"></Setter>
             <Setter Property="HorizontalAlignment" Value="Left"></Setter>
-            
+
             <Setter Property="Margin" Value="10"></Setter>
             <Setter Property="FontFamily" Value="Bebas Neue"></Setter>
         </Style>
@@ -41,7 +41,7 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
-            
+
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"></RowDefinition>
@@ -58,14 +58,14 @@
                 <ComboBoxItem Content="Current account"></ComboBoxItem>
                 <ComboBoxItem Content="Saving account"></ComboBoxItem>
             </ComboBox>
-            
+
         </StackPanel>
         <StackPanel Grid.Column="0" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal">
             <TextBlock Text="Users:" Style="{StaticResource textblock}" ></TextBlock>
-            <ComboBox Width="200" Name="users" ItemsSource="{x:Static local:Controller.UserListObservable}" DisplayMemberPath="Name" SelectedItem="{Binding SelectedItem}">>
-                
+            <ComboBox Width="200" Name="users" ItemsSource="{x:Static local:Controller.UserListObservable}" DisplayMemberPath="Name" SelectedItem="{Binding SelectedItem}">
+
             </ComboBox>
-            
+
         </StackPanel>
         <StackPanel Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal">
             <TextBlock Text="Deposit:" Style="{StaticResource textblock}"></TextBlock>
