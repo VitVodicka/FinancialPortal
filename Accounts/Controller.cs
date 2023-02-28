@@ -15,7 +15,7 @@ namespace FinancialPortal.Accounts
         
         
 
-        public Controller()
+        static Controller()
         {
             AccountListObservable = new ObservableCollection<Account>();
             UserListObservable = new ObservableCollection<User>();

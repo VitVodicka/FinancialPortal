@@ -200,3 +200,8 @@ C:\Users\drako\source\repos\FinancialPortal\FinancialPortal\obj\Debug\FinancialP
 C:\Users\drako\source\repos\FinancialPortal\FinancialPortal\obj\Debug\FinancialPortal.csproj.CopyComplete
 C:\Users\drako\source\repos\FinancialPortal\FinancialPortal\obj\Debug\FinancialPortal.exe
 C:\Users\drako\source\repos\FinancialPortal\FinancialPortal\obj\Debug\FinancialPortal.pdb
+C:\Users\drako\source\repos\FinancialPortal\FinancialPortal\bin\Debug\ControlzEx.dll
+C:\Users\drako\source\repos\FinancialPortal\FinancialPortal\bin\Debug\LiveCharts.dll
+C:\Users\drako\source\repos\FinancialPortal\FinancialPortal\bin\Debug\LiveCharts.Wpf.dll
+C:\Users\drako\source\repos\FinancialPortal\FinancialPortal\bin\Debug\MahApps.Metro.dll
+C:\Users\drako\source\repos\FinancialPortal\FinancialPortal\bin\Debug\Microsoft.Xaml.Behaviors.dll

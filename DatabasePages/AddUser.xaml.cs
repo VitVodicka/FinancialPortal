@@ -30,7 +30,7 @@ namespace FinancialPortal.DatabasePages
         private void USER_ADD_CLICK(object sender, RoutedEventArgs e)
         {
 
-            if ((UserName.Text != null)&&(Surname.Text!=null))
+            if ((UserName.Text != "")&&(Surname.Text!=""))
             {
 
             
