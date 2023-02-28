@@ -59,7 +59,7 @@ namespace FinancialPortal.Accounts
                             case "User":
                                 if (removeOrAdd == false)
                                 {
-                                    account.RemoveUser(selectedIndex);
+                                    account.removeUser(selectedIndex);
                                     
                                 }
                                 if(removeOrAdd == true)
@@ -140,7 +140,7 @@ namespace FinancialPortal.Accounts
                 Console.WriteLine(e.Message);
             }
         }
-        public void avaiableAccounts()
+        public void availableAccounts()
         {
 
         }

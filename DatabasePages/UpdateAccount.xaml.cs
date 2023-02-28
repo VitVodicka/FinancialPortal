@@ -46,7 +46,7 @@ namespace FinancialPortal.DatabasePages
                 
                 Controller control = new Controller();
                 //selectedUsers combobox recives list of avaliable accounts that it has
-                control.avaiableAccounts();
+                control.availableAccounts();
                 selectedUsers.ItemsSource = account.UserList;
             }
             if(selectedOption.Text == "Add")

@@ -34,6 +34,7 @@ namespace FinancialPortal.DatabasePages
 
 
                 account = new Account(name.Text, float.Parse(deposit.Text), users.SelectedIndex, "Current account");
+                account.fromCollectionToString();
                 Controller.addAccount(account);
                 this.Close();
                // MessageBox.Show(d.AddingAccount(name.Text, deposit.Text, users.SelectedIndex.ToString(), "Current account"));
@@ -41,7 +42,7 @@ namespace FinancialPortal.DatabasePages
             if (type.Text == "Saving account")
             {
                 account = new Account(name.Text, float.Parse(deposit.Text), users.SelectedIndex, "Saving account");
-                
+                account.fromCollectionToString();
                 Controller.addAccount(account);
                 this.Close();
                 //MessageBox.Show(d.AddingAccount(name.Text, deposit.Text, users.SelectedIndex.ToString(), "Saving account"));

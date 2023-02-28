@@ -21,8 +21,7 @@ namespace FinancialPortal
         {
             MoneyStatus = new ObservableCollection<double>();
             UserList = new ObservableCollection<int>();
-            fromCollectionToString();
-
+            
         }
         
         public Account(string name, float deposit, int selectedIndex,string type  )
@@ -35,12 +34,11 @@ namespace FinancialPortal
             Type = type;
             MoneyStatus.Add(deposit);
             UserList.Add(selectedIndex);
-            Change("MoneyStatus");
-            Change("UserList");
-            fromCollectionToString();
+            change("MoneyStatus");
+            change("UserList");
 
         }
-        public void Change(string property)
+        public void change(string property)
         {
             if (PropertyChanged != null)
             {
@@ -50,23 +48,23 @@ namespace FinancialPortal
         public void updateName(string name)
         {
             Name = name;
-            Change("Name");
+            change("Name");
         }
         
-        public void RemoveUser(int index)
+        public void removeUser(int index)
         {
             UserList.RemoveAt(index);
-            Change("UserList");
+            change("UserList");
         }
         public void updateType(string type)
         {
             Type = type;
-            Change("Type");
+            change("Type");
         }
         public void updateMoneyStatus(string moneyStatus)
         {
             MoneyStatus.Add(double.Parse(moneyStatus.Trim()));
-            Change("MoneyStatus");
+            change("MoneyStatus");
            
         }
         public void fromCollectionToString()
@@ -74,11 +72,19 @@ namespace FinancialPortal
             string resault = "";
             for (int i = 0; i < Controller.UserListObservable.Count; i++)
             {
-                resault += Controller.UserListObservable[i].Name + " "+Controller.UserListObservable[i].Surname+", ";
+                for (int k = 0; k < UserList.Count; k++)
+                {
+                    if (i == UserList[k])
+                    {
+                        resault += Controller.UserListObservable[i].Name + " " + Controller.UserListObservable[i].Surname + ", ";
+                    }
+                    
+                }
+                
+                
             }
             UsersFromObservable=resault.Substring(0, resault.Length-2);
-            
-            Change("UsersFromObservable");
+            change("UsersFromObservable");
         }
         public event PropertyChangedEventHandler PropertyChanged;
     }
