@@ -12,8 +12,12 @@ namespace FinancialPortal
         {
 
         }
-        string InputPassword { get; set; }
-        public bool returnValueFromPassword(string password)
+        public void setPassword(string password)
+        {
+            InputPassword=password;
+        }
+        private string InputPassword { get; set; }
+        public bool getValueFromPassword(string password)
         {
             if (password == InputPassword)
             {

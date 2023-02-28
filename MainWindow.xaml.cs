@@ -64,21 +64,35 @@ public MainWindow()
         }
         private void AddUserClick(object sender, RoutedEventArgs e)
         {
+            if (Password())
+            {
+
+            
             new AddUser().ShowDialog();
-            
-            
+            }
+
+
         }
         private void UpdateUserClick(object sender, RoutedEventArgs e)
         {
-            new UpdateUser().ShowDialog();
+            if (Password())
+            {
+                new UpdateUser().ShowDialog();
+            }
         }
         private void MoveMoneyClick(object sender, RoutedEventArgs e)
         {
-            new MovePage().ShowDialog();
+            if (Password())
+            {
+                new MovePage().ShowDialog();
+            }
         }
         private void AddAccountClick(object sender, RoutedEventArgs e)
         {
-            new CreateAccount().ShowDialog();
+            if (Password())
+            {
+                new CreateAccount().ShowDialog();
+            }
             
 
             
@@ -86,7 +100,10 @@ public MainWindow()
         }
         private void UpdateAccountClick(object sender, RoutedEventArgs e)
         {
-            new UpdateAccount().ShowDialog();
+            if (Password())
+            {
+                new UpdateAccount().ShowDialog();
+            }
         }
 
 
@@ -95,6 +112,10 @@ public MainWindow()
 
             repayment();//chosing functions according to selected options
             switchingQuaters();
+
+        }
+        bool Password()
+        {
 
         }
         public void switchingQuaters()
