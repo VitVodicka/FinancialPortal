@@ -48,7 +48,7 @@
         </DataGrid>
         <StackPanel Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal" Height="59" Width="301">
             <TextBlock Text="Change:" Style="{StaticResource textblock}"></TextBlock>
-            <ComboBox Width="200" Name="changebutton">
+            <ComboBox Width="160" Name="changebutton">
                 <ComboBoxItem Content="Name"></ComboBoxItem>
                 <ComboBoxItem Content="Surname"></ComboBoxItem>
             </ComboBox>

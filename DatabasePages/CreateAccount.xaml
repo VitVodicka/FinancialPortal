@@ -27,7 +27,7 @@
 
         </Style>
         <Style x:Key="textblock" TargetType="{x:Type TextBlock}">
-            <Setter Property="FontSize" Value="30"></Setter>
+            <Setter Property="FontSize" Value="25"></Setter>
             <Setter Property="FontWeight" Value="Bold"></Setter>
             <Setter Property="HorizontalAlignment" Value="Left"></Setter>
 
@@ -54,7 +54,7 @@
         </StackPanel>
         <StackPanel Grid.Column="1" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal">
             <TextBlock Text="Type of account:" Style="{StaticResource textblock}"></TextBlock>
-            <ComboBox Width="200" Name="type">
+            <ComboBox Width="180" Name="type">
                 <ComboBoxItem Content="Current account"></ComboBoxItem>
                 <ComboBoxItem Content="Saving account"></ComboBoxItem>
             </ComboBox>
@@ -62,7 +62,7 @@
         </StackPanel>
         <StackPanel Grid.Column="0" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal">
             <TextBlock Text="Users:" Style="{StaticResource textblock}" ></TextBlock>
-            <ComboBox Width="200" Name="users" ItemsSource="{x:Static local:Controller.UserListObservable}" DisplayMemberPath="Name" SelectedItem="{Binding SelectedItem}">
+            <ComboBox Width="180" Name="users" ItemsSource="{x:Static local:Controller.UserListObservable}" DisplayMemberPath="Name" SelectedItem="{Binding SelectedItem}">
 
             </ComboBox>
 
