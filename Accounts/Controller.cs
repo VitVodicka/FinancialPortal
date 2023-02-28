@@ -8,23 +8,26 @@ using System.Threading.Tasks;
 
 namespace FinancialPortal.Accounts
 {
-    internal class Controller:INotifyPropertyChanged
+    internal class Controller : INotifyPropertyChanged
     {
+        // The list of accounts that are observable by the UI
         public static ObservableCollection<Account> AccountListObservable { get; set; }
-        public  static ObservableCollection<User> UserListObservable { get; set; }
+        // The list of users that are observable by the UI
+        public static ObservableCollection<User> UserListObservable { get; set; }
+        // The maximum index number for a user
         private static int max = -1;
 
-
-
+        
         static Controller()
         {
             AccountListObservable = new ObservableCollection<Account>();
             UserListObservable = new ObservableCollection<User>();
-            
         }
-        
 
+        
         public event PropertyChangedEventHandler PropertyChanged;
+
+       
         public void change(string property)
         {
             if (PropertyChanged != null)
@@ -32,65 +35,65 @@ namespace FinancialPortal.Accounts
                 PropertyChanged(this, new PropertyChangedEventArgs(property));
             }
         }
+
+        // Method to add a user to the UserListObservable
         public void addUser(User u)
         {
             UserListObservable.Add(u);
             change("UserListObservable");
         }
+
+        // Method to add an account to the AccountListObservable
         public static void addAccount(Account u)
         {
             AccountListObservable.Add(u);
-            
         }
-        public void updateAccount(string parameter,string input,int selectedIndex,int selectedUser, bool? removeOrAdd)
+
+        // Method to update an account based on a given parameter, input, selectedIndex, selectedUser, and removeOrAdd flag
+        public void updateAccount(string parameter, string input, int selectedIndex, int selectedUser, bool? removeOrAdd)
         {
             try
             {
                 foreach (Account account in AccountListObservable)
                 {
-
                     if (account.Index == selectedIndex)
                     {
                         switch (parameter)
                         {
+                            // If the parameter is Name, update the account name
                             case "Name":
                                 account.updateName(input);
                                 break;
+                            // If the parameter is User, add or remove the selected user
                             case "User":
                                 if (removeOrAdd == false)
                                 {
                                     account.removeUser(selectedIndex);
-                                    
                                 }
-                                if(removeOrAdd == true)
+                                if (removeOrAdd == true)
                                 {
-                                    updateAddUser(selectedIndex,selectedIndex);
+                                    updateAddUser(selectedIndex, selectedIndex);
                                 }
-                                
                                 break;
+                            // If the parameter is Type, update the account type
                             case "Type":
                                 account.updateType(input);
                                 break;
+                            // If the parameter is MoneyStatus, update the account money status
                             case "MoneyStatus":
                                 account.updateMoneyStatus(input);
                                 break;
-
-
-
-
-
                         }
                     }
-
                 }
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 Console.WriteLine(e.Message);
             }
-            
-            
         }
+
+        // Method to update a user based on the given id, valueToChange, and content
         public static void updateUser(int id, string valueToChange, string content)
         {
             var user = Controller.UserListObservable[id];
@@ -104,7 +107,8 @@ namespace FinancialPortal.Accounts
             }
             Controller.UserListObservable[id] = user;
         }
-        
+
+        // Method to get the maximum index number for a user
         public static int maxIndexUserList()
         {
             max++;
@@ -118,6 +122,8 @@ namespace FinancialPortal.Accounts
             }*/
             return max;
         }
+        // This method updates the user list of an account at a specified index
+        // by adding a new user to the list.
         public void updateAddUser(int index, int selectedIndex)
         {
             try
