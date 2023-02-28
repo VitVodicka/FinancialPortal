@@ -12,8 +12,9 @@ namespace FinancialPortal.Accounts
     {
         public static ObservableCollection<Account> AccountListObservable { get; set; }
         public  static ObservableCollection<User> UserListObservable { get; set; }
-        
-        
+        private static int max = -1;
+
+
 
         static Controller()
         {
@@ -103,16 +104,18 @@ namespace FinancialPortal.Accounts
             }
             Controller.UserListObservable[id] = user;
         }
-        public int maxIndexUserList()
+        
+        public static int maxIndexUserList()
         {
-            int max = 0;
+            max++;
+            /* don t know what was it for
             foreach(User u in UserListObservable)
             {
                 if(u.Id > max)
                 {
                     max = u.Id;
                 }
-            }
+            }*/
             return max;
         }
         public void updateAddUser(int index, int selectedIndex)

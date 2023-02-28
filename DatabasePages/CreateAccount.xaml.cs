@@ -25,7 +25,7 @@ namespace FinancialPortal.DatabasePages
         private void CreateAccount_Click(object sender, RoutedEventArgs e)
         {
             Controller control = new Controller();
-            if ((type.Text != null) && (name.Text != null) && (deposit.Text != null) && (users.SelectedIndex >= 0))
+            if ((type.Text != "") && (name.Text != "") && (deposit.Text != "") && (users.SelectedIndex > -1))
             {
 
             

@@ -69,7 +69,7 @@ namespace FinancialPortal.DatabasePages
         public void choosingParametrs()
         {
             Controller control = new Controller();
-            if ((change.Text != null)&&(datagrid.SelectedIndex>=0)) { 
+            if ((change.Text != "")&&(datagrid.SelectedIndex>-1)) { 
             if (change.Text =="Name")
             {
                     if(input.Text != null)
