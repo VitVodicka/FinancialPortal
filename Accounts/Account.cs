@@ -17,13 +17,10 @@ namespace FinancialPortal
         public string UsersFromObservable { get; set; }
         public ObservableCollection<double> MoneyStatus { get; set; }
         public ObservableCollection<int> UserList { get; set; }
-        public ObservableCollection<int> AllUsersExceptAccount { get; set; }
         public Account()
         {
             MoneyStatus = new ObservableCollection<double>();
             UserList = new ObservableCollection<int>();
-            AllUsersExceptAccount = new ObservableCollection<int>();
-            CalculateUser();
             fromCollectionToString();
 
         }
@@ -32,8 +29,6 @@ namespace FinancialPortal
         {
             MoneyStatus = new ObservableCollection<double>();
             UserList = new ObservableCollection<int>();
-            AllUsersExceptAccount = new ObservableCollection<int>();
-            CalculateUser();
             
             Index += 1;
             Name = name;
@@ -57,20 +52,6 @@ namespace FinancialPortal
             Name = name;
             Change("Name");
         }
-        public void CalculateUser()
-        {
-            foreach(User u in Controller.UserListObservable)
-            {
-                foreach(int userListIndex in UserList)
-                {
-                    if (u.Id != userListIndex)
-                    {
-                        AllUsersExceptAccount.Add(u.Id);
-                        Change("AllUsersExceptAccount");
-                    }
-                }
-            }
-        }
         
         public void RemoveUser(int index)
         {
@@ -90,27 +71,13 @@ namespace FinancialPortal
         }
         public void fromCollectionToString()
         {
-            /*foreach(User u in Controller.UserListObservable)
-            {
-                foreach(int userListPosition in UserList)
-                {
-                    if (u.Id == userListPosition)
-                    {
-                        UsersFromObservable += u.Name+",";
-                    }
-                }
-                
-            }*/
-            string result = "";
+            string resault = "";
             for (int i = 0; i < Controller.UserListObservable.Count; i++)
             {
-                result += Controller.UserListObservable[i].Name + ", ";
+                resault += Controller.UserListObservable[i].Name + " "+Controller.UserListObservable[i].Surname+", ";
             }
-
-            if ((UsersFromObservable != null) && (UsersFromObservable[-1] == ','))
-            {
-                UsersFromObservable.Remove(UsersFromObservable.Length - 1);
-            }
+            UsersFromObservable=resault.Substring(0, resault.Length-2);
+            
             Change("UsersFromObservable");
         }
         public event PropertyChangedEventHandler PropertyChanged;

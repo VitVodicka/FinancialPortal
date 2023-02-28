@@ -55,7 +55,7 @@ namespace FinancialPortal.DatabasePages
                 
                 //selectedUsers combobx recives list of all acounts except of the users that are included
                 control.allAcounts();
-                selectedUsers.ItemsSource = account.AllUsersExceptAccount;
+                selectedUsers.ItemsSource = Controller.UserListObservable;
             }
         }
 
