@@ -19,7 +19,7 @@ namespace FinancialPortal.DatabasePages
     /// </summary>
     public partial class Password : Window
     {
-        PasswordChecker ps = new PasswordChecker();
+        
         public Password()
         {
             InitializeComponent();
@@ -27,11 +27,16 @@ namespace FinancialPortal.DatabasePages
 
         private void CheckPassword(object sender, RoutedEventArgs e)
         {
-            if (ps.returnValueFromPassword(passwordInput.Password.ToString()) == true)
+            if (passwordInput.Password.ToString() !="")//if password input contains something, then it passes value to InputPassowrd and closes the window
             {
-
+                PasswordChecker.InputPassword = passwordInput.Password.ToString();
+                this.Close();
             }
 
         }
+
+      
+
+      
     }
 }

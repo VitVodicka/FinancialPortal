@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Vít Vodička\source\repos\FinancialPortal\FinancialPortal\obj\Debug\
+C:\Users\drako\source\repos\FinancialPortal\FinancialPortal\obj\Debug\
 FinancialPortal
 none
 false
 DEBUG;TRACE
-C:\Users\Vít Vodička\source\repos\FinancialPortal\FinancialPortal\App.xaml
+C:\Users\drako\source\repos\FinancialPortal\FinancialPortal\App.xaml
 7-1688899657
 81674036658
 21-1886694553
-22-303921730
+221119139469
 DatabasePages\AddUser.xaml;DatabasePages\CreateAccount.xaml;DatabasePages\MovePage.xaml;DatabasePages\Password.xaml;DatabasePages\UpdateAccount.xaml;DatabasePages\UpdateUser.xaml;MainWindow.xaml;
 
-False
+True
 

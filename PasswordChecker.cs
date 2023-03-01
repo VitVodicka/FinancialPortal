@@ -8,14 +8,12 @@ namespace FinancialPortal
 {
     internal class PasswordChecker
     {
-        public PasswordChecker()
-        {
 
-        }
-        string InputPassword { get; set; }
-        public bool returnValueFromPassword(string password)
+        private string settedPassword = "ahoj";
+        public static string InputPassword { get; set; }  
+        public bool getValueFromPassword()
         {
-            if (password == InputPassword)
+            if (settedPassword == InputPassword)
             {
                 return true;
             }

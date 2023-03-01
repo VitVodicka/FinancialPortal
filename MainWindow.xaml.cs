@@ -31,16 +31,9 @@ namespace FinancialPortal
         Mortgage m = new Mortgage();
         Chart chare = new Chart();//creating classes
         investmentPortal invest = new investmentPortal();
+        PasswordChecker ps = new PasswordChecker();
         //Database dat = new Database();
-        
-        
-        
-
-
-
-
-
-
+       
 public MainWindow()
         {
             InitializeComponent();
@@ -62,31 +55,100 @@ public MainWindow()
             HamburgerMenu.SetCurrentValue(HamburgerMenu.IsPaneOpenProperty, false);//setting values to the hamburgermenu, and closing hamburgermenu after selection
             
         }
+        
+        void showAddUser()
+        {
+            if (ps.getValueFromPassword())//if the inputed value equals to the password then it shows the window
+            {
+                new AddUser().ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Bad password");
+            }
+        }
         private void AddUserClick(object sender, RoutedEventArgs e)
         {
-            new AddUser().ShowDialog();
             
-            
+            Password password = new Password();
+            password.Show();
+            password.Closed+=(s,args)=> showAddUser();//s= Password window, args=parametrs with Password window, adding a method of Closed window and if closed the does function
+
+        }
+        void showUpdateUser()
+        {
+            if (ps.getValueFromPassword())//if the inputed value equals to the password then it shows the window
+            {
+                new UpdateUser().ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Bad password");
+            }
         }
         private void UpdateUserClick(object sender, RoutedEventArgs e)
         {
-            new UpdateUser().ShowDialog();
+            Password password = new Password();
+            password.Show();
+            password.Closed += (s, args) => showUpdateUser();//s= Password window, args=parametrs with Password window, adding a method of Closed window and if closed the does function
+          
         }
+        void showMoney()
+        {
+            if (ps.getValueFromPassword())//if the inputed value equals to the password then it shows the window
+            {
+                new MovePage().ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Bad password");
+            }
+        }
+
         private void MoveMoneyClick(object sender, RoutedEventArgs e)
         {
-            new MovePage().ShowDialog();
+            Password password = new Password();
+            password.Show();
+            password.Closed += (s, args) => showMoney();//s= Password window, args=parametrs with Password window, adding a method of Closed window and if closed the does function
+
+        }
+        void showAddAccount()
+        {
+            if (ps.getValueFromPassword())//if the inputed value equals to the password then it shows the window
+            {
+                new CreateAccount().ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Bad password");
+            }
         }
         private void AddAccountClick(object sender, RoutedEventArgs e)
         {
-            new CreateAccount().ShowDialog();
-            
+            Password password = new Password();
+            password.Show();
+            password.Closed += (s, args) => showAddAccount();//s= Password window, args=parametrs with Password window, adding a method of Closed window and if closed the does function
 
-            
-            //cr.Show();
+
+
+        }
+        void showUpdateAccount()
+        {
+            if (ps.getValueFromPassword())//if the inputed value equals to the password then it shows the window
+            {
+                new UpdateAccount().ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Bad password");
+            }
         }
         private void UpdateAccountClick(object sender, RoutedEventArgs e)
         {
-            new UpdateAccount().ShowDialog();
+            Password password = new Password();
+            password.Show();
+            password.Closed += (s, args) => showUpdateAccount();//s= Password window, args=parametrs with Password window, adding a method of Closed window and if closed the does function
+
         }
 
 
