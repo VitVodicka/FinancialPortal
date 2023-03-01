@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Data.SqlTypes;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,27 +15,31 @@ namespace FinancialPortal
         
         public string Name { get; set; }
         public string Type { get; set; }
-        public int Index { get; set; }
+        public int Index = -1;
         public string UsersFromObservable { get; set; }
-        public ObservableCollection<double> MoneyStatus { get; set; }
+        private List<double> MoneyStatus { get; set; }
+        public double Money { get; set; }
         public ObservableCollection<int> UserList { get; set; }
 
         public Account()
         {
-            MoneyStatus = new ObservableCollection<double>();
+            MoneyStatus = new List<double>();
             UserList = new ObservableCollection<int>();
         }
 
         
         public Account(string name, float deposit, int selectedIndex, string type)
         {
-            MoneyStatus = new ObservableCollection<double>();
+            MoneyStatus = new List<double>();
             UserList = new ObservableCollection<int>();
-
+            
             Index += 1;
             Name = name;
             Type = type;
             MoneyStatus.Add(deposit);
+            List<double> MoneyStatusReversed = MoneyStatus;
+            MoneyStatusReversed.Reverse();
+            Money = MoneyStatusReversed[0];
             UserList.Add(selectedIndex);
             change("MoneyStatus");
             change("UserList");
