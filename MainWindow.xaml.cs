@@ -159,10 +159,7 @@ public MainWindow()
             switchingQuaters();
 
         }
-        bool Password()
-        {
 
-        }
         public void switchingQuaters()
         {
             switch (repaymentperiod.Text)
