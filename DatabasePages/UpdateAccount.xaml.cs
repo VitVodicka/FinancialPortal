@@ -3,6 +3,7 @@ using MahApps.Metro.Controls;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -26,40 +27,75 @@ namespace FinancialPortal.DatabasePages
         
         public UpdateAccount()
         {
-            Account account = new Account();
+            
+            
 
             InitializeComponent();
-            if (change.SelectedIndex == 1)
+            //selectedOption.Visibility = Visibility.Hidden;
+            //selectedUsers.Visibility = Visibility.Hidden;
+            //selectedUsersOption.Visibility = Visibility.Hidden;
+
+
+
+        }
+        private void change_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (change.SelectedIndex == 0)
             {
                 Controller control = new Controller();
-                selectedUsersOption.Visibility = Visibility.Visible;
-                textBoxStackPanel.Visibility = Visibility.Collapsed;
+                selectedOption.Visibility = Visibility.Hidden;
+                input.Visibility = Visibility.Visible;
+                selectedUsers.Visibility = Visibility.Hidden;
             }
-            else
+            else if (change.SelectedIndex == 1)
             {
                 Controller control = new Controller();
-                selectedUsersOption.Visibility = Visibility.Collapsed;
-                textBoxStackPanel.Visibility=Visibility.Visible;
+                selectedOption.Visibility = Visibility.Visible;
+                selectedUsers.Visibility = Visibility.Hidden;
+                input.Visibility = Visibility.Hidden;
+                Account account = new Account();
+                /*if ((change.SelectedIndex == 0)||(change.SelectedIndex==1))
+                {
+                    selectedUsers.Visibility = Visibility.Visible;
+                }*/
+
             }
-            if (selectedOption.Text == "Remove")
+            else if (change.SelectedIndex == 2)
             {
-                
+                input.Visibility = Visibility.Hidden;
+                selectedOption.Visibility = Visibility.Hidden;
+                selectedUsers.Visibility= Visibility.Visible;
+            }
+            else if (change.SelectedIndex == 3)
+            {
+                Controller control = new Controller();
+                selectedOption.Visibility = Visibility.Hidden;
+                input.Visibility = Visibility.Visible;
+                selectedUsers.Visibility = Visibility.Hidden;
+            }
+
+        }
+        private void removeADDSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (selectedOption.SelectedIndex == 0)
+            {
+                Account account= new Account();
                 Controller control = new Controller();
                 //selectedUsers combobox recives list of avaliable accounts that it has
                 control.availableAccounts();
+                selectedUsers.Visibility = Visibility.Visible;
                 selectedUsers.ItemsSource = account.UserList;
             }
-            if(selectedOption.Text == "Add")
+            if (selectedOption.SelectedIndex == 1)
             {
                 Controller control = new Controller();
-                
                 //selectedUsers combobx recives list of all acounts except of the users that are included
                 control.allAcounts();
                 selectedUsers.ItemsSource = Controller.UserListObservable;
+                selectedUsers.Visibility = Visibility.Visible;
             }
         }
 
-        
 
         private void UppdateAccount_click(object sender, RoutedEventArgs e)
         {
@@ -122,5 +158,7 @@ namespace FinancialPortal.DatabasePages
             }
             }
         }
+
+        
     }
 }

@@ -49,29 +49,29 @@
         </DataGrid>
         <StackPanel Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal" Height="59" Width="301">
             <TextBlock Text="Change:" Style="{StaticResource textblock}"></TextBlock>
-            <ComboBox Width="160" Name="change">
+            <ComboBox Width="160" Name="change" SelectionChanged="change_SelectionChanged">
                 <ComboBoxItem Content="Name"></ComboBoxItem>
                 <ComboBoxItem Content="User"></ComboBoxItem>
                 <ComboBoxItem Content="Type"></ComboBoxItem>
                 <ComboBoxItem Content="MoneyStatus"></ComboBoxItem>
             </ComboBox>
         </StackPanel>
-        <StackPanel Grid.Row="1" Grid.Column="1" Visibility="Visible" Name="selectedUsersOption" VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal" Height="59" Width="301">
+        <StackPanel Grid.Row="1" Grid.Column="1"  Name="selectedUsersOption" VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal" Height="59" Width="301">
 
-            <ComboBox Width="100" Name="selectedOption"  >
+            <ComboBox Width="100" Name="selectedOption" SelectionChanged="removeADDSelectionChanged"  Visibility="Hidden"  >
                 <ComboBoxItem Content="Remove"></ComboBoxItem>
                 <ComboBoxItem Content="Add"></ComboBoxItem>
             </ComboBox>
 
-            <ComboBox Width="150" Margin="50,0,0,0" Name="selectedUsers" Visibility="Visible">
+            <ComboBox Width="150" Margin="50,0,0,0" Name="selectedUsers" Visibility="Hidden">
                 
             </ComboBox>
             
         
         </StackPanel>
-        <StackPanel Grid.Column="1" Grid.Row="1" Visibility="Hidden" Name="textBoxStackPanel" VerticalAlignment="Center" HorizontalAlignment="Right" Orientation="Horizontal" Height="50" Width="210">
+        <StackPanel Grid.Column="1" Grid.Row="1" Name="textBoxStackPanel"   VerticalAlignment="Center" HorizontalAlignment="Right" Orientation="Horizontal" Height="50" Width="210">
 
-            <TextBox Style="{StaticResource Textbox}" HorizontalAlignment="Left" Width="200" Name="input" ></TextBox>
+            <TextBox Style="{StaticResource Textbox}"  Visibility="Hidden" HorizontalAlignment="Left" Width="200" Name="input" ></TextBox>
         </StackPanel>
         <Button Grid.Column="0" VerticalAlignment="Center" Grid.Row="2" Grid.ColumnSpan="2" HorizontalAlignment="Center" FontSize="25" Content="Change" Click="UppdateAccount_click"  ></Button>
     </Grid>
