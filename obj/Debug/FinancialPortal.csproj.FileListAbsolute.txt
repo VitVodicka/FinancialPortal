@@ -176,7 +176,6 @@ C:\Users\drako\source\repos\FinancialPortal\FinancialPortal\obj\Debug\FinancialP
 C:\Users\drako\source\repos\FinancialPortal\FinancialPortal\obj\Debug\FinancialPortal.csproj.SuggestedBindingRedirects.cache
 C:\Users\drako\source\repos\FinancialPortal\FinancialPortal\obj\Debug\DatabasePages\AddUser.g.cs
 C:\Users\drako\source\repos\FinancialPortal\FinancialPortal\obj\Debug\DatabasePages\CreateAccount.g.cs
-C:\Users\drako\source\repos\FinancialPortal\FinancialPortal\obj\Debug\DatabasePages\MovePage.g.cs
 C:\Users\drako\source\repos\FinancialPortal\FinancialPortal\obj\Debug\DatabasePages\Password.g.cs
 C:\Users\drako\source\repos\FinancialPortal\FinancialPortal\obj\Debug\DatabasePages\UpdateAccount.g.cs
 C:\Users\drako\source\repos\FinancialPortal\FinancialPortal\obj\Debug\DatabasePages\UpdateUser.g.cs
@@ -188,7 +187,6 @@ C:\Users\drako\source\repos\FinancialPortal\FinancialPortal\obj\Debug\FinancialP
 C:\Users\drako\source\repos\FinancialPortal\FinancialPortal\obj\Debug\App.baml
 C:\Users\drako\source\repos\FinancialPortal\FinancialPortal\obj\Debug\DatabasePages\AddUser.baml
 C:\Users\drako\source\repos\FinancialPortal\FinancialPortal\obj\Debug\DatabasePages\CreateAccount.baml
-C:\Users\drako\source\repos\FinancialPortal\FinancialPortal\obj\Debug\DatabasePages\MovePage.baml
 C:\Users\drako\source\repos\FinancialPortal\FinancialPortal\obj\Debug\DatabasePages\Password.baml
 C:\Users\drako\source\repos\FinancialPortal\FinancialPortal\obj\Debug\DatabasePages\UpdateAccount.baml
 C:\Users\drako\source\repos\FinancialPortal\FinancialPortal\obj\Debug\DatabasePages\UpdateUser.baml

@@ -25,28 +25,13 @@ namespace FinancialPortal.DatabasePages
         private void CreateAccount_Click(object sender, RoutedEventArgs e)
         {
             Controller control = new Controller();
-            if ((type.Text != "") && (name.Text != "") && (deposit.Text != "") && (users.SelectedIndex > -1))
+            if ((name.Text != "") && (deposit.Text != "") && (users.SelectedIndex > -1))
             {
-
-            
-            if (type.Text == "Current account")
-            {
-
-
-                account = new Account(name.Text, float.Parse(deposit.Text), users.SelectedIndex, "Current account");
+                account = new Account(name.Text, float.Parse(deposit.Text), users.SelectedIndex);
                 account.fromCollectionToString();
                 Controller.addAccount(account);
                 this.Close();
-               // MessageBox.Show(d.AddingAccount(name.Text, deposit.Text, users.SelectedIndex.ToString(), "Current account"));
-            }
-            if (type.Text == "Saving account")
-            {
-                account = new Account(name.Text, float.Parse(deposit.Text), users.SelectedIndex, "Saving account");
-                account.fromCollectionToString();
-                Controller.addAccount(account);
-                this.Close();
-                //MessageBox.Show(d.AddingAccount(name.Text, deposit.Text, users.SelectedIndex.ToString(), "Saving account"));
-            }
+                
             }
         }
     }

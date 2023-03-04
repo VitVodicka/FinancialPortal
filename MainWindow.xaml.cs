@@ -93,25 +93,7 @@ public MainWindow()
             password.Closed += (s, args) => showUpdateUser();//s= Password window, args=parametrs with Password window, adding a method of Closed window and if closed the does function
           
         }
-        void showMoney()
-        {
-            if (ps.getValueFromPassword())//if the inputed value equals to the password then it shows the window
-            {
-                new MovePage().ShowDialog();
-            }
-            else
-            {
-                MessageBox.Show("Bad password");
-            }
-        }
-
-        private void MoveMoneyClick(object sender, RoutedEventArgs e)
-        {
-            Password password = new Password();
-            password.Show();
-            password.Closed += (s, args) => showMoney();//s= Password window, args=parametrs with Password window, adding a method of Closed window and if closed the does function
-
-        }
+ 
         void showAddAccount()
         {
             if (ps.getValueFromPassword())//if the inputed value equals to the password then it shows the window

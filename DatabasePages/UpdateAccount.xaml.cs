@@ -32,8 +32,6 @@ namespace FinancialPortal.DatabasePages
 
             InitializeComponent();
             
-            //selectedUsers.Visibility = Visibility.Hidden;
-            //selectedUsersOption.Visibility = Visibility.Hidden;
 
 
 
@@ -72,12 +70,6 @@ namespace FinancialPortal.DatabasePages
 
             }
             else if (change.SelectedIndex == 2)
-            {
-                input.Visibility = Visibility.Hidden;
-                selectedOption.Visibility = Visibility.Hidden;
-                selectedUsers.Visibility= Visibility.Visible;
-            }
-            else if (change.SelectedIndex == 3)
             {
                 Controller control = new Controller();
                 selectedOption.Visibility = Visibility.Hidden;
@@ -147,16 +139,7 @@ namespace FinancialPortal.DatabasePages
                 
                 this.Close();
             }
-            if (change.Text == "Type")
-            {
-                    if (input.Text != null)
-                    {
-                        control.updateAccount("Type", input.Text, datagrid.SelectedIndex, 0, null);
-
-                        this.Close();
-                    }
-                        
-            }
+          
             if (change.Text == "MoneyStatus")
             {
                     if (input.Text != null)

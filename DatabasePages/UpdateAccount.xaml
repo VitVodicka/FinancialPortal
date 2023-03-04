@@ -44,7 +44,6 @@
                 <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="150"></DataGridTextColumn>
                 <DataGridTextColumn Header="Money status" Binding="{Binding Money}" Width="250"></DataGridTextColumn>
                 <DataGridTextColumn Header="User" Width="150" Binding="{Binding UsersFromObservable }"></DataGridTextColumn>
-                <DataGridTextColumn Header="Type" Width="150" Binding="{Binding Type}"></DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
         <StackPanel Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal" Height="59" Width="301">
@@ -52,7 +51,6 @@
             <ComboBox Width="160" Name="change" SelectionChanged="change_SelectionChanged">
                 <ComboBoxItem Content="Name"></ComboBoxItem>
                 <ComboBoxItem Content="User"></ComboBoxItem>
-                <ComboBoxItem Content="Type"></ComboBoxItem>
                 <ComboBoxItem Content="MoneyStatus"></ComboBoxItem>
             </ComboBox>
         </StackPanel>

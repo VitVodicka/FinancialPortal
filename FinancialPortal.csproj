@@ -100,10 +100,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="DatabasePages\MovePage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="DatabasePages\Password.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -136,9 +132,6 @@
     </Compile>
     <Compile Include="DatabasePages\CreateAccount.xaml.cs">
       <DependentUpon>CreateAccount.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="DatabasePages\MovePage.xaml.cs">
-      <DependentUpon>MovePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="DatabasePages\Password.xaml.cs">
       <DependentUpon>Password.xaml</DependentUpon>

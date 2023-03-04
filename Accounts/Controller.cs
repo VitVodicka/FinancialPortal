@@ -75,10 +75,7 @@ namespace FinancialPortal.Accounts
                                     updateAddUser(selectedIndex, selectedIndex);
                                 }
                                 break;
-                            // If the parameter is Type, update the account type
-                            case "Type":
-                                account.updateType(input);
-                                break;
+                           
                             // If the parameter is MoneyStatus, update the account money status
                             case "MoneyStatus":
                                 account.updateMoneyStatus(input);

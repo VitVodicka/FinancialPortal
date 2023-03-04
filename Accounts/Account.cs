@@ -14,7 +14,6 @@ namespace FinancialPortal
     {
         
         public string Name { get; set; }
-        public string Type { get; set; }
         public int Index = -1;
         public string UsersFromObservable { get; set; }
         private List<double> MoneyStatus { get; set; }
@@ -28,14 +27,14 @@ namespace FinancialPortal
         }
 
         
-        public Account(string name, float deposit, int selectedIndex, string type)
+        public Account(string name, float deposit, int selectedIndex)
         {
             MoneyStatus = new List<double>();
             UserList = new ObservableCollection<int>();
             
             Index += 1;
             Name = name;
-            Type = type;
+            
             MoneyStatus.Add(deposit);
             List<double> MoneyStatusReversed = MoneyStatus;
             MoneyStatusReversed.Reverse();
@@ -69,12 +68,6 @@ namespace FinancialPortal
             change("UserList");
         }
 
-        // This method updates the type property of the account
-        public void updateType(string type)
-        {
-            Type = type;
-            change("Type");
-        }
 
         // This method updates the money status property of the account
         public void updateMoneyStatus(string moneyStatus)

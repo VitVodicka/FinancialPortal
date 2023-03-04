@@ -52,14 +52,7 @@
             <TextBlock Text="Account name:" Style="{StaticResource textblock}"></TextBlock>
             <TextBox Style="{StaticResource Textbox}" Width="200" Name="name"   ></TextBox>
         </StackPanel>
-        <StackPanel Grid.Column="1" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal">
-            <TextBlock Text="Type of account:" Style="{StaticResource textblock}"></TextBlock>
-            <ComboBox Width="180" Name="type">
-                <ComboBoxItem Content="Current account"></ComboBoxItem>
-                <ComboBoxItem Content="Saving account"></ComboBoxItem>
-            </ComboBox>
-
-        </StackPanel>
+        
         <StackPanel Grid.Column="0" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal">
             <TextBlock Text="Users:" Style="{StaticResource textblock}" ></TextBlock>
             <ComboBox Width="180" Name="users" ItemsSource="{x:Static local:Controller.UserListObservable}" DisplayMemberPath="Name" SelectedItem="{Binding SelectedItem}">
