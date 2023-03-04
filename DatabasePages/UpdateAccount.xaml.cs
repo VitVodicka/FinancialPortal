@@ -31,7 +31,7 @@ namespace FinancialPortal.DatabasePages
             
 
             InitializeComponent();
-            //selectedOption.Visibility = Visibility.Hidden;
+            
             //selectedUsers.Visibility = Visibility.Hidden;
             //selectedUsersOption.Visibility = Visibility.Hidden;
 
@@ -40,6 +40,7 @@ namespace FinancialPortal.DatabasePages
         }
         private void change_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            
             if (change.SelectedIndex == 0)
             {
                 Controller control = new Controller();
@@ -49,15 +50,25 @@ namespace FinancialPortal.DatabasePages
             }
             else if (change.SelectedIndex == 1)
             {
-                Controller control = new Controller();
-                selectedOption.Visibility = Visibility.Visible;
-                selectedUsers.Visibility = Visibility.Hidden;
-                input.Visibility = Visibility.Hidden;
-                Account account = new Account();
-                /*if ((change.SelectedIndex == 0)||(change.SelectedIndex==1))
+                if ((selectedOption.SelectedIndex == 0) || (selectedOption.SelectedIndex == 1))
                 {
+                    Controller control = new Controller();
+                    selectedOption.Visibility = Visibility.Visible;
+                    
+                    input.Visibility = Visibility.Hidden;
+                    Account account = new Account();
                     selectedUsers.Visibility = Visibility.Visible;
-                }*/
+                }
+                else
+                {
+                    Controller control = new Controller();
+                    selectedOption.Visibility = Visibility.Visible;
+                    selectedUsers.Visibility = Visibility.Hidden;
+                    input.Visibility = Visibility.Hidden;
+                    Account account = new Account();
+                }
+                
+                
 
             }
             else if (change.SelectedIndex == 2)
