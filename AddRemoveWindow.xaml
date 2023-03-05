@@ -6,7 +6,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FinancialPortal.DatabasePages"
         mc:Ignorable="d"
-        Title="Add User" Height="250" Width="600" WindowStartupLocation="CenterScreen">
+        Title="Update Money" Height="250" Width="600" WindowStartupLocation="CenterScreen">
     <Window.Resources>
         <!-- settings for label, textbox,textblock-->
         <Style x:Key="Label" TargetType="{x:Type Label}">
@@ -44,21 +44,17 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"></RowDefinition>
 
-            <RowDefinition Height="0.5*"></RowDefinition>
         </Grid.RowDefinitions>
         <StackPanel Grid.Column="0" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal">
             <TextBlock Text="Money:" Style="{StaticResource textblock}"></TextBlock>
             <TextBox  Style="{StaticResource Textbox}" Width="150" Name="input"  ></TextBox>
         </StackPanel>
         <StackPanel Grid.Column="1" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal">
-            <ComboBox Width="120" Height="40">
-                <ComboBoxItem>Add</ComboBoxItem>
-                <ComboBoxItem>Remove</ComboBoxItem>
-            </ComboBox>
+            <Button Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" Width="150" Height="50" Content="Update" FontSize="20" Click="MONEY_ADD_CLICK"></Button>
 
         </StackPanel>
 
 
-        <Button Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" Width="150" Height="50" Content="Update" FontSize="20" Click="MONEY_ADD_CLICK"></Button>
+       
     </Grid>
 </mah:MetroWindow>

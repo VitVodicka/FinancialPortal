@@ -103,7 +103,7 @@
                 <mah:HamburgerMenuItemCollection>
                     <mah:HamburgerMenuImageItem Label="Charts" Thumbnail="icons/bar-chart.png">
                         <mah:HamburgerMenuImageItem.Tag>
-                            <Grid Width="700">
+                            <Grid Width="700" Name="userGrid" VerticalAlignment="Stretch">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*"></ColumnDefinition>
                                     <ColumnDefinition Width="0.4*"></ColumnDefinition>
@@ -113,23 +113,29 @@
                                     <RowDefinition Height="*"></RowDefinition>
                                     <RowDefinition Height="*"></RowDefinition>
                                 </Grid.RowDefinitions>
-                                <lvc:CartesianChart LegendLocation="Bottom" HorizontalAlignment="Stretch" Series="{Binding SeriesUserCollection}" Name="userchart"   Grid.Column="0"  Grid.RowSpan="3"   ></lvc:CartesianChart>
-                                <StackPanel Grid.Column="1" Grid.Row="0" Background="Yellow" >
-                                <StackPanel  HorizontalAlignment="Center" VerticalAlignment="Center">
-                                    <TextBlock Text="Return" FontFamily="Bebas Neue" FontSize="22" HorizontalAlignment="Center" ></TextBlock>
-                                    <TextBlock Text="50%" FontFamily="Bebas Neue" Style="{DynamicResource textblock}" HorizontalAlignment="Center"  ></TextBlock>
+                                <lvc:CartesianChart LegendLocation="Bottom" HorizontalAlignment="Stretch" Series="{Binding SeriesUserCollection}" Name="userchart" Grid.Column="0" Grid.RowSpan="3" >
+                                    
+                                </lvc:CartesianChart>
+                                
+                                <StackPanel Grid.Column="1" Grid.Row="0" Background="#444444" >
+                                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <TextBlock Text="Return" FontFamily="Bebas Neue" FontSize="22" Foreground="White" HorizontalAlignment="Center" />
+                                        <TextBlock Text="{Binding Return}" FontFamily="Bebas Neue" Foreground="White" Style="{DynamicResource textblock}" HorizontalAlignment="Center" />
+                                    </StackPanel>
                                 </StackPanel>
+                                <StackPanel Grid.Column="1" Grid.Row="1" Background="#3393df" >
+                                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <TextBlock Text="Profit/loss" FontFamily="Bebas Neue" HorizontalAlignment="Center" FontSize="22" />
+                                        <TextBlock Text="{Binding ProfitLoss}" FontFamily="Bebas Neue" Style="{DynamicResource textblock}" HorizontalAlignment="Center" />
+                                    </StackPanel>
                                 </StackPanel>
-                                <StackPanel Grid.Column="1" Grid.Row="1" Background="Blue" >
-                                <StackPanel Grid.Column="1" Grid.Row="1"  HorizontalAlignment="Center" VerticalAlignment="Center">
-                                    <TextBlock Text="Profit/loss" FontFamily="Bebas Neue" HorizontalAlignment="Center"    FontSize="22" ></TextBlock>
-                                    <TextBlock Text="5100" FontFamily="Bebas Neue" Style="{DynamicResource textblock}" HorizontalAlignment="Center" ></TextBlock>
-                                </StackPanel>
-                                </StackPanel>
-                                <StackPanel Grid.Column="1" Grid.Row="2" Background="Pink" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                    <Button Style="{DynamicResource MahApps.Styles.Button}" FontSize="20" Height="50" Width="180" Content="ADD/REMOVE" Click="ShowAddMoney" ></Button>
-                                </StackPanel>
+                                
+                                <StackPanel Grid.Column="1" Grid.Row="2" VerticalAlignment="Center" Margin="0">
 
+                                    <Button  FontSize="20" Height="50"  Width="180" Content="ADD/REMOVE" VerticalAlignment="Center"  Click="ShowAddMoney" />
+                                   
+                                </StackPanel>
+                                
                             </Grid>
                         </mah:HamburgerMenuImageItem.Tag>
                     </mah:HamburgerMenuImageItem>

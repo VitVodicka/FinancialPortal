@@ -29,7 +29,14 @@ namespace FinancialPortal
         private void MONEY_ADD_CLICK(object sender, RoutedEventArgs e)
         {
             AccountAddRemoveUpdate account = new AccountAddRemoveUpdate();
-            account.UpdateMoney(double.Parse(input.Text));
+            if(input.Text!=null)
+            {
+                
+               account.UpdateMoney(double.Parse(input.Text));
+                
+
+            }
+            
             this.Close();
         }
     }
