@@ -32,6 +32,7 @@ namespace FinancialPortal
         Chart chare = new Chart();//creating classes
         investmentPortal invest = new investmentPortal();
         PasswordChecker ps = new PasswordChecker();
+        AccountAddRemoveUpdate ac = new AccountAddRemoveUpdate();
         //Database dat = new Database();
        
 public MainWindow()
@@ -39,6 +40,7 @@ public MainWindow()
             InitializeComponent();
             
             DataContext = m;//declaring datacontexts
+            userchart.Series = Chart.SeriesUserCollection;
             Cartesianchart.Series = Chart.SeriesCollection;//adding itemsosurce to the charts
             piechart.Series = Chart.SeriesCollectionPieChart;
             investgrid.DataContext = invest;//declaring datacontext for every grid

@@ -113,7 +113,7 @@
                                     <RowDefinition Height="*"></RowDefinition>
                                     <RowDefinition Height="*"></RowDefinition>
                                 </Grid.RowDefinitions>
-                                <lvc:PieChart LegendLocation="Bottom" Content="ahoj" Background="Green" InnerRadius="0"   Grid.Column="0"  Grid.RowSpan="3"   HorizontalAlignment="Center"></lvc:PieChart>
+                                <lvc:CartesianChart LegendLocation="Bottom" Series="{Binding SeriesUserCollection}" Name="userchart" Background="Green"    Grid.Column="0"  Grid.RowSpan="3"   HorizontalAlignment="Center"></lvc:CartesianChart>
                                 <StackPanel Grid.Column="1" Grid.Row="0" Background="Yellow" >
                                 <StackPanel  HorizontalAlignment="Center" VerticalAlignment="Center">
                                     <TextBlock Text="Return" FontFamily="Bebas Neue" FontSize="22" HorizontalAlignment="Center" ></TextBlock>
@@ -254,10 +254,5 @@
             </mah:HamburgerMenu.ItemsSource>
         </mah:HamburgerMenu>
         
-        
-
-
-
-
     </Grid>
 </mah:MetroWindow>

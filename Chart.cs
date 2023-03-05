@@ -12,6 +12,7 @@ namespace FinancialPortal
     {
         public static SeriesCollection SeriesCollectionPieChart { get; set; }//declaration of collections
         public static SeriesCollection SeriesCollection { get; set; }
+        public static SeriesCollection SeriesUserCollection { get; set; }
         public Chart()
         {
             SeriesCollection = new SeriesCollection()
@@ -22,6 +23,10 @@ namespace FinancialPortal
             SeriesCollectionPieChart = new SeriesCollection()
             {
                 
+            };
+            SeriesUserCollection = new SeriesCollection()
+            {
+
             };
         }
         
