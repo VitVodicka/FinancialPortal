@@ -203,3 +203,5 @@ C:\Users\drako\source\repos\FinancialPortal\FinancialPortal\bin\Debug\LiveCharts
 C:\Users\drako\source\repos\FinancialPortal\FinancialPortal\bin\Debug\LiveCharts.Wpf.dll
 C:\Users\drako\source\repos\FinancialPortal\FinancialPortal\bin\Debug\MahApps.Metro.dll
 C:\Users\drako\source\repos\FinancialPortal\FinancialPortal\bin\Debug\Microsoft.Xaml.Behaviors.dll
+C:\Users\drako\source\repos\FinancialPortal\FinancialPortal\obj\Debug\AddRemoveWindow.g.cs
+C:\Users\drako\source\repos\FinancialPortal\FinancialPortal\obj\Debug\AddRemoveWindow.baml

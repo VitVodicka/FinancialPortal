@@ -224,7 +224,10 @@ public MainWindow()
             contributions.Visibility = Visibility.Collapsed;
             contributionsinput.Visibility = Visibility.Collapsed;
         }
-
+        private void ShowAddMoney(object sender, RoutedEventArgs e)
+        {
+            new AddRemoveWindow().Show();
+        }
         private void Investment_Click(object sender, RoutedEventArgs e)//regex filter and if it contains something it then uses functions
         {
             var regex = new Regex("(([A-Z])|([a-z])|([ ]))");

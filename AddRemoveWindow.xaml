@@ -1,0 +1,64 @@
+﻿<mah:MetroWindow x:Class="FinancialPortal.AddRemoveWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FinancialPortal.DatabasePages"
+        mc:Ignorable="d"
+        Title="Add User" Height="250" Width="600" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <!-- settings for label, textbox,textblock-->
+        <Style x:Key="Label" TargetType="{x:Type Label}">
+            <Setter Property="FontSize" Value="22" />
+            <Setter Property="FontFamily" Value="Bebas Neue"></Setter>
+        </Style>
+        <Style x:Key="Textbox" TargetType="{x:Type TextBox}">
+            <Setter Property="Background" Value="Red" />
+            <Setter Property="Foreground" Value="White"></Setter>
+            <Setter Property="Height" Value="40"></Setter>
+            <Setter Property="Width" Value="180"></Setter>
+            <Setter Property="Margin" Value="5"></Setter>
+            <Setter Property="FontSize" Value="20"></Setter>
+            <Setter Property="FontFamily" Value="Bebas Neue"></Setter>
+            <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
+
+        </Style>
+        <Style x:Key="textblock" TargetType="{x:Type TextBlock}">
+            <Setter Property="FontSize" Value="30"></Setter>
+            <Setter Property="FontWeight" Value="Bold"></Setter>
+            <Setter Property="HorizontalAlignment" Value="Left"></Setter>
+
+            <Setter Property="Margin" Value="10"></Setter>
+            <Setter Property="FontFamily" Value="Bebas Neue"></Setter>
+        </Style>
+
+
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"></RowDefinition>
+
+            <RowDefinition Height="0.5*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Column="0" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal">
+            <TextBlock Text="Money:" Style="{StaticResource textblock}"></TextBlock>
+            <TextBox  Style="{StaticResource Textbox}" Width="150" Name="input"  ></TextBox>
+        </StackPanel>
+        <StackPanel Grid.Column="1" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal">
+            <ComboBox Width="120" Height="40">
+                <ComboBoxItem>Add</ComboBoxItem>
+                <ComboBoxItem>Remove</ComboBoxItem>
+            </ComboBox>
+
+        </StackPanel>
+
+
+        <Button Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" Width="150" Height="50" Content="Update" FontSize="20" Click="MONEY_ADD_CLICK"></Button>
+    </Grid>
+</mah:MetroWindow>
