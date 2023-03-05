@@ -113,7 +113,7 @@
                                     <RowDefinition Height="*"></RowDefinition>
                                     <RowDefinition Height="*"></RowDefinition>
                                 </Grid.RowDefinitions>
-                                <lvc:CartesianChart LegendLocation="Bottom" Series="{Binding SeriesUserCollection}" Name="userchart" Background="Green"    Grid.Column="0"  Grid.RowSpan="3"   HorizontalAlignment="Center"></lvc:CartesianChart>
+                                <lvc:CartesianChart LegendLocation="Bottom" HorizontalAlignment="Stretch" Series="{Binding SeriesUserCollection}" Name="userchart"   Grid.Column="0"  Grid.RowSpan="3"   ></lvc:CartesianChart>
                                 <StackPanel Grid.Column="1" Grid.Row="0" Background="Yellow" >
                                 <StackPanel  HorizontalAlignment="Center" VerticalAlignment="Center">
                                     <TextBlock Text="Return" FontFamily="Bebas Neue" FontSize="22" HorizontalAlignment="Center" ></TextBlock>

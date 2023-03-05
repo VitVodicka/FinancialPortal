@@ -4,6 +4,7 @@ using LiveCharts.Wpf.Charts.Base;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -11,28 +12,48 @@ namespace FinancialPortal
 {
     internal class AccountAddRemoveUpdate
     {
-        ChartValues<double> AccountChart { get; set; }
-        public AccountAddRemoveUpdate()
+        static ChartValues<double> AccountChart { get; set; }
+        public double Zhodnoceni { get; set; }
+        public AccountAddRemoveUpdate() { 
+        Zhodnoceni= 0;
+        }
+        static AccountAddRemoveUpdate()
         {
+            
             AccountChart=new ChartValues<double>();
         }
         public void UpdateMoney(double money)
         {
-            //AccountChart.Add(money);
+            AccountChart.Add(money);
             AddingToChart();
             
         }
         public void AddingToChart()
         {
-            //Chart.SeriesCollection.Clear();//clearing of the chart
-            LineSeries lineSeries = new LineSeries
+            Chart.SeriesUserCollection.Clear();//clearing of the chart
+            LineSeries lineseries = new LineSeries
             {
-                Title = "My Line Series",
-                Values = new ChartValues<double> { 10, 20, 30, 40, 50 }
+                Title = "My money",
+                Values = AccountChart,
             };
 
-            Chart.SeriesCollection.Add(lineSeries);
+            Chart.SeriesUserCollection.Add(lineseries);
 
+        }
+        public void profitLoss()
+        {
+
+        }
+        public void calculateReturn()
+        {
+            double firstValue = 0;
+            double lastValue = 0;
+            if (AccountChart.Count > 1)
+            {
+                firstValue = AccountChart[0];
+                lastValue= AccountChart[-1];
+                
+            }
         }
     }
 }
