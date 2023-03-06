@@ -103,7 +103,7 @@
                 <mah:HamburgerMenuItemCollection>
                     <mah:HamburgerMenuImageItem Label="Charts" Thumbnail="icons/bar-chart.png">
                         <mah:HamburgerMenuImageItem.Tag>
-                            <Grid Width="700" Name="userGrid" VerticalAlignment="Stretch">
+                            <Grid Width="700" Name="userGrid" VerticalAlignment="Stretch"   >
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*"></ColumnDefinition>
                                     <ColumnDefinition Width="0.4*"></ColumnDefinition>
@@ -116,17 +116,17 @@
                                 <lvc:CartesianChart LegendLocation="Bottom" HorizontalAlignment="Stretch" Series="{Binding SeriesUserCollection}" Name="userchart" Grid.Column="0" Grid.RowSpan="3" >
                                     
                                 </lvc:CartesianChart>
-                                
-                                <StackPanel Grid.Column="1" Grid.Row="0" Background="#444444" >
+
+                                <StackPanel  Grid.Column="1" Grid.Row="0" Background="#444444" >
                                     <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
                                         <TextBlock Text="Return" FontFamily="Bebas Neue" FontSize="22" Foreground="White" HorizontalAlignment="Center" />
-                                        <TextBlock Text="{Binding Return}" FontFamily="Bebas Neue" Foreground="White" Style="{DynamicResource textblock}" HorizontalAlignment="Center" />
+                                        <TextBlock  Name="returnMoney"  FontFamily="Bebas Neue" Foreground="White" Style="{DynamicResource textblock}" HorizontalAlignment="Center" />
                                     </StackPanel>
                                 </StackPanel>
                                 <StackPanel Grid.Column="1" Grid.Row="1" Background="#3393df" >
-                                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                                    <StackPanel   HorizontalAlignment="Center" VerticalAlignment="Center">
                                         <TextBlock Text="Profit/loss" FontFamily="Bebas Neue" HorizontalAlignment="Center" FontSize="22" />
-                                        <TextBlock Text="{Binding ProfitLoss}" FontFamily="Bebas Neue" Style="{DynamicResource textblock}" HorizontalAlignment="Center" />
+                                        <TextBlock  Name="profitLoss" FontFamily="Bebas Neue"  Style="{DynamicResource textblock}" HorizontalAlignment="Center" />
                                     </StackPanel>
                                 </StackPanel>
                                 

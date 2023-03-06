@@ -20,6 +20,7 @@ using System.Text.RegularExpressions;
 using System.Collections.ObjectModel;
 using FinancialPortal.DatabasePages;
 using System.Data.SqlClient;
+using System.Security.Principal;
 
 namespace FinancialPortal
 {
@@ -33,18 +34,25 @@ namespace FinancialPortal
         Chart chare = new Chart();//creating classes
         investmentPortal invest = new investmentPortal();
         PasswordChecker ps = new PasswordChecker();
-        AccountAddRemoveUpdate ac = new AccountAddRemoveUpdate();
-        //Database dat = new Database();
         
-public MainWindow()
+        //Database dat = new Database();
+
+        public MainWindow()
         {
             InitializeComponent();
+            AccountAddRemoveUpdate ac = new AccountAddRemoveUpdate();
+            //Grid userGrid = (Grid)FindName("userGrid");
+            returnMoney.Text = AccountAddRemoveUpdate.Return.ToString();
+            profitLoss.Text = AccountAddRemoveUpdate.ProfitLoss.ToString();
             
+            //DataContext= ac;
+            userGrid.DataContext = ac;
+
             //DataContext = m;//declaring datacontexts
             userchart.Series = Chart.SeriesUserCollection;
             Cartesianchart.Series = Chart.SeriesCollection;//adding itemsosurce to the charts
             piechart.Series = Chart.SeriesCollectionPieChart;
-            userGrid.DataContext = ac;
+            
             
             investgrid.DataContext = invest;//declaring datacontext for every grid
             mortgageGrid.DataContext = m;//declaring datacontext for every grid
@@ -53,6 +61,7 @@ public MainWindow()
 
 
         }
+
         private void HamburgerMenuControle(object sender, ItemClickEventArgs e)
         {
             HamburgerMenu.SetCurrentValue(ContentProperty, e.ClickedItem);
@@ -230,7 +239,12 @@ public MainWindow()
         }
         private void ShowAddMoney(object sender, RoutedEventArgs e)
         {
+            returnMoney.Text = AccountAddRemoveUpdate.Return.ToString();
+            profitLoss.Text = AccountAddRemoveUpdate.ProfitLoss.ToString();
             new AddRemoveWindow().Show();
+            
+
+
         }
         private void Investment_Click(object sender, RoutedEventArgs e)//regex filter and if it contains something it then uses functions
         {
@@ -284,18 +298,7 @@ public MainWindow()
 
                         }
                     }
-                    /*if(onetimeNotCompounded.IsChecked == true)
-                        {
-                            try
-                            {
-                                DataContext = invest;
-                                invest.OnetimeNotCompounded(double.Parse(initialinvestment.Text), double.Parse(yearsinvestement.Text), double.Parse(expectedreturn.Text));
-                            }
-                            catch {
-                            }
-                        }
-
-                    }*/
+                   
                 }
                 else
                {
@@ -306,5 +309,7 @@ public MainWindow()
             }
 
         }
+
+        
     }
 }

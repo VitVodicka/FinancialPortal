@@ -11,28 +11,26 @@ using System.Threading.Tasks;
 
 namespace FinancialPortal
 {
-    internal class AccountAddRemoveUpdate:INotifyPropertyChanged
+    internal class AccountAddRemoveUpdate
     {
         static ChartValues<double> AccountChart { get; set; }
-        public double Return { get; set; }
-        public double ProfitLoss { get; set; }
+        public static double Return { get; set; }
+        
+        public static double ProfitLoss
+        {
+        get;set;
+        }
         public AccountAddRemoveUpdate() { 
         }
         static AccountAddRemoveUpdate()
         {
-            
+            Return = 4;
+            ProfitLoss = 4;
             AccountChart=new ChartValues<double>();
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
-        public void Change(string change)//changing properties
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(change));
-            }
-        }
 
+       
         public void UpdateMoney(double money)
         {
             
@@ -58,21 +56,21 @@ namespace FinancialPortal
         }
         public void profitLoss()
         {
-            if (AccountChart.Count == 0)
+            
+             if(AccountChart.Count == 1)
             {
                 ProfitLoss = 2;
-                Change("ProfitLoss");
-            }
-            else if(AccountChart.Count == 1)
-            {
-                ProfitLoss = 2;
+                
+                
                 //ProfitLoss = AccountChart.First();
-                Change("ProfitLoss");
+
             }
             else
             {
-                ProfitLoss = AccountChart.Last() - AccountChart.First();
-                Change("ProfitLoss");
+                ProfitLoss = 2;
+                
+                //ProfitLoss = AccountChart.Last() - AccountChart.First();
+
             }
         }
         public void calculateReturn()
@@ -82,18 +80,19 @@ namespace FinancialPortal
             if (AccountChart.Count > 1)
             {
                 Return = 2;
+                
                 //firstValue = AccountChart[0];
                 //lastValue= AccountChart.Last();
                 //Return = lastValue / firstValue;
                 //Return= Math.Round(Return, 2);
-                Change("Return");
+
 
 
             }
             else
             {
                 Return = 2;
-                Change("Return");
+
             }
 
         }
