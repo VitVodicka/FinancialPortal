@@ -27,7 +27,7 @@ namespace FinancialPortal.DatabasePages
         private void CheckPassword(object sender, RoutedEventArgs e)
         {
             var regex = new Regex("(([A-Z])|([a-z])|([ ]))");//regex filter
-            if (regex.IsMatch(passwordInput.Password.ToString()) == false){
+            if (regex.IsMatch(passwordInput.Password.ToString()) != false){
 
             
             if (passwordInput.Password.ToString() != "")//if password input contains something, then it passes value to InputPassowrd and closes the window

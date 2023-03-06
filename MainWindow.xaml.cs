@@ -41,6 +41,7 @@ namespace FinancialPortal
         {
             
             InitializeComponent();
+            new RegisterWindow().Show();
             HamburgerMenu.SelectedItem = HamburgerMenu.TabIndex= 0;
             returnMoney.Text = (AccountAddRemoveUpdate.Return * 100).ToString() + "%";
             profitLoss.Text = AccountAddRemoveUpdate.ProfitLoss.ToString();
