@@ -32,7 +32,7 @@ namespace FinancialPortal.DatabasePages
         {
             
             
-            if (changebutton.Text != null)
+            if (changebutton.Text != "")
             {
 
             

@@ -111,7 +111,7 @@ namespace FinancialPortal.DatabasePages
             if ((change.Text != "")&&(datagrid.SelectedIndex>-1)) { 
             if (change.Text =="Name")
             {
-                    if(input.Text != null)
+                    if(input.Text != "")
                     {
                         control.updateAccount("Name", input.Text, datagrid.SelectedIndex, 0, null);
                         this.Close();
@@ -123,7 +123,7 @@ namespace FinancialPortal.DatabasePages
                     //remove is false and removes from list of accounts users
                     //add is true and adds from whole list of users
                     //if the user is there dont display him
-                    if (selectedOption.Text != null && selectedUsers.Text != null)
+                    if (selectedOption.Text != "" && selectedUsers.Text != "")
                     {
                         if (selectedOption.Text == "Remove")
                         {
@@ -142,7 +142,7 @@ namespace FinancialPortal.DatabasePages
           
             if (change.Text == "MoneyStatus")
             {
-                    if (input.Text != null)
+                    if (input.Text != "")
                     {
                         control.updateAccount("MoneyStatus", input.Text, datagrid.SelectedIndex, 0, null);
 

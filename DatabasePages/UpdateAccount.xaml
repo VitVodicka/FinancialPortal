@@ -6,7 +6,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FinancialPortal.Accounts"
         mc:Ignorable="d"
-        Title="Update Account" Height="450" Width="700" WindowStartupLocation="CenterScreen">
+        Title="Update Account" Height="450" Width="700" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Window.Resources>
 
         <Style x:Key="textblock" TargetType="{x:Type TextBlock}">

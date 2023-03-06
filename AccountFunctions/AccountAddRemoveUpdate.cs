@@ -24,8 +24,8 @@ namespace FinancialPortal
         }
         static AccountAddRemoveUpdate()
         {
-            Return = 4;
-            ProfitLoss = 4;
+            Return = 0;
+            ProfitLoss = 0;
             AccountChart=new ChartValues<double>();
         }
 
@@ -47,7 +47,7 @@ namespace FinancialPortal
             Chart.SeriesUserCollection.Clear();//clearing of the chart
             LineSeries lineseries = new LineSeries
             {
-                Title = "My money",
+                Title = "My account",
                 Values = AccountChart,
             };
 
@@ -59,17 +59,13 @@ namespace FinancialPortal
             
              if(AccountChart.Count == 1)
             {
-                ProfitLoss = 2;
-                
-                
-                //ProfitLoss = AccountChart.First();
-
+                ProfitLoss = 0;
             }
             else
             {
-                ProfitLoss = 2;
                 
-                //ProfitLoss = AccountChart.Last() - AccountChart.First();
+                
+                ProfitLoss = AccountChart.Last() - AccountChart.First();
 
             }
         }
@@ -79,19 +75,17 @@ namespace FinancialPortal
             double lastValue = 0;
             if (AccountChart.Count > 1)
             {
-                Return = 2;
                 
-                //firstValue = AccountChart[0];
-                //lastValue= AccountChart.Last();
-                //Return = lastValue / firstValue;
-                //Return= Math.Round(Return, 2);
-
-
-
+                
+                firstValue = AccountChart[0];
+                lastValue= AccountChart.Last();
+                Return = (lastValue / firstValue)-1;
+                
+                Return= Math.Round(Return, 2);
             }
             else
             {
-                Return = 2;
+                Return = 0;
 
             }
 

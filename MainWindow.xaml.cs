@@ -40,13 +40,9 @@ namespace FinancialPortal
         public MainWindow()
         {
             InitializeComponent();
-            AccountAddRemoveUpdate ac = new AccountAddRemoveUpdate();
-            //Grid userGrid = (Grid)FindName("userGrid");
-            returnMoney.Text = AccountAddRemoveUpdate.Return.ToString();
+            returnMoney.Text = (AccountAddRemoveUpdate.Return * 100).ToString() + "%";
             profitLoss.Text = AccountAddRemoveUpdate.ProfitLoss.ToString();
-            
-            //DataContext= ac;
-            userGrid.DataContext = ac;
+     
 
             //DataContext = m;//declaring datacontexts
             userchart.Series = Chart.SeriesUserCollection;
@@ -56,6 +52,13 @@ namespace FinancialPortal
             
             investgrid.DataContext = invest;//declaring datacontext for every grid
             mortgageGrid.DataContext = m;//declaring datacontext for every grid
+            if(Chart.SeriesUserCollection.Count < 1) {
+            userchart.Visibility= Visibility.Collapsed;
+            }
+            if(Chart.SeriesCollectionPieChart.Count < 1)
+            {
+                Cartesianchart.Visibility= Visibility.Collapsed;
+            }
 
             //dat.DataBaseConnection();
 
@@ -184,7 +187,7 @@ namespace FinancialPortal
             if ((regex.IsMatch(loanamount.Text) == false) && (regex.IsMatch(interestrate.Text) == false) && (regex.IsMatch(year.Text) == false)){//if it matches and isn t context null than do this
 
 
-                if ((repaymentperiod.Text != null) && (loanamount.Text != null) && (interestrate.Text != null) && (year.Text != null))
+                if ((repaymentperiod.Text != "") && (loanamount.Text != ""  ) && (interestrate.Text != "") && (year.Text != ""))
                 {
                     if (repaymentperiod.Text == "monthly")
                     {
@@ -237,11 +240,18 @@ namespace FinancialPortal
             contributions.Visibility = Visibility.Collapsed;
             contributionsinput.Visibility = Visibility.Collapsed;
         }
+        void updateReturnProfitLoss()
+        {
+            returnMoney.Text = (AccountAddRemoveUpdate.Return*100).ToString()+"%";
+            profitLoss.Text = AccountAddRemoveUpdate.ProfitLoss.ToString();
+        }
         private void ShowAddMoney(object sender, RoutedEventArgs e)
         {
-            returnMoney.Text = AccountAddRemoveUpdate.Return.ToString();
-            profitLoss.Text = AccountAddRemoveUpdate.ProfitLoss.ToString();
-            new AddRemoveWindow().Show();
+            AddRemoveWindow add = new AddRemoveWindow();
+            add.Show();
+            add.Closed += (s, args) => updateReturnProfitLoss();
+            userchart.Visibility= Visibility.Visible;
+            
             
 
 
@@ -251,7 +261,7 @@ namespace FinancialPortal
             var regex = new Regex("(([A-Z])|([a-z])|([ ]))");
             if ((regex.IsMatch(initialinvestment.Text) == false) && (regex.IsMatch(yearsinvestement.Text) == false) && (regex.IsMatch(expectedreturn.Text) == false))
             {
-                if ((initialinvestment.Text != null) && (yearsinvestement.Text != null) && (expectedreturn.Text != null))
+                if ((initialinvestment.Text != "") && (yearsinvestement.Text != "") && (expectedreturn.Text != ""))
                 {
                     try
                     {
@@ -272,7 +282,7 @@ namespace FinancialPortal
                     {
                         try
                         {
-                            if ((regex.IsMatch(contributionsinput.Text) == false) && (contributionsinput.Text) != null)
+                            if ((regex.IsMatch(contributionsinput.Text) == false) && (contributionsinput.Text) != "")
                             {
                                 //DataContext = new investmentPortal();//switching datacontexts
                                 invest.MonthlyContribution(double.Parse(initialinvestment.Text), double.Parse(yearsinvestement.Text), double.Parse(expectedreturn.Text), double.Parse(contributionsinput.Text));
@@ -287,8 +297,8 @@ namespace FinancialPortal
                     {
                         try
                         {
-                            if ((regex.IsMatch(contributionsinput.Text) == false) && (contributionsinput.Text) != null)
-                            {
+                            if ((regex.IsMatch(contributionsinput.Text) == false) && (contributionsinput.Text) != "")
+                            {   
                                 //DataContext = new investmentPortal();//switching datacontexts
                                 invest.Yearlycontribution(double.Parse(initialinvestment.Text), double.Parse(yearsinvestement.Text), double.Parse(expectedreturn.Text), double.Parse(contributionsinput.Text));
                             }
@@ -306,6 +316,7 @@ namespace FinancialPortal
                    hint.Text = "*Text must only contain numbers";
         
                }
+                Cartesianchart.Visibility= Visibility.Visible;
             }
 
         }

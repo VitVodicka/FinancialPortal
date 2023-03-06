@@ -6,7 +6,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FinancialPortal.DatabasePages"
         mc:Ignorable="d"
-        Title="Add User" Height="250" Width="800" WindowStartupLocation="CenterScreen">
+        Title="Add User" Height="250" Width="800" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Window.Resources>
         <!-- settings for label, textbox,textblock-->
         <Style x:Key="Label" TargetType="{x:Type Label}">
