@@ -51,15 +51,12 @@
             <ComboBox Width="160" Name="change" SelectionChanged="change_SelectionChanged">
                 <ComboBoxItem Content="Name"></ComboBoxItem>
                 <ComboBoxItem Content="User"></ComboBoxItem>
-                <ComboBoxItem Content="MoneyStatus"></ComboBoxItem>
+                
             </ComboBox>
         </StackPanel>
         <StackPanel Grid.Row="1" Grid.Column="1"  Name="selectedUsersOption" VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal" Height="59" Width="301">
 
-            <ComboBox Width="100" Name="selectedOption" SelectionChanged="removeADDSelectionChanged"  Visibility="Hidden"  >
-                <ComboBoxItem Content="Remove"></ComboBoxItem>
-                <ComboBoxItem Content="Add"></ComboBoxItem>
-            </ComboBox>
+            
 
             <ComboBox Width="150" Margin="50,0,0,0" Name="selectedUsers" Visibility="Hidden">
                 

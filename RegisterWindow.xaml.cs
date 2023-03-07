@@ -29,10 +29,10 @@ namespace FinancialPortal
         {
             var regex = new Regex("@");
             PasswordChecker ps = new PasswordChecker();
-            if (regex.IsMatch(mail.Text) == false)
+            if (regex.IsMatch(mail.Text) != false)
             {
-                MessageBox.Show("Dosen t contain zavinac");
-            }
+               
+            
             if ((mail.Text != "")&&(passwordInput.Password!=""))
             {
                 ps.setEmail(mail.Text);
@@ -43,7 +43,12 @@ namespace FinancialPortal
             {
                 MessageBox.Show("Not inserted password or E-mail");
             }
-            
+            }
+            else
+            {
+                MessageBox.Show("Email dosen t contain @");
+            }
+
         }
     }
 }

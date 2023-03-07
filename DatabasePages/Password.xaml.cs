@@ -33,6 +33,7 @@ namespace FinancialPortal.DatabasePages
             if (passwordInput.Password.ToString() != "")//if password input contains something, then it passes value to InputPassowrd and closes the window
             {
                 PasswordChecker.InputPassword = passwordInput.Password.ToString();
+
                 this.Close();
             }
             }

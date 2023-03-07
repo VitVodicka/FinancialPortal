@@ -6,6 +6,7 @@ using System.Linq;
 using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.UI;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -42,62 +43,27 @@ namespace FinancialPortal.DatabasePages
             if (change.SelectedIndex == 0)
             {
                 Controller control = new Controller();
-                selectedOption.Visibility = Visibility.Hidden;
                 input.Visibility = Visibility.Visible;
                 selectedUsers.Visibility = Visibility.Hidden;
             }
-            else if (change.SelectedIndex == 1)
-            {
-                if ((selectedOption.SelectedIndex == 0) || (selectedOption.SelectedIndex == 1))
-                {
-                    Controller control = new Controller();
-                    selectedOption.Visibility = Visibility.Visible;
-                    
-                    input.Visibility = Visibility.Hidden;
-                    Account account = new Account();
-                    selectedUsers.Visibility = Visibility.Visible;
-                }
-                else
-                {
-                    Controller control = new Controller();
-                    selectedOption.Visibility = Visibility.Visible;
-                    selectedUsers.Visibility = Visibility.Hidden;
-                    input.Visibility = Visibility.Hidden;
-                    Account account = new Account();
-                }
-                
-                
-
-            }
-            else if (change.SelectedIndex == 2)
+            if (change.SelectedIndex == 1)
             {
                 Controller control = new Controller();
-                selectedOption.Visibility = Visibility.Hidden;
-                input.Visibility = Visibility.Visible;
-                selectedUsers.Visibility = Visibility.Hidden;
-            }
-
-        }
-        private void removeADDSelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (selectedOption.SelectedIndex == 0)
-            {
-                Account account= new Account();
-                Controller control = new Controller();
-                //selectedUsers combobox recives list of avaliable accounts that it has
-                control.availableAccounts();
-                selectedUsers.Visibility = Visibility.Visible;
+                Account account = new Account();
                 selectedUsers.ItemsSource = account.UserList;
-            }
-            if (selectedOption.SelectedIndex == 1)
-            {
-                Controller control = new Controller();
-                //selectedUsers combobx recives list of all acounts except of the users that are included
-                control.allAcounts();
-                selectedUsers.ItemsSource = Controller.UserListObservable;
+                input.Visibility = Visibility.Hidden;
+
                 selectedUsers.Visibility = Visibility.Visible;
+                control.availableAccounts();
+               
+                
+                
+
             }
+            
+
         }
+        
 
 
         private void UppdateAccount_click(object sender, RoutedEventArgs e)
@@ -113,7 +79,7 @@ namespace FinancialPortal.DatabasePages
             {
                     if(input.Text != "")
                     {
-                        control.updateAccount("Name", input.Text, datagrid.SelectedIndex, 0, null);
+                        control.updateAccount("Name", input.Text, datagrid.SelectedIndex, 0);
                         this.Close();
                     }
                
@@ -123,16 +89,11 @@ namespace FinancialPortal.DatabasePages
                     //remove is false and removes from list of accounts users
                     //add is true and adds from whole list of users
                     //if the user is there dont display him
-                    if (selectedOption.Text != "" && selectedUsers.Text != "")
+                    if ( selectedUsers.Text != "")
                     {
-                        if (selectedOption.Text == "Remove")
-                        {
-                            control.updateAccount("User", "", datagrid.SelectedIndex, selectedUsers.SelectedIndex, false);
-                        }
-                        if (selectedOption.Text == "Add")
-                        {
-                            control.updateAccount("User", "", datagrid.SelectedIndex, selectedUsers.SelectedIndex, true);
-                        }
+                        
+                        control.updateAccount("User", "", datagrid.SelectedIndex, selectedUsers.SelectedIndex);
+                        
                         
                     }
                 
@@ -144,7 +105,7 @@ namespace FinancialPortal.DatabasePages
             {
                     if (input.Text != "")
                     {
-                        control.updateAccount("MoneyStatus", input.Text, datagrid.SelectedIndex, 0, null);
+                        control.updateAccount("MoneyStatus", input.Text, datagrid.SelectedIndex, 0);
 
                         this.Close();
                     }

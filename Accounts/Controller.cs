@@ -50,7 +50,7 @@ namespace FinancialPortal.Accounts
         }
 
         // Method to update an account based on a given parameter, input, selectedIndex, selectedUser, and removeOrAdd flag
-        public void updateAccount(string parameter, string input, int selectedIndex, int selectedUser, bool? removeOrAdd)
+        public void updateAccount(string parameter, string input, int selectedIndex, int selectedUser)
         {
             try
             {
@@ -66,14 +66,8 @@ namespace FinancialPortal.Accounts
                                 break;
                             // If the parameter is User, add or remove the selected user
                             case "User":
-                                if (removeOrAdd == false)
-                                {
-                                    account.removeUser(selectedIndex);
-                                }
-                                if (removeOrAdd == true)
-                                {
-                                    updateAddUser(selectedIndex, selectedIndex);
-                                }
+                                  account.removeUser(selectedIndex);
+                                
                                 break;
                            
                             // If the parameter is MoneyStatus, update the account money status
