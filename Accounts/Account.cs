@@ -65,7 +65,7 @@ namespace FinancialPortal
         {
             UserId = selectedUser;
             fromCollectionToString();
-            change("UserId");
+            
         }
 
 

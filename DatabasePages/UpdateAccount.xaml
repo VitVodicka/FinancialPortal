@@ -55,18 +55,15 @@
             </ComboBox>
         </StackPanel>
         <StackPanel Grid.Row="1" Grid.Column="1"  Name="selectedUsersOption" VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal" Height="59" Width="301">
-
-            
-
             <ComboBox Width="150" Margin="50,0,0,0" Name="selectedUsers" Visibility="Hidden" ItemsSource="{x:Static local:Controller.UserListObservable}">
-                
+          
             </ComboBox>
             
         
         </StackPanel>
-        <StackPanel Grid.Column="1" Grid.Row="1" Name="textBoxStackPanel"   VerticalAlignment="Center" HorizontalAlignment="Right" Orientation="Horizontal" Height="50" Width="210">
+        <StackPanel Grid.Column="1" Grid.Row="1" Name="textBoxStackPanel"   VerticalAlignment="Center" HorizontalAlignment="Right" Orientation="Horizontal" Height="50" Width="301">
 
-            <TextBox Style="{StaticResource Textbox}"  Visibility="Hidden" HorizontalAlignment="Left" Width="200" Name="input" ></TextBox>
+            <TextBox Style="{StaticResource Textbox}"  Visibility="Visible" HorizontalAlignment="Left" Width="200" Name="input" ></TextBox>
         </StackPanel>
         <Button Grid.Column="0" VerticalAlignment="Center" Grid.Row="2" Grid.ColumnSpan="2" HorizontalAlignment="Center" FontSize="25" Content="Change" Click="UppdateAccount_click"  ></Button>
     </Grid>
