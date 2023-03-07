@@ -48,7 +48,7 @@ namespace FinancialPortal.Accounts
         {
             AccountListObservable.Add(u);
         }
-
+        
         // Method to update an account based on a given parameter, input, selectedIndex, selectedUser, and removeOrAdd flag
         public void updateAccount(string parameter, string input, int selectedIndex, int selectedUser)
         {
@@ -66,8 +66,14 @@ namespace FinancialPortal.Accounts
                                 break;
                             // If the parameter is User, add or remove the selected user
                             case "User":
-                                  account.removeUser(selectedIndex);
                                 
+                                    
+                                        account.updateUser(selectedUser);
+                                    
+                                
+                                  
+                                
+
                                 break;
                            
                             // If the parameter is MoneyStatus, update the account money status

@@ -62,9 +62,11 @@ namespace FinancialPortal
         }
 
         // This method removes a user from the user list of the account
-        public void removeUser(int index)
+        public void updateUser( int selectedUser)
         {
-            UserList.RemoveAt(index);
+            //UserList.RemoveAt(index);
+            UserList.Clear();
+            UserList.Add(selectedUser);
             change("UserList");
         }
 

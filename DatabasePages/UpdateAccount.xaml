@@ -58,7 +58,7 @@
 
             
 
-            <ComboBox Width="150" Margin="50,0,0,0" Name="selectedUsers" Visibility="Hidden">
+            <ComboBox Width="150" Margin="50,0,0,0" Name="selectedUsers" Visibility="Hidden" ItemsSource="{x:Static local:Controller.UserListObservable}">
                 
             </ComboBox>
             

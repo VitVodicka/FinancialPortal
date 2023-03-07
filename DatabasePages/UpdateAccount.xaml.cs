@@ -50,15 +50,11 @@ namespace FinancialPortal.DatabasePages
             {
                 Controller control = new Controller();
                 Account account = new Account();
-                selectedUsers.ItemsSource = account.UserList;
                 input.Visibility = Visibility.Hidden;
 
                 selectedUsers.Visibility = Visibility.Visible;
                 control.availableAccounts();
                
-                
-                
-
             }
             
 
@@ -93,7 +89,7 @@ namespace FinancialPortal.DatabasePages
                     {
                         
                         control.updateAccount("User", "", datagrid.SelectedIndex, selectedUsers.SelectedIndex);
-                        
+                        this.Close();
                         
                     }
                 
