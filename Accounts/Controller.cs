@@ -65,21 +65,12 @@ namespace FinancialPortal.Accounts
                                 account.updateName(input);
                                 break;
                             // If the parameter is User, add or remove the selected user
-                            case "User":
-                                
-                                    
+                            case "User":                               
                                         account.updateUser(selectedUser);
-                                    
-                                
-                                  
-                                
-
                                 break;
                            
                             // If the parameter is MoneyStatus, update the account money status
-                            case "MoneyStatus":
-                                account.updateMoneyStatus(input);
-                                break;
+                            
                         }
                     }
                 }
@@ -131,8 +122,8 @@ namespace FinancialPortal.Accounts
                     if (account.Index == selectedIndex)
                     {
                         
-                        account.UserList.Add(index);
-                        change("UserList");
+                        account.UserId=index;
+                        change("UserId");
                         
                         
                     }

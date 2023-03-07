@@ -18,19 +18,19 @@ namespace FinancialPortal
         public string UsersFromObservable { get; set; }
         private List<double> MoneyStatus { get; set; }
         public double Money { get; set; }
-        public ObservableCollection<int> UserList { get; set; }
+        public int UserId { get; set; }
 
         public Account()
         {
             MoneyStatus = new List<double>();
-            UserList = new ObservableCollection<int>();
+           
         }
 
         
         public Account(string name, float deposit, int selectedIndex)
         {
             MoneyStatus = new List<double>();
-            UserList = new ObservableCollection<int>();
+            
             
             Index += 1;
             Name = name;
@@ -39,9 +39,8 @@ namespace FinancialPortal
             List<double> MoneyStatusReversed = MoneyStatus;
             MoneyStatusReversed.Reverse();
             Money = MoneyStatusReversed[0];
-            UserList.Add(selectedIndex);
-            change("MoneyStatus");
-            change("UserList");
+            UserId = selectedIndex;
+            
         }
 
         // This is a helper method to raise the PropertyChanged event
@@ -64,19 +63,14 @@ namespace FinancialPortal
         // This method removes a user from the user list of the account
         public void updateUser( int selectedUser)
         {
-            //UserList.RemoveAt(index);
-            UserList.Clear();
-            UserList.Add(selectedUser);
-            change("UserList");
+            UserId = selectedUser;
+            fromCollectionToString();
+            change("UserId");
         }
 
 
         // This method updates the money status property of the account
-        public void updateMoneyStatus(string moneyStatus)
-        {
-            MoneyStatus.Add(double.Parse(moneyStatus.Trim()));
-            change("MoneyStatus");
-        }
+
 
         // This method converts the user list of the account to a string
         // It is used to display the list of users in the UI
@@ -85,13 +79,12 @@ namespace FinancialPortal
             string resault = "";
             for (int i = 0; i < Controller.UserListObservable.Count; i++)
             {
-                for (int k = 0; k < UserList.Count; k++)
-                {
-                    if (i == UserList[k])
+                
+                    if (i == UserId)
                     {
                         resault += Controller.UserListObservable[i].Name + " " + Controller.UserListObservable[i].Surname + ", ";
                     }
-                }
+                
             }
             UsersFromObservable = resault.Substring(0, resault.Length - 2);
             change("UsersFromObservable");
