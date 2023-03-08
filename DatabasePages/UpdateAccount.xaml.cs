@@ -53,7 +53,7 @@ namespace FinancialPortal.DatabasePages
                 input.Visibility = Visibility.Hidden;
 
                 selectedUsers.Visibility = Visibility.Visible;
-                control.availableAccounts();
+                //control.availableAccounts();
                
             }
             

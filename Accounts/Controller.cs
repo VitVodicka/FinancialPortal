@@ -134,14 +134,7 @@ namespace FinancialPortal.Accounts
                 Console.WriteLine(e.Message);
             }
         }
-        public void availableAccounts()
-        {
 
-        }
-        public void allAcounts()
-        {
-
-        }
 
         
 

@@ -207,3 +207,5 @@ C:\Users\drako\source\repos\FinancialPortal\FinancialPortal\obj\Debug\AddRemoveW
 C:\Users\drako\source\repos\FinancialPortal\FinancialPortal\obj\Debug\AddRemoveWindow.baml
 C:\Users\drako\source\repos\FinancialPortal\FinancialPortal\obj\Debug\RegisterWindow.g.cs
 C:\Users\drako\source\repos\FinancialPortal\FinancialPortal\obj\Debug\RegisterWindow.baml
+C:\Users\drako\source\repos\FinancialPortal\FinancialPortal\obj\Debug\TitleSetup.g.cs
+C:\Users\drako\source\repos\FinancialPortal\FinancialPortal\obj\Debug\TitleSetup.baml
