@@ -93,6 +93,7 @@
     <Compile Include="Accounts\Account.cs" />
     <Compile Include="Accounts\Controller.cs" />
     <Compile Include="Accounts\User.cs" />
+    <Compile Include="Files.cs" />
     <Compile Include="RegisterWindow.xaml.cs">
       <DependentUpon>RegisterWindow.xaml</DependentUpon>
     </Compile>

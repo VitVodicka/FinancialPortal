@@ -38,6 +38,8 @@ namespace FinancialPortal
                 ps.setEmail(mail.Text);
                 ps.setPassword(passwordInput.Password);
                 this.Close();
+                new TitleSetup().Show();
+                    
             }
             else
             {

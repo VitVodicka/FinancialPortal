@@ -39,10 +39,21 @@ namespace FinancialPortal
 
         public MainWindow()
         {
+            if (new Files().ReadingFromFile() == 1)
+            {
+                new RegisterWindow().Show();
+                TitleSetup title = new TitleSetup();
+                
+            }
+            else
+            {
+
+            }
+            
+            //new Files().WrittingToFile(1);
+            
             
             InitializeComponent();
-            new TitleSetup().Show();
-            //new RegisterWindow().Show();
             HamburgerMenu.SelectedItem = HamburgerMenu.TabIndex= 0;
             returnMoney.Text = (AccountAddRemoveUpdate.Return * 100).ToString() + "%";
             profitLoss.Text = AccountAddRemoveUpdate.ProfitLoss.ToString();

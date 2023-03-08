@@ -2,6 +2,7 @@
 using FinancialPortal.DatabasePages;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -32,8 +33,7 @@ namespace FinancialPortal
             if ((hiddenAccount == true) && (hiddenUser == true))
             {
                 this.Close();
-                MainWindow main = new MainWindow();
-                main.Show();
+                new Files().WrittingToFile(2);
 
             }
             else
