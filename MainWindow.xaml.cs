@@ -262,10 +262,14 @@ namespace FinancialPortal
         }
         private void ShowAddMoney(object sender, RoutedEventArgs e)
         {
-            AddRemoveWindow add = new AddRemoveWindow();
-            add.Show();
-            add.Closed += (s, args) => updateReturnProfitLoss();
-            userchart.Visibility= Visibility.Visible;
+            if (chartCombobox.SelectedIndex > -1)
+            {
+                AddRemoveWindow add = new AddRemoveWindow(chartCombobox.SelectedIndex);
+                add.Show();
+                add.Closed += (s, args) => updateReturnProfitLoss();
+                userchart.Visibility = Visibility.Visible;
+            }
+            
             
             
 

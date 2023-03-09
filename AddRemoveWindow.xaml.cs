@@ -22,8 +22,10 @@ namespace FinancialPortal
     /// </summary>
     public partial class AddRemoveWindow : MetroWindow
     {
-        public AddRemoveWindow()
+        int indexWindow = 0;
+        public AddRemoveWindow(int index)
         {
+            indexWindow= index;
             InitializeComponent();
         }
 
@@ -38,7 +40,7 @@ namespace FinancialPortal
             if (input.Text!="")
             {
                 
-               account.UpdateMoney(double.Parse(input.Text));
+               account.UpdateMoney(double.Parse(input.Text),indexWindow);
                 
 
             }

@@ -17,7 +17,7 @@ namespace FinancialPortal
         public string Name { get; set; }
         public int Index = -1;
         public string UsersFromObservable { get; set; }
-        public static ChartValues<double> MoneyStatus { get; set; }
+        public ChartValues<double> MoneyStatus { get; set; }
         public double Money { get; set; }
         public int UserId { get; set; }
 

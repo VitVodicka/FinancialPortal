@@ -1,4 +1,5 @@
-﻿using LiveCharts;
+﻿using FinancialPortal.Accounts;
+using LiveCharts;
 using LiveCharts.Wpf;
 using LiveCharts.Wpf.Charts.Base;
 using System;
@@ -13,8 +14,8 @@ namespace FinancialPortal
 {
     internal class AccountAddRemoveUpdate
     {
-        static ChartValues<double> AccountChart { get; set; }
         public static double Return { get; set; }
+        private static ChartValues<double> chartHelpfulValues { get; set; }
         
         public static double ProfitLoss
         {
@@ -26,31 +27,38 @@ namespace FinancialPortal
         {
             Return = 0;
             ProfitLoss = 0;
-            
-            AccountChart=new ChartValues<double>();
+
+            chartHelpfulValues = new ChartValues<double>();
             
         }
 
 
        
-        public void UpdateMoney(double money)
+        public void UpdateMoney(double money, int index)
         {
-            
-                AccountChart.Add(money);
-                AddingToChart();
-                profitLoss();
-                calculateReturn();
+                for(int i =0;i< Controller.AccountListObservable.Count;i++)
+                {
+                if (i == index)
+                {
+                    Controller.AccountListObservable[i].MoneyStatus.Add(money);
+                    chartHelpfulValues = Controller.AccountListObservable[i].MoneyStatus;
+                    AddingToChart(Controller.AccountListObservable[i].MoneyStatus, Controller.AccountNames[i]);
+                    profitLoss();
+                    calculateReturn();
+                }
+                }
+                
             
             
             
         }
-        public void AddingToChart()
+        public void AddingToChart(ChartValues<double> accountChart, string name)
         {
             Chart.SeriesUserCollection.Clear();//clearing of the chart
             LineSeries lineseries = new LineSeries
             {
-                Title = "My account",
-                Values = AccountChart,
+                Title = name,
+                Values = accountChart,
             };
 
             Chart.SeriesUserCollection.Add(lineseries);
@@ -59,14 +67,14 @@ namespace FinancialPortal
         public void profitLoss()
         {
             
-             if(AccountChart.Count == 1)
+             if(chartHelpfulValues.Count == 1)
             {
                 ProfitLoss = 0;
             }
             else
             {
                 
-                ProfitLoss = AccountChart.Last() - AccountChart.First();
+                ProfitLoss = chartHelpfulValues.Last() - chartHelpfulValues.First();
 
             }
         }
@@ -74,12 +82,12 @@ namespace FinancialPortal
         {
             double firstValue = 0;
             double lastValue = 0;
-            if (AccountChart.Count > 1)
+            if (chartHelpfulValues.Count > 1)
             {
                 
                 
-                firstValue = AccountChart[0];
-                lastValue= AccountChart.Last();
+                firstValue = chartHelpfulValues[0];
+                lastValue= chartHelpfulValues.Last();
                 Return = (lastValue / firstValue)-1;
                 
                 Return= Math.Round(Return, 2);
