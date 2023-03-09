@@ -22,6 +22,7 @@ using FinancialPortal.DatabasePages;
 using System.Data.SqlClient;
 using System.Security.Principal;
 using FinancialPortal.Accounts;
+using ControlzEx.Standard;
 
 namespace FinancialPortal
 {
@@ -267,7 +268,7 @@ namespace FinancialPortal
                 AddRemoveWindow add = new AddRemoveWindow(chartCombobox.SelectedIndex);
                 add.Show();
                 add.Closed += (s, args) => updateReturnProfitLoss();
-                userchart.Visibility = Visibility.Visible;
+                
             }
             
             
@@ -340,6 +341,11 @@ namespace FinancialPortal
 
         }
 
-        
+        private void chartCombobox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            AccountAddRemoveUpdate account = new AccountAddRemoveUpdate();
+            userchart.Visibility = Visibility.Visible;
+            account.UpdateWithoutMoney(chartCombobox.SelectedIndex);
+        }
     }
 }

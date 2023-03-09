@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace FinancialPortal
 {
-    internal class AccountAddRemoveUpdate
+    internal class AccountAddRemoveUpdate:INotifyPropertyChanged
     {
         public static double Return { get; set; }
         private static ChartValues<double> chartHelpfulValues { get; set; }
@@ -32,8 +32,14 @@ namespace FinancialPortal
             
         }
 
-
-       
+        public event PropertyChangedEventHandler PropertyChanged;
+        public void change(string property)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(property));
+            }
+        }
         public void UpdateMoney(double money, int index)
         {
                 for(int i =0;i< Controller.AccountListObservable.Count;i++)
@@ -42,15 +48,29 @@ namespace FinancialPortal
                 {
                     Controller.AccountListObservable[i].MoneyStatus.Add(money);
                     chartHelpfulValues = Controller.AccountListObservable[i].MoneyStatus;
+                    
                     AddingToChart(Controller.AccountListObservable[i].MoneyStatus, Controller.AccountNames[i]);
                     profitLoss();
                     calculateReturn();
                 }
                 }
-                
-            
-            
-            
+                   
+        }
+        public void UpdateWithoutMoney(int index)
+        {
+            for (int i = 0; i < Controller.AccountListObservable.Count; i++)
+            {
+                if (i == index)
+                {
+                   
+                    chartHelpfulValues = Controller.AccountListObservable[i].MoneyStatus;
+
+                    AddingToChart(Controller.AccountListObservable[i].MoneyStatus, Controller.AccountNames[i]);
+                    profitLoss();
+                    calculateReturn();
+                }
+            }
+
         }
         public void AddingToChart(ChartValues<double> accountChart, string name)
         {
