@@ -39,18 +39,7 @@ namespace FinancialPortal
 
         public MainWindow()
         {
-            if (new Files().ReadingFromFile() == 1)
-            {
-                new RegisterWindow().Show();
-                TitleSetup title = new TitleSetup();
-                
-            }
-            else
-            {
-
-            }
             
-            //new Files().WrittingToFile(1);
             
             
             InitializeComponent();
@@ -76,9 +65,21 @@ namespace FinancialPortal
             }
 
             //dat.DataBaseConnection();
+            //new Files().WrittingToFile(1);
+            if (new Files().ReadingFromFile() == 1)
+            {
+                new RegisterWindow().Show();
+                TitleSetup title = new TitleSetup();
+                this.Visibility = Visibility.Hidden;
+                title.Closed += (s, args) => { 
+                
+                };
+            }
+            
 
-
+            
         }
+        
 
         private void HamburgerMenuControle(object sender, ItemClickEventArgs e)
         {

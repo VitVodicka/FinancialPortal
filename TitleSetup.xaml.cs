@@ -33,7 +33,9 @@ namespace FinancialPortal
             if ((hiddenAccount == true) && (hiddenUser == true))
             {
                 this.Close();
+                
                 new Files().WrittingToFile(2);
+                new MainWindow().Visibility = Visibility.Visible;
 
             }
             else
