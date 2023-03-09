@@ -113,7 +113,10 @@
                                     <RowDefinition Height="*"></RowDefinition>
                                     <RowDefinition Height="*"></RowDefinition>
                                 </Grid.RowDefinitions>
-                                <lvc:CartesianChart LegendLocation="Bottom" HorizontalAlignment="Stretch" Series="{Binding SeriesUserCollection}" Name="userchart" Grid.Column="0" Grid.RowSpan="3" >
+                                <ComboBox Grid.Column="0" Grid.Row="0"  Width="150" Height="40" Name="chartCombobox"  HorizontalAlignment="Right" VerticalAlignment="Top">
+                                    
+                                </ComboBox>
+                                <lvc:CartesianChart LegendLocation="Bottom" HorizontalAlignment="Stretch" Margin="5,5,20,5" Series="{Binding SeriesUserCollection}" Name="userchart" Grid.Column="0" Grid.RowSpan="3" >
                                     
                                 </lvc:CartesianChart>
 

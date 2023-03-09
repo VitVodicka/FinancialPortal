@@ -26,7 +26,9 @@ namespace FinancialPortal
         {
             Return = 0;
             ProfitLoss = 0;
+            
             AccountChart=new ChartValues<double>();
+            
         }
 
 
@@ -63,7 +65,6 @@ namespace FinancialPortal
             }
             else
             {
-                
                 
                 ProfitLoss = AccountChart.Last() - AccountChart.First();
 

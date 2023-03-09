@@ -21,6 +21,7 @@ using System.Collections.ObjectModel;
 using FinancialPortal.DatabasePages;
 using System.Data.SqlClient;
 using System.Security.Principal;
+using FinancialPortal.Accounts;
 
 namespace FinancialPortal
 {
@@ -36,6 +37,7 @@ namespace FinancialPortal
         PasswordChecker ps = new PasswordChecker();
         
         //Database dat = new Database();
+        
 
         public MainWindow()
         {
@@ -46,7 +48,8 @@ namespace FinancialPortal
             HamburgerMenu.SelectedItem = HamburgerMenu.TabIndex= 0;
             returnMoney.Text = (AccountAddRemoveUpdate.Return * 100).ToString() + "%";
             profitLoss.Text = AccountAddRemoveUpdate.ProfitLoss.ToString();
-     
+
+            chartCombobox.ItemsSource = Controller.NameFromObservable();
 
             //DataContext = m;//declaring datacontexts
             userchart.Series = Chart.SeriesUserCollection;

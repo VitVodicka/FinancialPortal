@@ -48,6 +48,15 @@ namespace FinancialPortal.Accounts
         {
             AccountListObservable.Add(u);
         }
+        public static List<string> NameFromObservable()
+        {
+            List<string > list = new List<string>();
+            foreach(Account a in AccountListObservable)
+            {
+                list.Add(a.Name);
+            }
+            return list;
+        }
         
         // Method to update an account based on a given parameter, input, selectedIndex, selectedUser, and removeOrAdd flag
         public void updateAccount(string parameter, string input, int selectedIndex, int selectedUser)

@@ -1,4 +1,5 @@
 ﻿using FinancialPortal.Accounts;
+using LiveCharts;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -16,27 +17,27 @@ namespace FinancialPortal
         public string Name { get; set; }
         public int Index = -1;
         public string UsersFromObservable { get; set; }
-        private List<double> MoneyStatus { get; set; }
+        public static ChartValues<double> MoneyStatus { get; set; }
         public double Money { get; set; }
         public int UserId { get; set; }
 
         public Account()
         {
-            MoneyStatus = new List<double>();
+            MoneyStatus = new ChartValues<double>();
            
         }
 
         
         public Account(string name, float deposit, int selectedIndex)
         {
-            MoneyStatus = new List<double>();
+            MoneyStatus = new ChartValues<double>();
             
             
             Index += 1;
             Name = name;
             
             MoneyStatus.Add(deposit);
-            List<double> MoneyStatusReversed = MoneyStatus;
+            ChartValues<double> MoneyStatusReversed = MoneyStatus;
             MoneyStatusReversed.Reverse();
             Money = MoneyStatusReversed[0];
             UserId = selectedIndex;
