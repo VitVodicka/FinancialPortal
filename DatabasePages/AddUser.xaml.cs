@@ -38,6 +38,10 @@ namespace FinancialPortal.DatabasePages
             control.addUser(user);
             this.Close();
             }
+            else
+            {
+                MessageBox.Show("None input");
+            }
 
 
         }

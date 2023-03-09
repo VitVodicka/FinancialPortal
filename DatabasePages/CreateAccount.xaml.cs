@@ -17,9 +17,7 @@ namespace FinancialPortal.DatabasePages
             
             InitializeComponent();
             
-            //users.ItemsSource=control.User
-            //what was before in users
-            //ItemsSource="{Binding Source={x:Static d:Controller.UserListObservable}}" SelectedValuePath="Name" SelectedValue="{Binding Path=Controller.UserListObservable}" DisplayMemberPath="Name" 
+            
         }
 
         private void CreateAccount_Click(object sender, RoutedEventArgs e)
@@ -32,6 +30,10 @@ namespace FinancialPortal.DatabasePages
                 Controller.addAccount(account);
                 this.Close();
                 
+            }
+            else
+            {
+                MessageBox.Show("Not changed value or not selcted value to change");
             }
         }
     }

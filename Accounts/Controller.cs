@@ -77,7 +77,7 @@ namespace FinancialPortal.Accounts
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.Message);
+                Console.WriteLine("Error in Controller.updateAccount"+e.Message);
             }
         }
 

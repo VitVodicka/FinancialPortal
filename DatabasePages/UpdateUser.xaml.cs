@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.UI.WebControls;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -32,7 +33,7 @@ namespace FinancialPortal.DatabasePages
         {
             
             
-            if (changebutton.Text != "")
+            if (changebutton.Text != "" && (dataGrid.SelectedIndex > -1))
             {
 
             
@@ -48,6 +49,10 @@ namespace FinancialPortal.DatabasePages
                 //MessageBox.Show(d.updateUser("Surname", input.Text, dataGrid.SelectedIndex));
                 this.Close();
             }
+            }
+            else
+            {
+                MessageBox.Show("Not changed value or not selcted value to change");
             }
         }
     }

@@ -36,6 +36,14 @@ namespace FinancialPortal.DatabasePages
 
                 this.Close();
             }
+            else
+                {
+                    MessageBox.Show("None input");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Does not match");
             }
 
         }

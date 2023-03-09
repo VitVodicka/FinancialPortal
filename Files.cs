@@ -21,7 +21,7 @@ namespace FinancialPortal
             document.Save("saving.xml");
             }
             catch(Exception e) {
-                Console.WriteLine(e.Message);
+                Console.WriteLine("Error in writting to file:"+e.Message);
             }
 
 
@@ -45,7 +45,7 @@ namespace FinancialPortal
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.Message);
+                Console.WriteLine("Error in Reading files:"+e.Message);
             }
 
             return value;

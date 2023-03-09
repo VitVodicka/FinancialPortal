@@ -108,6 +108,10 @@ namespace FinancialPortal.DatabasePages
                         
             }
             }
+            else
+            {
+                MessageBox.Show("Not changed value or not selcted value to change");
+            }
         }
 
         
