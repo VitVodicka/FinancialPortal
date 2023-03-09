@@ -14,6 +14,7 @@ namespace FinancialPortal.Accounts
         public static ObservableCollection<Account> AccountListObservable { get; set; }
         // The list of users that are observable by the UI
         public static ObservableCollection<User> UserListObservable { get; set; }
+        public static ObservableCollection<string> AccountNames { get; set; }
         // The maximum index number for a user
         private static int max = -1;
 
@@ -22,6 +23,7 @@ namespace FinancialPortal.Accounts
         {
             AccountListObservable = new ObservableCollection<Account>();
             UserListObservable = new ObservableCollection<User>();
+            AccountNames = new ObservableCollection<string>();
         }
 
         
@@ -48,14 +50,17 @@ namespace FinancialPortal.Accounts
         {
             AccountListObservable.Add(u);
         }
-        public static List<string> NameFromObservable()
+        
+        public void NameFromObservable()
         {
-            List<string > list = new List<string>();
+            AccountNames.Clear();
             foreach(Account a in AccountListObservable)
             {
-                list.Add(a.Name);
+                AccountNames.Add(a.Name);
+                change("AccountNames");
             }
-            return list;
+            
+            
         }
         
         // Method to update an account based on a given parameter, input, selectedIndex, selectedUser, and removeOrAdd flag

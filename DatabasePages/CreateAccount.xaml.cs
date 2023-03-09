@@ -28,7 +28,7 @@ namespace FinancialPortal.DatabasePages
                 account = new Account(name.Text, float.Parse(deposit.Text), users.SelectedIndex);
                 account.fromCollectionToString();
                 Controller.addAccount(account);
-                Controller.NameFromObservable();
+                control.NameFromObservable();
                 this.Close();
                 
             }

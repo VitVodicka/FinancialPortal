@@ -48,9 +48,7 @@ namespace FinancialPortal
             HamburgerMenu.SelectedItem = HamburgerMenu.TabIndex= 0;
             returnMoney.Text = (AccountAddRemoveUpdate.Return * 100).ToString() + "%";
             profitLoss.Text = AccountAddRemoveUpdate.ProfitLoss.ToString();
-
-            chartCombobox.ItemsSource = Controller.NameFromObservable();
-
+            chartCombobox.ItemsSource = Controller.AccountNames;
             //DataContext = m;//declaring datacontexts
             userchart.Series = Chart.SeriesUserCollection;
             Cartesianchart.Series = Chart.SeriesCollection;//adding itemsosurce to the charts
@@ -74,9 +72,7 @@ namespace FinancialPortal
                 new RegisterWindow().Show();
                 TitleSetup title = new TitleSetup();
                 this.Visibility = Visibility.Hidden;
-                title.Closed += (s, args) => { 
                 
-                };
             }
             
 
