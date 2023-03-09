@@ -35,8 +35,16 @@ namespace FinancialPortal
             
             Index += 1;
             Name = name;
+            if (MoneyStatus.Count == 0)
+            {
+                MoneyStatus.Add(0);
+                MoneyStatus.Add(deposit);
+            }
+            else
+            {
+                MoneyStatus.Add(deposit);
+            }
             
-            MoneyStatus.Add(deposit);
             ChartValues<double> MoneyStatusReversed = MoneyStatus;
             MoneyStatusReversed.Reverse();
             Money = MoneyStatusReversed[0];

@@ -46,7 +46,16 @@ namespace FinancialPortal
                 {
                 if (i == index)
                 {
-                    Controller.AccountListObservable[i].MoneyStatus.Add(money);
+                    if (Controller.AccountListObservable[i].MoneyStatus.Count == 0)
+                    {
+                        Controller.AccountListObservable[i].MoneyStatus.Add(0);
+                        Controller.AccountListObservable[i].MoneyStatus.Add(money);
+                    }
+                    else
+                    {
+                        Controller.AccountListObservable[i].MoneyStatus.Add(money);
+                    }
+                    
                     chartHelpfulValues = Controller.AccountListObservable[i].MoneyStatus;
                     
                     AddingToChart(Controller.AccountListObservable[i].MoneyStatus, Controller.AccountNames[i]);
