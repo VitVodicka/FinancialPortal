@@ -75,12 +75,8 @@ namespace FinancialPortal
                 this.Visibility = Visibility.Hidden;
                 
             }
-            
-
-            
+              
         }
-        
-
         private void HamburgerMenuControle(object sender, ItemClickEventArgs e)
         {
             HamburgerMenu.SetCurrentValue(ContentProperty, e.ClickedItem);

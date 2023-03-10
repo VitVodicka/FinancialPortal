@@ -54,8 +54,8 @@ namespace FinancialPortal
 
 
             }
-            finalpercentage = (invested / initialinvest) - 1;//rounding and calculation of the percantage yield
-            
+            finalpercentage = (invested / initialinvest);//rounding and calculation of the percantage yield
+            finalpercentage *= 100;
             finalpercentage = Math.Round(finalpercentage, 2);
 
             FinalAmount = Math.Round(invested, 2);
