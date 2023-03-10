@@ -9,6 +9,7 @@ namespace FinancialPortal
 {
     internal class Files
     {
+        //writting to file
         public void WrittingToFile(int value)
         {
             try { 
@@ -26,6 +27,7 @@ namespace FinancialPortal
 
 
         }
+        //reading from files
         public int ReadingFromFile()
         {
             int value=0;

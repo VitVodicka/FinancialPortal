@@ -21,6 +21,7 @@ namespace FinancialPortal
             Surname = surname;     
             
         }
+        //converts objects into strings, so it would display like string
         public override string ToString()
         {
             return Name + " "+ Surname;

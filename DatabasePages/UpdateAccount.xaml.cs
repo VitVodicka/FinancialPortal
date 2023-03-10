@@ -34,7 +34,7 @@ namespace FinancialPortal.DatabasePages
         }
         private void change_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            
+            //according to the selected comboBox index it selects the visibility of objects
             if (change.SelectedIndex == 0)
             {
                 input.Visibility = Visibility.Visible;

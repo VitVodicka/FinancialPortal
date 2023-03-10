@@ -51,7 +51,7 @@ namespace FinancialPortal.Accounts
         {
             AccountListObservable.Add(u);
         }
-         
+        //from observableCollections selct names and add it into its own collection
         public void NameFromObservable()
         {
             AccountNames.Clear();

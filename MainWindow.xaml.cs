@@ -35,55 +35,57 @@ namespace FinancialPortal
         Mortgage m = new Mortgage();//creating classes  
         investmentPortal invest = new investmentPortal();
         PasswordChecker ps = new PasswordChecker();
-        
+
         //Database dat = new Database();
-        
+
 
         public MainWindow()
         {
             
-            
-            
             InitializeComponent();
-            HamburgerMenu.SelectedItem = HamburgerMenu.TabIndex= 0;
 
+            // Set the returnMoney and profitLoss text to the calculated values
             returnMoney.Text = (AccountAddRemoveUpdate.Return * 100).ToString() + "%";
             profitLoss.Text = AccountAddRemoveUpdate.ProfitLoss.ToString();
 
+            // Set the items source of the chartComboBox to the account names and set the series of the charts
             chartCombobox.ItemsSource = Controller.AccountNames;
             userchart.Series = Chart.SeriesUserCollection;
-            Cartesianchart.Series = Chart.SeriesCollection;//adding itemsosurce to the charts
+            Cartesianchart.Series = Chart.SeriesCollection;
             piechart.Series = Chart.SeriesCollectionPieChart;
-            
-            
-            investgrid.DataContext = invest;//declaring datacontext for every grid
-            mortgageGrid.DataContext = m;//declaring datacontext for every grid
 
-            if(Chart.SeriesUserCollection.Count < 1) {
-            userchart.Visibility= Visibility.Collapsed;
-            }
-            if(Chart.SeriesCollectionPieChart.Count < 1)
+            // Set the data context for each grid
+            investgrid.DataContext = invest;
+            mortgageGrid.DataContext = m;
+
+            // Hide the userchart if it has no series and the Cartesianchart if it has no piechart series
+            if (Chart.SeriesUserCollection.Count < 1)
             {
-                Cartesianchart.Visibility= Visibility.Collapsed;
+                userchart.Visibility = Visibility.Collapsed;
             }
-            try { 
-            //dat.DataBaseConnection();
-            if (new Files().ReadingFromFile() == 1)
+            if (Chart.SeriesCollectionPieChart.Count < 1)
             {
-                new RegisterWindow().Show();
-                TitleSetup title = new TitleSetup();
-                this.Visibility = Visibility.Hidden;
+                Cartesianchart.Visibility = Visibility.Collapsed;
+            }
+
+            try
+            {
+                // Attempt to load data from files and show the register window if necessary
+                if (new Files().ReadingFromFile() == 1)
+                {
+                    new RegisterWindow().Show();
+                    TitleSetup title = new TitleSetup();
+                    this.Visibility = Visibility.Hidden;
+                }
+            }
+            catch (Exception ex)
+            {
                 
-            }
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show("Files loading"+ex.Message);
+                MessageBox.Show("Files loading" + ex.Message);
             }
 
+            // Add an event handler to shut down the application when the window is closed
             this.Closed += (s, args) => Application.Current.Shutdown();
-
-
         }
         private void HamburgerMenuControle(object sender, ItemClickEventArgs e)
         {
@@ -205,7 +207,8 @@ namespace FinancialPortal
             }
         }
 
-        public void repayment() {
+        public void repayment()
+        {// This function calculates the mortgage repayment amount based on user input
             try { 
             var regex = new Regex("(([A-Z])|([a-z])|([ ]))");//regex filter
             
@@ -302,7 +305,7 @@ namespace FinancialPortal
         private void Investment_Click(object sender, RoutedEventArgs e)
         {
             try { 
-            var regex = new Regex("(([A-Z])|([a-z])|([ ]))");
+            var regex = new Regex("(([A-Z])|([a-z])|([ ]))");//if input matches parametrs thn it calculates the investment
 
             if ((regex.IsMatch(initialinvestment.Text) == false) && (regex.IsMatch(yearsinvestement.Text) == false) && (regex.IsMatch(expectedreturn.Text) == false))
             {
@@ -372,24 +375,40 @@ namespace FinancialPortal
             }
         }
 
+        // This method is called when the selection in the chartCombobox is changed
         private void chartCombobox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            try { 
-            AccountAddRemoveUpdate account = new AccountAddRemoveUpdate();
-            userchart.Visibility = Visibility.Visible;
-            account.UpdateWithoutMoney(chartCombobox.SelectedIndex);
-            returnMoney.Text = (AccountAddRemoveUpdate.Return * 100).ToString() + "%";
-            profitLoss.Text = AccountAddRemoveUpdate.ProfitLoss.ToString();
-            }
-            catch(Exception ex)
+            try
             {
-                MessageBox.Show("ChartCombobox:"+ex.Message);
+               
+                AccountAddRemoveUpdate account = new AccountAddRemoveUpdate();
+
+                
+                userchart.Visibility = Visibility.Visible;
+
+                // Call the UpdateWithoutMoney method on the account instance,
+                // passing in the selected index from the chartCombobox
+                account.UpdateWithoutMoney(chartCombobox.SelectedIndex);
+
+                // Set the text of the returnMoney TextBox to the Return property of the AccountAddRemoveUpdate class,
+                // multiplied by 100 and converted to a string with a percent sign appended
+                returnMoney.Text = (AccountAddRemoveUpdate.Return * 100).ToString() + "%";
+
+                // Set the text of the profitLoss TextBox to the ProfitLoss property of the AccountAddRemoveUpdate class
+                profitLoss.Text = AccountAddRemoveUpdate.ProfitLoss.ToString();
+            }
+            catch (Exception ex)
+            {
+                
+                MessageBox.Show("ChartCombobox:" + ex.Message);
             }
         }
+
+        // This method is called when the myHamburgerMenu is loaded
         private void myHamburgerMenu_Loaded(object sender, RoutedEventArgs e)
         {
+            // Set the selected item of the HamburgerMenu to the first item in the Items collection
             HamburgerMenu.SelectedItem = HamburgerMenu.Items[0];
-
         }
 
     }
