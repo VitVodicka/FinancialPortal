@@ -22,6 +22,15 @@ namespace FinancialPortal
         {
             investedValues = new ChartValues<double>();
             notInvestedValues = new ChartValues<double>();
+            FinalAmount= 0;
+            Return = 0.ToString();
+
+            
+        }
+        static investmentPortal()
+        {
+            
+            
         }
 
         public void Onetime(double initialinvest, double yearsinvestment, double expectedreturn)//calculating according to onetime deposit

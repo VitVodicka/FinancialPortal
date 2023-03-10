@@ -10,11 +10,11 @@
         
         mc:Ignorable="d"
         Title="Financial planner" FontFamily="BebasNeue" Background="White" ResizeMode="NoResize"   Height="500" Width="800" WindowStartupLocation="CenterScreen">
-    
-    <mah:MetroWindow.LeftWindowCommands>
-        <mah:WindowCommands>
-           
-            <Button Content="Add new account" FontFamily="Bebas Neue" Click="AddAccountClick"></Button>
+
+    <mah:MetroWindow.LeftWindowCommands >
+        <mah:WindowCommands >
+
+            <Button  Content="Add new account" FontFamily="Bebas Neue" Click="AddAccountClick"></Button>
             <Button Content="Update accounts" FontFamily="Bebas Neue" Click="UpdateAccountClick"></Button>
             <Button Content="Add user" FontFamily="Bebas Neue" Click="AddUserClick"></Button>
             <Button Content="Update users" FontFamily="Bebas Neue" Click="UpdateUserClick"></Button>
@@ -25,13 +25,15 @@
         <Style x:Key="Label" TargetType="{x:Type Label}">
             <Setter Property="FontSize" Value="22" />
             <Setter Property="FontFamily" Value="Bebas Neue"></Setter>
+            <Setter Property="FontWeight" Value="SemiBold"></Setter>
         </Style>
         <Style x:Key="Textbox" TargetType="{x:Type TextBox}">
-            <Setter Property="Background" Value="Red" />
+            <Setter Property="Background" Value="#0c6cbc" />
             <Setter Property="Foreground" Value="White"></Setter>
             <Setter Property="Height" Value="40"></Setter>
             <Setter Property="Margin" Value="5"></Setter>
             <Setter Property="FontSize" Value="20"></Setter>
+            <Setter Property="FontWeight" Value="SemiBold"></Setter>
             <Setter Property="FontFamily" Value="Bebas Neue"></Setter>
             <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
 
@@ -83,7 +85,7 @@
                             <ColumnDefinition Width="0.31*"></ColumnDefinition>
                             <ColumnDefinition></ColumnDefinition>
                         </Grid.ColumnDefinitions>
-                        <TextBlock Text="{Binding Label}" FontFamily="Bebas Neue" HorizontalAlignment="Left" Grid.Column="1"  FontSize="20"  VerticalAlignment="Center" >
+                        <TextBlock Text="{Binding Label}" FontFamily="Bebas Neue" HorizontalAlignment="Left" Grid.Column="1"  FontSize="18" FontWeight="SemiBold"  VerticalAlignment="Center" >
                             
                         </TextBlock>
                         <Image Source="{Binding Thumbnail}" HorizontalAlignment="Left" Grid.Column="0" Width="40" Height="40"  VerticalAlignment="Center"  ></Image>
@@ -94,15 +96,15 @@
             
             <mah:HamburgerMenu.HamburgerMenuHeaderTemplate><!-- header menu-->
                 <DataTemplate>
-                    <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center" Text="Menu" FontFamily="Bebas Neue" Foreground="White" FontSize="22"></TextBlock>
+                    <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center" Text="Menu" FontFamily="Bebas Neue" Foreground="White" FontSize="20"></TextBlock>
                 </DataTemplate>
             </mah:HamburgerMenu.HamburgerMenuHeaderTemplate>
            
-            <mah:HamburgerMenu.ItemsSource>
+            <mah:HamburgerMenu.ItemsSource >
                 <!-- items sources -->
-                <mah:HamburgerMenuItemCollection>
-                    <mah:HamburgerMenuImageItem Label="Charts" Thumbnail="icons/bar-chart.png">
-                        <mah:HamburgerMenuImageItem.Tag>
+                <mah:HamburgerMenuItemCollection >
+                    <mah:HamburgerMenuImageItem Label="Charts" Thumbnail="icons/bar-chart.png" >
+                        <mah:HamburgerMenuImageItem.Tag >
                             <Grid Width="750" Name="userGrid" VerticalAlignment="Stretch"   >
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*"></ColumnDefinition>
@@ -113,7 +115,7 @@
                                     <RowDefinition Height="*"></RowDefinition>
                                     <RowDefinition Height="*"></RowDefinition>
                                 </Grid.RowDefinitions>
-                                <ComboBox Panel.ZIndex="1" SelectionChanged="chartCombobox_SelectionChanged" Grid.Column="0" Grid.Row="0"  Width="150" Height="40" Name="chartCombobox"   HorizontalAlignment="Right" VerticalAlignment="Top">
+                                <ComboBox Panel.ZIndex="1" SelectionChanged="chartCombobox_SelectionChanged" Grid.Column="0" Grid.Row="0" FontFamily="Bebas Neue"  Width="150" Height="40" Name="chartCombobox"   HorizontalAlignment="Right" VerticalAlignment="Top">
                                     
                                 </ComboBox>
                                 <lvc:CartesianChart LegendLocation="Bottom" Panel.ZIndex="0" HorizontalAlignment="Stretch" Margin="5,5,20,5" Series="{Binding SeriesUserCollection}" Name="userchart" Grid.Column="0" Grid.RowSpan="3" >
@@ -128,7 +130,7 @@
                                 </StackPanel>
                                 <StackPanel Grid.Column="1" Grid.Row="1" Background="#3393df" >
                                     <StackPanel   HorizontalAlignment="Center" VerticalAlignment="Center">
-                                        <TextBlock Text="Profit/loss" FontFamily="Bebas Neue" HorizontalAlignment="Center" FontSize="22" />
+                                        <TextBlock Text="Profit/loss" FontFamily="Bebas Neue" FontWeight="SemiBold" HorizontalAlignment="Center" FontSize="22" />
                                         <TextBlock  Name="profitLoss" FontFamily="Bebas Neue"  Style="{DynamicResource textblock}" HorizontalAlignment="Center" />
                                     </StackPanel>
                                 </StackPanel>
@@ -180,7 +182,7 @@
                                 </StackPanel>
                                 <StackPanel Orientation="Vertical" VerticalAlignment="Top" Grid.Column="1" Grid.Row="2"  >
                                     <Label Style="{DynamicResource Label}"  Content="Repayment period" ></Label>
-                                    <ComboBox   Name="repaymentperiod" LostFocus="periodchanging"  Height="40" Margin="5,5,20,5"  >
+                                    <ComboBox   Name="repaymentperiod" LostFocus="periodchanging" FontFamily="Bebas Neue"  Height="40" Margin="5,5,20,5"  >
                                         <ComboBoxItem Content="monthly"></ComboBoxItem>
                                         <ComboBoxItem Content="quartely"></ComboBoxItem>
                                         <ComboBoxItem Content="half yearly"></ComboBoxItem>
@@ -192,7 +194,7 @@
                                     <TextBox Style="{DynamicResource Textbox}" Name="year"   ></TextBox>
                                 </StackPanel>
 
-                                <Button Grid.Row="4" Content="Calculate" VerticalAlignment="Center" FontSize="20" Width="200" Grid.Column="1" Height="50" Click="Button_Click_1">
+                                <Button Grid.Row="4" Content="Calculate" VerticalAlignment="Center" FontSize="20" Width="170" Grid.Column="1" Height="50" Click="Button_Click_1">
 
                                 </Button>
                                 <TextBlock Text="" Name="hint" Margin="10,0,0,20" Grid.Column="0" Grid.Row="3" FontSize="15" Foreground="Red" VerticalAlignment="Bottom" ></TextBlock>
@@ -217,12 +219,12 @@
                                     <RowDefinition Height="*"></RowDefinition>
                                 </Grid.RowDefinitions>
                                 <StackPanel Grid.Column="2" Grid.Row="0" VerticalAlignment="Center">
-                                    <Label  VerticalAlignment="Center" Style="{DynamicResource Label}" HorizontalAlignment="Center" Content="final amount"></Label>
+                                    <Label  VerticalAlignment="Center" Style="{DynamicResource Label}" FontWeight="SemiBold" HorizontalAlignment="Center" Content="Final amount"></Label>
                                     <TextBlock  Style="{DynamicResource textblock }" HorizontalAlignment="Center" Text="{Binding FinalAmount}"/>
                                 </StackPanel>
                                 <StackPanel Grid.Column="2" Grid.Row="1" VerticalAlignment="Center">
-                                    <Label  VerticalAlignment="Center" Style="{DynamicResource Label}" HorizontalAlignment="Center" Content="return" Name="return"></Label>
-                                    <TextBlock  Style="{DynamicResource textblock }" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding Return}" Name="returninput"></TextBlock>
+                                    <Label  VerticalAlignment="Center" Style="{DynamicResource Label}" HorizontalAlignment="Center" FontWeight="SemiBold" Content="Return" Name="return"></Label>
+                                    <TextBlock  Style="{DynamicResource textblock }" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding Return}" Name="returninput"></TextBlock>
                                 </StackPanel>
                                 <StackPanel Orientation="Vertical" VerticalAlignment="Top" Grid.Column="0" Grid.Row="2" >
                                     <Label Style="{DynamicResource Label}"  Content="Initial investment" ></Label>
@@ -246,7 +248,7 @@
                                 <Button Grid.Row="3" Content="Calculate" VerticalAlignment="Center" FontSize="20" Width="150" Grid.Column="2" Height="50" Click="Investment_Click" />
                                 <StackPanel Orientation="Vertical" VerticalAlignment="Top" Grid.Column="0" Grid.Row="3" >
                                     <Label Style="{DynamicResource Label}"  Content="Contributions" ></Label>
-                                    <RadioButton Content="One time (compounded)" FontFamily="Bebas Neue" FontSize="16" Name="onetime" Checked="onetime_Checked"  ></RadioButton>
+                                    <RadioButton  Content="One time (compounded)" FontFamily="Bebas Neue" FontSize="16" Name="onetime" Checked="onetime_Checked"  ></RadioButton>
                                     <RadioButton Content="Monthly contributions" FontFamily="Bebas Neue" x:Name="monthlyContribution" FontSize="16" Checked="monthlyContribution_Checked"/>
                                     <RadioButton Content="Yearly contributions" FontFamily="Bebas Neue" Name="yearlyContribution" FontSize="16" Checked="yearlyContribution_Checked"></RadioButton>
 

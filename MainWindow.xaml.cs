@@ -274,79 +274,70 @@ namespace FinancialPortal
             }    
       
         }
-        private void Investment_Click(object sender, RoutedEventArgs e)//regex filter and if it contains something it then uses functions
+        private void Investment_Click(object sender, RoutedEventArgs e)
         {
             var regex = new Regex("(([A-Z])|([a-z])|([ ]))");
+
             if ((regex.IsMatch(initialinvestment.Text) == false) && (regex.IsMatch(yearsinvestement.Text) == false) && (regex.IsMatch(expectedreturn.Text) == false))
             {
-                if((double.Parse(initialinvestment.Text) < 50000000) && (double.Parse(yearsinvestement.Text) < 15) && (double.Parse(expectedreturn.Text) < 100)&&(double.Parse(contributionsinput.Text)<10000000))
+                if ((double.Parse(initialinvestment.Text) < 50000000) && (double.Parse(yearsinvestement.Text) < 15) && (double.Parse(expectedreturn.Text) < 100))
                 {
-
-               
-                if ((initialinvestment.Text != "") && (yearsinvestement.Text != "") && (expectedreturn.Text != ""))
-                {
-                    try
-                    {
-                        if (onetime.IsChecked == true)
-                        {
-                            //DataContext = new investmentPortal();//switching datacontexts
-                            invest.Onetime(double.Parse(initialinvestment.Text), double.Parse(yearsinvestement.Text), double.Parse(expectedreturn.Text));
-                        }
-                    }
-                    catch
-                    {
-
-                    }
-
-
-
-                    if (monthlyContribution.IsChecked == true)
+                    if ((initialinvestment.Text != "") && (yearsinvestement.Text != "") && (expectedreturn.Text != ""))
                     {
                         try
                         {
-                            if ((regex.IsMatch(contributionsinput.Text) == false) && (contributionsinput.Text) != "")
+                            if (onetime.IsChecked == true)
                             {
-                                //DataContext = new investmentPortal();//switching datacontexts
-                                invest.MonthlyContribution(double.Parse(initialinvestment.Text), double.Parse(yearsinvestement.Text), double.Parse(expectedreturn.Text), double.Parse(contributionsinput.Text));
+                                invest.Onetime(double.Parse(initialinvestment.Text), double.Parse(yearsinvestement.Text), double.Parse(expectedreturn.Text));
                             }
                         }
                         catch
                         {
+                            // handle exception
+                        }
 
+                        if (monthlyContribution.IsChecked == true)
+                        {
+                            try
+                            {
+                                if ((regex.IsMatch(contributionsinput.Text) == false) && (contributionsinput.Text) != "")
+                                {
+                                    invest.MonthlyContribution(double.Parse(initialinvestment.Text), double.Parse(yearsinvestement.Text), double.Parse(expectedreturn.Text), double.Parse(contributionsinput.Text));
+                                }
+                            }
+                            catch
+                            {
+                                // handle exception
+                            }
+                        }
+
+                        if (yearlyContribution.IsChecked == true)
+                        {
+                            try
+                            {
+                                if ((regex.IsMatch(contributionsinput.Text) == false) && (contributionsinput.Text) != "")
+                                {
+                                    invest.Yearlycontribution(double.Parse(initialinvestment.Text), double.Parse(yearsinvestement.Text), double.Parse(expectedreturn.Text), double.Parse(contributionsinput.Text));
+                                }
+                            }
+                            catch
+                            {
+                                // handle exception
+                            }
                         }
                     }
-                    if (yearlyContribution.IsChecked == true)
+                    else
                     {
-                        try
-                        {
-                            if ((regex.IsMatch(contributionsinput.Text) == false) && (contributionsinput.Text) != "")
-                            {   
-                                //DataContext = new investmentPortal();//switching datacontexts
-                                invest.Yearlycontribution(double.Parse(initialinvestment.Text), double.Parse(yearsinvestement.Text), double.Parse(expectedreturn.Text), double.Parse(contributionsinput.Text));
-                            }
-                        }
-                        catch
-                        {
-
-                        }
+                        hint.Text = "*Text must only contain numbers";
                     }
-                        else
-                        {
-                            MessageBox.Show("Too big investment value");
-                        }
-                    }
+                }
                 else
-               {
+                {
+                    MessageBox.Show("Too big investment value");
+                }
 
-                   hint.Text = "*Text must only contain numbers";
-        
-               }
-                
-                    Cartesianchart.Visibility= Visibility.Visible;
+                Cartesianchart.Visibility = Visibility.Visible;
             }
-            }
-            
-
         }
 
         private void chartCombobox_SelectionChanged(object sender, SelectionChangedEventArgs e)
