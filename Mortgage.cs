@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace FinancialPortal
 {
@@ -37,7 +38,7 @@ namespace FinancialPortal
         }
         public void Calculate(double loanamount, double interestrate, double interval, double years)
         {//calculation of mortgage payments
-            https://www.wikihow.com/Calculate-Mortgage-Payments
+            //https://www.wikihow.com/Calculate-Mortgage-Payments
             try {
             Totalypaidchart.Clear();
             InterestChart.Clear();
@@ -131,6 +132,7 @@ namespace FinancialPortal
         }
         public void AddingtoChart()
         {//clearing chart and adding values to it
+            try { 
             Chart.SeriesCollectionPieChart.Clear();
             Chart.SeriesCollectionPieChart.Add(new PieSeries
             {
@@ -147,6 +149,11 @@ namespace FinancialPortal
                 Title = "Interests",
                 Values = InterestChart,
             });
+            }
+            catch(Exception e)
+            {
+                MessageBox.Show("AddingToChart"+e.Message);
+            }
 
 
         }

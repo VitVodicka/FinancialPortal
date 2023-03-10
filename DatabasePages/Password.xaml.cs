@@ -27,6 +27,7 @@ namespace FinancialPortal.DatabasePages
         }
         private void CheckPassword(object sender, RoutedEventArgs e)
         {
+            try { 
             var regex = new Regex("(([A-Z])|([a-z])|([ ]))");//regex filter
             if (regex.IsMatch(passwordInput.Password.ToString()) != false){
 
@@ -45,6 +46,11 @@ namespace FinancialPortal.DatabasePages
             else
             {
                 MessageBox.Show("Does not match");
+            }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("CheckPassword"+ex.Message);
             }
 
         }

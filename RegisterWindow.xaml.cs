@@ -27,6 +27,7 @@ namespace FinancialPortal
 
         private void CheckPassword(object sender, RoutedEventArgs e)
         {
+            try { 
             var regex = new Regex("@");
             var regexText = new Regex("([A-Z])|([a-z])");
             PasswordChecker ps = new PasswordChecker();
@@ -54,6 +55,11 @@ namespace FinancialPortal
             else
             {
                 MessageBox.Show("Email doesn't contain @");
+            }
+            }
+            catch(Exception ex) 
+            {
+                MessageBox.Show("CheckPassword"+ex.Message);
             }
         }
     }

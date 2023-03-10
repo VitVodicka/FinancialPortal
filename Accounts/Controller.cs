@@ -102,6 +102,7 @@ namespace FinancialPortal.Accounts
         // Method to update a user based on the given id, valueToChange, and content
         public static void updateUser(int id, string valueToChange, string content)
         {
+            try { 
             var user = Controller.UserListObservable[id];
             if (valueToChange == "Name")
             {
@@ -112,6 +113,8 @@ namespace FinancialPortal.Accounts
                 user.Surname = content;
             }
             Controller.UserListObservable[id] = user;
+            }
+            catch(Exception e) { Console.WriteLine(e.Message); }
         }
 
         // Method to get the maximum index number for a user
@@ -141,7 +144,7 @@ namespace FinancialPortal.Accounts
             }
             catch(Exception e)
             {
-                Console.WriteLine(e.Message);
+                Console.WriteLine("updateAddUser:"+e.Message);
             }
         }
 

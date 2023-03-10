@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
@@ -31,6 +32,7 @@ namespace FinancialPortal
 
         public void UpdateMoney(double money, int index)
         {
+            try { 
                 for(int i =0;i< Controller.AccountListObservable.Count;i++)
                 {
                 if (i == index)
@@ -52,10 +54,17 @@ namespace FinancialPortal
                     calculateReturn();
                 }
                 }
-                   
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine("Update Money:"+ex.Message);
+            }
+
+
         }
         public void UpdateWithoutMoney(int index)
         {
+            try {
             for (int i = 0; i < Controller.AccountListObservable.Count; i++)
             {
                 if (i == index)
@@ -67,6 +76,11 @@ namespace FinancialPortal
                     profitLoss();
                     calculateReturn();
                 }
+            }
+            }
+            catch(Exception ex) {
+                Console.WriteLine(
+                "Update without money "+ex.Message);
             }
 
         }
@@ -92,7 +106,7 @@ namespace FinancialPortal
             if(chartHelpfulValues.Count > 2)
             {
                 
-                ProfitLoss = chartHelpfulValues.Last() - chartHelpfulValues[1];//set it to second
+                ProfitLoss = chartHelpfulValues.Last() - chartHelpfulValues[1];
 
             }
         }
@@ -102,7 +116,7 @@ namespace FinancialPortal
             double lastValue = 0;
             if (chartHelpfulValues.Count > 2)
             {
-                firstValue = chartHelpfulValues[1];//set it to second
+                firstValue = chartHelpfulValues[1];
                 lastValue= chartHelpfulValues.Last();
                 Return = (lastValue / firstValue)-1;
                 Return= Math.Round(Return, 2);

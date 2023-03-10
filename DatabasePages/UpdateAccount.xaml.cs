@@ -60,6 +60,7 @@ namespace FinancialPortal.DatabasePages
         }
         public void choosingParametrs()
         {
+            try { 
             Controller control = new Controller();
             if ((change.Text != "")&&(datagrid.SelectedIndex>-1)) { 
             if (change.Text =="Name")
@@ -102,6 +103,11 @@ namespace FinancialPortal.DatabasePages
             else
             {
                 MessageBox.Show("Not changed value or not selcted value to change");
+            }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Choosing parametrs"+ex.Message);
             }
         }
 

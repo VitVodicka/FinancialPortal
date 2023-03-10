@@ -31,6 +31,7 @@ namespace FinancialPortal
 
         private void MONEY_ADD_CLICK(object sender, RoutedEventArgs e)
         {
+            try {
             AccountAddRemoveUpdate account = new AccountAddRemoveUpdate();
             var regex = new Regex("(([A-Z])|([a-z])|([ ]))");//regex filter
             if (regex.IsMatch(input.Text) == false)
@@ -42,11 +43,15 @@ namespace FinancialPortal
                 
                account.UpdateMoney(double.Parse(input.Text),indexWindow);
                 
-
             }
             }
 
             this.Close();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Money_ADD_Click"+ex.Message);
+            }
         }
     }
 }

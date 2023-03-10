@@ -83,6 +83,7 @@ namespace FinancialPortal
         // It is used to display the list of users in the UI
         public void fromCollectionToString()
         {
+            try { 
             string resault = "";
             for (int i = 0; i < Controller.UserListObservable.Count; i++)
             {
@@ -95,6 +96,11 @@ namespace FinancialPortal
             }
             UsersFromObservable = resault.Substring(0, resault.Length - 2);
             change("UsersFromObservable");
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine("FromCollectionToString:"+ex.Message);
+            }
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

@@ -29,7 +29,7 @@ namespace FinancialPortal.DatabasePages
         }
         private void USER_ADD_CLICK(object sender, RoutedEventArgs e)
         {
-
+            try { 
             if ((UserName.Text != "")&&(Surname.Text!=""))
             {
 
@@ -41,6 +41,11 @@ namespace FinancialPortal.DatabasePages
             else
             {
                 MessageBox.Show("None input");
+            }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("User_ADD_Click"+ex.Message);
             }
 
 

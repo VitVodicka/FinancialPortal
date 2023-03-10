@@ -31,9 +31,8 @@ namespace FinancialPortal
     /// </summary>
     public partial class MainWindow : MetroWindow
     {
-        Mortgage m = new Mortgage();
-        
-        Chart chare = new Chart();//creating classes
+        Chart chare = new Chart();
+        Mortgage m = new Mortgage();//creating classes  
         investmentPortal invest = new investmentPortal();
         PasswordChecker ps = new PasswordChecker();
         
@@ -47,10 +46,11 @@ namespace FinancialPortal
             
             InitializeComponent();
             HamburgerMenu.SelectedItem = HamburgerMenu.TabIndex= 0;
+
             returnMoney.Text = (AccountAddRemoveUpdate.Return * 100).ToString() + "%";
             profitLoss.Text = AccountAddRemoveUpdate.ProfitLoss.ToString();
+
             chartCombobox.ItemsSource = Controller.AccountNames;
-            //DataContext = m;//declaring datacontexts
             userchart.Series = Chart.SeriesUserCollection;
             Cartesianchart.Series = Chart.SeriesCollection;//adding itemsosurce to the charts
             piechart.Series = Chart.SeriesCollectionPieChart;
@@ -58,6 +58,7 @@ namespace FinancialPortal
             
             investgrid.DataContext = invest;//declaring datacontext for every grid
             mortgageGrid.DataContext = m;//declaring datacontext for every grid
+
             if(Chart.SeriesUserCollection.Count < 1) {
             userchart.Visibility= Visibility.Collapsed;
             }
@@ -65,9 +66,8 @@ namespace FinancialPortal
             {
                 Cartesianchart.Visibility= Visibility.Collapsed;
             }
-
+            try { 
             //dat.DataBaseConnection();
-            //new Files().WrittingToFile(1);
             if (new Files().ReadingFromFile() == 1)
             {
                 new RegisterWindow().Show();
@@ -75,6 +75,12 @@ namespace FinancialPortal
                 this.Visibility = Visibility.Hidden;
                 
             }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Files loading"+ex.Message);
+            }
+
             this.Closed += (s, args) => Application.Current.Shutdown();
 
 
@@ -99,11 +105,15 @@ namespace FinancialPortal
         }
         private void AddUserClick(object sender, RoutedEventArgs e)
         {
-            
+            try { 
             Password password = new Password();
             password.Show();
             password.Closed+=(s,args)=> showAddUser();//s= Password window, args=parametrs with Password window, adding a method of Closed window and if closed the does function
-
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("AddUserClick"+ex.Message);
+            }
         }
         void showUpdateUser()
         {
@@ -196,6 +206,7 @@ namespace FinancialPortal
         }
 
         public void repayment() {
+            try { 
             var regex = new Regex("(([A-Z])|([a-z])|([ ]))");//regex filter
             
             if ((regex.IsMatch(loanamount.Text) == false) && (regex.IsMatch(interestrate.Text) == false) && (regex.IsMatch(year.Text) == false)){//if it matches and isn t context null than do this
@@ -233,6 +244,11 @@ namespace FinancialPortal
             {
                 hint.Text = "*Text must only contain numbers";
             }
+            }
+            catch(Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
         }
     
 
@@ -267,17 +283,25 @@ namespace FinancialPortal
         }
         private void ShowAddMoney(object sender, RoutedEventArgs e)
         {
+            try { 
             if (chartCombobox.SelectedIndex > -1)
             {
                 AddRemoveWindow add = new AddRemoveWindow(chartCombobox.SelectedIndex);
                 add.Show();
                 add.Closed += (s, args) => updateReturnProfitLoss();
                 
-            }    
-      
+            }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("ShowAddMoney"+ex.Message);
+            }
+
+
         }
         private void Investment_Click(object sender, RoutedEventArgs e)
         {
+            try { 
             var regex = new Regex("(([A-Z])|([a-z])|([ ]))");
 
             if ((regex.IsMatch(initialinvestment.Text) == false) && (regex.IsMatch(yearsinvestement.Text) == false) && (regex.IsMatch(expectedreturn.Text) == false))
@@ -341,15 +365,26 @@ namespace FinancialPortal
 
                 Cartesianchart.Visibility = Visibility.Visible;
             }
+            }
+            catch(Exception ez)
+            {
+                MessageBox.Show("investment click"+ez.Message);
+            }
         }
 
         private void chartCombobox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            try { 
             AccountAddRemoveUpdate account = new AccountAddRemoveUpdate();
             userchart.Visibility = Visibility.Visible;
             account.UpdateWithoutMoney(chartCombobox.SelectedIndex);
             returnMoney.Text = (AccountAddRemoveUpdate.Return * 100).ToString() + "%";
             profitLoss.Text = AccountAddRemoveUpdate.ProfitLoss.ToString();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("ChartCombobox:"+ex.Message);
+            }
         }
         private void myHamburgerMenu_Loaded(object sender, RoutedEventArgs e)
         {

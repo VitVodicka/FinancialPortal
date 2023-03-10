@@ -31,7 +31,7 @@ namespace FinancialPortal.DatabasePages
 
         private void UserUpdate_Click(object sender, RoutedEventArgs e)
         {
-            
+            try { 
             
             if (changebutton.Text != "" && (dataGrid.SelectedIndex > -1))
             {
@@ -50,6 +50,11 @@ namespace FinancialPortal.DatabasePages
             else
             {
                 MessageBox.Show("Not changed value or not selcted value to change");
+            }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("User_Update_click"+ex.Message);
             }
         }
     }

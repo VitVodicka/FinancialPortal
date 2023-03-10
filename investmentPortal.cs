@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using LiveCharts;
 using LiveCharts.Wpf;
 
@@ -35,6 +36,7 @@ namespace FinancialPortal
 
         public void Onetime(double initialinvest, double yearsinvestment, double expectedreturn)//calculating according to onetime deposit
         {
+            try { 
             notInvestedValues.Clear();//clearing charts
             investedValues.Clear();
             double blankReturn;
@@ -74,7 +76,11 @@ namespace FinancialPortal
             Change("Return");
 
             AddingToChart();
-
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
 
         }
         public void MonthlyContribution(double initialinvestment, double yearsinvestment, double expectedreturn, double contributionsinput)
@@ -83,6 +89,7 @@ namespace FinancialPortal
         }
         public void Yearlycontribution(double initialinvestment, double yearsinvestment, double expectedreturn, double contributionsinput)
         {
+            try { 
             notInvestedValues.Clear();//clearing collections
             investedValues.Clear();
 
@@ -124,11 +131,6 @@ namespace FinancialPortal
                     carryover += carryover * blankReturn;
                     carryover += contributionsinput;
                     notinvestedValueOverYears += contributionsinput;
-
-                    //carryover += contributionsinput;
-
-                    //interestOf = carryover * blankReturn;
-                    //carryover += interestOf;
                     notInvestedValues.Add(Math.Round(notinvestedValueOverYears,2));
                     investedValues.Add(Math.Round(carryover,2));
 
@@ -152,10 +154,16 @@ namespace FinancialPortal
             Change("FinalAmount");
             Change("Return");
             AddingToChart();
+            }
+            catch(Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
 
         }
         public void AddingToChart()
         {
+            try { 
             Chart.SeriesCollection.Clear();//clearing of the chart
             Chart.SeriesCollection.Add(new LineSeries//adding data to the seriescollection
             {
@@ -167,6 +175,11 @@ namespace FinancialPortal
                 Title = "Money invested",
                 Values = investedValues,
             });
+            }
+            catch(Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
         }
 
         public void Change(string change)//changing properties

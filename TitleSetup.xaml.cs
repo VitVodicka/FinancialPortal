@@ -28,8 +28,10 @@ namespace FinancialPortal
         }
         bool hiddenUser=false;
         bool hiddenAccount = false;
+
         private void Setup_Click(object sender, RoutedEventArgs e)
         {
+            try { 
             if ((hiddenAccount == true) && (hiddenUser == true))
             {
                 this.Close();
@@ -42,7 +44,13 @@ namespace FinancialPortal
             {
                 MessageBox.Show("User or Account is not setted up");
             }
-            
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+
         }
 
         private void UserAdd_Click(object sender, RoutedEventArgs e)
