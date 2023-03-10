@@ -96,14 +96,14 @@ namespace FinancialPortal
         public void profitLoss()
         {
             
-             if(chartHelpfulValues.Count == 1)
+             if(chartHelpfulValues.Count == 2)
             {
                 ProfitLoss = 0;
             }
-            else
+            if(chartHelpfulValues.Count > 2)
             {
                 
-                ProfitLoss = chartHelpfulValues.Last() - chartHelpfulValues.First();
+                ProfitLoss = chartHelpfulValues.Last() - chartHelpfulValues[1];//set it to second
 
             }
         }
@@ -111,11 +111,11 @@ namespace FinancialPortal
         {
             double firstValue = 0;
             double lastValue = 0;
-            if (chartHelpfulValues.Count > 1)
+            if (chartHelpfulValues.Count > 2)
             {
                 
                 
-                firstValue = chartHelpfulValues[0];
+                firstValue = chartHelpfulValues[1];//set it to second
                 lastValue= chartHelpfulValues.Last();
                 Return = (lastValue / firstValue)-1;
                 

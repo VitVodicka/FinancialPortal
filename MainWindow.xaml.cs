@@ -346,6 +346,8 @@ namespace FinancialPortal
             AccountAddRemoveUpdate account = new AccountAddRemoveUpdate();
             userchart.Visibility = Visibility.Visible;
             account.UpdateWithoutMoney(chartCombobox.SelectedIndex);
+            returnMoney.Text = (AccountAddRemoveUpdate.Return * 100).ToString() + "%";
+            profitLoss.Text = AccountAddRemoveUpdate.ProfitLoss.ToString();
         }
     }
 }

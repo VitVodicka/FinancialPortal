@@ -50,7 +50,7 @@ namespace FinancialPortal.Accounts
         {
             AccountListObservable.Add(u);
         }
-        
+         
         public void NameFromObservable()
         {
             AccountNames.Clear();
