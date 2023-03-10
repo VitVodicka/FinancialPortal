@@ -49,8 +49,8 @@
     
 
     <Grid ><!--hamburger menu -->
-        
-        <mah:HamburgerMenu Name="HamburgerMenu"   HorizontalAlignment="Left" IsPaneOpen="False" DisplayMode="CompactInline" ItemClick="HamburgerMenuControle"   >
+
+        <mah:HamburgerMenu Name="HamburgerMenu"   HorizontalAlignment="Left" Loaded="myHamburgerMenu_Loaded" SelectedItem="{Binding ElementName=myHamburgerMenu, Path=Items[0]}" IsPaneOpen="False" DisplayMode="CompactInline" ItemClick="HamburgerMenuControle"   >
             <mah:HamburgerMenu.ContentTemplate ><!-- displaying content  -->
                 <DataTemplate  DataType="{x:Type mah:HamburgerMenuItem}">
                     <Grid >

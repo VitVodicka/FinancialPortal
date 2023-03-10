@@ -269,12 +269,8 @@ namespace FinancialPortal
                 add.Show();
                 add.Closed += (s, args) => updateReturnProfitLoss();
                 
-            }
-            
-            
-            
-
-
+            }    
+      
         }
         private void Investment_Click(object sender, RoutedEventArgs e)//regex filter and if it contains something it then uses functions
         {
@@ -349,5 +345,11 @@ namespace FinancialPortal
             returnMoney.Text = (AccountAddRemoveUpdate.Return * 100).ToString() + "%";
             profitLoss.Text = AccountAddRemoveUpdate.ProfitLoss.ToString();
         }
+        private void myHamburgerMenu_Loaded(object sender, RoutedEventArgs e)
+        {
+            HamburgerMenu.SelectedItem = HamburgerMenu.Items[0];
+
+        }
+
     }
 }
