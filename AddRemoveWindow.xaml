@@ -17,6 +17,7 @@
             <Setter Property="Background" Value="#0c6cbc" />
             <Setter Property="Foreground" Value="White"></Setter>
             <Setter Property="Height" Value="40"></Setter>
+            <Setter Property="FontWeight" Value="SemiBold"></Setter>
             <Setter Property="Width" Value="180"></Setter>
             <Setter Property="Margin" Value="5"></Setter>
             <Setter Property="FontSize" Value="20"></Setter>
@@ -37,24 +38,24 @@
     </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"></ColumnDefinition>
-            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="181*"></ColumnDefinition>
+            <ColumnDefinition Width="119*"></ColumnDefinition>
 
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"></RowDefinition>
 
         </Grid.RowDefinitions>
-        <StackPanel Grid.Column="0" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal">
-            <TextBlock Text="Money:" Style="{StaticResource textblock}"></TextBlock>
-            <TextBox  Style="{StaticResource Textbox}" Width="150" Name="input"  ></TextBox>
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Stretch" Orientation="Horizontal" Height="70" >
+            <TextBlock Text="Money:" Style="{StaticResource textblock}" VerticalAlignment="Center"></TextBlock>
+            <TextBox  Style="{StaticResource Textbox}" Width="181" Name="input" Height="60"  ></TextBox>
         </StackPanel>
-        <StackPanel Grid.Column="1" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal">
-            <Button Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" Width="150" Height="50" Content="Update" FontSize="20" Click="MONEY_ADD_CLICK"></Button>
+        <StackPanel Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal" Height="60" Width="150">
+            <Button Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" Width="150" Height="60" FontFamily="Bebas Neue"  Content="Update" FontSize="20" Click="MONEY_ADD_CLICK"></Button>
 
         </StackPanel>
 
 
-       
+
     </Grid>
 </mah:MetroWindow>

@@ -203,10 +203,10 @@
     <Content Include="icons\investment.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Resource Include="icons\money.png" />
     <Content Include="icons\mortgage.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Resource Include="icons\settings.png" />
     <Content Include="icons\user.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

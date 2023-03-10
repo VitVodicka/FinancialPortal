@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FinancialPortal"
         mc:Ignorable="d"
-        Title="TitleSetup" Height="450" Width="800" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+        Title="TitleSetup" Height="350" Width="600" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
@@ -16,10 +16,10 @@
             <RowDefinition Height="1*"></RowDefinition>
             <RowDefinition Height="1*"></RowDefinition>
         </Grid.RowDefinitions>
-        <TextBlock Foreground="#76B041" Visibility="Hidden" Name="usertext" Grid.Column="0" Grid.Row="0" Text="✓ User setted up" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30"></TextBlock>
-        <TextBlock Foreground="#76B041" Visibility="Hidden" Name="accounttext" Grid.Column="1" Grid.Row="0" Text="✓ Account setted up" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30"></TextBlock>
-        <Button Grid.Column="1"   Grid.Row="0"  Width="160" Height="50" Content="Account Add" Name="accountAdd" FontSize="20" Click="AccountAdd_Click"></Button>
-        <Button Grid.Column="0"   Grid.Row="0" Name="userAddButton"  Width="160" Height="50" Content="User Add" FontSize="20" Click="UserAdd_Click"></Button>
-        <Button Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1"  Width="160" Height="50" Content="Setup" FontSize="20" Click="Setup_Click"></Button>
+        <TextBlock Foreground="#76B041" Visibility="Hidden" FontFamily="Bebas Neue" Name="usertext" Grid.Column="0" Grid.Row="0" Text="✓ User setted up" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25"></TextBlock>
+        <TextBlock Foreground="#76B041" Visibility="Hidden" FontFamily="Bebas Neue" Name="accounttext" Grid.Column="1" Grid.Row="0" Text="✓ Account setted up" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25"></TextBlock>
+        <Button Grid.Column="1" FontFamily="Bebas Neue"   Grid.Row="0"  Width="180" Height="55" Content="Account Add" Name="accountAdd" FontSize="20" Click="AccountAdd_Click"></Button>
+        <Button Grid.Column="0" FontFamily="Bebas Neue"   Grid.Row="0" Name="userAddButton"  Width="160" Height="50" Content="User Add" FontSize="20" Click="UserAdd_Click"></Button>
+        <Button Grid.Column="0"  FontFamily="Bebas Neue" Grid.ColumnSpan="2" Grid.Row="1"  Width="160" Height="50" Content="Setup" FontSize="20" Click="Setup_Click"></Button>
     </Grid>
 </Window>

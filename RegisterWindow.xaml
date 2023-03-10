@@ -9,15 +9,15 @@
     <Grid Background="White" >
         <Grid.RowDefinitions>
             <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="0.5*"></RowDefinition>
+            <RowDefinition Height="0.8*"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="0.5*"></RowDefinition>
+            <RowDefinition Height="0.8*"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
-        <TextBlock Text="E-mail" FontFamily="Bebas Neue" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="15,0,0,0" FontSize="30"></TextBlock>
-        <TextBox CaretBrush="White" FontSize="18"   Grid.Row="1" Foreground="White" FontFamily="Bebas Neue" Name="mail"  Margin="35,0,15,0" Height="40" Background="#0c6cbc" ></TextBox>
-        <TextBlock Text="Password" FontFamily="Bebas Neue" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="15,0,0,0" FontSize="30"></TextBlock>
-        <PasswordBox CaretBrush="White" FontSize="18"   Name="passwordInput" Grid.Row="3" Foreground="White" FontFamily="Bebas Neue"  Margin="35,0,15,0" Height="40" Background="#0c6cbc" ></PasswordBox>
-        <Button Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="2" Width="110" Height="40" Content="Register" FontSize="20" Click="CheckPassword"></Button>
+        <TextBlock Text="E-mail" FontWeight="Bold" FontFamily="Bebas Neue" Grid.Row="0"  HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="15,0,0,0" FontSize="30"></TextBlock>
+        <TextBox  CaretBrush="White" FontSize="18" FontWeight="SemiBold"   Grid.Row="1" Foreground="White" FontFamily="Bebas Neue" Name="mail"  Margin="35,0,15,0" Height="50" Background="#0c6cbc" ></TextBox>
+        <TextBlock FontWeight="Bold" Text="Password" FontFamily="Bebas Neue" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="15,0,0,0" FontSize="30"></TextBlock>
+        <PasswordBox CaretBrush="White" FontWeight="SemiBold" FontSize="18"   Name="passwordInput" Grid.Row="3" Foreground="White" FontFamily="Bebas Neue"  Margin="35,0,15,0" Height="50" Background="#0c6cbc" ></PasswordBox>
+        <Button Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="2" Width="110" Height="45" Content="Register" FontSize="20" Click="CheckPassword"></Button>
     </Grid>
 </Window>

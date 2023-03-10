@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
+using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -62,14 +63,30 @@ namespace FinancialPortal.Accounts
             
             
         }
+        public static void deleteLostAccount()
+        {
+            int lostAccountIndex = 0;
+            foreach (Account account in AccountListObservable)
+            {
+                if (account.Index == -1)
+                {
+                    AccountListObservable.RemoveAt(lostAccountIndex);
+
+                }
+                lostAccountIndex++;
+            }
+            
+        }
         
         // Method to update an account based on a given parameter, input, selectedIndex, selectedUser, and removeOrAdd flag
         public void updateAccount(string parameter, string input, int selectedIndex, int selectedUser)
         {
+            
             try
             {
                 foreach (Account account in AccountListObservable)
                 {
+                    
                     if (account.Index == selectedIndex)
                     {
                         switch (parameter)
@@ -87,6 +104,7 @@ namespace FinancialPortal.Accounts
                             
                         }
                     }
+                    
                 }
             }
             catch (Exception e)

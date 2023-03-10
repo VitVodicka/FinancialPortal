@@ -24,6 +24,7 @@
             <Setter Property="Width" Value="180"></Setter>
             <Setter Property="Margin" Value="5"></Setter>
             <Setter Property="FontSize" Value="20"></Setter>
+            <Setter Property="FontWeight" Value="SemiBold"></Setter>
             <Setter Property="FontFamily" Value="Bebas Neue"></Setter>
             <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
 
@@ -39,7 +40,7 @@
             <RowDefinition Height="97*"></RowDefinition>
             <RowDefinition Height="103*"></RowDefinition>
         </Grid.RowDefinitions>
-        <DataGrid Grid.Row="0" Grid.ColumnSpan="2"  Name="datagrid"  SelectedItem="{Binding SelectedItem}" AutoGenerateColumns="False"  ItemsSource="{x:Static local:Controller.AccountListObservable}">
+        <DataGrid Grid.Row="0" Grid.ColumnSpan="2"   Name="datagrid" FontFamily="Bebas Neue"  SelectedItem="{Binding SelectedItem}" AutoGenerateColumns="False"  ItemsSource="{x:Static local:Controller.AccountListObservable}">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="150"></DataGridTextColumn>
                 <DataGridTextColumn Header="Money status" Binding="{Binding Money}" Width="250"></DataGridTextColumn>
@@ -48,7 +49,7 @@
         </DataGrid>
         <StackPanel Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal" Height="59" Width="301">
             <TextBlock Text="Change:" Style="{StaticResource textblock}"></TextBlock>
-            <ComboBox Width="160" Name="change" SelectionChanged="change_SelectionChanged">
+            <ComboBox Width="160" Name="change" SelectionChanged="change_SelectionChanged" FontFamily="Bebas Neue">
                 <ComboBoxItem Content="Name"></ComboBoxItem>
                 <ComboBoxItem Content="User"></ComboBoxItem>
                 
@@ -61,10 +62,10 @@
             
         
         </StackPanel>
-        <StackPanel Grid.Column="1" Grid.Row="1" Name="textBoxStackPanel"   VerticalAlignment="Center" HorizontalAlignment="Right" Orientation="Horizontal" Height="50" Width="301">
+        <StackPanel Grid.Column="1" Grid.Row="1" Name="textBoxStackPanel"   VerticalAlignment="Center" HorizontalAlignment="Right" Orientation="Horizontal" Height="65" Width="301">
 
-            <TextBox Style="{StaticResource Textbox}"  Visibility="Visible" HorizontalAlignment="Left" Width="200" Name="input" ></TextBox>
+            <TextBox Style="{StaticResource Textbox}"  Visibility="Visible" HorizontalAlignment="Left" Width="200" Name="input" Height="60"></TextBox>
         </StackPanel>
-        <Button Grid.Column="0" VerticalAlignment="Center" Grid.Row="2" Grid.ColumnSpan="2" HorizontalAlignment="Center" FontSize="25" Content="Change" Click="UppdateAccount_click"  ></Button>
+        <Button Grid.Column="0" VerticalAlignment="Center" FontFamily="Bebas Neue" Grid.Row="2" Grid.ColumnSpan="2" HorizontalAlignment="Center" FontSize="25" Content="Change" VerticalContentAlignment="Center" Height="60" Width="150" Click="UppdateAccount_click"  ></Button>
     </Grid>
 </mah:MetroWindow>

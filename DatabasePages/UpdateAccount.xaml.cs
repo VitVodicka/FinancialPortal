@@ -28,11 +28,12 @@ namespace FinancialPortal.DatabasePages
         
         public UpdateAccount()
         {
-            
+
             
 
             InitializeComponent();
-            
+            Controller.deleteLostAccount();
+
 
 
 

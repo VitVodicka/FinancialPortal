@@ -45,9 +45,9 @@ namespace FinancialPortal
                 MoneyStatus.Add(deposit);
             }
             
-            ChartValues<double> MoneyStatusReversed = MoneyStatus;
-            MoneyStatusReversed.Reverse();
-            Money = MoneyStatusReversed[0];
+           
+            
+            Money = MoneyStatus.Last();
             UserId = selectedIndex;
             
         }
