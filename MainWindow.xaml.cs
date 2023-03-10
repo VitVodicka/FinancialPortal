@@ -94,7 +94,7 @@ namespace FinancialPortal
             
         }
         
-        void showAddUser()
+        private void showAddUser()
         {
             if (ps.getValueFromPassword())//if the inputed value equals to the password then it shows the window
             {
@@ -117,7 +117,7 @@ namespace FinancialPortal
                 MessageBox.Show("AddUserClick"+ex.Message);
             }
         }
-        void showUpdateUser()
+        private void showUpdateUser()
         {
             if (ps.getValueFromPassword())//if the inputed value equals to the password then it shows the window
             {
@@ -136,7 +136,7 @@ namespace FinancialPortal
           
         }
  
-        void showAddAccount()
+        private void showAddAccount()
         {
             if (ps.getValueFromPassword())//if the inputed value equals to the password then it shows the window
             {
@@ -156,7 +156,7 @@ namespace FinancialPortal
 
 
         }
-        void showUpdateAccount()
+        private void showUpdateAccount()
         {
             if (ps.getValueFromPassword())//if the inputed value equals to the password then it shows the window
             {
@@ -184,7 +184,7 @@ namespace FinancialPortal
 
         }
 
-        public void switchingQuaters()
+        private void switchingQuaters()
         {
             switch (repaymentperiod.Text)
             {//text swtiching according to timepayment selected
@@ -207,7 +207,7 @@ namespace FinancialPortal
             }
         }
 
-        public void repayment()
+        private void repayment()
         {// This function calculates the mortgage repayment amount based on user input
             try { 
             var regex = new Regex("(([A-Z])|([a-z])|([ ]))");//regex filter
@@ -279,7 +279,7 @@ namespace FinancialPortal
             contributions.Visibility = Visibility.Collapsed;
             contributionsinput.Visibility = Visibility.Collapsed;
         }
-        void updateReturnProfitLoss()
+        private void updateReturnProfitLoss()
         {
             returnMoney.Text = (AccountAddRemoveUpdate.Return*100).ToString()+"%";
             profitLoss.Text = AccountAddRemoveUpdate.ProfitLoss.ToString();

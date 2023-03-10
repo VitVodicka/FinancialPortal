@@ -62,7 +62,7 @@ namespace FinancialPortal
         }
 
         // Hide the "Add User" button and show a text label when a user has been added
-        void hideUserButton()
+        private void hideUserButton()
         {
             if (Controller.UserListObservable.Count > 0)
             {
@@ -73,7 +73,7 @@ namespace FinancialPortal
         }
 
         // Hide the "Add Account" button and show a text label when an account has been added
-        void hideAccountButton()
+        private void hideAccountButton()
         {
             if (Controller.AccountListObservable.Count > 0)
             {
