@@ -23,6 +23,7 @@ namespace FinancialPortal.DatabasePages
         public Password()
         {
             InitializeComponent();
+            PasswordChecker.InputPassword = "";
         }
         private void CheckPassword(object sender, RoutedEventArgs e)
         {
