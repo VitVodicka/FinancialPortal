@@ -201,6 +201,7 @@ namespace FinancialPortal
 
                 if ((repaymentperiod.Text != "") && (loanamount.Text != ""  ) && (interestrate.Text != "") && (year.Text != ""))
                 {
+                    if ((double.Parse(interestrate.Text) < 50) && (double.Parse(loanamount.Text) < 50000000) && (double.Parse(year.Text) < 30)) {
                     if (repaymentperiod.Text == "monthly")
                     {
                         m.Calculate(double.Parse(loanamount.Text), double.Parse(interestrate.Text), 1, double.Parse(year.Text));//using functions
@@ -216,6 +217,11 @@ namespace FinancialPortal
                     if (repaymentperiod.Text == "yearly")
                     {
                         m.Calculate(double.Parse(loanamount.Text), double.Parse(interestrate.Text), 12, double.Parse(year.Text));//using functions
+                    }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Too big mortgage value");
                     }
                 }
                 
@@ -273,6 +279,10 @@ namespace FinancialPortal
             var regex = new Regex("(([A-Z])|([a-z])|([ ]))");
             if ((regex.IsMatch(initialinvestment.Text) == false) && (regex.IsMatch(yearsinvestement.Text) == false) && (regex.IsMatch(expectedreturn.Text) == false))
             {
+                if((double.Parse(initialinvestment.Text) < 50000000) && (double.Parse(yearsinvestement.Text) < 15) && (double.Parse(expectedreturn.Text) < 100)&&(double.Parse(contributionsinput.Text)<10000000))
+                {
+
+               
                 if ((initialinvestment.Text != "") && (yearsinvestement.Text != "") && (expectedreturn.Text != ""))
                 {
                     try
@@ -320,16 +330,22 @@ namespace FinancialPortal
 
                         }
                     }
-                   
-                }
+                        else
+                        {
+                            MessageBox.Show("Too big investment value");
+                        }
+                    }
                 else
                {
 
                    hint.Text = "*Text must only contain numbers";
         
                }
-                Cartesianchart.Visibility= Visibility.Visible;
+                
+                    Cartesianchart.Visibility= Visibility.Visible;
             }
+            }
+            
 
         }
 
