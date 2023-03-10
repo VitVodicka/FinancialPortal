@@ -60,23 +60,12 @@ namespace FinancialPortal.Accounts
                 AccountNames.Add(a.Name);
                 change("AccountNames");
             }
-            
-            
-        }
-        public static void deleteLostAccount()
-        {
-            int lostAccountIndex = 0;
-            foreach (Account account in AccountListObservable)
-            {
-                if (account.Index == -1)
-                {
-                    AccountListObservable.RemoveAt(lostAccountIndex);
 
-                }
-                lostAccountIndex++;
-            }
+
+            
             
         }
+        
         
         // Method to update an account based on a given parameter, input, selectedIndex, selectedUser, and removeOrAdd flag
         public void updateAccount(string parameter, string input, int selectedIndex, int selectedUser)

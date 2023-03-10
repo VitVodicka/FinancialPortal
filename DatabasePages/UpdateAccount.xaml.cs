@@ -17,6 +17,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
 namespace FinancialPortal.DatabasePages
+
 {
     /// <summary>
     /// Interakční logika pro UpdateAccount.xaml
@@ -32,7 +33,6 @@ namespace FinancialPortal.DatabasePages
             
 
             InitializeComponent();
-            Controller.deleteLostAccount();
 
 
 

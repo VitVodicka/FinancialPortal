@@ -28,29 +28,33 @@ namespace FinancialPortal
         private void CheckPassword(object sender, RoutedEventArgs e)
         {
             var regex = new Regex("@");
+            var regexText = new Regex("([A-Z])|([a-z])");
             PasswordChecker ps = new PasswordChecker();
             if (regex.IsMatch(mail.Text) != false)
             {
-               
-            
-            if ((mail.Text != "")&&(passwordInput.Password!=""))
-            {
-                ps.setEmail(mail.Text);
-                ps.setPassword(passwordInput.Password);
-                this.Close();
-                new TitleSetup().Show();
-                    
+                if ((regexText.IsMatch(passwordInput.Password) == true)&&(passwordInput.Password.Length>7))
+                {
+                    if ((mail.Text != "") && (passwordInput.Password != ""))
+                    {
+                        ps.setEmail(mail.Text);
+                        ps.setPassword(passwordInput.Password);
+                        this.Close();
+                        new TitleSetup().Show();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Not inserted password or E-mail");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("The password must be at least 8 characters long and contain at least one letter to be considered strong");
+                }
             }
             else
             {
-                MessageBox.Show("Not inserted password or E-mail");
+                MessageBox.Show("Email doesn't contain @");
             }
-            }
-            else
-            {
-                MessageBox.Show("Email dosen t contain @");
-            }
-
         }
     }
 }

@@ -22,6 +22,7 @@ namespace FinancialPortal.DatabasePages
 
         private void CreateAccount_Click(object sender, RoutedEventArgs e)
         {
+            try { 
             Controller control = new Controller();
             if ((name.Text != "") && (deposit.Text != "") && (users.SelectedIndex > -1))
             {
@@ -34,7 +35,12 @@ namespace FinancialPortal.DatabasePages
             }
             else
             {
-                MessageBox.Show("Not changed value or not selcted value to change");
+                MessageBox.Show("Not changed value or not selected value to change");
+            }
+            }
+            catch
+            {
+                MessageBox.Show("Bad input");
             }
         }
     }

@@ -74,9 +74,18 @@ namespace FinancialPortal
 
         private void AccountAdd_Click(object sender, RoutedEventArgs e)
         {
+            if(usertext.Visibility== Visibility.Visible)
+            {
+
+            
             CreateAccount acc = new CreateAccount();
             acc.Show();
             acc.Closed += (s, args) => hideAccountButton();
+            }
+            else
+            {
+                MessageBox.Show("None user has been added");
+            }
         }
     }
 }

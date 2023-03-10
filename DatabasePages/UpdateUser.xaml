@@ -40,7 +40,7 @@
             <RowDefinition Height="97*"></RowDefinition>
             <RowDefinition Height="103*"></RowDefinition>
         </Grid.RowDefinitions>
-        <DataGrid Grid.Row="0" Grid.ColumnSpan="2" FontFamily="Bebas Neue" Name="dataGrid" AutoGenerateColumns="False" SelectedItem="{Binding SelectedItem}" ItemsSource="{x:Static local:Controller.UserListObservable}">
+        <DataGrid Grid.Row="0" Grid.ColumnSpan="2" IsReadOnly="True" FontFamily="Bebas Neue" Name="dataGrid" AutoGenerateColumns="False" SelectedItem="{Binding SelectedItem}" ItemsSource="{x:Static local:Controller.UserListObservable}">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id" Binding="{Binding Id}" Width="50"></DataGridTextColumn>
                 <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="150"></DataGridTextColumn>

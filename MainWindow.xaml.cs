@@ -75,7 +75,9 @@ namespace FinancialPortal
                 this.Visibility = Visibility.Hidden;
                 
             }
-              
+            this.Closed += (s, args) => Application.Current.Shutdown();
+
+
         }
         private void HamburgerMenuControle(object sender, ItemClickEventArgs e)
         {
@@ -293,7 +295,8 @@ namespace FinancialPortal
                         }
                         catch
                         {
-                            // handle exception
+                            MessageBox.Show("Bad input into one time option");
+                            
                         }
 
                         if (monthlyContribution.IsChecked == true)
@@ -307,7 +310,7 @@ namespace FinancialPortal
                             }
                             catch
                             {
-                                // handle exception
+                                MessageBox.Show("Bad input into monthly contribution option");
                             }
                         }
 
@@ -322,7 +325,7 @@ namespace FinancialPortal
                             }
                             catch
                             {
-                                // handle exception
+                                MessageBox.Show("Bad input into yearly contribution option");
                             }
                         }
                     }
