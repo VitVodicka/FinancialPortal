@@ -36,17 +36,14 @@ namespace FinancialPortal.DatabasePages
             if (changebutton.Text != "" && (dataGrid.SelectedIndex > -1))
             {
 
-            
             if (changebutton.Text == "Name")
             {
-                Controller.updateUser(dataGrid.SelectedIndex, "Name", input.Text);
-                //MessageBox.Show(d.updateUser("Name", input.Text, dataGrid.SelectedIndex));
+                Controller.updateUser(dataGrid.SelectedIndex, "Name", input.Text);               
                 this.Close();
             }
             if (changebutton.Text == "Surname")
             {
                 Controller.updateUser(dataGrid.SelectedIndex, "Surname", input.Text);
-                //MessageBox.Show(d.updateUser("Surname", input.Text, dataGrid.SelectedIndex));
                 this.Close();
             }
             }

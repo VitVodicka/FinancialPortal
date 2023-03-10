@@ -9,10 +9,7 @@
         Title="Add User" Height="250"  Width="800" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Window.Resources>
         <!-- settings for label, textbox,textblock-->
-        <Style x:Key="Label" TargetType="{x:Type Label}">
-            <Setter Property="FontSize" Value="22" />
-            <Setter Property="FontFamily" Value="Bebas Neue"></Setter>
-        </Style>
+        
         <Style x:Key="Textbox" TargetType="{x:Type TextBox}">
             <Setter Property="Background" Value="#0c6cbc" />
             <Setter Property="Foreground" Value="White"></Setter>

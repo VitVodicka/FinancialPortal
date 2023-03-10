@@ -78,8 +78,6 @@ namespace FinancialPortal
         }
 
 
-        // This method updates the money status property of the account
-
 
         // This method converts the user list of the account to a string
         // It is used to display the list of users in the UI

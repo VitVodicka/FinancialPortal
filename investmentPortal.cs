@@ -88,10 +88,8 @@ namespace FinancialPortal
 
             double blankReturn = expectedreturn / 100;//declaring variables
             double carryover = 0;
-            double interestOf = 0;
             double finalpercentage = 0;
             double notinvestedValueOverYears = initialinvestment;
-            double celkem = 0;
 
 
             for (int i = 0; i < yearsinvestment - 1; i++)
@@ -101,12 +99,6 @@ namespace FinancialPortal
                     carryover += initialinvestment;
                     carryover += (initialinvestment * blankReturn);
                     carryover += contributionsinput;
-
-                    //interestOf = carryover * blankReturn;
-                    //carryover += interestOf;
-                    //carryover += contributionsinput;
-
-
 
                     investedValues.Add(initialinvestment);//adding first number
                     notInvestedValues.Add(initialinvestment);

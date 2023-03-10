@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace FinancialPortal
 {
-    internal class AccountAddRemoveUpdate:INotifyPropertyChanged
+    internal class AccountAddRemoveUpdate
     {
         public static double Return { get; set; }
         private static ChartValues<double> chartHelpfulValues { get; set; }
@@ -21,25 +21,14 @@ namespace FinancialPortal
         {
         get;set;
         }
-        public AccountAddRemoveUpdate() { 
-        }
         static AccountAddRemoveUpdate()
         {
             Return = 0;
             ProfitLoss = 0;
-
             chartHelpfulValues = new ChartValues<double>();
             
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
-        public void change(string property)
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(property));
-            }
-        }
         public void UpdateMoney(double money, int index)
         {
                 for(int i =0;i< Controller.AccountListObservable.Count;i++)
@@ -113,12 +102,9 @@ namespace FinancialPortal
             double lastValue = 0;
             if (chartHelpfulValues.Count > 2)
             {
-                
-                
                 firstValue = chartHelpfulValues[1];//set it to second
                 lastValue= chartHelpfulValues.Last();
                 Return = (lastValue / firstValue)-1;
-                
                 Return= Math.Round(Return, 2);
             }
             else

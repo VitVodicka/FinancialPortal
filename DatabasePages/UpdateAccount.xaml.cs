@@ -29,13 +29,7 @@ namespace FinancialPortal.DatabasePages
         
         public UpdateAccount()
         {
-
-            
-
             InitializeComponent();
-
-
-
 
         }
         private void change_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -43,18 +37,14 @@ namespace FinancialPortal.DatabasePages
             
             if (change.SelectedIndex == 0)
             {
-                Controller control = new Controller();
                 input.Visibility = Visibility.Visible;
                 selectedUsers.Visibility = Visibility.Hidden;
             }
             if (change.SelectedIndex == 1)
             {
-                Controller control = new Controller();
-                Account account = new Account();
                 input.Visibility = Visibility.Hidden;
 
                 selectedUsers.Visibility = Visibility.Visible;
-                //control.availableAccounts();
                
             }
             

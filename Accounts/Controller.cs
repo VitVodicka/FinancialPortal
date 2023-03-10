@@ -61,11 +61,8 @@ namespace FinancialPortal.Accounts
                 change("AccountNames");
             }
 
-
-            
-            
+      
         }
-        
         
         // Method to update an account based on a given parameter, input, selectedIndex, selectedUser, and removeOrAdd flag
         public void updateAccount(string parameter, string input, int selectedIndex, int selectedUser)
@@ -86,7 +83,7 @@ namespace FinancialPortal.Accounts
                                 break;
                             // If the parameter is User, add or remove the selected user
                             case "User":                               
-                                        account.updateUser(selectedUser);
+                                account.updateUser(selectedUser);
                                 break;
                            
                             // If the parameter is MoneyStatus, update the account money status
@@ -121,14 +118,6 @@ namespace FinancialPortal.Accounts
         public static int maxIndexUserList()
         {
             max++;
-            /* don t know what was it for
-            foreach(User u in UserListObservable)
-            {
-                if(u.Id > max)
-                {
-                    max = u.Id;
-                }
-            }*/
             return max;
         }
         // This method updates the user list of an account at a specified index

@@ -10,11 +10,8 @@
         xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
         Title="Create Account" Height="350" Width="800" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Window.Resources>
-        <!-- settings for label, textbox,textblock-->
-        <Style x:Key="Label" TargetType="{x:Type Label}">
-            <Setter Property="FontSize" Value="22" />
-            <Setter Property="FontFamily" Value="Bebas Neue"></Setter>
-        </Style>
+        <!-- settings for textbox,textblock-->
+        
         <Style x:Key="Textbox" TargetType="{x:Type TextBox}">
             <Setter Property="FontWeight" Value="SemiBold"></Setter>
             <Setter Property="Background" Value="#0c6cbc" />
