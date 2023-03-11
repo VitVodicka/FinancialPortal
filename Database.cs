@@ -10,7 +10,7 @@ namespace FinancialPortal
     internal class Database
     {
 
-        /*SqlConnection connection;
+        SqlConnection connection;
         SqlCommand command;
         SqlDataReader datareader;
         string sql;
@@ -28,7 +28,7 @@ namespace FinancialPortal
             {
                 
             }
-        }
+        }/*
         public List<User> DataBaseReadUser(string comText)
         {
             DataBaseConnection();
