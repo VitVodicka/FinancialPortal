@@ -48,6 +48,7 @@ namespace FinancialPortal
                             // Set the email and password in the PasswordChecker class and open the TitleSetup window
                             ps.setEmail(mail.Text);
                             ps.setPassword(passwordInput.Password);
+                            new Files().WrittingPasswordEmail(passwordInput.Password,mail.Text);//writes password to file
                             this.Close();
                             new TitleSetup().Show();
                         }

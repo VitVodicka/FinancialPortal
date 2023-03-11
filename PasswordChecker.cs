@@ -11,9 +11,12 @@ namespace FinancialPortal
 {
     internal class PasswordChecker
     {
+        public PasswordChecker() {
+            new Files().ReadingPasswordEmail();//reads Password from file
+        }
         // Declare private static variables for email and password
-        private static string settedEmail = "";
-        private static string settedPassword = "ahoj";
+        public static string settedEmail = "";
+        public static string settedPassword = "ahoj";
 
         // Declare public property to get and set input password
         public static string InputPassword { get; set; }
