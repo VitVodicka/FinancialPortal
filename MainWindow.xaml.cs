@@ -36,14 +36,14 @@ namespace FinancialPortal
         investmentPortal invest = new investmentPortal();
         PasswordChecker ps = new PasswordChecker();
 
-        Database dat = new Database();
+        
 
 
         public MainWindow()
         {
             
             InitializeComponent();
-            dat.DataBaseConnection();
+            
             // Set the returnMoney and profitLoss text to the calculated values
             returnMoney.Text = (AccountAddRemoveUpdate.Return * 100).ToString() + "%";
             profitLoss.Text = AccountAddRemoveUpdate.ProfitLoss.ToString();

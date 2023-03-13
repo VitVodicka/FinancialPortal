@@ -4,6 +4,8 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Xml.Linq;
 
 namespace FinancialPortal
 {
@@ -28,59 +30,81 @@ namespace FinancialPortal
             {
                 
             }
-        }/*
-        public List<User> DataBaseReadUser(string comText)
+        }
+        public void DataBaseReadUser()
         {
-            DataBaseConnection();
-            List<User> users = new List<User>();
-            try { 
-            
-            string  Name, Surname;
+            //DataBaseConnection();
+            //List<User> users = new List<User>();
+            string connectionString = Properties.Settings.Default.DatabaseConnectionString;
+            try {
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    sql = "SELECT Name,Surname FROM [User]";
+                    string Name, Surname;
+                    using (SqlCommand command = new SqlCommand(sql, connection))
+                    {
 
-                sql = "SELECT Name,Surname FROM [User]";
-            command = new SqlCommand();
-            
-            datareader = command.ExecuteReader();
-            while (datareader.Read())
-            {
-                    Name= datareader.GetValue(0).ToString();
-                    Surname = datareader.GetValue(0).ToString();
-                    User u = new User(Name, Surname);
-                    users.Add(u);
 
-                
-            }
+                        datareader = command.ExecuteReader();
+                        while (datareader.Read())
+                        {
+                            Name = datareader.GetValue(0).ToString();
+                            Surname = datareader.GetValue(0).ToString();
+
+                            MessageBox.Show(Name + Surname);
+
+                        }
+                    }
+
+                }            
             
             }
             catch(Exception ex)
             {
                 
             }
-            connection.Close();
-            return users;
-        }
-        public void AddingUser( string Name, string Surname)
-        {//needs to put some class intoparametrs
-            DataBaseConnection();
-            int line;
-            try { 
-            string command = "INSERT INTO [User](Name,Surname) VALUES(@Name,@Surname)";
-                using (SqlCommand sq = new SqlCommand(command,connection)) {
            
-                 sq.Parameters.AddWithValue("@Name",Name);
-                 sq.Parameters.AddWithValue("@Surname",Surname);
-                 line =sq.ExecuteNonQuery();
-                   
-                }
-                
-                
-            }
-            catch(Exception e)
+            
+        }
+
+        
+        public void AddingUser(int index,string Name, string Surname)
+        {//needs to put some class intoparametrs
+            string connectionString = Properties.Settings.Default.DatabaseConnectionString;
+            Console.WriteLine("Connection string: " + connectionString);
+            try
             {
-                
-                return e.Message;
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    string sql = "INSERT INTO [User] (Name, Surname) VALUES (@Name, @Surname)";
+                    connection.Open();
+                    using (SqlCommand command = new SqlCommand(sql, connection))
+                    {
+
+                        // Add parameters to the SqlCommand object
+                        command.Parameters.AddWithValue("@Name", Name);
+                        command.Parameters.AddWithValue("@Surname", Surname);
+
+                        // Execute the SQL command
+                        int rowsAffected = command.ExecuteNonQuery();
+
+                        // Check if the command executed successfully
+                        if (rowsAffected > 0)
+                        {
+                            Console.WriteLine("User added successfully");
+                        }
+                        else
+                        {
+                            Console.WriteLine("User was not added");
+                        }
+                    }
+                }
             }
-            connection.Close();
+            catch (Exception e)
+            {
+                MessageBox.Show("Error: " + e.Message);
+            }
         }
         public string updateUser(string parameter, string value,int id)
         {
@@ -122,7 +146,7 @@ namespace FinancialPortal
                 return e.Message;
             }
             connection.Close();
-        }
+        }/*
         public string AddingAccount(string Name, string moneyStatus, string UserId, string Type)
         {
             DataBaseConnection();

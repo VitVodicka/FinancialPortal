@@ -21,7 +21,7 @@ namespace FinancialPortal.DatabasePages
     /// </summary>
     public partial class AddUser : MetroWindow
     {
-        //Database d = new Database();
+        Database d = new Database();
         Controller control = new Controller();
         public AddUser()
         {
@@ -36,6 +36,8 @@ namespace FinancialPortal.DatabasePages
             
             User user = new User(Controller.maxIndexUserList(), UserName.Text, Surname.Text);
             control.addUser(user);
+                    d.DataBaseReadUser();
+            //d.AddingUser(Controller.maxIndexUserList(), UserName.Text, Surname.Text);
             this.Close();
             }
             else
