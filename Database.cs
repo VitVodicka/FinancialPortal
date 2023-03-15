@@ -2,6 +2,7 @@
 using LiveCharts.Wpf;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -19,8 +20,8 @@ namespace FinancialPortal
         string sql;
         public void DataBaseReadUser()
         {
-            //DataBaseConnection();
-            //List<User> users = new List<User>();
+            
+            ObservableCollection<User> users = new ObservableCollection<User>();
             string connectionString = "Server = tcp:blogserver.database.windows.net,1433; Initial Catalog = FinancialPortal; Persist Security Info = False; User ID = CloudSAea872b24; Password ={ your_password}; MultipleActiveResultSets = False; Encrypt = True; TrustServerCertificate = False; Connection Timeout = 30;";
 
             try
@@ -28,19 +29,22 @@ namespace FinancialPortal
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
-                    sql = "SELECT Name,Surname FROM [User]";
+                    sql = "SELECT Id,Name,Surname FROM [User]";
                     string Name, Surname;
+                    int id;
                     using (SqlCommand command = new SqlCommand(sql, connection))
                     {
-
 
                         datareader = command.ExecuteReader();
                         while (datareader.Read())
                         {
-                            Name = datareader.GetValue(0).ToString();
-                            Surname = datareader.GetValue(0).ToString();
+                            id= datareader.GetInt32(0);
+                            Name = datareader.GetValue(1).ToString();
+                            Surname = datareader.GetValue(2).ToString();
 
                             MessageBox.Show(Name + Surname);
+                            User u = new User(id, Name, Surname);
+                            users.Add(u);
 
                         }
                     }
@@ -50,7 +54,7 @@ namespace FinancialPortal
             }
             catch (Exception ex)
             {
-
+                MessageBox.Show(ex.Message);
             }
 
 
