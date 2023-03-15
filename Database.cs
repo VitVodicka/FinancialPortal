@@ -1,4 +1,6 @@
-﻿using System;
+﻿using FinancialPortal.DatabasePages;
+using LiveCharts.Wpf;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -12,105 +14,67 @@ namespace FinancialPortal
     internal class Database
     {
 
-        SqlConnection connection;
-        
+        SqlCommand command;
         SqlDataReader datareader;
         string sql;
-        public void DataBaseConnection()
-        {
-            try {
-            
-            string connectionString = Properties.Settings.Default.DatabaseConnectionString;
-            connection = new SqlConnection(connectionString);
-            connection.Open();
-
-            
-            }
-            catch(Exception e)
-            {
-                
-            }
-        }
         public void DataBaseReadUser()
         {
             //DataBaseConnection();
             //List<User> users = new List<User>();
-            string connectionString = Properties.Settings.Default.DatabaseConnectionString;
-            try {
+            string connectionString = "Server = tcp:blogserver.database.windows.net,1433; Initial Catalog = FinancialPortal; Persist Security Info = False; User ID = CloudSAea872b24; Password ={ your_password}; MultipleActiveResultSets = False; Encrypt = True; TrustServerCertificate = False; Connection Timeout = 30;";
+
+            try
+            {
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
-                    sql = "DELETE FROM [USER] WHERE Surname='vodicka'";
+                    sql = "SELECT Name,Surname FROM [User]";
                     string Name, Surname;
                     using (SqlCommand command = new SqlCommand(sql, connection))
                     {
 
-                        int line;
-                         line= command.ExecuteNonQuery();
-                        if (line > 0)
+
+                        datareader = command.ExecuteReader();
+                        while (datareader.Read())
                         {
-                            MessageBox.Show("User added successfully");
+                            Name = datareader.GetValue(0).ToString();
+                            Surname = datareader.GetValue(0).ToString();
+
+                            MessageBox.Show(Name + Surname);
+
                         }
                     }
 
-                }            
-            
-            }
-            catch(Exception ex)
-            {
-                
-            }
-           
-            
-        }
-
-        
-        public void AddingUser()
-        {//needs to put some class intoparametrs
-            string connectionString = Properties.Settings.Default.DatabaseConnectionString;
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                connection.Open();
-                using (SqlTransaction transaction = connection.BeginTransaction())
-                {
-                    try
-                    {
-                        string sql = "INSERT INTO [dbo].[USER] (Name, Surname) VALUES ('John', 'Doe')";
-                        using (SqlCommand command = new SqlCommand(sql, connection))
-                        {
-                            command.Transaction = transaction;
-                            int rowsAffected = command.ExecuteNonQuery();
-                            if (rowsAffected > 0)
-                            {
-                                MessageBox.Show("User added successfully");
-                                transaction.Commit();
-                            }
-                            else
-                            {
-                                MessageBox.Show("User was not added");
-                                transaction.Rollback();
-                            }
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Error: " + ex.Message);
-                        transaction.Rollback();
-                    }
                 }
+
             }
+            catch (Exception ex)
+            {
+
+            }
+
+
         }
-        /*
-         *  //string sql = "INSERT INTO [MoneyStatus] (Money) VALUES (5000)";
+
+
+        public void AddingUser(int index, string Name, string Surname)
+        {//needs to put some class intoparametrs
+            string connectionString = "Server = tcp:blogserver.database.windows.net,1433; Initial Catalog = FinancialPortal; Persist Security Info = False; User ID = CloudSAea872b24; Password ={ your_password}; MultipleActiveResultSets = False; Encrypt = True; TrustServerCertificate = False; Connection Timeout = 30;";
+
+           
+            try
+            {
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
-                    string sql = "INSERT INTO [dbo].[User] DEFAULT VALUES;";
+                    string sql = "INSERT INTO [User] (Name, Surname) VALUES (@Name, @Surname)";
                     connection.Open();
                     using (SqlCommand command = new SqlCommand(sql, connection))
                     {
 
                         // Add parameters to the SqlCommand object
-                      
+                        command.Parameters.AddWithValue("@Name", Name);
+                        command.Parameters.AddWithValue("@Surname", Surname);
+
                         // Execute the SQL command
                         int rowsAffected = command.ExecuteNonQuery();
 
@@ -124,19 +88,30 @@ namespace FinancialPortal
                             Console.WriteLine("User was not added");
                         }
                     }
-                }*/
-        public string updateUser(string parameter, string value,int id)
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error: " + e.Message);
+            }
+        }
+        public string updateUser(string parameter, string value, int id)
         {
-            DataBaseConnection();
+            string connectionString = "Server = tcp:blogserver.database.windows.net,1433; Initial Catalog = FinancialPortal; Persist Security Info = False; User ID = CloudSAea872b24; Password ={ your_password}; MultipleActiveResultSets = False; Encrypt = True; TrustServerCertificate = False; Connection Timeout = 30;";
+
             try
             {
-                if(parameter == "Name")
+                using(SqlConnection connection = new SqlConnection(connectionString))
+                {
+
+                
+                if (parameter == "Name")
                 {
                     string command = "UPDATE [User] SET Name=@Name WHERE UserId=@UserId";
-                    using(SqlCommand sq = new SqlCommand(command, connection))
+                    using (SqlCommand sq = new SqlCommand(command, connection))
                     {
-                        sq.Parameters.AddWithValue("@Name",value);
-                        sq.Parameters.AddWithValue("UserId",id);
+                        sq.Parameters.AddWithValue("@Name", value);
+                        sq.Parameters.AddWithValue("UserId", id);
                         int line = sq.ExecuteNonQuery();
                         return line.ToString();
                     }
@@ -157,21 +132,26 @@ namespace FinancialPortal
                 {
                     return "Not found";
                 }
-
+                }
 
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 return e.Message;
             }
-            connection.Close();
+            
         }/*
         public string AddingAccount(string Name, string moneyStatus, string UserId, string Type)
         {
-            DataBaseConnection();
+            string connectionString = "Server = tcp:blogserver.database.windows.net,1433; Initial Catalog = FinancialPortal; Persist Security Info = False; User ID = CloudSAea872b24; Password ={ your_password}; MultipleActiveResultSets = False; Encrypt = True; TrustServerCertificate = False; Connection Timeout = 30;";
+
             int line;
             try
             {
+                using(SqlConnection connection=new SqlConnection(connectionString))
+                {
+
+                
                 string command = "INSERT INTO [Account](Name,MoneyStatus,UserId,Type) VALUES(@Name,@MoneyStatus,@UserId,@Type)";
                 using (SqlCommand sq = new SqlCommand(command, connection))
                 {
@@ -186,77 +166,82 @@ namespace FinancialPortal
                 return line.ToString();
 
             }
+            }
             catch (Exception e)
             {
 
                 return e.Message;
             }
-            connection.Close();
+            
         }
         public string UpdateAccount(string parameter, string value, int id)
         {
-            DataBaseConnection();
+            string connectionString = "Server = tcp:blogserver.database.windows.net,1433; Initial Catalog = FinancialPortal; Persist Security Info = False; User ID = CloudSAea872b24; Password ={ your_password}; MultipleActiveResultSets = False; Encrypt = True; TrustServerCertificate = False; Connection Timeout = 30;";
+
             try
             {
-                if (parameter == "Name")
+                using (SqlConnection connection = new SqlConnection(connectionString))
                 {
-                    string command = "UPDATE [Account] SET Name=@Name WHERE UserId=@UserId";
-                    using (SqlCommand sq = new SqlCommand(command, connection))
+
+                    if (parameter == "Name")
                     {
-                        sq.Parameters.AddWithValue("@Name", value);
-                        sq.Parameters.AddWithValue("UserId", id);
-                        int line = sq.ExecuteNonQuery();
-                        return line.ToString();
+                        string command = "UPDATE [Account] SET Name=@Name WHERE UserId=@UserId";
+                        using (SqlCommand sq = new SqlCommand(command, connection))
+                        {
+                            sq.Parameters.AddWithValue("@Name", value);
+                            sq.Parameters.AddWithValue("UserId", id);
+                            int line = sq.ExecuteNonQuery();
+                            return line.ToString();
+                        }
                     }
-                }
-                if (parameter == "User")
-                {
-                    string command = "UPDATE [Account] SET User=@User WHERE UserId=@UserId";
-                    using (SqlCommand sq = new SqlCommand(command, connection))
+                    if (parameter == "User")
                     {
-                        sq.Parameters.AddWithValue("@User", value);
-                        sq.Parameters.AddWithValue("UserId", id);
-                        int line = sq.ExecuteNonQuery();
-                        return line.ToString();
+                        string command = "UPDATE [Account] SET User=@User WHERE UserId=@UserId";
+                        using (SqlCommand sq = new SqlCommand(command, connection))
+                        {
+                            sq.Parameters.AddWithValue("@User", value);
+                            sq.Parameters.AddWithValue("UserId", id);
+                            int line = sq.ExecuteNonQuery();
+                            return line.ToString();
 
+                        }
                     }
-                }
-                if (parameter == "Type")
-                {
-                    string command = "UPDATE [Account] SET Type=@Type WHERE UserId=@UserId";
-                    using (SqlCommand sq = new SqlCommand(command, connection))
+                    if (parameter == "Type")
                     {
-                        sq.Parameters.AddWithValue("@Type", value);
-                        sq.Parameters.AddWithValue("UserId", id);
-                        int line = sq.ExecuteNonQuery();
-                        return line.ToString();
+                        string command = "UPDATE [Account] SET Type=@Type WHERE UserId=@UserId";
+                        using (SqlCommand sq = new SqlCommand(command, connection))
+                        {
+                            sq.Parameters.AddWithValue("@Type", value);
+                            sq.Parameters.AddWithValue("UserId", id);
+                            int line = sq.ExecuteNonQuery();
+                            return line.ToString();
 
+                        }
                     }
-                }
-                if (parameter == "MoneyStatus")
-                {
-                    string command = "UPDATE [Account] SET MoneyStatus=@MoneyStatus WHERE UserId=@UserId";
-                    using (SqlCommand sq = new SqlCommand(command, connection))
+                    if (parameter == "MoneyStatus")
                     {
-                        sq.Parameters.AddWithValue("@MoneyStatus", value);
-                        sq.Parameters.AddWithValue("UserId", id);
-                        int line = sq.ExecuteNonQuery();
-                        return line.ToString();
+                        string command = "UPDATE [Account] SET MoneyStatus=@MoneyStatus WHERE UserId=@UserId";
+                        using (SqlCommand sq = new SqlCommand(command, connection))
+                        {
+                            sq.Parameters.AddWithValue("@MoneyStatus", value);
+                            sq.Parameters.AddWithValue("UserId", id);
+                            int line = sq.ExecuteNonQuery();
+                            return line.ToString();
 
+                        }
                     }
-                }
-                else
-                {
-                    return "Not found";
-                }
+                    else
+                    {
+                        return "Not found";
+                    }
 
 
+                }
             }
             catch (Exception e)
             {
                 return e.Message;
             }
-            connection.Close();
         }*/
     }
 }
