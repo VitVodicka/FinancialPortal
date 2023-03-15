@@ -36,7 +36,8 @@ namespace FinancialPortal.DatabasePages
             
             User user = new User(Controller.maxIndexUserList(), UserName.Text, Surname.Text);
             control.addUser(user);
-                    d.DataBaseReadUser();
+                    //  d.DataBaseReadUser();
+                    d.AddingUser();
             //d.AddingUser(Controller.maxIndexUserList(), UserName.Text, Surname.Text);
             this.Close();
             }
