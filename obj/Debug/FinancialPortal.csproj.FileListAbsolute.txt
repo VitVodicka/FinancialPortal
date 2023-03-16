@@ -150,8 +150,6 @@ C:\Users\drako\Documents\GitHub\FinancialPortal\obj\Debug\FinancialPortal.csproj
 C:\Users\drako\Documents\GitHub\FinancialPortal\obj\Debug\FinancialPortal.csproj.CopyComplete
 C:\Users\drako\Documents\GitHub\FinancialPortal\obj\Debug\FinancialPortal.exe
 C:\Users\drako\Documents\GitHub\FinancialPortal\obj\Debug\FinancialPortal.pdb
-C:\Users\drako\source\repos\FinancialPortal\FinancialPortal\bin\Debug\Database.mdf
-C:\Users\drako\source\repos\FinancialPortal\FinancialPortal\bin\Debug\Database_log.ldf
 C:\Users\drako\source\repos\FinancialPortal\FinancialPortal\bin\Debug\icons\bar-chart.png
 C:\Users\drako\source\repos\FinancialPortal\FinancialPortal\bin\Debug\icons\home.png
 C:\Users\drako\source\repos\FinancialPortal\FinancialPortal\bin\Debug\icons\investment.png

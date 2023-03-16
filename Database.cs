@@ -15,21 +15,20 @@ namespace FinancialPortal
     internal class Database
     {
 
-        SqlCommand command;
         SqlDataReader datareader;
         string sql;
         public void DataBaseReadUser()
         {
             
             ObservableCollection<User> users = new ObservableCollection<User>();
-            string connectionString = "Server = tcp:blogserver.database.windows.net,1433; Initial Catalog = FinancialPortal; Persist Security Info = False; User ID = CloudSAea872b24; Password ={ your_password}; MultipleActiveResultSets = False; Encrypt = True; TrustServerCertificate = False; Connection Timeout = 30;";
+            string connectionString = "Server = tcp:blogserver.database.windows.net,1433; Initial Catalog = FinancialPortal; Persist Security Info = False; User ID = CloudSAea872b24; Password =; MultipleActiveResultSets = False; Encrypt = True; TrustServerCertificate = False; Connection Timeout = 30;";
 
             try
             {
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
-                    sql = "SELECT Id,Name,Surname FROM [User]";
+                    sql = "SELECT IdUser,Name,Surname FROM [User]";
                     string Name, Surname;
                     int id;
                     using (SqlCommand command = new SqlCommand(sql, connection))
@@ -42,7 +41,7 @@ namespace FinancialPortal
                             Name = datareader.GetValue(1).ToString();
                             Surname = datareader.GetValue(2).ToString();
 
-                            MessageBox.Show(Name + Surname);
+                            MessageBox.Show(id+Name + Surname);
                             User u = new User(id, Name, Surname);
                             users.Add(u);
 
@@ -63,7 +62,7 @@ namespace FinancialPortal
 
         public void AddingUser(int index, string Name, string Surname)
         {//needs to put some class intoparametrs
-            string connectionString = "Server = tcp:blogserver.database.windows.net,1433; Initial Catalog = FinancialPortal; Persist Security Info = False; User ID = CloudSAea872b24; Password ={ your_password}; MultipleActiveResultSets = False; Encrypt = True; TrustServerCertificate = False; Connection Timeout = 30;";
+            string connectionString = "Server = tcp:blogserver.database.windows.net,1433; Initial Catalog = FinancialPortal; Persist Security Info = False; User ID = CloudSAea872b24; Password =; MultipleActiveResultSets = False; Encrypt = True; TrustServerCertificate = False; Connection Timeout = 30;";
 
            
             try
