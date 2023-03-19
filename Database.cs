@@ -1,4 +1,5 @@
-﻿using FinancialPortal.DatabasePages;
+﻿using FinancialPortal.Accounts;
+using FinancialPortal.DatabasePages;
 using LiveCharts.Wpf;
 using System;
 using System.Collections.Generic;
@@ -19,8 +20,8 @@ namespace FinancialPortal
         string sql;
         public void DataBaseReadUser()
         {
-            
-            ObservableCollection<User> users = new ObservableCollection<User>();
+
+            //ObservableCollection<User> users = new ObservableCollection<User>();
             string connectionString = "Server = tcp:blogserver.database.windows.net,1433; Initial Catalog = FinancialPortal; Persist Security Info = False; User ID = CloudSAea872b24; Password =; MultipleActiveResultSets = False; Encrypt = True; TrustServerCertificate = False; Connection Timeout = 30;";
 
             try
@@ -37,15 +38,16 @@ namespace FinancialPortal
                         datareader = command.ExecuteReader();
                         while (datareader.Read())
                         {
-                            id= datareader.GetInt32(0);
+                            id = datareader.GetInt32(0);
                             Name = datareader.GetValue(1).ToString();
                             Surname = datareader.GetValue(2).ToString();
 
-                            MessageBox.Show(id+Name + Surname);
+                            MessageBox.Show(id + Name + Surname);
                             User u = new User(id, Name, Surname);
-                            users.Add(u);
+                            Controller.UserListObservable.Add(u);
 
                         }
+
                     }
 
                 }
@@ -57,8 +59,6 @@ namespace FinancialPortal
             }
 
 
-<<<<<<< HEAD
-<<<<<<< HEAD
         }//selects max UserIndex value from User Table
         public int DataBaseUserMax()
         {
@@ -72,7 +72,7 @@ namespace FinancialPortal
                 {
                     connection.Open();
                     sql = "SELECT MAX(IdUser) FROM [User]";
-                    
+
                     using (SqlCommand command = new SqlCommand(sql, connection))
                     {
 
@@ -80,23 +80,35 @@ namespace FinancialPortal
                         while (datareader.Read())
                         {
                             maxId = datareader.GetInt32(0);
-                           
 
-                            
-                            
-=======
+
+
+
+
+
+                        }
+
+                    }
+
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            return maxId;
+
+
         }
->>>>>>> parent of 9ad45b3 (Update,Insert,Select user working)
-=======
-        }
->>>>>>> parent of 9ad45b3 (Update,Insert,Select user working)
 
 
-        public void AddingUser(int index, string Name, string Surname)
+        public void AddingUser(string Name, string Surname)
         {//needs to put some class intoparametrs
             string connectionString = "Server = tcp:blogserver.database.windows.net,1433; Initial Catalog = FinancialPortal; Persist Security Info = False; User ID = CloudSAea872b24; Password =; MultipleActiveResultSets = False; Encrypt = True; TrustServerCertificate = False; Connection Timeout = 30;";
 
-           
+
             try
             {
                 using (SqlConnection connection = new SqlConnection(connectionString))
@@ -113,15 +125,8 @@ namespace FinancialPortal
                         // Execute the SQL command
                         int rowsAffected = command.ExecuteNonQuery();
 
-                        // Check if the command executed successfully
-                        if (rowsAffected > 0)
-                        {
-                            Console.WriteLine("User added successfully");
-                        }
-                        else
-                        {
-                            Console.WriteLine("User was not added");
-                        }
+
+
                     }
                 }
             }
@@ -130,59 +135,51 @@ namespace FinancialPortal
                 MessageBox.Show("Error: " + e.Message);
             }
         }
-        public string updateUser(string parameter, string value, int id)
+        public void updateUser(string parameter, string value, int id)
         {
-<<<<<<< HEAD
-<<<<<<< HEAD
             string connectionString = "Server = tcp:blogserver.database.windows.net,1433; Initial Catalog = FinancialPortal; Persist Security Info = False; User ID = CloudSAea872b24; Password =; MultipleActiveResultSets = False; Encrypt = True; TrustServerCertificate = False; Connection Timeout = 30;";
-=======
-            string connectionString = "Server = tcp:blogserver.database.windows.net,1433; Initial Catalog = FinancialPortal; Persist Security Info = False; User ID = CloudSAea872b24; Password ={ your_password}; MultipleActiveResultSets = False; Encrypt = True; TrustServerCertificate = False; Connection Timeout = 30;";
->>>>>>> parent of 9ad45b3 (Update,Insert,Select user working)
-=======
-            string connectionString = "Server = tcp:blogserver.database.windows.net,1433; Initial Catalog = FinancialPortal; Persist Security Info = False; User ID = CloudSAea872b24; Password ={ your_password}; MultipleActiveResultSets = False; Encrypt = True; TrustServerCertificate = False; Connection Timeout = 30;";
->>>>>>> parent of 9ad45b3 (Update,Insert,Select user working)
 
             try
             {
-                using(SqlConnection connection = new SqlConnection(connectionString))
+                using (SqlConnection connection = new SqlConnection(connectionString))
                 {
+                    connection.Open();
 
-                
-                if (parameter == "Name")
-                {
-                    string command = "UPDATE [User] SET Name=@Name WHERE UserId=@UserId";
-                    using (SqlCommand sq = new SqlCommand(command, connection))
+                    if (parameter == "Name")
                     {
-                        sq.Parameters.AddWithValue("@Name", value);
-                        sq.Parameters.AddWithValue("UserId", id);
-                        int line = sq.ExecuteNonQuery();
-                        return line.ToString();
-                    }
-                }
-                if (parameter == "Surname")
-                {
-                    string command = "UPDATE [User] SET Surname=@Surname WHERE UserId=@UserId";
-                    using (SqlCommand sq = new SqlCommand(command, connection))
-                    {
-                        sq.Parameters.AddWithValue("@Surname", value);
-                        sq.Parameters.AddWithValue("UserId", id);
-                        int line = sq.ExecuteNonQuery();
-                        return line.ToString();
+                        string command = "UPDATE [User] SET Name=@Name WHERE IdUser=@IdUser";
 
+                        using (SqlCommand sq = new SqlCommand(command, connection))
+                        {
+                            sq.Parameters.AddWithValue("@Name", value);
+                            sq.Parameters.AddWithValue("IdUser", id);
+                            int line = sq.ExecuteNonQuery();
+
+                        }
                     }
-                }
-                else
-                {
-                    return "Not found";
-                }
+                    if (parameter == "Surname")
+                    {
+                        string command = "UPDATE [User] SET Surname=@Surname WHERE IdUser=@IdUser";
+                        using (SqlCommand sq = new SqlCommand(command, connection))
+                        {
+                            sq.Parameters.AddWithValue("@Surname", value);
+                            sq.Parameters.AddWithValue("@IdUser", id);
+                            int line = sq.ExecuteNonQuery();
+
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("User Not found");
+                    }
                 }
 
             }
             catch (Exception e)
             {
-                return e.Message;
+                MessageBox.Show(e.Message);
             }
-            
+
         }/*
         public string AddingAccount(string Name, string moneyStatus, string UserId, string Type)
         {
