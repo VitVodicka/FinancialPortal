@@ -62,7 +62,8 @@ namespace FinancialPortal.DatabasePages
         {
             try { 
             Controller control = new Controller();
-            if ((change.Text != "")&&(datagrid.SelectedIndex>-1)) { 
+            if ((change.Text != "")&&(datagrid.SelectedIndex>-1)) {
+            new Database().UpdateAccount(change.Text, input.Text, Controller.AccountListObservable[datagrid.SelectedIndex].Index);
             if (change.Text =="Name")
             {
                     if(input.Text != "")

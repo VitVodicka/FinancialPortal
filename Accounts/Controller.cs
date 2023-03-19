@@ -75,6 +75,7 @@ namespace FinancialPortal.Accounts
                     
                     if (account.Index == selectedIndex)
                     {
+
                         switch (parameter)
                         {
                             // If the parameter is Name, update the account name
@@ -104,7 +105,8 @@ namespace FinancialPortal.Accounts
         {
             try { 
             var user = Controller.UserListObservable[id];
-            if (valueToChange == "Name")
+                new Database().updateUser(valueToChange, content, user.Id);
+                if (valueToChange == "Name")
             {
                 user.Name = content;
             }

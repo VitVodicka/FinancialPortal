@@ -43,7 +43,7 @@ namespace FinancialPortal
         {
             
             InitializeComponent();
-            
+            new Database().DataBaseReadUser();
             // Set the returnMoney and profitLoss text to the calculated values
             returnMoney.Text = (AccountAddRemoveUpdate.Return * 100).ToString() + "%";
             profitLoss.Text = AccountAddRemoveUpdate.ProfitLoss.ToString();

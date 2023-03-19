@@ -8,6 +8,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.UI.WebControls;
 using System.Windows;
 using System.Xml.Linq;
 
@@ -42,7 +43,7 @@ namespace FinancialPortal
                             Name = datareader.GetValue(1).ToString();
                             Surname = datareader.GetValue(2).ToString();
 
-                            MessageBox.Show(id + Name + Surname);
+                            
                             User u = new User(id, Name, Surname);
                             Controller.UserListObservable.Add(u);
 
@@ -263,25 +264,54 @@ namespace FinancialPortal
                 MessageBox.Show(e.Message);
             }
 
-        }/*
-        public string UpdateAccount(string parameter, string value, int id)
+        }
+        public void updateMoney(int AccountId,float money)
         {
-            string connectionString = "Server = tcp:blogserver.database.windows.net,1433; Initial Catalog = FinancialPortal; Persist Security Info = False; User ID = CloudSAea872b24; Password ={ your_password}; MultipleActiveResultSets = False; Encrypt = True; TrustServerCertificate = False; Connection Timeout = 30;";
+            string connectionString = "Server = tcp:blogserver.database.windows.net,1433; Initial Catalog = FinancialPortal; Persist Security Info = False; User ID = CloudSAea872b24; Password =; MultipleActiveResultSets = False; Encrypt = True; TrustServerCertificate = False; Connection Timeout = 30;";
 
             try
             {
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
 
+                        connection.Open();
+                    
+                        string command = "UPDATE [MoneyStatus] SET Money=@Money WHERE idAccount=@idAccount";
+                        using (SqlCommand sq = new SqlCommand(command, connection))
+                        {
+                            sq.Parameters.AddWithValue("@Money", money);
+                            sq.Parameters.AddWithValue("@idAccount",AccountId);
+                            int line = sq.ExecuteNonQuery();
+                            MessageBox.Show(line.ToString());
+
+                        }
+                   
+
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+        }
+        public void UpdateAccount(string parameter, string value, int id)
+        {
+            string connectionString = "Server = tcp:blogserver.database.windows.net,1433; Initial Catalog = FinancialPortal; Persist Security Info = False; User ID = CloudSAea872b24; Password =; MultipleActiveResultSets = False; Encrypt = True; TrustServerCertificate = False; Connection Timeout = 30;";
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
                     if (parameter == "Name")
                     {
-                        string command = "UPDATE [Account] SET Name=@Name WHERE UserId=@UserId";
+                        string command = "UPDATE [Account] SET Name=@Name WHERE AccountId=@AccountId";
                         using (SqlCommand sq = new SqlCommand(command, connection))
                         {
                             sq.Parameters.AddWithValue("@Name", value);
-                            sq.Parameters.AddWithValue("UserId", id);
+                            sq.Parameters.AddWithValue("@AccountId", id);
                             int line = sq.ExecuteNonQuery();
-                            return line.ToString();
+                            MessageBox.Show(line.ToString());
                         }
                     }
                     if (parameter == "User")
@@ -290,39 +320,17 @@ namespace FinancialPortal
                         using (SqlCommand sq = new SqlCommand(command, connection))
                         {
                             sq.Parameters.AddWithValue("@User", value);
-                            sq.Parameters.AddWithValue("UserId", id);
+                            sq.Parameters.AddWithValue("@AccountId", id);
                             int line = sq.ExecuteNonQuery();
-                            return line.ToString();
+                            MessageBox.Show(line.ToString());
 
                         }
                     }
-                    if (parameter == "Type")
-                    {
-                        string command = "UPDATE [Account] SET Type=@Type WHERE UserId=@UserId";
-                        using (SqlCommand sq = new SqlCommand(command, connection))
-                        {
-                            sq.Parameters.AddWithValue("@Type", value);
-                            sq.Parameters.AddWithValue("UserId", id);
-                            int line = sq.ExecuteNonQuery();
-                            return line.ToString();
-
-                        }
-                    }
-                    if (parameter == "MoneyStatus")
-                    {
-                        string command = "UPDATE [Account] SET MoneyStatus=@MoneyStatus WHERE UserId=@UserId";
-                        using (SqlCommand sq = new SqlCommand(command, connection))
-                        {
-                            sq.Parameters.AddWithValue("@MoneyStatus", value);
-                            sq.Parameters.AddWithValue("UserId", id);
-                            int line = sq.ExecuteNonQuery();
-                            return line.ToString();
-
-                        }
-                    }
+                    
+                   
                     else
                     {
-                        return "Not found";
+                        MessageBox.Show("Not found");
                     }
 
 
@@ -330,8 +338,8 @@ namespace FinancialPortal
             }
             catch (Exception e)
             {
-                return e.Message;
+                MessageBox.Show(e.Message);
             }
-        }*/
+        }
     }
 }

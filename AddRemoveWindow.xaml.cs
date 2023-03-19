@@ -1,4 +1,5 @@
-﻿using MahApps.Metro.Controls;
+﻿using FinancialPortal.Accounts;
+using MahApps.Metro.Controls;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -42,7 +43,7 @@ namespace FinancialPortal
             {
                 
                account.UpdateMoney(double.Parse(input.Text),indexWindow);
-                
+               new Database().updateMoney(Controller.AccountListObservable[indexWindow].Index,float.Parse(input.Text));
             }
             }
 
