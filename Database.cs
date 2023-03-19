@@ -1,5 +1,4 @@
-﻿using FinancialPortal.Accounts;
-using FinancialPortal.DatabasePages;
+﻿using FinancialPortal.DatabasePages;
 using LiveCharts.Wpf;
 using System;
 using System.Collections.Generic;
@@ -44,10 +43,9 @@ namespace FinancialPortal
 
                             MessageBox.Show(id + Name + Surname);
                             User u = new User(id, Name, Surname);
-                            Controller.UserListObservable.Add(u);
+                            users.Add(u);
 
                         }
-
                     }
 
                 }
@@ -135,7 +133,7 @@ namespace FinancialPortal
                 MessageBox.Show("Error: " + e.Message);
             }
         }
-        public void updateUser(string parameter, string value, int id)
+        public string updateUser(string parameter, string value, int id)
         {
             string connectionString = "Server = tcp:blogserver.database.windows.net,1433; Initial Catalog = FinancialPortal; Persist Security Info = False; User ID = CloudSAea872b24; Password =; MultipleActiveResultSets = False; Encrypt = True; TrustServerCertificate = False; Connection Timeout = 30;";
 
@@ -143,11 +141,28 @@ namespace FinancialPortal
             {
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
-                    connection.Open();
 
-                    if (parameter == "Name")
+                
+                if (parameter == "Name")
+                {
+                    string command = "UPDATE [User] SET Name=@Name WHERE UserId=@UserId";
+                    using (SqlCommand sq = new SqlCommand(command, connection))
                     {
-                        string command = "UPDATE [User] SET Name=@Name WHERE IdUser=@IdUser";
+                        sq.Parameters.AddWithValue("@Name", value);
+                        sq.Parameters.AddWithValue("UserId", id);
+                        int line = sq.ExecuteNonQuery();
+                        return line.ToString();
+                    }
+                }
+                if (parameter == "Surname")
+                {
+                    string command = "UPDATE [User] SET Surname=@Surname WHERE UserId=@UserId";
+                    using (SqlCommand sq = new SqlCommand(command, connection))
+                    {
+                        sq.Parameters.AddWithValue("@Surname", value);
+                        sq.Parameters.AddWithValue("UserId", id);
+                        int line = sq.ExecuteNonQuery();
+                        return line.ToString();
 
                         using (SqlCommand sq = new SqlCommand(command, connection))
                         {
@@ -177,7 +192,7 @@ namespace FinancialPortal
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.Message);
+                return e.Message;
             }
 
         }/*
