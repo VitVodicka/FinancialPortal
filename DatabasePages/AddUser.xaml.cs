@@ -33,12 +33,20 @@ namespace FinancialPortal.DatabasePages
             if ((UserName.Text != "")&&(Surname.Text!=""))
             {
 
+                    if (d.DataBaseUserMax() != -1)
+                    {
+                        User user = new User(d.DataBaseUserMax()+1, UserName.Text, Surname.Text);
+                        control.addUser(user);
+                    }
+                    else
+                    {
+                        User user = new User(Controller.maxIndexUserList(), UserName.Text, Surname.Text);
+                        control.addUser(user);
+                    }
             
-            User user = new User(Controller.maxIndexUserList(), UserName.Text, Surname.Text);
-            control.addUser(user);
-            d.DataBaseReadUser();
+            
                     
-            //d.AddingUser(Controller.maxIndexUserList(), UserName.Text, Surname.Text);
+            d.AddingUser( UserName.Text, Surname.Text);
             this.Close();
             }
             else
