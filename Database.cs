@@ -1,4 +1,5 @@
-﻿using FinancialPortal.DatabasePages;
+﻿using FinancialPortal.Accounts;
+using FinancialPortal.DatabasePages;
 using LiveCharts.Wpf;
 using System;
 using System.Collections.Generic;
@@ -43,9 +44,10 @@ namespace FinancialPortal
 
                             MessageBox.Show(id + Name + Surname);
                             User u = new User(id, Name, Surname);
-                            users.Add(u);
+                            Controller.UserListObservable.Add(u);
 
                         }
+
                     }
 
                 }
@@ -57,7 +59,7 @@ namespace FinancialPortal
             }
 
 
-        }
+        }//selects max UserIndex value from User Table
         public int DataBaseUserMax()
         {
 
@@ -133,36 +135,19 @@ namespace FinancialPortal
                 MessageBox.Show("Error: " + e.Message);
             }
         }
-        public string updateUser(string parameter, string value, int id)
+        public void updateUser(string parameter, string value, int id)
         {
-            string connectionString = "Server = tcp:blogserver.database.windows.net,1433; Initial Catalog = FinancialPortal; Persist Security Info = False; User ID = CloudSAea872b24; Password ={ your_password}; MultipleActiveResultSets = False; Encrypt = True; TrustServerCertificate = False; Connection Timeout = 30;";
+            string connectionString = "Server = tcp:blogserver.database.windows.net,1433; Initial Catalog = FinancialPortal; Persist Security Info = False; User ID = CloudSAea872b24; Password =; MultipleActiveResultSets = False; Encrypt = True; TrustServerCertificate = False; Connection Timeout = 30;";
 
             try
             {
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
+                    connection.Open();
 
-                
-                if (parameter == "Name")
-                {
-                    string command = "UPDATE [User] SET Name=@Name WHERE UserId=@UserId";
-                    using (SqlCommand sq = new SqlCommand(command, connection))
+                    if (parameter == "Name")
                     {
-                        sq.Parameters.AddWithValue("@Name", value);
-                        sq.Parameters.AddWithValue("UserId", id);
-                        int line = sq.ExecuteNonQuery();
-                        return line.ToString();
-                    }
-                }
-                if (parameter == "Surname")
-                {
-                    string command = "UPDATE [User] SET Surname=@Surname WHERE UserId=@UserId";
-                    using (SqlCommand sq = new SqlCommand(command, connection))
-                    {
-                        sq.Parameters.AddWithValue("@Surname", value);
-                        sq.Parameters.AddWithValue("UserId", id);
-                        int line = sq.ExecuteNonQuery();
-                        return line.ToString();
+                        string command = "UPDATE [User] SET Name=@Name WHERE IdUser=@IdUser";
 
                         using (SqlCommand sq = new SqlCommand(command, connection))
                         {
@@ -192,43 +177,93 @@ namespace FinancialPortal
             }
             catch (Exception e)
             {
-                return e.Message;
+                MessageBox.Show(e.Message);
             }
 
-        }/*
-        public string AddingAccount(string Name, string moneyStatus, string UserId, string Type)
+        }
+        private int maxIdAccount()
         {
-            string connectionString = "Server = tcp:blogserver.database.windows.net,1433; Initial Catalog = FinancialPortal; Persist Security Info = False; User ID = CloudSAea872b24; Password ={ your_password}; MultipleActiveResultSets = False; Encrypt = True; TrustServerCertificate = False; Connection Timeout = 30;";
+            //ObservableCollection<User> users = new ObservableCollection<User>();
+            string connectionString = "Server = tcp:blogserver.database.windows.net,1433; Initial Catalog = FinancialPortal; Persist Security Info = False; User ID = CloudSAea872b24; Password =; MultipleActiveResultSets = False; Encrypt = True; TrustServerCertificate = False; Connection Timeout = 30;";
+            int maxId = -1;
+            bool maxIdBool=false;
+            try { 
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    try { 
+                    connection.Open();
+                    sql = "SELECT MAX(AccountId) FROM [Account]";
 
+                    using (SqlCommand command = new SqlCommand(sql, connection))
+                    {
+
+                        datareader = command.ExecuteReader();
+                        while (datareader.Read())
+                        {
+                            maxId = datareader.GetInt32(0)+1;
+
+                        }
+
+                    }
+                    }
+                    catch(Exception e)
+                    {
+                        maxIdBool = true;
+                        MessageBox.Show(e.Message);
+                    }
+
+
+                }
+                if (maxIdBool == true)
+                {
+                    maxId = 0;
+                }
+            }
+            catch(Exception ex) {
+                MessageBox.Show(ex.Message);
+            }
+
+
+                
+
+            return maxId;
+
+        }
+        
+        public void AddingAccount(string Name, float moneyStatus, int UserId)
+        {
+            string connectionString = "Server = tcp:blogserver.database.windows.net,1433; Initial Catalog = FinancialPortal; Persist Security Info = False; User ID = CloudSAea872b24; Password =; MultipleActiveResultSets = False; Encrypt = True; TrustServerCertificate = False; Connection Timeout = 30;";
+            int accountId = maxIdAccount();
             int line;
+
             try
             {
                 using(SqlConnection connection=new SqlConnection(connectionString))
                 {
-
+                    connection.Open();
                 
-                string command = "INSERT INTO [Account](Name,MoneyStatus,UserId,Type) VALUES(@Name,@MoneyStatus,@UserId,@Type)";
+                string command = "BEGIN TRANSACTION; INSERT INTO [Account](Name,UserId) VALUES(@Name,@UserId);INSERT INTO [MoneyStatus](Money,idAccount) VALUES(@Money,@idAccount); COMMIT TRANSACTION";
                 using (SqlCommand sq = new SqlCommand(command, connection))
                 {
 
                     sq.Parameters.AddWithValue("@Name", Name);
-                    sq.Parameters.AddWithValue("@MoneyStatus",moneyStatus);
                     sq.Parameters.AddWithValue("@UserId", UserId);
-                    sq.Parameters.AddWithValue("@Type", Type);
+                    sq.Parameters.AddWithValue("@Money",moneyStatus);
+                    sq.Parameters.AddWithValue("@idAccount", accountId);
                     line = sq.ExecuteNonQuery();
 
                 }
-                return line.ToString();
+                MessageBox.Show(line.ToString());
 
             }
             }
             catch (Exception e)
             {
 
-                return e.Message;
+                MessageBox.Show(e.Message);
             }
-            
-        }
+
+        }/*
         public string UpdateAccount(string parameter, string value, int id)
         {
             string connectionString = "Server = tcp:blogserver.database.windows.net,1433; Initial Catalog = FinancialPortal; Persist Security Info = False; User ID = CloudSAea872b24; Password ={ your_password}; MultipleActiveResultSets = False; Encrypt = True; TrustServerCertificate = False; Connection Timeout = 30;";
