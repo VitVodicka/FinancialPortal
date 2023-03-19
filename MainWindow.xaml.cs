@@ -35,7 +35,6 @@ namespace FinancialPortal
         Mortgage m = new Mortgage();//creating classes  
         investmentPortal invest = new investmentPortal();
         PasswordChecker ps = new PasswordChecker();
-        Database d = new Database();
 
         
 
@@ -44,9 +43,7 @@ namespace FinancialPortal
         {
             
             InitializeComponent();
-            d.DataBaseReadUser();
-
-
+            
             // Set the returnMoney and profitLoss text to the calculated values
             returnMoney.Text = (AccountAddRemoveUpdate.Return * 100).ToString() + "%";
             profitLoss.Text = AccountAddRemoveUpdate.ProfitLoss.ToString();

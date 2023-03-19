@@ -6,7 +6,6 @@ using System.Linq;
 using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
-using System.Web.UI.WebControls;
 
 namespace FinancialPortal.Accounts
 {
@@ -19,8 +18,6 @@ namespace FinancialPortal.Accounts
         public static ObservableCollection<string> AccountNames { get; set; }
         // The maximum index number for a user
         private static int max = -1;
-      
-        
 
         
         static Controller()
@@ -28,7 +25,6 @@ namespace FinancialPortal.Accounts
             AccountListObservable = new ObservableCollection<Account>();
             UserListObservable = new ObservableCollection<User>();
             AccountNames = new ObservableCollection<string>();
-            
         }
 
         
@@ -103,13 +99,12 @@ namespace FinancialPortal.Accounts
             }
         }
 
-        // Method to update a user based on the given id, valueToChange, and content and updates the value in database
+        // Method to update a user based on the given id, valueToChange, and content
         public static void updateUser(int id, string valueToChange, string content)
         {
             try { 
             var user = Controller.UserListObservable[id];
-            new Database().updateUser(valueToChange, content, user.Id);
-                if (valueToChange == "Name")
+            if (valueToChange == "Name")
             {
                 user.Name = content;
             }
@@ -121,7 +116,6 @@ namespace FinancialPortal.Accounts
             }
             catch(Exception e) { Console.WriteLine(e.Message); }
         }
-
 
         // Method to get the maximum index number for a user
         public static int maxIndexUserList()
