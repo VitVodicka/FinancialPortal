@@ -57,7 +57,7 @@ namespace FinancialPortal
             }
 
 
-        }//selects max UserIndex value from User Table
+        }
         public int DataBaseUserMax()
         {
 
