@@ -58,6 +58,7 @@ namespace FinancialPortal
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         }//selects max UserIndex value from User Table
         public int DataBaseUserMax()
         {
@@ -83,6 +84,9 @@ namespace FinancialPortal
 
                             
                             
+=======
+        }
+>>>>>>> parent of 9ad45b3 (Update,Insert,Select user working)
 =======
         }
 >>>>>>> parent of 9ad45b3 (Update,Insert,Select user working)
@@ -129,7 +133,11 @@ namespace FinancialPortal
         public string updateUser(string parameter, string value, int id)
         {
 <<<<<<< HEAD
+<<<<<<< HEAD
             string connectionString = "Server = tcp:blogserver.database.windows.net,1433; Initial Catalog = FinancialPortal; Persist Security Info = False; User ID = CloudSAea872b24; Password =; MultipleActiveResultSets = False; Encrypt = True; TrustServerCertificate = False; Connection Timeout = 30;";
+=======
+            string connectionString = "Server = tcp:blogserver.database.windows.net,1433; Initial Catalog = FinancialPortal; Persist Security Info = False; User ID = CloudSAea872b24; Password ={ your_password}; MultipleActiveResultSets = False; Encrypt = True; TrustServerCertificate = False; Connection Timeout = 30;";
+>>>>>>> parent of 9ad45b3 (Update,Insert,Select user working)
 =======
             string connectionString = "Server = tcp:blogserver.database.windows.net,1433; Initial Catalog = FinancialPortal; Persist Security Info = False; User ID = CloudSAea872b24; Password ={ your_password}; MultipleActiveResultSets = False; Encrypt = True; TrustServerCertificate = False; Connection Timeout = 30;";
 >>>>>>> parent of 9ad45b3 (Update,Insert,Select user working)
