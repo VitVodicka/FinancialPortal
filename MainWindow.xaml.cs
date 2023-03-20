@@ -23,6 +23,7 @@ using System.Data.SqlClient;
 using System.Security.Principal;
 using FinancialPortal.Accounts;
 using ControlzEx.Standard;
+using System.Web.UI;
 
 namespace FinancialPortal
 {
@@ -44,6 +45,9 @@ namespace FinancialPortal
             
             InitializeComponent();
             new Database().DataBaseReadUser();
+            new Database().readDatabaseAccount();
+            
+
             // Set the returnMoney and profitLoss text to the calculated values
             returnMoney.Text = (AccountAddRemoveUpdate.Return * 100).ToString() + "%";
             profitLoss.Text = AccountAddRemoveUpdate.ProfitLoss.ToString();
