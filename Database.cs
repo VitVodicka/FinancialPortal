@@ -230,40 +230,38 @@ namespace FinancialPortal
             return maxId;
 
         }
-        
+
         public void AddingAccount(string Name, float moneyStatus, int UserId)
         {
             string connectionString = "Server = tcp:blogserver.database.windows.net,1433; Initial Catalog = FinancialPortal; Persist Security Info = False; User ID = CloudSAea872b24; Password =; MultipleActiveResultSets = False; Encrypt = True; TrustServerCertificate = False; Connection Timeout = 30;";
+
+            // Retrieve the max AccountId value from the Account table
             int accountId = maxIdAccount();
-            int line;
 
             try
             {
-                using(SqlConnection connection=new SqlConnection(connectionString))
+                using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
-                
-                string command = "BEGIN TRANSACTION; INSERT INTO [Account](Name,UserId) VALUES(@Name,@UserId);INSERT INTO [MoneyStatus](Money,idAccount) VALUES(@Money,@idAccount); COMMIT TRANSACTION";
-                using (SqlCommand sq = new SqlCommand(command, connection))
-                {
 
-                    sq.Parameters.AddWithValue("@Name", Name);
-                    sq.Parameters.AddWithValue("@UserId", UserId);
-                    sq.Parameters.AddWithValue("@Money",moneyStatus);
-                    sq.Parameters.AddWithValue("@idAccount", accountId);
-                    line = sq.ExecuteNonQuery();
+                    // Insert a new record into the Account table with the provided Name, UserId, and accountId values
+                    string command = "BEGIN TRANSACTION; INSERT INTO [Account]( Name, UserId) VALUES( @Name, @UserId); INSERT INTO [MoneyStatus](Money,idAccount) VALUES(@Money,@idAccount); COMMIT TRANSACTION";
+                    using (SqlCommand sq = new SqlCommand(command, connection))
+                    {
+                        sq.Parameters.AddWithValue("@idAccount", accountId);
+                        sq.Parameters.AddWithValue("@Name", Name);
+                        sq.Parameters.AddWithValue("@UserId", UserId);
+                        sq.Parameters.AddWithValue("@Money", moneyStatus);
 
+                        int line = sq.ExecuteNonQuery();
+                        MessageBox.Show(line.ToString());
+                    }
                 }
-                MessageBox.Show(line.ToString());
-
-            }
             }
             catch (Exception e)
             {
-
                 MessageBox.Show(e.Message);
             }
-
         }
         public void updateMoney(int AccountId,float money)
         {
