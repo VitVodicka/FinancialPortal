@@ -36,17 +36,25 @@ namespace FinancialPortal
         Mortgage m = new Mortgage();//creating classes  
         investmentPortal invest = new investmentPortal();
         PasswordChecker ps = new PasswordChecker();
-
+        Database dat = new Database();
         
 
 
         public MainWindow()
         {
+            //if it cannot connect to database then it shuts down
+            if (dat.canBeConnected() == false)
+            {
+                Application.Current.Shutdown();
+            }
+            else
+            {
+
             
             InitializeComponent();
-            new Database().DataBaseReadUser();
-            new Database().readDatabaseAccount();
-            new Controller().NameFromObservable();
+            dat.DataBaseReadUser();
+            dat.readDatabaseAccount();
+            new Controller().NameFromObservable();//updates names to combobx
             
 
             // Set the returnMoney and profitLoss text to the calculated values
@@ -91,6 +99,7 @@ namespace FinancialPortal
 
             // Add an event handler to shut down the application when the window is closed
             this.Closed += (s, args) => Application.Current.Shutdown();
+            }
         }
         private void HamburgerMenuControle(object sender, ItemClickEventArgs e)
         {

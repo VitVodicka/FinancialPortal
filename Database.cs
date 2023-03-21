@@ -26,7 +26,7 @@ namespace FinancialPortal
         {
 
             //ObservableCollection<User> users = new ObservableCollection<User>();
-            string connectionString = "Server = tcp:blogserver.database.windows.net,1433; Initial Catalog = FinancialPortal; Persist Security Info = False; User ID = CloudSAea872b24; Password =; MultipleActiveResultSets = False; Encrypt = True; TrustServerCertificate = False; Connection Timeout = 30;";
+            string connectionString = "Server = tcp:blogserver.database.windows.net,1433; Initial Catalog = FinancialPortal; Persist Security Info = False; User ID = CloudSAea872b24; Password =1mXp.159; MultipleActiveResultSets = False; Encrypt = True; TrustServerCertificate = False; Connection Timeout = 30;";
             
             try
             {
@@ -68,7 +68,7 @@ namespace FinancialPortal
         {
 
             //ObservableCollection<User> users = new ObservableCollection<User>();  
-            string connectionString = "Server = tcp:blogserver.database.windows.net,1433; Initial Catalog = FinancialPortal; Persist Security Info = False; User ID = CloudSAea872b24; Password =; MultipleActiveResultSets = False; Encrypt = True; TrustServerCertificate = False; Connection Timeout = 30;";
+            string connectionString = "Server = tcp:blogserver.database.windows.net,1433; Initial Catalog = FinancialPortal; Persist Security Info = False; User ID = CloudSAea872b24; Password =1mXp.159; MultipleActiveResultSets = False; Encrypt = True; TrustServerCertificate = False; Connection Timeout = 30;";
             int maxId = -1;
             try
             {
@@ -110,7 +110,7 @@ namespace FinancialPortal
 
         public void AddingUser(string Name, string Surname)
         {//needs to put some class intoparametrs
-            string connectionString = "Server = tcp:blogserver.database.windows.net,1433; Initial Catalog = FinancialPortal; Persist Security Info = False; User ID = CloudSAea872b24; Password =; MultipleActiveResultSets = False; Encrypt = True; TrustServerCertificate = False; Connection Timeout = 30;";
+            string connectionString = "Server = tcp:blogserver.database.windows.net,1433; Initial Catalog = FinancialPortal; Persist Security Info = False; User ID = CloudSAea872b24; Password =1mXp.159; MultipleActiveResultSets = False; Encrypt = True; TrustServerCertificate = False; Connection Timeout = 30;";
 
 
             try
@@ -141,7 +141,7 @@ namespace FinancialPortal
         }
         public void updateUser(string parameter, string value, int id)
         {
-            string connectionString = "Server = tcp:blogserver.database.windows.net,1433; Initial Catalog = FinancialPortal; Persist Security Info = False; User ID = CloudSAea872b24; Password =; MultipleActiveResultSets = False; Encrypt = True; TrustServerCertificate = False; Connection Timeout = 30;";
+            string connectionString = "Server = tcp:blogserver.database.windows.net,1433; Initial Catalog = FinancialPortal; Persist Security Info = False; User ID = CloudSAea872b24; Password =1mXp.159; MultipleActiveResultSets = False; Encrypt = True; TrustServerCertificate = False; Connection Timeout = 30;";
 
             try
             {
@@ -188,7 +188,7 @@ namespace FinancialPortal
         private int maxIdAccount()
         {
             //ObservableCollection<User> users = new ObservableCollection<User>();
-            string connectionString = "Server = tcp:blogserver.database.windows.net,1433; Initial Catalog = FinancialPortal; Persist Security Info = False; User ID = CloudSAea872b24; Password =; MultipleActiveResultSets = False; Encrypt = True; TrustServerCertificate = False; Connection Timeout = 30;";
+            string connectionString = "Server = tcp:blogserver.database.windows.net,1433; Initial Catalog = FinancialPortal; Persist Security Info = False; User ID = CloudSAea872b24; Password =1mXp.159; MultipleActiveResultSets = False; Encrypt = True; TrustServerCertificate = False; Connection Timeout = 30;";
             int maxId = -1;
             bool maxIdBool=false;
             try { 
@@ -237,7 +237,7 @@ namespace FinancialPortal
         public void AddingAccount(string Name, float moneyStatus, int UserId)
         {
 
-            string connectionString = "Server = tcp:blogserver.database.windows.net,1433; Initial Catalog = FinancialPortal; Persist Security Info = False; User ID = CloudSAea872b24; Password =; MultipleActiveResultSets = False; Encrypt = True; TrustServerCertificate = False; Connection Timeout = 30;";
+            string connectionString = "Server = tcp:blogserver.database.windows.net,1433; Initial Catalog = FinancialPortal; Persist Security Info = False; User ID = CloudSAea872b24; Password =1mXp.159; MultipleActiveResultSets = False; Encrypt = True; TrustServerCertificate = False; Connection Timeout = 30;";
 
             // Retrieve the max AccountId value from the Account table
             int accountId = maxIdAccount();
@@ -270,7 +270,7 @@ namespace FinancialPortal
 
         public void updateMoney(int AccountId,float money)
         {
-            string connectionString = "Server = tcp:blogserver.database.windows.net,1433; Initial Catalog = FinancialPortal; Persist Security Info = False; User ID = CloudSAea872b24; Password =; MultipleActiveResultSets = False; Encrypt = True; TrustServerCertificate = False; Connection Timeout = 30;";
+            string connectionString = "Server = tcp:blogserver.database.windows.net,1433; Initial Catalog = FinancialPortal; Persist Security Info = False; User ID = CloudSAea872b24; Password =1mXp.159; MultipleActiveResultSets = False; Encrypt = True; TrustServerCertificate = False; Connection Timeout = 30;";
 
             try
             {
@@ -294,10 +294,77 @@ namespace FinancialPortal
             
 
         }
+        /*
+        public void readDatabaseAccount()
+        {
+
+            string connectionString = "Server = tcp:blogserver.database.windows.net,1433; Initial Catalog = FinancialPortal; Persist Security Info = False; User ID = CloudSAea872b24; Password =1mXp.159; MultipleActiveResultSets = False; Encrypt = True; TrustServerCertificate = False; Connection Timeout = 30;";
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    sql = "SELECT [AccountId],[Name],[Money],[UserId] FROM dbo.Account JOIN dbo.MoneyStatus ON(Account.AccountId=MoneyStatus.idAccount)";
+                    string Name;
+                    double MoneyStatus;
+                    int userId = 0;
+                    int accountId = 0;
+
+                    using (SqlCommand command = new SqlCommand(sql, connection))
+                    {
+
+                        datareader = command.ExecuteReader();
+                        while (datareader.Read())
+                        {
+                            accountId = datareader.GetInt32(0);
+                            Name = datareader.GetValue(1).ToString();
+                            MoneyStatus = datareader.GetDouble(2);
+                            Controller.AccountListObservable.Last().MoneyStatus.Add(MoneyStatus);
+                            userId = datareader.GetInt32(3);
+                            Account account = new Account(Name, userId);
+                            account.Index = accountId;
+                            Controller.AccountListObservable.Add(account);
+                            account.fromCollectionToString();
+
+
+
+                        }
+
+                    }
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        */
+        public bool canBeConnected()
+        {
+            bool canReturn;
+            try
+            {
+                string connectionString = "Server = tcp:blogserver.database.windows.net,1433; Initial Catalog = FinancialPortal; Persist Security Info = False; User ID = CloudSAea872b24; Password =1mXp.159; MultipleActiveResultSets = False; Encrypt = True; TrustServerCertificate = False; Connection Timeout = 30;";
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                }
+                canReturn = true;
+            }
+            catch 
+            {
+                canReturn= false;
+                MessageBox.Show("Cannot connect to database");
+            }
+            return canReturn;
+        }
         public void readDatabaseAccount()
         {
             
-            string connectionString = "Server = tcp:blogserver.database.windows.net,1433; Initial Catalog = FinancialPortal; Persist Security Info = False; User ID = CloudSAea872b24; Password =; MultipleActiveResultSets = False; Encrypt = True; TrustServerCertificate = False; Connection Timeout = 30;";
+            string connectionString = "Server = tcp:blogserver.database.windows.net,1433; Initial Catalog = FinancialPortal; Persist Security Info = False; User ID = CloudSAea872b24; Password =1mXp.159; MultipleActiveResultSets = False; Encrypt = True; TrustServerCertificate = False; Connection Timeout = 30;";
             //sql = "SELECT [AccountId],[Name],[Money],[UserId] FROM dbo.Account JOIN dbo.MoneyStatus ON(Account.AccountId=MoneyStatus.idAccount)";
 
             try
@@ -306,7 +373,7 @@ namespace FinancialPortal
                 {
                     connection.Open();
                     sql = "SELECT [AccountId],[Name],[UserId] FROM dbo.Account";
-                    string sqlMoneyStatus = "SELECT [Money] FROM dbo.MoneyStatus";
+                    string sqlMoneyStatus = "SELECT [idAccount],[Money] FROM dbo.MoneyStatus";
                     string Name;
                     double MoneyStatus;
                     int userId=0;
@@ -327,26 +394,40 @@ namespace FinancialPortal
                             
                             account.Index= accountId;
                             Controller.AccountListObservable.Add(account);
-                            using (SqlCommand moneyCommand = new SqlCommand(sqlMoneyStatus, connection))
-                            {
-                                dataReaderMoney = moneyCommand.ExecuteReader();
-                                while (dataReaderMoney.Read())
-                                {
-                                    MoneyStatus = dataReaderMoney.GetDouble(0);
-                                    Controller.AccountListObservable.Last().MoneyStatus.Add(MoneyStatus);
-                                }
-                                Controller.AccountListObservable.Last().Money = Controller.AccountListObservable.Last().MoneyStatus.Last();
-                            }
+                            
                             account.fromCollectionToString();
 
 
 
                         }
+                        using (SqlCommand moneyCommand = new SqlCommand(sqlMoneyStatus, connection))
+                        {
+                            dataReaderMoney = moneyCommand.ExecuteReader();
+                            while (dataReaderMoney.Read())
+                            {
+                                accountId= dataReaderMoney.GetInt32(0);
+                                MoneyStatus = dataReaderMoney.GetDouble(1);
+                                for(int i = 0;i<Controller.AccountListObservable.Count;i++)
+                                {
+                                    if (Controller.AccountListObservable[i].Index==accountId)
+                                    {
+                                        Controller.AccountListObservable[i].MoneyStatus.Add(MoneyStatus);
+                                        Controller.AccountListObservable[i].Money = Controller.AccountListObservable[i].MoneyStatus.Last();
+                                        Controller.AccountListObservable[i].fromCollectionToString();//try if it is necesary
+                                    }
+                                }
+                                        
+                                   
+                                
+                                
+                            }
+                            
+                        }
 
                     }
 
                 }
-
+                 
             }
             catch (Exception ex)
             {
@@ -356,7 +437,7 @@ namespace FinancialPortal
 
         public void UpdateAccount(string parameter, string value, int id,int userid)
         {
-            string connectionString = "Server = tcp:blogserver.database.windows.net,1433; Initial Catalog = FinancialPortal; Persist Security Info = False; User ID = CloudSAea872b24; Password =; MultipleActiveResultSets = False; Encrypt = True; TrustServerCertificate = False; Connection Timeout = 30;";
+            string connectionString = "Server = tcp:blogserver.database.windows.net,1433; Initial Catalog = FinancialPortal; Persist Security Info = False; User ID = CloudSAea872b24; Password =1mXp.159; MultipleActiveResultSets = False; Encrypt = True; TrustServerCertificate = False; Connection Timeout = 30;";
 
             try
             {

@@ -24,7 +24,7 @@ namespace FinancialPortal.DatabasePages
     /// </summary>
     public partial class UpdateAccount : MetroWindow
     {
-        //Database d = new Database();
+        
         
         
         public UpdateAccount()

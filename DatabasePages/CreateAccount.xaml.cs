@@ -40,6 +40,7 @@ namespace FinancialPortal.DatabasePages
 
                     // update the list of account names in the controller
                     control.NameFromObservable();
+                    //creates account in database
                     new Database().AddingAccount(name.Text, float.Parse(deposit.Text), Controller.UserListObservable[users.SelectedIndex].Id);
                     this.Close();
 

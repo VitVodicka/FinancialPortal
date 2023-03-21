@@ -41,8 +41,9 @@ namespace FinancialPortal
             
             if (input.Text!="")
             {
-                
+                //indexWindow=selectedWindow from combobox
                account.UpdateMoney(double.Parse(input.Text),indexWindow);
+                        //adds new value to database
                new Database().updateMoney(Controller.AccountListObservable[indexWindow].Index,float.Parse(input.Text));
             }
             }
