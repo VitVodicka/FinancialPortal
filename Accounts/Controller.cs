@@ -70,6 +70,7 @@ namespace FinancialPortal.Accounts
             
             try
             {
+                new Database().UpdateAccount(parameter, input, Controller.AccountListObservable[selectedIndex].Index, Controller.UserListObservable[selectedUser].Id);
                 foreach (Account account in AccountListObservable)
                 {
                     
@@ -108,6 +109,7 @@ namespace FinancialPortal.Accounts
                 new Database().updateUser(valueToChange, content, user.Id);
                 if (valueToChange == "Name")
             {
+
                 user.Name = content;
             }
             else if (valueToChange == "Surname")

@@ -162,13 +162,18 @@ namespace FinancialPortal
         }
         private void showUpdateAccount()
         {
-            if (ps.getValueFromPassword())//if the inputed value equals to the password then it shows the window
+            try {
+                if (ps.getValueFromPassword())//if the inputed value equals to the password then it shows the window
+                {
+                    new UpdateAccount().ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("Bad password");
+                } }
+            catch (Exception e)
             {
-                new UpdateAccount().ShowDialog();
-            }
-            else
-            {
-                MessageBox.Show("Bad password");
+                MessageBox.Show("Too fast");
             }
         }
         private void UpdateAccountClick(object sender, RoutedEventArgs e)

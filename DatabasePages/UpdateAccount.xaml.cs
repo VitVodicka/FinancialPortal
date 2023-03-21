@@ -63,13 +63,14 @@ namespace FinancialPortal.DatabasePages
             try { 
             Controller control = new Controller();
             if ((change.Text != "")&&(datagrid.SelectedIndex>-1)) {
-            new Database().UpdateAccount(change.Text, input.Text, Controller.AccountListObservable[datagrid.SelectedIndex].Index);
+            
             if (change.Text =="Name")
             {
                     if(input.Text != "")
                     {
                         control.updateAccount("Name", input.Text, datagrid.SelectedIndex, 0);
-                        this.Close();
+                            
+                            this.Close();
                     }
                
             }
@@ -82,7 +83,7 @@ namespace FinancialPortal.DatabasePages
                     {
                         
                         control.updateAccount("User", "", datagrid.SelectedIndex, selectedUsers.SelectedIndex);
-                        this.Close();
+                            this.Close();
                         
                     }
                 
