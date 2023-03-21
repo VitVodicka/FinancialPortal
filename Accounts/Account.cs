@@ -8,6 +8,7 @@ using System.Data.SqlTypes;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace FinancialPortal
 {
@@ -54,8 +55,9 @@ namespace FinancialPortal
         //database constructor
         public Account(string name, int selectedIndex)
         {
-            MoneyStatus = new ChartValues<double>();
 
+            MoneyStatus = new ChartValues<double>();
+            MoneyStatus.Add(0);
 
             Index += 1;
             Name = name;
@@ -110,7 +112,7 @@ namespace FinancialPortal
             }
             catch(Exception ex)
             {
-                Console.WriteLine("FromCollectionToString:"+ex.Message);
+                MessageBox.Show("FromCollectionToString:"+ex.Message);
             }
         }
 

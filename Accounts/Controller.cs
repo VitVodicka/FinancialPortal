@@ -6,6 +6,7 @@ using System.Linq;
 using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace FinancialPortal.Accounts
 {
@@ -98,7 +99,7 @@ namespace FinancialPortal.Accounts
             }
             catch (Exception e)
             {
-                Console.WriteLine("Error in Controller.updateAccount"+e.Message);
+                MessageBox.Show("Error in Controller.updateAccount"+e.Message);
             }
         }
 
@@ -120,7 +121,7 @@ namespace FinancialPortal.Accounts
             }
             Controller.UserListObservable[id] = user;
             }
-            catch(Exception e) { Console.WriteLine(e.Message); }
+            catch(Exception e) { MessageBox.Show("updateUser:"+e.Message); }
         }
 
         // Method to get the maximum index number for a user
@@ -150,7 +151,7 @@ namespace FinancialPortal.Accounts
             }
             catch(Exception e)
             {
-                Console.WriteLine("updateAddUser:"+e.Message);
+                MessageBox.Show("updateAddUser:"+e.Message);
             }
         }
 

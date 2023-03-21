@@ -10,6 +10,7 @@ using System.Linq.Expressions;
 using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace FinancialPortal
 {
@@ -67,7 +68,7 @@ namespace FinancialPortal
 
             catch (Exception ex)
             {
-                Console.WriteLine("Update Money:" + ex.Message);
+                MessageBox.Show("Update Money:" + ex.Message);
             }
         }
 
@@ -97,7 +98,7 @@ namespace FinancialPortal
 
             catch (Exception ex)
             {
-                Console.WriteLine("Update without money " + ex.Message);
+                MessageBox.Show("Update without money " + ex.Message);
             }
         }
         public void AddingToChart(ChartValues<double> accountChart, string name)
