@@ -46,6 +46,7 @@ namespace FinancialPortal
             InitializeComponent();
             new Database().DataBaseReadUser();
             new Database().readDatabaseAccount();
+            new Controller().NameFromObservable();
             
 
             // Set the returnMoney and profitLoss text to the calculated values
