@@ -88,7 +88,7 @@ namespace FinancialPortal
             for (int i = 0; i < Controller.UserListObservable.Count; i++)
             {
                 
-                    if (i == UserId)
+                    if (Controller.UserListObservable[i].Id == UserId)
                     {
                         resault += Controller.UserListObservable[i].Name + " " + Controller.UserListObservable[i].Surname + ", ";
                     }

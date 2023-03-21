@@ -293,6 +293,7 @@ namespace FinancialPortal
             {
                 MessageBox.Show(e.Message);
             }
+
         }
         public void readDatabaseAccount()
         {
