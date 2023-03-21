@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Security.Policy;
 using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,6 +20,7 @@ namespace FinancialPortal
     {
 
         SqlDataReader datareader;
+        
         string sql;
         public void DataBaseReadUser()
         {
@@ -296,18 +298,20 @@ namespace FinancialPortal
         {
             
             string connectionString = "Server = tcp:blogserver.database.windows.net,1433; Initial Catalog = FinancialPortal; Persist Security Info = False; User ID = CloudSAea872b24; Password =; MultipleActiveResultSets = False; Encrypt = True; TrustServerCertificate = False; Connection Timeout = 30;";
+            //sql = "SELECT [AccountId],[Name],[Money],[UserId] FROM dbo.Account JOIN dbo.MoneyStatus ON(Account.AccountId=MoneyStatus.idAccount)";
 
             try
             {
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
-                    sql = "SELECT [AccountId],[Name],[Money],[UserId] FROM dbo.Account JOIN dbo.MoneyStatus ON(Account.AccountId=MoneyStatus.idAccount)";
+                    sql = "SELECT [AccountId],[Name],[UserId] FROM dbo.Account";
+                    string sqlMoneyStatus = "SELECT [Money] FROM dbo.MoneyStatus";
                     string Name;
                     double MoneyStatus;
                     int userId=0;
                     int accountId = 0;
-
+                    SqlDataReader dataReaderMoney;
                     using (SqlCommand command = new SqlCommand(sql, connection))
                     {
 
@@ -315,12 +319,24 @@ namespace FinancialPortal
                         while (datareader.Read())
                         {
                             accountId = datareader.GetInt32(0);
+                            
                             Name = datareader.GetValue(1).ToString();
-                            MoneyStatus = datareader.GetDouble(2);
-                            userId = datareader.GetInt32(3);
-                            Account account  = new Account(Name, (float)MoneyStatus, userId);
+                            
+                            userId = datareader.GetInt32(2);
+                            Account account  = new Account(Name, userId);
+                            
                             account.Index= accountId;
                             Controller.AccountListObservable.Add(account);
+                            using (SqlCommand moneyCommand = new SqlCommand(sqlMoneyStatus, connection))
+                            {
+                                dataReaderMoney = moneyCommand.ExecuteReader();
+                                while (dataReaderMoney.Read())
+                                {
+                                    MoneyStatus = dataReaderMoney.GetDouble(0);
+                                    Controller.AccountListObservable.Last().MoneyStatus.Add(MoneyStatus);
+                                }
+                                Controller.AccountListObservable.Last().Money = Controller.AccountListObservable.Last().MoneyStatus.Last();
+                            }
                             account.fromCollectionToString();
 
 

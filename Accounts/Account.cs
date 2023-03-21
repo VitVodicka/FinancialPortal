@@ -51,6 +51,17 @@ namespace FinancialPortal
             UserId = selectedIndex;
             
         }
+        //database constructor
+        public Account(string name, int selectedIndex)
+        {
+            MoneyStatus = new ChartValues<double>();
+
+
+            Index += 1;
+            Name = name;
+            UserId = selectedIndex;
+
+        }
 
         // This is a helper method to raise the PropertyChanged event
         // It is called whenever a property of the account changes
