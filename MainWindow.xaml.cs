@@ -37,6 +37,7 @@ namespace FinancialPortal
         investmentPortal invest = new investmentPortal();
         PasswordChecker ps = new PasswordChecker();
         Database dat = new Database();
+        static int NumberOfLoading = 0;
         
 
 
@@ -52,8 +53,12 @@ namespace FinancialPortal
 
             
             InitializeComponent();
-            dat.DataBaseReadUser();
-            dat.readDatabaseAccount();
+            if(NumberOfLoading== 0)//prevents from loading database 2 times
+                {  
+                    dat.DataBaseReadUser();
+                    dat.readDatabaseAccount();
+                    NumberOfLoading= 1;
+                }
             new Controller().NameFromObservable();//updates names to combobx
             
 

@@ -73,29 +73,33 @@ namespace FinancialPortal.Accounts
             {
                 //sends a sql update command to database
                 new Database().UpdateAccount(parameter, input, Controller.AccountListObservable[selectedIndex].Index, Controller.UserListObservable[selectedUser].Id);
-                foreach (Account account in AccountListObservable)
+                for (int i = 0; i < Controller.AccountListObservable.Count; i++)
                 {
-                    
-                    if (account.Index == selectedIndex)
-                    {
+                    //it goes through AccountListObservable and if the index of AccountListObservable equals to selectedIndex of AccountListObservable then it will change
+                    if (Controller.AccountListObservable[i].Index== Controller.AccountListObservable[selectedIndex].Index)
 
-                        switch (parameter)
-                        {
-                            // If the parameter is Name, update the account name
-                            case "Name":
-                                account.updateName(input);
-                                break;
-                            // If the parameter is User, add or remove the selected user
-                            case "User":                               
-                                account.updateUser(selectedUser);
-                                break;
-                           
+                    switch (parameter)
+                    {
+                        // If the parameter is Name, update the account name
+                        case "Name":
+                            AccountListObservable[i].updateName(input);
+                            AccountListObservable[i].fromCollectionToString();//converts users into string
+                            NameFromObservable();//refreshes the name to the combobox
+                            break;
+                        // If the parameter is User, add or remove the selected user
+                        case "User":
+                            AccountListObservable[i].updateUser(Controller.UserListObservable[selectedUser].Id);//it will change Account at position i and it will change it to selectedUser ID from UserListObservable
+                            AccountListObservable[i].fromCollectionToString();
+                            NameFromObservable();//refreshes the names into combobox
+                            break;
+
                             // If the parameter is MoneyStatus, update the account money status
-                            
-                        }
+
                     }
-                    
                 }
+                    
+                    
+                
             }
             catch (Exception e)
             {

@@ -25,6 +25,7 @@ namespace FinancialPortal
         public TitleSetup()
         {
             InitializeComponent();
+            
         }
 
         bool hiddenUser = false;
@@ -51,6 +52,7 @@ namespace FinancialPortal
             {
                 MessageBox.Show(ex.Message);
             }
+            
         }
 
         // Event handler for the "Add User" button click

@@ -23,6 +23,7 @@ namespace FinancialPortal
         public RegisterWindow()
         {
             InitializeComponent();
+            
         }
 
         private void CheckPassword(object sender, RoutedEventArgs e)

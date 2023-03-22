@@ -42,7 +42,7 @@
         </Grid.RowDefinitions>
         <DataGrid Grid.Row="0" Grid.ColumnSpan="2" IsReadOnly="True" FontFamily="Bebas Neue" Name="dataGrid" AutoGenerateColumns="False" SelectedItem="{Binding SelectedItem}" ItemsSource="{x:Static local:Controller.UserListObservable}">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Id" Binding="{Binding Id}" Width="50"></DataGridTextColumn>
+                
                 <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="150"></DataGridTextColumn>
                 <DataGridTextColumn Header="Surname" Width="250" Binding="{Binding Surname}"></DataGridTextColumn>
             </DataGrid.Columns>

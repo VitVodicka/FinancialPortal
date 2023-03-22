@@ -30,7 +30,7 @@ namespace FinancialPortal.DatabasePages
                 if ((name.Text != "") && (deposit.Text != "") && (users.SelectedIndex > -1))
                 {
                    
-                    account = new Account(name.Text, float.Parse(deposit.Text), users.SelectedIndex);
+                    account = new Account(name.Text, float.Parse(deposit.Text), Controller.UserListObservable[users.SelectedIndex].Id);
 
                     // convert the account object to string representation
                     account.fromCollectionToString();
