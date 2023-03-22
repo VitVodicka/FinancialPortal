@@ -172,10 +172,7 @@ namespace FinancialPortal
 
                         }
                     }
-                    else
-                    {
-                        MessageBox.Show("User Not found");
-                    }
+                    
                 }
 
             }
